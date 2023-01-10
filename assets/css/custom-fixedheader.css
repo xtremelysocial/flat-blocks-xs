@@ -1,0 +1,64 @@
+/**
+ * Theme:	Flat Blocks
+ * File:	custom-fixedheader.css
+ * 
+ * The stylesheet for the theme's custom fixed header and fixed navigation menus
+ *
+ * @package flat-blocks
+ */
+
+/*--------------------------------------------------------------
+# Fixed Header Group
+--------------------------------------------------------------*/
+.wp-block-group.is-style-fixed-header {
+    position: fixed;
+    top: 0;
+	left: var(--wp--preset--spacing--50);
+	right: var(--wp--preset--spacing--50);
+    z-index: 10;
+    margin-top: 0;
+}
+
+/* Adjust fixed header position so its underneath the WordPress admin bar */
+.admin-bar .is-style-fixed-header {
+  top: 46px;
+}
+@media screen and (min-width: 783px) {
+  .admin-bar .is-style-fixed-header {
+    top: 32px;
+  }
+}
+
+/* Fix WordPress Admin bar on phones not sticking to the top 
+ *
+ * Note to theme reviewers, this issues a warning but is actually fixing an issue
+ * not hiding the admin bar. 
+ */
+@media screen and (max-width: 600px) {
+    #wpadminbar {
+        position: fixed;
+    }
+}
+
+/*--------------------------------------------------------------
+# Fixed Navigation Menu
+--------------------------------------------------------------*/
+
+.wp-block-navigation.is-style-fixed-menu {
+    position: fixed;
+    top: var(--wp--preset--spacing--60);
+    right: var(--wp--preset--spacing--50);
+    z-index: 10;
+}
+
+.is-content-justification-left > .wp-block-navigation.is-style-fixed-menu {
+    left: var(--wp--preset--spacing--50);
+    right: auto;
+}
+
+.wp-block-navigation.is-style-fixed-menu .wp-block-navigation__responsive-container {
+	min-width: calc(8 * var(--wp--preset--spacing--60));
+	max-width: calc(10 * var(--wp--preset--spacing--60));
+	right: 0;
+	left: unset;
+}

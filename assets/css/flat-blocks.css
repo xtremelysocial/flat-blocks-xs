@@ -1,0 +1,752 @@
+/**
+ * Theme:	Flat Blocks
+ * File:	flatblocks.css
+ * 
+ * The base stylesheet for the theme's css
+ *
+ * @package flat-blocks
+ */
+
+/*--------------------------------------------------------------
+# Html
+--------------------------------------------------------------*/
+/* Prevent iOS text size adjust after orientation change, without disabling user zoom. */
+html {
+	-webkit-text-size-adjust: 100%;
+}
+
+/*--------------------------------------------------------------
+# Body
+--------------------------------------------------------------*/
+
+/*
+ * Font smoothing.
+ * This is a niche setting that will not be available via Global Styles.
+ * https://github.com/WordPress/gutenberg/issues/35934
+ */
+body {
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+}
+
+/*--------------------------------------------------------------
+# Main Site Structure
+--------------------------------------------------------------*/
+/*
+ * Don't let anything be wider than our max width. This is so fullwidth images don't
+ * get so wide they lose resolution
+ */
+.wp-site-blocks {
+	max-width: var(--wp--custom--layout--full-size);
+	margin-left: auto;
+    margin-right: auto;
+}
+
+/*--------------------------------------------------------------
+# Vertical Spacing (Margin)
+--------------------------------------------------------------*/
+
+/* Core Wordpress controls vertical spacing by adding the gap setting as top 
+ * margin between all blocks on the site. However, certain things like template
+ * parts get this too and we want the theme and users to be able to control it. 
+ * So push this down to the block level */
+ 
+ /* Remove top margin from the containers */
+.wp-site-blocks header,
+.wp-site-blocks main,
+.wp-site-blocks footer,
+.wp-site-blocks .wp-block-template-part,
+.wp-site-blocks .wp-block-post-content {
+	margin-block-start: 0 !important;
+}
+ 
+ /* Add top margin to the container's first block and then between subsequent blocks */
+.wp-site-blocks main > *:first-child:not(.wp-block-template-part, .wp-block-post-content, .wp-block-cover,  .wp-block-query, header, footer, nav),
+.wp-site-blocks .wp-block-template-part > *:first-child:not(.wp-block-template-part, .wp-block-post-content, .wp-block-cover, .wp-block-query, main, header, footer, nav),
+.wp-site-blocks .wp-block-template-part > * + *:not(.wp-block-template-part, .wp-block-query, main, header, footer, nav),
+.wp-site-blocks .wp-block-query > *:first-child:not(.wp-block-cover),
+.wp-site-blocks .wp-block-post-content > *:first-child:not(.wp-block-cover),
+.is-root-container > *:first-child:not(.wp-block-template-part, .wp-block-cover, .wp-block-query) {
+ 	margin-top: var(--wp--preset--spacing--40);
+}
+
+/* Remove bottom margin from columns as spacing is handled with top margin */
+.wp-block-columns {
+	margin-bottom: 0;
+}
+
+/* Also add bottom margin on the last block for convenience */
+.wp-site-blocks main > *:last-child,
+/*.wp-site-blocks .wp-block-query > *:last-child,*/
+.wp-site-blocks .wp-block-post-content > *:last-child {
+	margin-bottom: var(--wp--preset--spacing--40);
+}
+
+/*--------------------------------------------------------------
+# Vertical and Horizontal Spacing (Padding)
+--------------------------------------------------------------*/
+
+/* Groups with backgrounds have 2x the block gap setting */
+.wp-block-group.has-background,
+.wp-block-group:where(.has-background),
+:where(.wp-block-group.has-background) {
+	padding: var(--wp--preset--spacing--60);
+}
+
+/* Columns container with backgrounds have 2x the block gap setting */
+.wp-block-columns.has-background,
+.wp-block-columns:where(.has-background),
+:where(.wp-block-columns.has-background) {
+	padding: var(--wp--preset--spacing--60);
+}
+
+/* Individual columns with backgrounds have the block gap setting */
+.wp-block-column.has-background,
+.wp-block-column:where(.has-background),
+:where(.wp-block-column.has-background) {
+	padding: var(--wp--preset--spacing--40);
+}
+
+/*--------------------------------------------------------------
+# Alignment Syles (Override horizontal and vertical spacing)
+--------------------------------------------------------------*/
+
+/*
+ * From Twenty Twenty-Two theme.
+ * Alignment styles.
+ * These rules are temporary, and should not be relied on or
+ * modified too heavily by themes or plugins that build on
+ * Twenty Twenty-Two. These are meant to be a precursor to
+ * a global solution provided by the Block Editor.
+ *
+ * Relevant issues:
+ * https://github.com/WordPress/gutenberg/issues/35607
+ * https://github.com/WordPress/gutenberg/issues/35884
+ */
+.wp-site-blocks,
+body > .is-root-container,
+.edit-post-visual-editor__post-title-wrapper,
+.wp-block-group.alignfull,
+/*.wp-block-group.has-background,*/
+.wp-block-cover.alignfull,
+.is-root-container header, /*ADD*/
+.is-root-container footer, /*ADD*/
+.is-root-container .wp-block[data-align="full"] > .wp-block-group,
+.is-root-container .wp-block[data-align="full"] > .wp-block-columns, /*ADD*/
+.is-root-container .wp-block[data-align="full"] > .wp-block-cover {
+	padding-left: var(--wp--preset--spacing--50) !important;
+	padding-right: var(--wp--preset--spacing--50) !important;
+}
+
+.wp-site-blocks .alignfull,
+.wp-site-blocks .wp-block-group.alignfull, /*ADD*/
+.wp-site-blocks > .wp-block-cover,
+.wp-site-blocks .wp-block-cover, /*ADD*/
+.wp-site-blocks > .wp-block-columns.alignfull, /*ADD*/
+.wp-site-blocks .wp-block-columns.alignfull, /*ADD*/
+.wp-site-blocks > .wp-block-template-part > .wp-block-cover,
+.is-root-container .wp-block-columns.alignfull, /*ADD*/
+.is-root-container header, /*ADD*/
+.is-root-container footer, /*ADD*/
+body > .is-root-container > .alignfull, /*ADD*/
+body > .is-root-container > .wp-block-group.alignfull, /*ADD*/
+body > .is-root-container > .wp-block-cover,
+body > .is-root-container > .wp-block-columns.alignfull, /*ADD*/
+body > .is-root-container > .wp-block-template-part > .wp-block-group.alignfull,
+body > .is-root-container > .wp-block-template-part > .wp-block-cover,
+body > .is-root-container > .wp-block-template-part > .wp-block-columns.alignfull, /*ADD*/
+.block-editor-block-list__layout.is-root-container > .wp-block-cover, /*ADD*/
+.is-root-container .wp-block[data-align="full"] {
+	margin-left: calc(-1 * var(--wp--preset--spacing--50)) !important;
+	margin-right: calc(-1 * var(--wp--preset--spacing--50)) !important;
+	width: unset;
+}
+
+/* Blocks inside columns don't have negative margins. */
+.wp-site-blocks .wp-block-columns .wp-block-column .alignfull,
+.is-root-container .wp-block-columns .wp-block-column .wp-block[data-align="full"],
+/* We also want to avoid stacking negative margins. */
+.wp-site-blocks .alignfull:not(.wp-block-group) .alignfull,
+.is-root-container .wp-block[data-align="full"] > *:not(.wp-block-group) .wp-block[data-align="full"] {
+	margin-left: auto !important;
+	margin-right: auto !important;
+	width: inherit;
+}
+
+/*
+ * Responsive menu container padding.
+ * This ensures the responsive container inherits the same
+ * spacing defined above. This behavior may be built into
+ * the Block Editor in the future.
+ */
+.wp-block-navigation__responsive-container.is-menu-open {
+	padding-top: var(--wp--preset--spacing--60);
+	padding-bottom: var(--wp--preset--spacing--60);
+	padding-right: var(--wp--preset--spacing--50);
+	padding-left: var(--wp--preset--spacing--50);
+}
+
+/*--------------------------------------------------------------
+# Additional Alignments
+--------------------------------------------------------------*/
+
+/* Wide Alignments. min 100% is needed to support columns. */
+.alignwide {
+	max-width: min(100%, var(--wp--custom--layout--wide-size));
+	margin-left: auto;
+    margin-right: auto;
+}
+
+/* Default (Narrow) Alignments. Constrain images and Cover inner content. */
+.aligndefault,
+.wp-block-post-featured-image:not(.alignfull, .alignwide),
+.wp-block-cover__inner-container > *:not(.alignfull, .alignwide) {
+	max-width: min(100%, var(--wp--custom--layout--content-size));
+	margin-left: auto;
+    margin-right: auto;
+}
+
+/* Content created with early versions of the Block Editor need these */
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+.aligncenter {
+  text-align: center;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.alignleft {
+	float: left;
+	margin-right: var(--wp--preset--spacing--40);
+}
+
+.alignright {
+	float: right;
+	margin-left: var(--wp--preset--spacing--40);
+}
+
+/* TO-DO: Update this if float is needed, etc. */
+.avatar {
+	float: left;
+	margin-right: 10px;
+	margin-bottom: 10px;
+}
+
+/* Make user profile pics (avatars) circles */
+.avatar,
+.testimonial-thumbnail {
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	border-radius: 50%;
+}
+
+img.avatar.thumbnail {
+	border: none;
+	padding: 0;
+}
+
+/*--------------------------------------------------------------
+# Headings
+--------------------------------------------------------------*/
+/* For Gutenberg and future versions of Wordpress, respect heading color of 
+ * blocks with colored backgrounds.
+ */
+.has-background h1, 
+.has-background h2, 
+.has-background h3, 
+.has-background h4, 
+.has-background h5, 
+.has-background h6 {
+	color: inherit;
+}
+
+/* In the Block Editor, respect font settings on things like site-title */
+/* TO-DO: Get this working! */
+html :where(.editor-styles-wrapper) h1, 
+html :where(.editor-styles-wrapper) h2, 
+html :where(.editor-styles-wrapper) h3, 
+html :where(.editor-styles-wrapper) h4, 
+html :where(.editor-styles-wrapper) h5, 
+html :where(.editor-styles-wrapper) h6, 
+html :where(.editor-styles-wrapper) select {
+	font-family: revert !important;
+	font-size: revert !important;
+	font-weight: revert !important;
+	line-height: revert !important;
+}
+
+/*--------------------------------------------------------------
+# Links
+--------------------------------------------------------------*/
+/*
+ * Text and navigation link styles.
+ * Necessary until the following issue is resolved in Gutenberg:
+ * https://github.com/WordPress/gutenberg/issues/27075
+ */
+a {
+	text-decoration: none !important;
+	text-decoration-thickness: 1px;
+	text-underline-offset: 0.5ch;
+}
+
+/*
+ * Button hover styles.
+ * Necessary until the following issue is resolved in Gutenberg:
+ * https://github.com/WordPress/gutenberg/issues/27075
+ */
+.wp-block-search__button:hover,
+.wp-block-file .wp-block-file__button:hover,
+.wp-block-button__link:hover {
+	opacity: 0.8;
+	cursor: pointer;
+}
+
+/*--------------------------------------------------------------
+# Navigation
+--------------------------------------------------------------*/
+
+/* Match navigation padding to our theme */
+.wp-block-navigation:where(.has-background) .wp-block-navigation-item__content, 
+.wp-block-navigation :where(.wp-block-navigation__submenu-container) .wp-block-navigation-item__content {
+    padding: calc(0.5 * var(--wp--preset--spacing--30)) var(--wp--preset--spacing--30);
+}
+
+/* Remove the default li left margin because we use padding instead */
+.wp-block-navigation ul, 
+.wp-block-navigation ul li {
+	margin-left: 0;
+}
+
+/* Adjust navigation padding so that open and close menu buttons line up */
+.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content {
+	padding-top: var(--wp--preset--spacing--60);
+}
+
+/* Reduce vertical gap on nav menus for when they wrap */
+.wp-block-navigation {
+	/*gap: calc(0.5 * var(--wp--preset--spacing--30)) var(--wp--preset--spacing--30) !important;*/
+	row-gap: calc(0.5 * var(--wp--preset--spacing--30)) !important;
+}
+
+/* Reduce spacing between label and drop-down button */
+/*.wp-block-navigation-item.open-on-click .wp-block-navigation-submenu__toggle {*/
+.wp-block-navigation-item__content {
+    padding: 0 var(--wp--preset--spacing--30) 0 0;
+}
+
+/* Do this in the Block Editor too. It renders a bit differently. */
+.is-root-container .wp-block-navigation-item__content {
+	padding-right: calc(0.5 * var(--wp--preset--spacing--30));
+}
+.is-root-container .wp-block-navigation__submenu-icon {
+	margin-left: 0;
+}
+
+/* Replace the default mobile menu with a dashicon */
+.wp-block-navigation__responsive-container-open:before {
+	font-family: dashicons;
+	content: "\f333"; /* menu */
+	opacity: 0.85;
+}
+
+/* Replace the default mobile menu close button with a dashicon to match */
+.wp-block-navigation__responsive-container-close:before {
+	font-family: dashicons;
+	content: "\f335"; /* no-alt */
+	opacity: 0.85;
+}
+
+.wp-block-navigation__responsive-container-open,
+.wp-block-navigation__responsive-container-close {
+	font-size: var(--wp--preset--font-size--large);
+}
+
+/* Hide the default svg icons */
+.wp-block-navigation__responsive-container-open svg,
+.wp-block-navigation__responsive-container-close svg {
+	display: none;
+}
+
+/* Align menu text for when images are added */
+.wp-block-navigation-item__label img {
+  vertical-align: middle;
+}
+
+/*--------------------------------------------------------------
+# Columns
+--------------------------------------------------------------*/
+/* This shouldn't be needed, but there is some bug in WordPress as of v6.0 */
+.wp-block-columns {
+	gap: var(--wp--preset--spacing--40);
+}
+
+/* Adjust padding on collapsed columns */
+/* Breakpoint of 781 is what is hard-coded in WordPress v6.0 to collapse columns */
+@media only screen and (max-width: 781px) {	
+
+	.wp-block-columns {
+		padding: 0;
+	}
+	
+}
+
+/*--------------------------------------------------------------
+# Images
+--------------------------------------------------------------*/
+
+/* Fix caption color when on colored background */
+.has-background .wp-block-image figcaption {
+	color: inherit;
+	font-weight: 400;
+}
+
+/* Fix images being inset since WordPress started using the figure tag */
+figure {
+	margin-inline-start: 0;
+	margin-inline-end: 0;
+	margin-block-start: 0;
+	margin-block-end: 0;
+}
+
+/* Fix captions in the Block Editor */
+.is-root-container .wp-block-image.aligncenter>figcaption, 
+.is-root-container .wp-block-image .aligncenter>figcaption, 
+.is-root-container .wp-block-image.alignleft>figcaption, 
+.is-root-container .wp-block-image .alignleft>figcaption, 
+.is-root-container .wp-block-image.alignright>figcaption, 
+.is-root-container .wp-block-image .alignright>figcaption {
+	display: block;
+}
+
+/* Prevent images from expanding beyond the layout */
+.wp-block-image img,
+.wp-block-latest-posts__featured-image img {
+	box-sizing: border-box;
+}
+
+/*--------------------------------------------------------------
+# Paragraphs
+--------------------------------------------------------------*/
+/* Match our padding for for paragraphs with background colors */
+p.has-background {
+    padding: var(--wp--preset--spacing--40);
+    box-sizing: border-box;
+}
+
+/* Adjust outer padding on mobile */
+/* Breakpoint of 781 is what is hard-coded in WordPress v6.0 to collapse columns */
+@media only screen and (max-width: 781px) {
+	
+	p.has-background {
+		padding-left: var(--wp--preset--spacing--50);
+		padding-right: var(--wp--preset--spacing--50);
+	}
+
+}
+
+/*--------------------------------------------------------------
+# Quotes
+--------------------------------------------------------------*/
+/* Fix WordPress front end removing left border on quotes but not on backend */
+.wp-block-quote.is-large, 
+.wp-block-quote.is-style-large, 
+.wp-block-quote.is-style-plain {
+	border:none
+}
+
+/* Fix WordPress further increasing the quote font size beyond what the user set */
+.wp-block-pullquote.alignleft p, 
+.wp-block-pullquote.alignright p, 
+.wp-block-pullquote.has-text-align-left p, 
+.wp-block-pullquote.has-text-align-right p {
+	font-size: 1em
+}
+.wp-block-pullquote p {
+	font-size: 1em;
+}
+
+/*--------------------------------------------------------------
+# Buttons
+--------------------------------------------------------------*/
+/* Remove button border for outline style buttons */
+.wp-block-button.is-style-fill .wp-block-button__link,
+.wp-block-button:not(.is-style-outline) .wp-block-button__link {
+	border: 0;
+}
+
+/* Fix button radius in Safari */
+button {
+	border-radius: var(--wp--custom--border--radius);
+}
+
+/* Fix for comment submit button */
+.form-submit.wp-block-button {
+  	margin-bottom: 0;
+}
+
+/* Prevent iOS from rounding buttons */
+input:not([type="radio"]):not([type="checkbox"]) {
+    -webkit-appearance: none;
+}
+
+/*--------------------------------------------------------------
+# Lists
+--------------------------------------------------------------*/
+/* Match our padding on lists with background color. Do NOT override the left padding
+ * or the bullets will be way too far to the left 
+ */
+.wp-block-list.has-background,
+ol.has-background,
+ul.has-background {
+	padding: var(--wp--preset--spacing--40);
+}
+
+/* Use margin on li's instead of padding on ol's and ul's so that constrained widths 
+ * don't mess up the indentation.
+ */
+.wp-block-list,
+ol, ul {
+	padding-left: 0;
+}
+
+.wp-block-list li,
+ol li, 
+ul li {
+	margin-left: var(--wp--preset--spacing--60);
+}
+
+/* Block Editor uses lists for the query loop, so don't add margin to those */
+.is-root-container ul li.wp-block-post {
+	margin-left: 0;
+}
+
+/*--------------------------------------------------------------
+# Comments
+--------------------------------------------------------------*/
+/* TO-DO: Remove this once new comment block is stable and put into 
+ * /parts/comments.html 
+ */
+
+/* Remove leading margin because comments already in padded section */
+#comments,
+#respond,
+#reply-title {
+	margin-top: 0
+}
+
+/* But add back top margin on reply if there are comments already */
+.comment-list + #respond,
+.navigation + #respond {
+	margin-top: var(--wp--preset--spacing--40);
+}
+
+/* Keep comments within content-size even when padding added */
+.wp-block-post-comments {
+    box-sizing: border-box;
+}
+
+/* Indent comments the same as our lists */
+.wp-block-post-comments .commentlist .comment {
+	/*padding-left: var(--wp--preset--spacing--40);*/
+	padding-left: var(--wp--preset--spacing--40);
+	margin-left: 0;
+	list-style: none;
+}
+
+/* Add the word Comment(s) to the end of the comments count*/
+.wp-block-post-comments-count:after {
+	content: " Comment(s)";
+}
+
+/* Don't show post comments if comments aren't allowed. */
+/* TO-DO: Get this working */
+.post-comments:empty {
+	display: none;
+	margin: 0;
+}
+
+/* Set word breaks so long URL's in comments don't break layout */
+.comment-content {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+  /*hyphens: auto;*/
+}
+
+/*--------------------------------------------------------------
+# Code and Pre
+--------------------------------------------------------------*/
+code,
+pre {
+	overflow-x: auto;
+}
+
+/*--------------------------------------------------------------
+# Separator
+--------------------------------------------------------------*/
+/* Set default (narrow) separator width */
+.wp-block-separator.is-style-default {
+	width: calc(5 * var(--wp--preset--spacing--60)) !important;
+}
+
+/* Fix to center default (narrow) separator when user selects alignfull */
+.wp-block-separator.alignfull.is-style-default {
+	margin-left: auto !important;
+	margin-right: auto !important;
+}
+
+/*--------------------------------------------------------------
+# Search
+--------------------------------------------------------------*/
+/* Don't bold the search label and search text */
+.wp-block-search .wp-block-search__label,
+.wp-block-search__input {
+	font-weight: 300;
+}
+
+/*--------------------------------------------------------------
+# Latest Posts
+--------------------------------------------------------------*/
+/* Style to match post featured images */
+.wp-block-latest-posts__featured-image img {
+	border: var(--wp--custom--border--thin) var(--wp--custom--border--style) var(--wp--custom--border--color);
+	border-radius: var(--wp--custom--border--radius);
+	padding: var(--wp--custom--border--padding);
+}
+
+/* Fix non-grid latest post list should have bullets like all ul's */
+.wp-block-latest-posts.wp-block-latest-posts__list:not(.is-grid) {
+	list-style: disc;
+	padding-left: 0;
+	margin-left: 0;
+}
+
+/* Non-grid latest posts should have same left margin like all ul's */
+.wp-block-latest-posts.wp-block-latest-posts__list:not(.is-grid) li {
+	margin-left: var(--wp--preset--spacing--60);
+}
+
+/* Fix: Remove extra right margin on posts columns when collapsed */
+@media (max-width: 599px) {
+	.wp-block-latest-posts.wp-block-latest-posts__list.is-grid li {
+		margin-right: 0;
+	}
+}
+
+/*--------------------------------------------------------------
+# Latest Comments
+--------------------------------------------------------------*/
+/* Set latest comments list (ol's) to match ul lists */
+ol.wp-block-latest-comments {
+	padding-left: 0;
+	margin-left: 0;
+}
+
+ol.wp-block-latest-comments li {
+    margin-left: var(--wp--preset--spacing--40);
+}
+
+.wp-block-latest-comments__comment {
+	list-style: disc;
+    margin-bottom: 0;
+}
+
+/* Fix line-height */
+.wp-block-latest-comments__comment {
+	line-height: var(--wp--custom--typography--line-height--normal);
+}
+
+/*--------------------------------------------------------------
+# Term Descriptions (Categories, Tags, etc.)
+--------------------------------------------------------------*/
+.wp-block-term-description :last-child {
+	margin-bottom: 0;
+}
+
+/*--------------------------------------------------------------
+# Query Pagination
+--------------------------------------------------------------*/
+.wp-block-query-pagination-numbers .page-numbers:nth-last-child(n+2) {
+	padding-right: var(--wp--preset--spacing--30);
+}
+
+/*--------------------------------------------------------------
+# Dashicons for theme templates
+--------------------------------------------------------------*/
+
+/* Don't let dashicons force width and height. Let it come from the font size. */
+.dashicons {
+	width: auto;
+	height: auto;
+}
+
+/* Add dashicons to various template tags */
+.wp-block-post-author:before,
+.wp-block-post-date:before,
+.wp-block-post-terms:before,
+.wp-block-post-comments-count:before {	
+	font-family: dashicons;
+	padding-right: calc(0.5 * var(--wp--preset--spacing--30));
+}
+
+.rtl .wp-block-post-author:before,
+.rtl .wp-block-post-date:before,
+.rtl .wp-block-post-terms:before,
+.rtl .wp-block-post-terms:before,
+.rtl .wp-block-post-comments-count:before {
+	padding-right: 0;
+	padding-left: calc(0.5 * var(--wp--preset--spacing--30));
+}
+
+/* dashicons-admin-users */
+.wp-block-post-author:before {
+	content: "\f110";
+}
+
+/* dashicons-calendar-alt */
+.wp-block-post-date:before {
+	content: "\f508";
+}
+
+/* dashicons-tag */
+.wp-block-post-terms.taxonomy-category:before {
+	content: "\f318";
+}
+
+/* dashicons-category */
+.wp-block-post-terms.taxonomy-post_tag:before {
+	content: "\f323";
+}
+
+/* dashicons-admin-comments for comments count */
+.wp-block-post-comments-count:before {
+	content: "\f101";
+}
+
+/*--------------------------------------------------------------
+# Block Editor styles
+--------------------------------------------------------------*/
+
+/* Style the post title like the front-end */
+.edit-post-visual-editor__post-title-wrapper {
+	background-color: var(--wp--preset--color--primary);
+	padding: var(--wp--preset--spacing--60) var(--wp--preset--spacing--50);
+	max-width: var(--wp--custom--layout--full-size);
+	margin: 0 auto;	
+}
+
+.edit-post-visual-editor__post-title-wrapper > h1 {
+	color: var(--wp--preset--color--foreground-alt);
+	max-width: var(--wp--custom--layout--wide-size);
+	margin: 0 auto;	
+}
+
+/* Fix site heading font size */
+.is-root-container h1.wp-block-site-title {
+	font-size: revert;
+}

@@ -1,0 +1,308 @@
+<?php
+/**
+ * Block Patterns
+ *
+ * Remove core block patterns and load our HTML block patterns. 
+ * 
+ * Note that PHP block patterns are loaded automatically by WordPress. This is to 
+ * remove the bult-in patterns and to add our html-based patterns.
+ * 
+ * @package flat-blocks
+ */
+if ( ! function_exists( 'flatblocks_register_block_patterns' ) ) :
+
+	function flatblocks_register_block_patterns() {
+
+		// Add our own block pattern categories
+		// NOTE: WordPress v6.0 core already has featured, header, query, text, buttons,
+		// gallery, columns. WordPress v6.1 will add banner and footer.
+
+		$block_pattern_categories = array(
+			'flatblocks'	=> array( 'label' => __( 'All Flat Blocks', 'flat-blocks' ) ),
+			'cover'   		=> array( 'label' => __( 'Cover Images', 'flat-blocks' ) ),				
+			'image'   		=> array( 'label' => __( 'Images', 'flat-blocks' ) ),
+			'page'    		=> array( 'label' => __( 'Pages', 'flat-blocks' ) ),
+		);
+		
+		/**
+		 * Filters the theme block pattern categories.
+		 *
+		 * @param array[] $block_pattern_categories {
+		 *     An associative array of block pattern categories, keyed by category name.
+		 *
+		 *     @type array[] $properties {
+		 *         An array of block category properties.
+		 *
+		 *         @type string $label A human-readable label for the pattern category.
+		 *     }
+		 * }
+		 */
+		$block_pattern_categories = apply_filters( 'flatblocks_block_pattern_categories', $block_pattern_categories );
+
+		foreach ( $block_pattern_categories as $name => $properties ) {
+			if ( ! WP_Block_Pattern_Categories_Registry::get_instance()->is_registered( $name ) ) {
+				register_block_pattern_category( $name, $properties );
+			}
+		}
+		
+		// Define the list of patterns with translatable titles
+		$block_patterns = array(
+			'query-loop-default' => array( 
+				'title' => __( 'Querly Loop 2 Columns (Default)', 'flat-blocks' ),
+				'categories' => array ( 'query' ),
+				'blockTypes' => array ('core/query')
+			),
+			'query-loop-1-column' => array( 
+				'title' => __( 'Querly Loop (1 Column)', 'flat-blocks' ),
+				'categories' => array ( 'query' ),
+				'blockTypes' => array ('core/query')
+			),
+			'query-loop-sidebar-left' => array( 
+				'title' => __( 'Querly Loop with Left Sidebar', 'flat-blocks' ),
+				'categories' => array ( 'query' ),
+				'blockTypes' => array ('core/query')
+			),
+			'query-loop-sidebar-right' => array( 
+				'title' => __( 'Querly Loop with Right Sidebar', 'flat-blocks' ),
+				'categories' => array ( 'query' ),
+				'blockTypes' => array ('core/query')
+			),
+			'buttons-call-to-action' => array( 
+				'title' => __( 'Call to Action', 'flat-blocks' ),
+				'categories' => array ( 'buttons', 'featured' )
+			),
+			'buttons-call-to-action-2-columns' => array( 
+				'title' => __( 'Call to Action 2 Columns', 'flat-blocks' ),
+				'categories' => array ('flatblocks', 'buttons', 'columns', 'featured' )
+			),
+			'columns-features-2-columns' => array( 
+				'title' => __( 'Features with 2 Columns', 'flat-blocks' ),
+				'categories' => array ('flatblocks', 'columns' )
+			),
+			'columns-features-3-columns' => array( 
+				'title' => __( 'Features with 3 Columns', 'flat-blocks' ),
+				'categories' => array ('flatblocks', 'columns', 'featured' )
+			),
+			'columns-features-4-columns' => array( 
+				'title' => __( 'Features with 4 Columns', 'flat-blocks' ),
+				'categories' => array ('flatblocks', 'columns', 'featured' )
+			),
+			'columns-map-static' => array( 
+				'title' => __( 'Static Map and Address', 'flat-blocks' ),
+				'categories' => array ('flatblocks', 'columns', 'featured' )
+			),
+			'columns-map-jetpack' => array( 
+				'title' => __( 'Jetpack Map and Address', 'flat-blocks' ),
+				'categories' => array ('flatblocks', 'columns' )
+			),
+			'columns-pricing-table-3-columns' => array( 
+				'title' => __( 'Pricing Table 3 Columns', 'flat-blocks' ),
+				'categories' => array ('flatblocks', 'columns', 'featured' )
+			),
+			'columns-pricing-table-4-columns' => array( 
+				'title' => __( 'Pricing Table 4 Columns', 'flat-blocks' ),
+				'categories' => array ('flatblocks', 'columns', 'featured' )
+			),
+			'columns-recent-posts-3-columns' => array( 
+				'title' => __( 'Recent Posts with 3 Columns', 'flat-blocks' ),
+				'categories' => array ('flatblocks', 'columns' )
+			),
+			'columns-social-media-3-columns' => array( 
+				'title' => __( 'Social Media Icons with 3 Columns', 'flat-blocks' ),
+				'categories' => array ('flatblocks', 'columns', 'featured' )
+			),
+			'columns-social-media-4-columns' => array( 
+				'title' => __( 'Social Media Icons with 4 Columns', 'flat-blocks' ),
+				'categories' => array ('flatblocks', 'columns', 'featured' )
+			),
+			'columns-team-3-people' => array( 
+				'title' => __( '3 Team Members', 'flat-blocks' ),
+				'categories' => array ('flatblocks', 'columns', 'featured' )
+			),
+			'columns-team-4-people' => array( 
+				'title' => __( '4 Team Members', 'flat-blocks' ),
+				'categories' => array ('flatblocks', 'columns', 'featured' )
+			),
+			'cover-scroll-home-header' => array( 
+				'title' => __( 'Cover Colored Blocks with Site Title, Tagline, and Scroll Arrow', 'flat-blocks' ),
+				'categories' => array ('flatblocks', 'cover' )
+			),
+			'cover-scroll-page-header' => array( 
+				'title' => __( 'Cover Featured Image with Page / Post Title, Excerpt, and Scroll Arrow', 'flat-blocks' ),
+				'categories' => array ('flatblocks', 'cover', 'featured' )
+			),
+			'cover-scroll-colored-blocks' => array( 
+				'title' => __( 'Cover Colored Blocks w/Scroll Arrow', 'flat-blocks' ),
+				'categories' => array ('flatblocks', 'cover', 'featured' )
+			),
+			'cover-bokeh' => array( 
+				'title' => __( 'Cover Bokeh', 'flat-blocks' ),
+				'categories' => array ('flatblocks', 'cover' )
+			),
+			'cover-colored-chalk' => array( 
+				'title' => __( 'Cover Colored Chalk', 'flat-blocks' ),
+				'categories' => array ('flatblocks', 'cover' )
+			),
+			'cover-desk-light' => array( 
+				'title' => __( 'Cover Desk (light)', 'flat-blocks' ),
+				'categories' => array ('flatblocks', 'cover', 'featured' )
+			),
+			'cover-desk-dark' => array( 
+				'title' => __( 'Cover Desk (dark)', 'flat-blocks' ),
+				'categories' => array ('flatblocks', 'cover' )
+			),
+			'cover-desk-meeting' => array( 
+				'title' => __( 'Cover Desk w/Meeting', 'flat-blocks' ),
+				'categories' => array ('flatblocks', 'cover' )
+			),
+			'cover-geodesic-lights' => array( 
+				'title' => __( 'Cover Geodesic Lights', 'flat-blocks' ),
+				'categories' => array ('flatblocks', 'cover' )
+			),
+			'cover-man-on-rocks' => array( 
+				'title' => __( 'Cover Man on Rocks', 'flat-blocks' ),
+				'categories' => array ('flatblocks', 'cover' )
+			),
+			'image-gallery' => array( 
+				'title' => __( 'Image Gallery', 'flat-blocks' ),
+				'categories' => array ('flatblocks', 'columns', 'image' )
+			),
+			'image-with-left-and-right-text' => array( 
+				'title' => __( 'Image with Left and Right Text', 'flat-blocks' ),
+				'categories' => array ('flatblocks', 'columns', 'image', 'featured' )
+			),
+			'image-computer-screen-with-title-and-text-above' => array( 
+				'title' => __( 'Computer Screen Image with Title and Text Above', 'flat-blocks' ),
+				'categories' => array ('flatblocks', 'image', 'text' )
+			),
+			'image-static-map' => array( 
+				'title' => __( 'Image of Static Map', 'flat-blocks' ),
+				'categories' => array ('flatblocks', 'image' )
+			),
+			'text-social-icons-huge' => array( 
+				'title' => __( 'Social Icons Huge', 'flat-blocks' ),
+				'categories' => array ('flatblocks', 'text' )
+			),
+			'text-title-and-subtitle' => array( 
+				'title' => __( 'Title and Subtitle', 'flat-blocks' ),
+				'categories' => array ('flatblocks', 'text' )
+			),
+			'text-title-and-subtitle-with-bg-image' => array( 
+				'title' => __( 'Title and Subtitle with Background Image', 'flat-blocks' ),
+				'categories' => array ('flatblocks', 'text', 'image', 'featured' )
+			),
+			'text-title-and-text' => array( 
+				'title' => __( 'Title and Text', 'flat-blocks' ),
+				'categories' => array ('flatblocks', 'text' )
+			)
+		);
+		
+		// Allow child themes to alter the list
+		$block_patterns = apply_filters( 'flatblocks_block_patterns', $block_patterns );
+
+		// First remove the core WordPress block patterns if we're registering any
+		if ( is_array( $block_patterns ) && count( $block_patterns ) > 0 ) {
+			
+			remove_theme_support( 'core-block-patterns' );
+
+			// Above still doesn't remove core/query and core/social-links patterns, 
+			// so get rid of them as long as we've registed a query template
+			$patterns = WP_Block_Patterns_Registry::get_instance()->get_all_registered();
+			foreach ( $patterns as $pattern ) {
+				if (
+					! empty($pattern['blockTypes'] ) &&
+					in_array('core/query', $pattern['blockTypes'] ) ||
+					in_array('core/social-links', $pattern['blockTypes'] ) ||
+					in_array('core/template-part/header', $pattern['blockTypes'] ) ||
+					in_array('core/template-part/footer', $pattern['blockTypes'] )
+				) {
+					unregister_block_pattern( $pattern['name'] );
+				}// endif
+			}// endforeach
+		} // endif
+
+		// Then loop through all our patterns and register them
+		foreach ( $block_patterns as $name => $properties ) {
+		
+			//var_dump($properties['title']);
+		
+			// Get the HTML contents and replace partial URL's
+			$content = flatblocks_get_block_pattern( $name );
+			if ( $content ) {
+											
+					// Register the block pattern
+					// Note to Theme Reviewers: The title is language translatable
+					// even though a variable is used because of the translations 
+					// in the above array.				
+					register_block_pattern(
+						'flat-blocks/' . $name,
+						array(
+							'title'      => $properties['title'],
+							'categories' => isset( $properties['categories'] ) ? $properties['categories'] : null,
+							'blockTypes' => isset ( $properties['blockTypes'] ) ? $properties['blockTypes'] : null,
+							'viewportWidth' => isset ( $properties['viewportWidth'] ) ? $properties['viewportWidth'] : null,
+							'content'    => $content
+						)
+					);
+
+			} // content
+			
+		} // foreach
+		
+	} // function
+endif;
+add_action( 'init', 'flatblocks_register_block_patterns' );
+
+/**
+ * Helper functions for block patterns
+ * 
+ */
+
+// Gets the block template and parses it 
+if ( ! function_exists( 'flatblocks_get_block_pattern' ) ) :
+
+	function flatblocks_get_block_pattern( $name = "" ) {
+
+		// Check if corresponding html file exists. First in the child theme then
+		// the main theme.  
+		$file = get_stylesheet_directory() . '/patterns/' . $name . '.html';
+		if ( !file_exists( $file ) ) {
+			$file = get_template_directory() . '/patterns/' . $name . '.html';
+		}
+		
+		// If file in either location, then add it to block patterns
+		if ( file_exists( $file ) ) {
+
+			//Get the html from the contents of the file
+			$content = file_get_contents( $file );					
+			if ( $content ) {
+			
+				// Replace the partial URL's and image SRC's with full URL's
+				return flatblocks_parse_block_pattern( $content );
+				
+			} // content
+		} // file_exists	
+	} // function
+	
+endif; // end ! function_exists
+
+// Localize the URL's
+if ( ! function_exists( 'flatblocks_parse_block_pattern' ) ) :
+
+	function flatblocks_parse_block_pattern( $content = "" ) {
+
+		// For child themes, override the theme name
+		if ( is_child_theme() ) {
+			$child_slug = wp_get_theme()->get_stylesheet();
+			$content = str_ireplace('"theme":"flat-blocks"', '"theme":"' . $child_slug . '"', $content);
+		}
+
+		// Regardless, override the URL's and image SRC's with parent's full URL's
+		$content = preg_replace( '/(\"url\":\")(.*?)(\/assets\/images\/)/', '$1' . get_template_directory_uri() . '$3', $content);
+		$content = preg_replace( '/(src=\")(.*?)(\/assets\/images\/)/', '$1' . get_template_directory_uri() . '$3', $content);
+				
+		return $content;				
+
+	} // function
+	
+endif; // end ! function_exists

@@ -1,0 +1,49 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 2,
+	"title": "Default - Source Sans & Source Serif",
+	"styles": {
+		"typography": {
+			"fontFamily": "var(--wp--preset--font-family--source-sans-pro)"
+		},
+		"blocks": {
+			"core/heading": {
+				"typography": {
+					"fontFamily": "var(--wp--preset--font-family--source-serif-pro)"
+				}
+			}
+		},
+		"elements": {
+			"h1": {
+				"typography": {
+					"fontFamily": "var(--wp--preset--font-family--source-serif-pro)"
+				}
+			},
+			"h2": {
+				"typography": {
+					"fontFamily": "var(--wp--preset--font-family--source-serif-pro)"
+				}
+			},
+			"h3": {
+				"typography": {
+					"fontFamily": "var(--wp--preset--font-family--source-serif-pro)"
+				}
+			},
+			"h4": {
+				"typography": {
+					"fontFamily": "var(--wp--preset--font-family--source-serif-pro)"
+				}
+			},
+			"h5": {
+				"typography": {
+					"fontFamily": "var(--wp--preset--font-family--source-serif-pro)"
+				}
+			},
+			"h6": {
+				"typography": {
+					"fontFamily": "var(--wp--preset--font-family--source-serif-pro)"
+				}
+			}
+		}
+	}
+}
