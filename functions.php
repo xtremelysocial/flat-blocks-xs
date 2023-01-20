@@ -203,16 +203,6 @@ if ( ! function_exists( 'flatblocks_editor_styles' ) ) :
 			);
 		}
 
-		// Fixed header javascript
-		// Note: Not working in Block Editor, so don't load
-		/*wp_enqueue_script( 
-			'flatblocks-fixedheader', 
-			get_template_directory_uri() . '/assets/js/fixedheader.js', 
-			array('jquery'), 
-			$version_string, 
-			true 
-		);*/
-
 	}
 
 endif;
@@ -235,11 +225,9 @@ if ( file_exists( get_stylesheet_directory() . '/inc/block-patterns.php' ) ) {
 
 /**
  * Additional Filters
- * 
- * Page categories, image sizes, read more link and edit page link for admins
  *
  */
-					
+
 // Add our custom image size(s) to the list that user can pick in the editor 
 // Consider: Add Medium Large since it is standard WordPress and seems to be missing
 if ( ! function_exists( 'flatblocks_image_sizes' ) ) :
@@ -263,6 +251,3 @@ if ( ! function_exists( 'flatblocks_excerpt_more' ) ) :
 	}
 endif; // end ! function_exists
 add_filter( 'excerpt_more', 'flatblocks_excerpt_more' );
-
-// Conditionally load custom styles. Note: Not working in WordPress v6.0.
-/*add_filter( 'should_load_separate_core_block_assets', '__return_true' );*/
