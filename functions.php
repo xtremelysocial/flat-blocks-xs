@@ -102,6 +102,7 @@ if ( ! function_exists( 'flatblocks_styles' ) ) :
 			array('flatblocks-base'),
 			$version_string
 		);
+
 		// Note: Conditional loading of custom styles not stable as of WordPress 6.0,
 		// so load manually
 		wp_enqueue_style( 'flatblocks-fixedheader-styles' );
