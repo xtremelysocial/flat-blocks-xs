@@ -210,15 +210,21 @@ if ( ! function_exists( 'flatblocks_register_block_patterns' ) ) :
 			$patterns = WP_Block_Patterns_Registry::get_instance()->get_all_registered();
 			foreach ( $patterns as $pattern ) {
 				if (
-					! empty($pattern['blockTypes'] ) &&
-					in_array('core/query', $pattern['blockTypes'] ) ||
-					in_array('core/social-links', $pattern['blockTypes'] ) ||
-					in_array('core/template-part/header', $pattern['blockTypes'] ) ||
-					in_array('core/template-part/footer', $pattern['blockTypes'] )
-				) {
-					unregister_block_pattern( $pattern['name'] );
+					! empty( $pattern['blockTypes'] ) &&
+					is_array( $pattern['blockTypes'] )
+					) {
+
+					if (
+						in_array( 'core/query', $pattern['blockTypes'] ) ||
+						in_array( 'core/social-links', $pattern['blockTypes'] ) ||
+						in_array( 'core/template-part/header', $pattern['blockTypes'] ) ||
+						in_array( 'core/template-part/footer', $pattern['blockTypes'] )
+					) {
+						unregister_block_pattern( $pattern['name'] );
+					}// endif
+				
 				}// endif
-			}// endforeach
+			}// endforeach 
 		} // endif
 
 		// Then loop through all our patterns and register them
