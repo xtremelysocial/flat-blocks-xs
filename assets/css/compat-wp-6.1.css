@@ -1,13 +1,10 @@
 /**
  * Theme:	Flat Blocks
- * File:	compat-wp6.0.css
+ * File:	compat-wp6.1.css
  * 
- * The stylesheet for compatibility with WordPress v6.0. This is so the theme can use 
- * advanced features in theme.json from the Gutenberg plugin and future versions of 
- * WordPress now while still providing backwards compatibility to core WordPress.
- * 
- * For example, theme.json support for block elements such as buttons and figcaption on
- * images, and link hover colors, etc.
+ * The stylesheet for compatibility with WordPress v6.1. This is so the theme can use 
+ * advanced features in the Gutenberg plugin and/or WordPress v6.1 and future versions 
+ * now while still providing backwards compatibility to core WordPress.
  * 
  * Note that preset spacing is handled by our --wp--preset--spacing--xx variables in
  * theme.json.
@@ -16,7 +13,7 @@
  */
 
 /*--------------------------------------------------------------
-# Spacing presets for compatibility with Gutenberg plugin
+# Spacing presets for compatibility with WordPress v6.1
 --------------------------------------------------------------*/
 /* Without Gutenberg or WordPress v6.1, the presets in theme.json don't get added to the 
  * CSS, so manually add theme here. Remove once supported in core WordPress.

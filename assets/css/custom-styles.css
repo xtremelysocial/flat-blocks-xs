@@ -285,6 +285,7 @@
 /*--------------------------------------------------------------
 # Lists
 --------------------------------------------------------------*/
+/* Checkmarks */
 ul.is-style-list-checkmarks,
 ol.is-style-list-checkmarks {
 	list-style: none;
@@ -315,15 +316,29 @@ ol.is-style-list-checkmarks li:before {
     right: calc(-8px - 1em);
 }
 
+/* Plain */
 ul.is-style-list-plain,
+ul.is-style-list-plain ul,
+ol.is-style-list-plain ol,
 ol.is-style-list-plain {
 	list-style: none;
 }
+
 ul.is-style-list-plain:not(.has-background),
 ol.is-style-list-plain:not(.has-background) {
 	margin-left: 0;
 }
+ul.is-style-list-plain:not(.has-background) li,
+ol.is-style-list-plain:not(.has-background) li {
+	margin-left: 0;
+}
 
+ul.is-style-list-plain:not(.has-background) li ul li,
+ol.is-style-list-plain:not(.has-background) li ul li {
+	margin-left: var(--wp--preset--spacing--40);
+}
+
+/* Plain Centered */
 ul.is-style-list-plain-centered,
 ol.is-style-list-plain-centered {
 	list-style: none;

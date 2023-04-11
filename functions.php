@@ -116,14 +116,20 @@ if ( ! function_exists( 'flatblocks_styles' ) ) :
 			$version_string
 		);
 		
-		// Enqueue WordPress v6.0 compatibility styles if needed
-		if ( ! defined( 'IS_GUTENBERG_PLUGIN' ) && version_compare ( $theme_version, '6.1', '<' ) ) {
-			wp_enqueue_style( 
-				'flatblocks-compat-wp6.0', 
-				get_template_directory_uri() . '/assets/css/compat-wp6.0.css', 
-				array('flatblocks-style'),
-				$version_string
-			);		
+		// Enqueue compatibility styles for older versions of WordPress if needed
+		global $wp_version;
+		//var_dump( $wp_version ); //TEST
+		if ( ! defined( 'IS_GUTENBERG_PLUGIN' ) ) {
+
+			if ( version_compare ( $wp_version, '6.1', '<' ) ) {
+				wp_enqueue_style( 
+					'flatblocks-compat-wp-6.1', 
+					get_template_directory_uri() . '/assets/css/compat-wp-6.1.css', 
+					array('flatblocks-style'),
+					$version_string
+				);		
+			}
+
 		}
 
 		// WordPress built-in icons (Dashicons)
@@ -179,11 +185,11 @@ if ( ! function_exists( 'flatblocks_editor_styles' ) ) :
 		add_editor_style( '/assets/css/flat-blocks.css');
 
 
-		// Add WordPress v6.0 compatibility styles if needed
+		// Enqueue compatibility styles for older versions of WordPress if needed
 		if ( ! defined( 'IS_GUTENBERG_PLUGIN' ) && version_compare ( $theme_version, '6.1', '<' ) ) {
 			add_editor_style( 
 				array(
-					'/assets/css/compat-wp6.0.css'
+					'/assets/css/compat-wp6.1.css'
 				)
 			);
 		}

@@ -10,7 +10,7 @@
 ?>
 
 <!-- wp:heading {"level":1,"align":"wide","className":"entry-title wp-block-post-title"} -->
-<h1 class="alignwide entry-title wp-block-post-title" id="sitemap-title"><?php echo __("Site Map", "flatblocks"); ?></h1>
+<h1 class="alignwide entry-title wp-block-post-title" id="sitemap-title"><?php echo __("Site Map", "flat-blocks"); ?></h1>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"className":"entry-subtitle","fontSize":"medium"} -->

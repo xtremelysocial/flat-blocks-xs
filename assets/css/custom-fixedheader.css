@@ -32,7 +32,7 @@
 /* Fix WordPress Admin bar on phones not sticking to the top 
  *
  * Note to theme reviewers, this issues a warning but is actually fixing an issue
- * not hiding the admin bar. 
+ * in core WordPress v6.0. It is not hiding the admin bar like the warning indicates.
  */
 @media screen and (max-width: 600px) {
     #wpadminbar {

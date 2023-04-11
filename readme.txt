@@ -38,13 +38,13 @@ Note that Block and Page Patterns are copied into your page or post and unlike B
 == Changelog ==
 
 = 1.0 =
-August 10, 2022
+March 10, 2023
 
 Initial theme version
 
 == Copyright ==
 
-Flat Blocks WordPress Theme, (C) 2022 Tim Nicholson / XtremelySocial
+Flat Blocks WordPress Theme, (C) 2023 Tim Nicholson / XtremelySocial
 Flat Blocks is distributed under the terms of the GNU GPL.
 
 This program is free software: you can redistribute it and/or modify

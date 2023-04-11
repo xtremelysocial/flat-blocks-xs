@@ -7,7 +7,8 @@
  * @package flat-blocks
  * 
  * This excellent code comes from https://css-tricks.com/snippets/jquery/smooth-scrolling/
- * with only the addition of $(document).ready(function() added.
+ * with only the addition of $(document).ready(function() and some conditions for 
+ * backward compatibility with Bootstrap.
  */
  
 ( function( $ ) {

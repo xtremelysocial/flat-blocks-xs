@@ -335,9 +335,9 @@ a {
 
 /* Reduce spacing between label and drop-down button */
 /*.wp-block-navigation-item.open-on-click .wp-block-navigation-submenu__toggle {*/
-.wp-block-navigation-item__content {
+/**.wp-block-navigation-item__content {
     padding: 0 var(--wp--preset--spacing--30) 0 0;
-}
+}**/
 
 /* Do this in the Block Editor too. It renders a bit differently. */
 .is-root-container .wp-block-navigation-item__content {
@@ -680,9 +680,11 @@ ol.wp-block-latest-comments li {
 --------------------------------------------------------------*/
 
 /* Don't let dashicons force width and height. Let it come from the font size. */
-.dashicons {
-	width: auto;
-	height: auto;
+.dashicons { /*}, 
+.dashicons-before:before {*/
+	width: auto !important;
+	height: auto !important;
+	font-weight: 300 !important;
 }
 
 /* Add dashicons to various template tags */
@@ -733,7 +735,7 @@ ol.wp-block-latest-comments li {
 --------------------------------------------------------------*/
 
 /* Style the post title like the front-end */
-.edit-post-visual-editor__post-title-wrapper {
+/**.edit-post-visual-editor__post-title-wrapper {
 	background-color: var(--wp--preset--color--primary);
 	padding: var(--wp--preset--spacing--60) var(--wp--preset--spacing--50);
 	max-width: var(--wp--custom--layout--full-size);
@@ -744,7 +746,7 @@ ol.wp-block-latest-comments li {
 	color: var(--wp--preset--color--foreground-alt);
 	max-width: var(--wp--custom--layout--wide-size);
 	margin: 0 auto;	
-}
+}**/
 
 /* Fix site heading font size */
 .is-root-container h1.wp-block-site-title {

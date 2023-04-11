@@ -10,7 +10,7 @@
 ?>
 
 <!-- wp:heading {"level":1,"align":"wide","className":"entry-title wp-block-post-title"} -->
-<h1 class="alignwide entry-title wp-block-post-title" id="404-title"><?php echo __("Oops! That page can’t be found", "flatblocks"); ?></h1>
+<h1 class="alignwide entry-title wp-block-post-title" id="404-title"><?php echo __("Oops! That page can’t be found", "flat-blocks"); ?></h1>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"className":"entry-subtitle","fontSize":"medium"} -->

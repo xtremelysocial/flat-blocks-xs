@@ -31,8 +31,8 @@
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
-<?php echo flatblocks_get_block_pattern( 'columns-social-media-3-columns' ); ?>
-
 <?php echo flatblocks_get_block_pattern( 'columns-recent-posts-3-columns' ); ?>
+
+<?php echo flatblocks_get_block_pattern( 'columns-social-media-3-columns' ); ?>
 
 <?php echo flatblocks_get_block_pattern( 'columns-map-static' ); ?>
