@@ -222,10 +222,17 @@ add_action( 'admin_init', 'flatblocks_editor_styles' );
 // Add custom block styles
 require get_template_directory() . '/inc/block-styles.php';
 
+// As a courtesy, add the child theme block styles if they exist.
+if ( file_exists( get_stylesheet_directory() . '/inc/block-styles.php' ) ) {
+	require_once get_stylesheet_directory() . '/inc/block-styles.php';
+}
+
 // Add block patterns
 require get_template_directory() . '/inc/block-patterns.php';
 
-// As a courtesy, add the child theme patterns if they exist.
+// As a courtesy, add the child theme patterns if they exist. Note that child
+// themes can simply add .php files in the /patterns directory and they will
+// automatically be loaded by WordPress.
 if ( file_exists( get_stylesheet_directory() . '/inc/block-patterns.php' ) ) {
 	require_once get_stylesheet_directory() . '/inc/block-patterns.php';
 }
