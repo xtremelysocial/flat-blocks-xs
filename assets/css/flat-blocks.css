@@ -306,6 +306,13 @@ a {
 	cursor: pointer;
 }
 
+/* Set search button to match theme.json */
+.wp-block-search__button {
+	border: var(--wp--custom--border--width) var(--wp--custom--border--style) transparent;
+	border-radius: var(--wp--custom--border--radius);
+	padding: var(--wp--preset--spacing--30) var(--wp--preset--spacing--40);
+}
+
 /*--------------------------------------------------------------
 # Navigation
 --------------------------------------------------------------*/
@@ -552,10 +559,22 @@ ul li {
 
 /* Indent comments the same as our lists */
 .wp-block-post-comments .commentlist .comment {
-	/*padding-left: var(--wp--preset--spacing--40);*/
 	padding-left: var(--wp--preset--spacing--40);
 	margin-left: 0;
 	list-style: none;
+}
+
+/* Clear floats on comment navigation */
+.wp-block-post-comments > .navigation {
+	/*clear: both;*/
+	content: "";
+  	clear: both;
+  	display: table;
+}
+
+/* Add spacing after comment reply link */
+.comment-body > .reply {
+	padding-bottom: var(--wp--preset--spacing--40);
 }
 
 /* Add the word Comment(s) to the end of the comments count*/
