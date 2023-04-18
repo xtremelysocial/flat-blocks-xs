@@ -535,67 +535,25 @@ ul li {
 /*--------------------------------------------------------------
 # Comments
 --------------------------------------------------------------*/
-/* TO-DO: Remove this once new comment block is stable and put into 
- * /parts/comments.html 
- */
-
-/* Remove leading margin because comments already in padded section */
-#comments,
-#respond,
-#reply-title {
-	margin-top: 0
-}
-
-/* But add back top margin on reply if there are comments already */
-.comment-list + #respond,
-.navigation + #respond {
-	margin-top: var(--wp--preset--spacing--40);
-}
-
-/* Keep comments within content-size even when padding added */
-.wp-block-post-comments {
-    box-sizing: border-box;
-}
-
-/* Indent comments the same as our lists */
-.wp-block-post-comments .commentlist .comment {
-	padding-left: var(--wp--preset--spacing--40);
-	margin-left: 0;
-	list-style: none;
-}
-
-/* Clear floats on comment navigation */
-.wp-block-post-comments > .navigation {
-	/*clear: both;*/
-	content: "";
-  	clear: both;
-  	display: table;
-}
-
-/* Add spacing after comment reply link */
-.comment-body > .reply {
-	padding-bottom: var(--wp--preset--spacing--40);
-}
-
-/* Add the word Comment(s) to the end of the comments count*/
-.wp-block-post-comments-count:after {
-	content: " Comment(s)";
+/* Add padding to comment page numbers */
+.wp-block-comments-pagination .page-numbers:nth-last-child(n+2) {
+	padding-right: var(--wp--preset--spacing--30);
 }
 
 /* Don't show post comments if comments aren't allowed. */
 /* TO-DO: Get this working */
-.post-comments:empty {
+/*.post-comments:empty {
 	display: none;
 	margin: 0;
-}
+}*/
 
 /* Set word breaks so long URL's in comments don't break layout */
-.comment-content {
+/*.comment-content {
   overflow-wrap: break-word;
   word-wrap: break-word;
-  word-break: break-word;
+  word-break: break-word;*/
   /*hyphens: auto;*/
-}
+/*}*/
 
 /*--------------------------------------------------------------
 # Code and Pre

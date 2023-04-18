@@ -116,22 +116,6 @@ if ( ! function_exists( 'flatblocks_styles' ) ) :
 			$version_string
 		);
 		
-		// Enqueue compatibility styles for older versions of WordPress if needed
-		global $wp_version;
-		//var_dump( $wp_version ); //TEST
-		if ( ! defined( 'IS_GUTENBERG_PLUGIN' ) ) {
-
-			if ( version_compare ( $wp_version, '6.1', '<' ) ) {
-				wp_enqueue_style( 
-					'flatblocks-compat-wp-6.1', 
-					get_template_directory_uri() . '/assets/css/compat-wp-6.1.css', 
-					array('flatblocks-style'),
-					$version_string
-				);		
-			}
-
-		}
-
 		// WordPress built-in icons (Dashicons)
 		wp_enqueue_style( 'dashicons' );
 
@@ -183,16 +167,6 @@ if ( ! function_exists( 'flatblocks_editor_styles' ) ) :
 		
 		// Add the theme base
 		add_editor_style( '/assets/css/flat-blocks.css');
-
-
-		// Enqueue compatibility styles for older versions of WordPress if needed
-		if ( ! defined( 'IS_GUTENBERG_PLUGIN' ) && version_compare ( $theme_version, '6.1', '<' ) ) {
-			add_editor_style( 
-				array(
-					'/assets/css/compat-wp6.1.css'
-				)
-			);
-		}
 
 		// Add our custom styles and theme style.
 		// Note: Don't add fixedheader yet as its not working in the Block Editor

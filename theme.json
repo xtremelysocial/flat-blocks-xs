@@ -986,6 +986,13 @@
 					"fontSize": "var(--wp--preset--font-size--small)"
 				}
 			},
+			"core/comments-title": {
+				"spacing": {
+					"margin": {
+						"top": "0"
+					}
+				}
+			},
 			"core/post-comments-count": {
 				"typography": {
 					"fontSize": "var(--wp--preset--font-size--small)"

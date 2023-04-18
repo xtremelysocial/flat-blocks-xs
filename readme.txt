@@ -1,9 +1,9 @@
 === Flat Blocks ===
 Contributors: Tim Nicholson / XtremelySocial
-Requires at least: 6.0
-Tested up to: 6.0
+Requires at least: 6.1
+Tested up to: 6.2
 Requires PHP: 5.7
-Stable tag: 1.0
+Stable tag: 1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -33,9 +33,20 @@ Note that Block and Page Patterns are copied into your page or post and unlike B
 
 = More Information About This Theme = 
 
+For more information, see these pages on the XtremelySocial.com website:
+* How to use our Block Theme: https://xtremelysocial.com/userguide/block-themes/
+* Our Theme Block Patterns: https://xtremelysocial.com/userguide/block-patterns/
 
+You can check out our other themes here: https://xtremelysocial.com/wordpress/
 
 == Changelog ==
+
+= 1.1 =
+April 14, 2023
+
+Updates for WordPress v6.1:
+* Preset spacing sliders for padding and margins. These are based on the site gap (18px by default but can be overriden in the Global Styles Editor).
+* Implemented the new more flexible WordPress comment blocks
 
 = 1.0 =
 March 10, 2023
