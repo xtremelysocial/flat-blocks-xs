@@ -1,9 +1,9 @@
 === Flat Blocks ===
 Contributors: Tim Nicholson / XtremelySocial
-Requires at least: 6.1
+Requires at least: 6.2
 Tested up to: 6.2
 Requires PHP: 5.7
-Stable tag: 1.1
+Stable tag: 1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -40,6 +40,16 @@ For more information, see these pages on the XtremelySocial.com website:
 You can check out our other themes here: https://xtremelysocial.com/wordpress/
 
 == Changelog ==
+
+= 1.2 =
+April 20, 2023
+
+Updates for WordPress v6.2:
+* Updated all templates to use the new "layout":{"type":"constrained"} versus the old "layout":{"inherit":true}. This is important for properly handling full and wide with layouts.
+* Fixes for various block patterns for WordPress v6.2. Specifically all the cover images, the button in the 2-column call-to-action, and the large social media icons.
+* Added custom CSS variables for font weights to theme.json: --wp--custom--typography--font-weight--normal, --wp--custom--typography--font-weight--heading, and --wp--custom--typography--font-weight--bold.
+* Remove bold font files (weight 700) as we use weights 300 and 400 only. This reduces the size of the theme.
+* Fix for center align on images now that WordPress uses the figure tag.
 
 = 1.1 =
 April 14, 2023
@@ -122,6 +132,4 @@ This Font Software is licensed under the SIL Open Font License, Version 1.1.
 This license is copied below, and is also available with a FAQ at: http://scripts.sil.org/OFL
 
 Block Pattern Images:
-All from https://pexels.com and licensed under the GPL.
-
-Modified versions of the above images, as well as additional "flight path" illustrations were created specifically for Flat Blocks. CC0.
+All images from https://pexels.com licensed under the GPL, including modifications made for Flat Blocks to adjust image sizes.

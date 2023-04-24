@@ -13,13 +13,18 @@ if ( ! function_exists( 'flatblocks_register_block_patterns' ) ) :
 
 	function flatblocks_register_block_patterns() {
 
-		// Add our own block pattern categories
-		// NOTE: WordPress v6.0 core already has featured, header, query, text, buttons,
-		// gallery, columns. WordPress v6.1 will add banner and footer.
+		// WordPress v6.0 core already has categories for featured, header, query, text, 
+		// buttons, gallery, and columns. 
+		// WordPress v6.1 will add banner and footer. 
+		// WordPress v6.2 will add call-to-action, team, testimonials, services, contact, 
+		// about, portfolio, and media.
+		// Note: As of WordPress v6.2, columns category isn't working
 
+		// Add our own block pattern categories
 		$block_pattern_categories = array(
 			'flatblocks'	=> array( 'label' => __( 'All Flat Blocks', 'flat-blocks' ) ),
 			'cover'   		=> array( 'label' => __( 'Cover Images', 'flat-blocks' ) ),				
+			//'columns'   	=> array( 'label' => __( 'Columns', 'flat-blocks' ) ),				
 			'image'   		=> array( 'label' => __( 'Images', 'flat-blocks' ) ),
 			'page'    		=> array( 'label' => __( 'Pages', 'flat-blocks' ) ),
 		);
@@ -49,31 +54,31 @@ if ( ! function_exists( 'flatblocks_register_block_patterns' ) ) :
 		$block_patterns = array(
 			'query-loop-default' => array( 
 				'title' => __( 'Querly Loop 2 Columns (Default)', 'flat-blocks' ),
-				'categories' => array ( 'query' ),
+				'categories' => array ('flatblocks', 'query' ),
 				'blockTypes' => array ('core/query')
 			),
 			'query-loop-1-column' => array( 
 				'title' => __( 'Querly Loop (1 Column)', 'flat-blocks' ),
-				'categories' => array ( 'query' ),
+				'categories' => array ('flatblocks', 'query' ),
 				'blockTypes' => array ('core/query')
 			),
 			'query-loop-sidebar-left' => array( 
 				'title' => __( 'Querly Loop with Left Sidebar', 'flat-blocks' ),
-				'categories' => array ( 'query' ),
+				'categories' => array ('flatblocks', 'query' ),
 				'blockTypes' => array ('core/query')
 			),
 			'query-loop-sidebar-right' => array( 
 				'title' => __( 'Querly Loop with Right Sidebar', 'flat-blocks' ),
-				'categories' => array ( 'query' ),
+				'categories' => array ('flatblocks', 'query' ),
 				'blockTypes' => array ('core/query')
 			),
 			'buttons-call-to-action' => array( 
 				'title' => __( 'Call to Action', 'flat-blocks' ),
-				'categories' => array ( 'buttons', 'featured' )
+				'categories' => array ('flatblocks', 'buttons', 'call-to-action', 'featured' )
 			),
 			'buttons-call-to-action-2-columns' => array( 
 				'title' => __( 'Call to Action 2 Columns', 'flat-blocks' ),
-				'categories' => array ('flatblocks', 'buttons', 'columns', 'featured' )
+				'categories' => array ('flatblocks', 'buttons', 'call-to-action', 'columns', 'featured' )
 			),
 			'columns-features-2-columns' => array( 
 				'title' => __( 'Features with 2 Columns', 'flat-blocks' ),
@@ -117,59 +122,59 @@ if ( ! function_exists( 'flatblocks_register_block_patterns' ) ) :
 			),
 			'columns-team-3-people' => array( 
 				'title' => __( '3 Team Members', 'flat-blocks' ),
-				'categories' => array ('flatblocks', 'columns', 'featured' )
+				'categories' => array ('flatblocks', 'columns', 'team', 'featured' )
 			),
 			'columns-team-4-people' => array( 
 				'title' => __( '4 Team Members', 'flat-blocks' ),
-				'categories' => array ('flatblocks', 'columns', 'featured' )
+				'categories' => array ('flatblocks', 'columns', 'team', 'featured' )
 			),
 			'cover-scroll-home-header' => array( 
 				'title' => __( 'Cover Colored Blocks with Site Title, Tagline, and Scroll Arrow', 'flat-blocks' ),
-				'categories' => array ('flatblocks', 'cover' )
+				'categories' => array ('flatblocks', 'cover', 'banner' )
 			),
 			'cover-scroll-page-header' => array( 
 				'title' => __( 'Cover Featured Image with Page / Post Title, Excerpt, and Scroll Arrow', 'flat-blocks' ),
-				'categories' => array ('flatblocks', 'cover', 'featured' )
+				'categories' => array ('flatblocks', 'cover', 'featured', 'banner' )
 			),
 			'cover-scroll-colored-blocks' => array( 
 				'title' => __( 'Cover Colored Blocks w/Scroll Arrow', 'flat-blocks' ),
-				'categories' => array ('flatblocks', 'cover', 'featured' )
+				'categories' => array ('flatblocks', 'cover', 'featured', 'banner' )
 			),
 			'cover-bokeh' => array( 
 				'title' => __( 'Cover Bokeh', 'flat-blocks' ),
-				'categories' => array ('flatblocks', 'cover' )
+				'categories' => array ('flatblocks', 'cover', 'banner' )
 			),
 			'cover-colored-chalk' => array( 
 				'title' => __( 'Cover Colored Chalk', 'flat-blocks' ),
-				'categories' => array ('flatblocks', 'cover' )
+				'categories' => array ('flatblocks', 'cover', 'banner' )
 			),
 			'cover-desk-light' => array( 
 				'title' => __( 'Cover Desk (light)', 'flat-blocks' ),
-				'categories' => array ('flatblocks', 'cover', 'featured' )
+				'categories' => array ('flatblocks', 'cover', 'featured', 'banner' )
 			),
 			'cover-desk-dark' => array( 
 				'title' => __( 'Cover Desk (dark)', 'flat-blocks' ),
-				'categories' => array ('flatblocks', 'cover' )
+				'categories' => array ('flatblocks', 'cover', 'banner' )
 			),
 			'cover-desk-meeting' => array( 
 				'title' => __( 'Cover Desk w/Meeting', 'flat-blocks' ),
-				'categories' => array ('flatblocks', 'cover' )
+				'categories' => array ('flatblocks', 'cover', 'banner' )
 			),
 			'cover-geodesic-lights' => array( 
 				'title' => __( 'Cover Geodesic Lights', 'flat-blocks' ),
-				'categories' => array ('flatblocks', 'cover' )
+				'categories' => array ('flatblocks', 'cover', 'banner' )
 			),
 			'cover-man-on-rocks' => array( 
 				'title' => __( 'Cover Man on Rocks', 'flat-blocks' ),
-				'categories' => array ('flatblocks', 'cover' )
+				'categories' => array ('flatblocks', 'cover', 'banner' )
 			),
 			'image-gallery' => array( 
 				'title' => __( 'Image Gallery', 'flat-blocks' ),
-				'categories' => array ('flatblocks', 'columns', 'image' )
+				'categories' => array ('flatblocks', 'columns', 'gallery', 'image' )
 			),
 			'image-with-left-and-right-text' => array( 
 				'title' => __( 'Image with Left and Right Text', 'flat-blocks' ),
-				'categories' => array ('flatblocks', 'columns', 'image', 'featured' )
+				'categories' => array ('flatblocks', 'columns', 'image', 'banner', 'featured' )
 			),
 			'image-computer-screen-with-title-and-text-above' => array( 
 				'title' => __( 'Computer Screen Image with Title and Text Above', 'flat-blocks' ),
@@ -185,15 +190,15 @@ if ( ! function_exists( 'flatblocks_register_block_patterns' ) ) :
 			),
 			'text-title-and-subtitle' => array( 
 				'title' => __( 'Title and Subtitle', 'flat-blocks' ),
-				'categories' => array ('flatblocks', 'text' )
+				'categories' => array ('flatblocks', 'text', 'banner' )
 			),
 			'text-title-and-subtitle-with-bg-image' => array( 
 				'title' => __( 'Title and Subtitle with Background Image', 'flat-blocks' ),
-				'categories' => array ('flatblocks', 'text', 'image', 'featured' )
+				'categories' => array ('flatblocks', 'text', 'image', 'banner', 'featured' )
 			),
 			'text-title-and-text' => array( 
 				'title' => __( 'Title and Text', 'flat-blocks' ),
-				'categories' => array ('flatblocks', 'text' )
+				'categories' => array ('flatblocks', 'text', 'banner' )
 			)
 		);
 		

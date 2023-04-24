@@ -207,37 +207,32 @@ body > .is-root-container > .wp-block-template-part > .wp-block-columns.alignful
 }
 
 /* Content created with early versions of the Block Editor need these */
-
-img {
-	max-width: 100%;
-	height: auto;
-}
-
 .aligncenter {
   text-align: center;
-  display: block;
+  /*display: block;*/
   margin-right: auto;
   margin-left: auto;
 }
 
+/* TO-DO: Consider constraining this to 50% of the width */
 .alignleft {
 	float: left;
 	margin-right: var(--wp--preset--spacing--40);
 }
 
+/* TO-DO: Consider constraining this to 50% of the width */
 .alignright {
 	float: right;
 	margin-left: var(--wp--preset--spacing--40);
 }
 
-/* TO-DO: Update this if float is needed, etc. */
+/* Style user profile pics (avatars) as circles and floated with margins */
 .avatar {
 	float: left;
 	margin-right: 10px;
 	margin-bottom: 10px;
 }
 
-/* Make user profile pics (avatars) circles */
 .avatar,
 .testimonial-thumbnail {
 	-webkit-border-radius: 50%;
@@ -281,7 +276,7 @@ html :where(.editor-styles-wrapper) select {
 }
 
 /*--------------------------------------------------------------
-# Links
+# Links, Buttons, Search
 --------------------------------------------------------------*/
 /*
  * Text and navigation link styles.
@@ -306,11 +301,38 @@ a {
 	cursor: pointer;
 }
 
+/* Fix WordPress v6.2 overriding button settings from theme.json */
+.wp-block-button .wp-block-button__link.is-style-outline, 
+.wp-block-button.is-style-outline > .wp-block-button__link {
+	/*border: inherit;
+	padding: inherit;*/
+	border: var(--wp--custom--border--normal) var(--wp--custom--border--style);
+}
+
+.wp-block-button .wp-block-button__link.is-style-outline:not(.has-text-color), 
+.wp-block-button.is-style-outline > .wp-block-button__link:not(.has-text-color) {
+	/*color:currentColor*/
+}
+
 /* Set search button to match theme.json */
 .wp-block-search__button {
 	border: var(--wp--custom--border--width) var(--wp--custom--border--style) transparent;
 	border-radius: var(--wp--custom--border--radius);
 	padding: var(--wp--preset--spacing--30) var(--wp--preset--spacing--40);
+}
+
+/* Don't bold the search label and search text */
+.wp-block-search .wp-block-search__label,
+.wp-block-search__input {
+	font-weight: var(--wp--custom--typography--font-weight--normal);
+}
+
+/*--------------------------------------------------------------
+# Elements
+--------------------------------------------------------------*/
+strong, 
+b {
+	font-weight: var(--wp--custom--typography--font-weight--bold);
 }
 
 /*--------------------------------------------------------------
@@ -405,11 +427,16 @@ a {
 /*--------------------------------------------------------------
 # Images
 --------------------------------------------------------------*/
+/* Constrain images */
+img {
+	max-width: 100%;
+	height: auto;
+}
 
 /* Fix caption color when on colored background */
 .has-background .wp-block-image figcaption {
 	color: inherit;
-	font-weight: 400;
+	font-weight: var(--wp--custom--typography--font-weight--bold);
 }
 
 /* Fix images being inset since WordPress started using the figure tag */
@@ -535,6 +562,11 @@ ul li {
 /*--------------------------------------------------------------
 # Comments
 --------------------------------------------------------------*/
+/* Keep comments within content-size even when padding added */
+.wp-block-comments {
+    box-sizing: border-box;
+}
+
 /* Add padding to comment page numbers */
 .wp-block-comments-pagination .page-numbers:nth-last-child(n+2) {
 	padding-right: var(--wp--preset--spacing--30);
@@ -575,15 +607,6 @@ pre {
 .wp-block-separator.alignfull.is-style-default {
 	margin-left: auto !important;
 	margin-right: auto !important;
-}
-
-/*--------------------------------------------------------------
-# Search
---------------------------------------------------------------*/
-/* Don't bold the search label and search text */
-.wp-block-search .wp-block-search__label,
-.wp-block-search__input {
-	font-weight: 300;
 }
 
 /*--------------------------------------------------------------
@@ -661,7 +684,7 @@ ol.wp-block-latest-comments li {
 .dashicons-before:before {*/
 	width: auto !important;
 	height: auto !important;
-	font-weight: 300 !important;
+	font-weight: var(--wp--custom--typography--font-weight--normal) !important;
 }
 
 /* Add dashicons to various template tags */
@@ -711,21 +734,16 @@ ol.wp-block-latest-comments li {
 # Block Editor styles
 --------------------------------------------------------------*/
 
-/* Style the post title like the front-end */
-/**.edit-post-visual-editor__post-title-wrapper {
-	background-color: var(--wp--preset--color--primary);
-	padding: var(--wp--preset--spacing--60) var(--wp--preset--spacing--50);
-	max-width: var(--wp--custom--layout--full-size);
-	margin: 0 auto;	
-}
-
-.edit-post-visual-editor__post-title-wrapper > h1 {
-	color: var(--wp--preset--color--foreground-alt);
-	max-width: var(--wp--custom--layout--wide-size);
-	margin: 0 auto;	
-}**/
-
 /* Fix site heading font size */
 .is-root-container h1.wp-block-site-title {
 	font-size: revert;
+}
+
+/* Fix for Editor color indicators (circles) */
+/* TO-DO: Get this working */
+/*.component-color-indicator {*/
+/*.block-editor-panel-color-gradient-settings__dropdown .component-color-indicator {*/
+.editor-styles-wrapper .component-color-indicator {
+	width: 20px !important;
+	height: 20px !important;
 }

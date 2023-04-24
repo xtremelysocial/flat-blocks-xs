@@ -37,14 +37,14 @@ if ( ! function_exists( 'flatblocks_support' ) ) :
 
 		// Enqueue editor styles.
 		// Note: Don't included fixed header as that isn't working in the Block Editor
-		/*add_editor_style( 
+		add_editor_style( 
 			array(
 				'/assets/css/flat-blocks.css',
 				'/assets/css/custom-styles.css', //,
 				//'/assets/css/custom-fixedheader.css'
 				'style.css'
 			)
-		);*/
+		);
 
 		// Register four nav menus if Gutenberg is activated 
 		// (otherwise the __experimentalMenuLocation attribute isn't available)
@@ -153,7 +153,7 @@ endif;
 add_action( 'wp_enqueue_scripts', 'flatblocks_styles' );
 
 /**
- * Enqueue editor scripts.
+ * Enqueue additional editor scripts.
  * 
  * @return void
  */
@@ -161,12 +161,8 @@ if ( ! function_exists( 'flatblocks_editor_styles' ) ) :
 
 	function flatblocks_editor_styles() {
 	
-		// Get version for caching
-		/*$theme_version = wp_get_theme()->get( 'Version' );
-		$version_string = is_string( $theme_version ) ? $theme_version : false;*/
-		
 		// Add the theme base
-		add_editor_style( '/assets/css/flat-blocks.css');
+		/*add_editor_style( '/assets/css/flat-blocks.css');
 
 		// Add our custom styles and theme style.
 		// Note: Don't add fixedheader yet as its not working in the Block Editor
@@ -175,7 +171,7 @@ if ( ! function_exists( 'flatblocks_editor_styles' ) ) :
 				//'/assets/css/custom-fixedheader.css'
 				'style.css'
 			)
-		);
+		);*/
 		
 		// As a courtesy, add the child theme CSS to the Block Editor if it exists.
 		if ( is_child_theme() && file_exists( get_stylesheet_directory() . '/style.css' ) ) {
@@ -188,6 +184,7 @@ if ( ! function_exists( 'flatblocks_editor_styles' ) ) :
 
 endif;
 add_action( 'admin_init', 'flatblocks_editor_styles' );
+//add_action( 'after_setup_theme', 'flatblocks_editor_styles' );
 
 /**
  * Load custom block styles and block patterns

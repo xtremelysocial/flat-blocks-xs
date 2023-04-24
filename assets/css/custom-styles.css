@@ -429,7 +429,6 @@ p.is-style-no-link-underline a:hover {
 /*--------------------------------------------------------------
 # Comments
 --------------------------------------------------------------*/
-.wp-block-post-comments.is-style-rounded-borders, /* deprecated */
 .wp-block-comments.is-style-rounded-borders,
 .wp-block-comments-query-loop.is-style-rounded-borders {
 	border: var(--wp--custom--border--thin) var(--wp--custom--border--style) var(--wp--custom--border--color);
