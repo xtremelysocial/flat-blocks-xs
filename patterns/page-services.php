@@ -8,7 +8,7 @@
   */
 ?>
 
-<?php echo flatblocks_get_block_pattern( 'cover-desk-light' ); ?>
+<?php echo flatblocks_get_block_pattern( 'cover-desk-meeting' ); ?>
 
 <!-- wp:paragraph -->
 <p></p>

@@ -8,7 +8,7 @@
   */
 ?>
 
-<?php echo flatblocks_get_block_pattern( 'cover-desk-light' ); ?>
+<?php echo flatblocks_get_block_pattern( 'cover-geodesic-lights' ); ?>
 
 <!-- wp:heading {"placeholder":"Our Portfolio","textAlign":"left","align":"wide"} -->
 <h2 class="alignwide has-text-align-left" id="our-recent-posts">Our Portfolio</h2>

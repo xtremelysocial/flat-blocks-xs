@@ -166,6 +166,22 @@ if ( function_exists( 'register_block_style' ) ) {
 		);
 
 		/*--------------------------------------------------------------
+		# Quote
+		--------------------------------------------------------------*/
+		 
+		// Quote: Large
+		// Note: This was removed from WordPress v6.2 although the CSS
+		// is still there.
+		register_block_style(
+			'core/quote',
+			array(
+				'name'  => 'large',
+				'label' => esc_html__( 'Large', 'flat-blocks' ),
+				'style_handle'	=> 'flatblocks-custom-styles'
+			)
+		);
+
+		/*--------------------------------------------------------------
 		# Separator
 		--------------------------------------------------------------*/
 		 

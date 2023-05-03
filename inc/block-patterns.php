@@ -80,6 +80,10 @@ if ( ! function_exists( 'flatblocks_register_block_patterns' ) ) :
 				'title' => __( 'Call to Action 2 Columns', 'flat-blocks' ),
 				'categories' => array ('flatblocks', 'buttons', 'call-to-action', 'columns', 'featured' )
 			),
+			'buttons-call-to-action-rounded' => array( 
+				'title' => __( 'Call to Action Rounded', 'flat-blocks' ),
+				'categories' => array ('flatblocks', 'buttons', 'call-to-action', 'featured' )
+			),
 			'columns-features-2-columns' => array( 
 				'title' => __( 'Features with 2 Columns', 'flat-blocks' ),
 				'categories' => array ('flatblocks', 'columns' )
@@ -199,6 +203,10 @@ if ( ! function_exists( 'flatblocks_register_block_patterns' ) ) :
 			'text-title-and-text' => array( 
 				'title' => __( 'Title and Text', 'flat-blocks' ),
 				'categories' => array ('flatblocks', 'text', 'banner' )
+			),
+			'text-testimonial' => array( 
+				'title' => __( 'Testimonial', 'flat-blocks' ),
+				'categories' => array ('flatblocks', 'text', 'image' )
 			)
 		);
 		
@@ -210,8 +218,9 @@ if ( ! function_exists( 'flatblocks_register_block_patterns' ) ) :
 			
 			remove_theme_support( 'core-block-patterns' );
 
-			// Above still doesn't remove core/query and core/social-links patterns, 
-			// so get rid of them as long as we've registed a query template
+			// Above still doesn't remove core/query, core/social-links, headers or
+			// footers, so get rid of them as long as we've registed at least one
+			// pattern.
 			$patterns = WP_Block_Patterns_Registry::get_instance()->get_all_registered();
 			foreach ( $patterns as $pattern ) {
 				if (

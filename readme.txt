@@ -42,13 +42,19 @@ You can check out our other themes here: https://xtremelysocial.com/wordpress/
 == Changelog ==
 
 = 1.2 =
-April 20, 2023
+May 3, 2023
 
 Updates for WordPress v6.2:
-* Updated all templates to use the new "layout":{"type":"constrained"} versus the old "layout":{"inherit":true}. This is important for properly handling full and wide with layouts.
-* Fixes for various block patterns for WordPress v6.2. Specifically all the cover images, the button in the 2-column call-to-action, and the large social media icons.
-* Added custom CSS variables for font weights to theme.json: --wp--custom--typography--font-weight--normal, --wp--custom--typography--font-weight--heading, and --wp--custom--typography--font-weight--bold.
-* Remove bold font files (weight 700) as we use weights 300 and 400 only. This reduces the size of the theme.
+* Updated the theme to use core WordPress v6.2 default, wide, and full width handling (useRootPaddingAwareAlignments). Set the overall layout to have left and right padding (preset spacing 52 which is responsive from small to large).
+* In conjunction with the above, updated all templates to use the new "layout":{"type":"constrained"} versus the old "layout":{"inherit":true}. This is important for properly handling full and wide with layouts.
+* Added more preset spacing sizes and renamed them to match core WordPress v6.2. 
+* Fixes for various block patterns for WordPress v6.2: all the cover images, the button in the 2-column call-to-action, and the large social media icons.
+* Added new pattern for Call to Action Rounded. This is a wide-with group with colored background and rounded borders.
+* Added new pattern for Testimonial. This is a full-wide colored group with profile pic, quote, and the person's name.
+* Added custom style of Large for quotes. This was removed for some reason in WordPress v6.2 although the CSS for it remains.
+* Remove bold font files (weight 700) as we use weights 300, 400, and 500 only. This reduces the size of the theme.
+* Added link and hover color to the Site Title in theme.json (core/site-title) now that it doesn't default from the overall theme link and hover colors.
+* Added button hover color to theme.json and removed the css from flat-blocks.css.
 * Fix for center align on images now that WordPress uses the figure tag.
 
 = 1.1 =

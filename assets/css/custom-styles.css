@@ -8,7 +8,7 @@
  */
 
 /*--------------------------------------------------------------
-# Fixed Header and Nav Menu
+# Fixed Header and Nav Menu. Front-end and Editor.
 --------------------------------------------------------------*/
 .wp-block-group.is-style-fixed-header {
     border-bottom: var(--wp--custom--border--thin) var(--wp--custom--border--style)  var(--wp--custom--border--color);
@@ -20,7 +20,7 @@
 
 .wp-block-navigation.is-style-fixed-menu .wp-block-navigation__responsive-container-open {
 	background: rgba(0, 0, 0, .25);
-	padding: calc(0.5 * var(--wp--preset--spacing--30));
+	padding: var(--wp--preset--spacing--20);
 	color: white;
 	border-radius: 0;
 }
@@ -126,7 +126,7 @@
 	margin-block-start: 0 !important; 
 }
 
-/* For all groups with custom padding, override left & right if full width */
+/* For all full-width groups with custom padding, override left & right padding */
 .wp-block-group.alignfull.is-style-no-padding,
 .wp-block-group.alignfull.is-style-medium-padding,
 .wp-block-group.alignfull.is-style-medium-padding-no-top-margin,
@@ -136,9 +136,23 @@
 .wp-block-group.is-style-rounded-borders-no-padding,
 .wp-block-group.is-style-rounded-borders-thick-padding,
 .wp-block-group.alignfull.is-style-thick-rounded-borders {
-	padding-left: var(--wp--preset--spacing--50);
-	padding-right: var(--wp--preset--spacing--50);
+	padding-left: var(--wp--style--root--padding-left, var(--wp--preset--spacing--52));
+	padding-right: var(--wp--style--root--padding-right, var(--wp--preset--spacing--52));
 }
+
+/* For all groups with custom padding, override left & right padding */
+/*.wp-block-group.has-global-padding.is-style-no-padding,
+.wp-block-group.has-global-padding.is-style-medium-padding,
+.wp-block-group.has-global-padding.is-style-medium-padding-no-top-margin,
+.wp-block-group.has-global-padding.is-style-thick-padding,
+.wp-block-group.has-global-padding.is-style-thick-padding-no-top-margin,
+.wp-block-group.has-global-padding.is-style-rounded-borders,
+.wp-block-group.is-style-rounded-borders-no-padding,
+.wp-block-group.is-style-rounded-borders-thick-padding,
+.wp-block-group.has-global-padding.is-style-thick-rounded-borders {
+	padding-left: var(--wp--style--root--padding-left, var(--wp--preset--spacing--52));
+	padding-right: var(--wp--style--root--padding-right, var(--wp--preset--spacing--52));
+}*/
 
 /*--------------------------------------------------------------
 # Columns
@@ -171,6 +185,12 @@
 /*--------------------------------------------------------------
 # Column
 --------------------------------------------------------------*/
+/* No Gap on Individual Columns within No Gap Columns. ADD 2023-04-25 */
+/*.wp-block-columns.is-style-no-gap .wp-block-column {
+	padding-left: 0;
+	padding-right: 0;
+}*/
+
 .wp-block-column.is-style-rounded-borders {
 	border: var(--wp--custom--border--thin) var(--wp--custom--border--style) var(--wp--custom--border--color);
 	border-radius: var(--wp--custom--border--radius);
@@ -215,8 +235,8 @@
 
 	/* Adjust columns padding so outer margins line up */	
 	.wp-block-columns.has-background:not(.is-style-no-gap) {
-		padding-left: var(--wp--preset--spacing--50);
-		padding-right: var(--wp--preset--spacing--50);
+		padding-left: var(--wp--style--root--padding-left, var(--wp--preset--spacing--52));
+		padding-right: var(--wp--style--root--padding-right, var(--wp--preset--spacing--52));
 	}
 
 	/* Adjust columns thick gap so vertical spacing matches up */	
@@ -227,8 +247,8 @@
 	/* Adjust individual column padding so outer margins line up */
 	.wp-block-column.is-style-medium-padding,
 	.wp-block-column.is-style-thick-padding {
-		padding-left: var(--wp--preset--spacing--50);
-		padding-right: var(--wp--preset--spacing--50);
+		padding-left: var(--wp--style--root--padding-left, var(--wp--preset--spacing--52));
+		padding-right: var(--wp--style--root--padding-right, var(--wp--preset--spacing--52));
 	}
 	
 }
@@ -283,6 +303,12 @@
 }
 
 /*--------------------------------------------------------------
+# Quotes
+--------------------------------------------------------------*/
+/*.wp-block-quote.is-style-large {
+}*/
+
+/*--------------------------------------------------------------
 # Lists
 --------------------------------------------------------------*/
 /* Checkmarks */
@@ -322,6 +348,7 @@ ul.is-style-list-plain ul,
 ol.is-style-list-plain ol,
 ol.is-style-list-plain {
 	list-style: none;
+	padding-left: 0; /*ADD 2023-04-25*/
 }
 
 ul.is-style-list-plain:not(.has-background),
@@ -335,7 +362,8 @@ ol.is-style-list-plain:not(.has-background) li {
 
 ul.is-style-list-plain:not(.has-background) li ul li,
 ol.is-style-list-plain:not(.has-background) li ul li {
-	margin-left: var(--wp--preset--spacing--40);
+	/*margin-left: var(--wp--preset--spacing--40);*/
+	padding-left: var(--wp--preset--spacing--40);
 }
 
 /* Plain Centered */
@@ -484,12 +512,13 @@ p.is-style-no-link-underline a:hover {
 # Latest Comments
 --------------------------------------------------------------*/
 ol.wp-block-latest-comments.is-style-latest-comments-plain {
+	list-style: none; /*ADD 2023-04-25*/
 	padding-left: 0 !important;
 }
 
 .is-style-latest-comments-plain > .wp-block-latest-comments__comment {
 	list-style: none;
-	margin-left: 0;
+	/*margin-left: 0;*/
 	margin-bottom: var(--wp--preset--spacing--30);
 }
 

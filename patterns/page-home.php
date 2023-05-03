@@ -8,7 +8,7 @@
   */
 ?>
 
-<?php echo flatblocks_get_block_pattern( 'cover-desk-light' ); ?>
+<?php echo flatblocks_get_block_pattern( 'cover-scroll-colored-blocks' ); ?>
 
 <!-- wp:paragraph -->
 <p>Lorem Ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
