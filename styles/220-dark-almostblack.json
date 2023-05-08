@@ -27,8 +27,8 @@
 				},
 				{
 					"slug": "neutral",
-					"color": "#ebebeb",
-					"name": "Neutral (Light Gray)"
+					"color": "#e0e0e0",
+					"name": "Neutral (Dark Gray)"
 				},
 				{
 					"slug": "primary-alt",
@@ -52,8 +52,8 @@
 				},
 				{
 					"slug": "neutral-alt",
-					"color": "#e0e0e0",
-					"name": "Neutral Alt (Dark Gray)"
+					"color": "#95a5a6",
+					"name": "Neutral Alt (Darker Gray)"
 				},
 				{
 					"slug": "foreground-alt",

@@ -42,7 +42,7 @@ You can check out our other themes here: https://xtremelysocial.com/wordpress/
 == Changelog ==
 
 = 1.2 =
-May 3, 2023
+May 7, 2023
 
 Updates for WordPress v6.2:
 * Updated the theme to use core WordPress v6.2 default, wide, and full width handling (useRootPaddingAwareAlignments). Set the overall layout to have left and right padding (preset spacing 52 which is responsive from small to large).
@@ -51,8 +51,11 @@ Updates for WordPress v6.2:
 * Fixes for various block patterns for WordPress v6.2: all the cover images, the button in the 2-column call-to-action, and the large social media icons.
 * Added new pattern for Call to Action Rounded. This is a wide-with group with colored background and rounded borders.
 * Added new pattern for Testimonial. This is a full-wide colored group with profile pic, quote, and the person's name.
-* Added custom style of Large for quotes. This was removed for some reason in WordPress v6.2 although the CSS for it remains.
-* Remove bold font files (weight 700) as we use weights 300, 400, and 500 only. This reduces the size of the theme.
+* Cleaned up Quote styling, such as vertical space above the quote author (cite).
+* Remove bold font files (weight 700) as we use weights 300, 400, and 500 only. This reduces the overall size of the theme.
+* Updated the various theme styles that specify fonts to set it at the heading level now that WordPress v6.2 supports that. Previously we had specify each individual h1, h2, h3, etc.
+* Reduced the number of custom group styles to only the ones used directly in the theme templates, template parts, and patterns. In WordPress v6.2 its very easy for users to choose preset spacing for padding and margin, so fewer group styles related to those are needed.
+* Added a new header menu dark template part and set header dark and header dark fixed to use it. This way those header menus will have a dark background to match the header background itself.
 * Added link and hover color to the Site Title in theme.json (core/site-title) now that it doesn't default from the overall theme link and hover colors.
 * Added button hover color to theme.json and removed the css from flat-blocks.css.
 * Fix for center align on images now that WordPress uses the figure tag.

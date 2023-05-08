@@ -14,32 +14,7 @@
 			}
 		},
 		"elements": {
-			"h1": {
-				"typography": {
-					"fontFamily": "var(--wp--preset--font-family--georgia)"
-				}
-			},
-			"h2": {
-				"typography": {
-					"fontFamily": "var(--wp--preset--font-family--georgia)"
-				}
-			},
-			"h3": {
-				"typography": {
-					"fontFamily": "var(--wp--preset--font-family--georgia)"
-				}
-			},
-			"h4": {
-				"typography": {
-					"fontFamily": "var(--wp--preset--font-family--georgia)"
-				}
-			},
-			"h5": {
-				"typography": {
-					"fontFamily": "var(--wp--preset--font-family--georgia)"
-				}
-			},
-			"h6": {
+			"heading": {
 				"typography": {
 					"fontFamily": "var(--wp--preset--font-family--georgia)"
 				}

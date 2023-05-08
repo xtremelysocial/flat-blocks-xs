@@ -111,10 +111,10 @@ body {
 --------------------------------------------------------------*/
 
 /* FIX to add back padding to full width sections */
-.has-global-padding > .alignfull,
-.has-global-padding.alignfull,
-.has-background > .alignfull,
-.has-background.alignfull {
+.has-global-padding > .alignfull:not(.wp-block-image),
+.has-global-padding.alignfull:not(.wp-block-image),
+.has-background > .alignfull:not(.wp-block-image),
+.has-background.alignfull:not(.wp-block-image) {
     padding-left: var(--wp--style--root--padding-left, var(--wp--preset--spacing--52));
     padding-right: var(--wp--style--root--padding-right, var(--wp--preset--spacing--52));
 }
@@ -372,6 +372,13 @@ p.has-background {
 	font-size: 1em
 }*/
 
+/* OVERRIDE quote citation to be on new line */
+.wp-block-quote cite,
+.wp-block-pullquote cite {
+	display: inline-block; 
+}
+
+
 /* OVERRIDE remove top margin because we use padding instead */
 .wp-block-pullquote p {
 	margin-top: 0; 
@@ -419,16 +426,59 @@ p.has-background {
 /*--------------------------------------------------------------
 # Latest Posts
 --------------------------------------------------------------*/
-.wp-block-latest-posts__featured-image.aligncenter {
+
+/* Set latest posts list (ul's) to match ul lists */
+/**.wp-block-latest-posts.wp-block-latest-posts__list:not(.is-grid) {
+	list-style: disc;
+	padding-left: var(--wp--preset--spacing--60);**/ /*inherit;*/
+/**}**/
+
+/**.wp-block-latest-posts.wp-block-latest-posts__list.is-grid {
+	padding-left: 0;
+}**/
+
+/*.wp-block-latest-posts.wp-block-latest-posts__list li {
 	margin-bottom: var(--wp--preset--spacing--30);
-}
+}*/
+
+/**.wp-block-latest-posts__featured-image.aligncenter {
+	margin-bottom: var(--wp--preset--spacing--30);
+}**/
 
 /*--------------------------------------------------------------
 # Latest Comments
 --------------------------------------------------------------*/
 /* Set latest comments list (ol's) to match ul lists */
-.wp-block-latest-comments__comment {
+/**.wp-block-latest-comments.is-style-default .wp-block-latest-comments__comment {
 	list-style: disc;
+	margin-bottom: 0;
+}**/
+
+/* Fix extra padding issue in Block Editor */
+/**.wp-block-latest-comments.is-style-default .wp-block-latest-comments {
+	padding-left: var(--wp--preset--spacing--40);
+}**/
+
+/* Remove indent and bullet if has avatars, dates or excerpts */
+/**.wp-block-latest-comments.has-avatars,
+.wp-block-latest-comments.has-dates,
+.wp-block-latest-comments.has-excerpts {
+	padding-left: 0 !important;
+}
+.wp-block-latest-comments.has-avatars .wp-block-latest-comments__comment,
+.wp-block-latest-comments.has-dates .wp-block-latest-comments__comment,
+.wp-block-latest-comments.has-excerpts .wp-block-latest-comments__comment {
+	list-style: none;
+}**/
+
+/* Set default latest comments to match latest posts, which has no bullets or indent */
+.wp-block-latest-comments {
+	list-style: none;
+	padding-left: 0;
+}
+
+.wp-block-latest-comments__comment {
+	margin-bottom: 0;
 }
 
 /*--------------------------------------------------------------

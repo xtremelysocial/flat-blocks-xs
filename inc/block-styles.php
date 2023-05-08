@@ -33,7 +33,7 @@ if ( function_exists( 'register_block_style' ) ) {
 			array(
 				'name'  => 'fixed-header',
 				'label' => esc_html__( 'Fixed Header', 'flat-blocks' ),
-				'style_handle'	=> 'flatblocks-custom-fixedheader'
+				'style_handle'	=> 'flatblocks-fixedheader-styles'
 			)
 		);
 
@@ -47,7 +47,7 @@ if ( function_exists( 'register_block_style' ) ) {
 			array(
 				'name'  => 'fixed-menu',
 				'label' => esc_html__( 'Fixed Menu', 'flat-blocks' ),
-				'style_handle'	=> 'flatblocks-custom-fixedheader'
+				'style_handle'	=> 'flatblocks-fixedheader-styles'
 			)
 		);
 
@@ -57,7 +57,7 @@ if ( function_exists( 'register_block_style' ) ) {
 			array(
 				'name'  => 'top-margin',
 				'label' => esc_html__( 'Top Margin', 'flat-blocks' ),
-				'style_handle'	=> 'flatblocks-custom-fixedheader'
+				'style_handle'	=> 'flatblocks-custom-styles'
 			)
 		);
 
@@ -172,14 +172,14 @@ if ( function_exists( 'register_block_style' ) ) {
 		// Quote: Large
 		// Note: This was removed from WordPress v6.2 although the CSS
 		// is still there.
-		register_block_style(
+		/*register_block_style(
 			'core/quote',
 			array(
 				'name'  => 'large',
 				'label' => esc_html__( 'Large', 'flat-blocks' ),
 				'style_handle'	=> 'flatblocks-custom-styles'
 			)
-		);
+		);*/
 
 		/*--------------------------------------------------------------
 		# Separator
@@ -209,7 +209,7 @@ if ( function_exists( 'register_block_style' ) ) {
 		# Latest Posts and Latest Comments styles
 		--------------------------------------------------------------*/
 		// Latest Posts: Dividers.
-		register_block_style(
+		/*register_block_style(
 			'core/latest-posts',
 			array(
 				'name'  => 'latest-posts-dividers',
@@ -226,10 +226,10 @@ if ( function_exists( 'register_block_style' ) ) {
 				'label' => esc_html__( 'Borders', 'flat-blocks' ),
 				'style_handle'	=> 'flatblocks-custom-styles'
 			)
-		);
+		);*/
 
 		// Latest Posts: Plain.
-		register_block_style(
+		/**register_block_style(
 			'core/latest-posts',
 			array(
 				'name'  => 'latest-posts-plain',
@@ -244,6 +244,26 @@ if ( function_exists( 'register_block_style' ) ) {
 			array(
 				'name'  => 'latest-comments-plain',
 				'label' => esc_html__( 'Plain', 'flat-blocks' ),
+				'style_handle'	=> 'flatblocks-custom-styles'
+			)
+		);**/
+
+		// Latest Posts: Bullets.
+		register_block_style(
+			'core/latest-posts',
+			array(
+				'name'  => 'bullets',
+				'label' => esc_html__( 'Bullets', 'flat-blocks' ),
+				'style_handle'	=> 'flatblocks-custom-styles'
+			)
+		);
+
+		// Latest Comments: Bullets.
+		register_block_style(
+			'core/latest-comments',
+			array(
+				'name'  => 'bullets',
+				'label' => esc_html__( 'Bullets', 'flat-blocks' ),
 				'style_handle'	=> 'flatblocks-custom-styles'
 			)
 		);
@@ -262,22 +282,22 @@ if ( function_exists( 'register_block_style' ) ) {
 			)
 		);
 
-		// Group: Medium Padding.
+		// Group: Small Padding.
 		register_block_style(
 			'core/group',
 			array(
-				'name'  => 'medium-padding',
-				'label' => esc_html__( 'Medium Padding', 'flat-blocks' ),
+				'name'  => 'small-padding',
+				'label' => esc_html__( 'Small Padding', 'flat-blocks' ),
 				'style_handle'	=> 'flatblocks-custom-styles'
 			)
 		);
 
-		// Group: Thick Padding.
+		// Group: Large Padding.
 		register_block_style(
 			'core/group',
 			array(
-				'name'  => 'thick-padding',
-				'label' => esc_html__( 'Thick Padding', 'flat-blocks' ),
+				'name'  => 'large-padding',
+				'label' => esc_html__( 'Large Padding', 'flat-blocks' ),
 				'style_handle'	=> 'flatblocks-custom-styles'
 			)
 		);
@@ -302,25 +322,25 @@ if ( function_exists( 'register_block_style' ) ) {
 			)
 		);
 
-		// Group: Medium Padding, No Margin
-		register_block_style(
+		// Group: Small Padding, No Margin
+		/*register_block_style(
 			'core/group',
 			array(
-				'name'  => 'medium-padding-no-top-margin',
-				'label' => esc_html__( 'Med Pad, No Margin', 'flat-blocks' ),
+				'name'  => 'small-padding-no-top-margin',
+				'label' => esc_html__( 'Small Pad, No Margin', 'flat-blocks' ),
 				'style_handle'	=> 'flatblocks-custom-styles'
 			)
-		);
+		);*/
 
-		// Group: Thick Padding, No Margin
-		register_block_style(
+		// Group: Large Padding, No Margin
+		/*register_block_style(
 			'core/group',
 			array(
-				'name'  => 'thick-padding-no-top-margin',
-				'label' => esc_html__( 'Thick Pad, No Margin', 'flat-blocks' ),
+				'name'  => 'large-padding-no-top-margin',
+				'label' => esc_html__( 'Large Pad, No Margin', 'flat-blocks' ),
 				'style_handle'	=> 'flatblocks-custom-styles'
 			)
-		);
+		);*/
 
 		// Group: Rounded Borders.
 		register_block_style(
@@ -333,26 +353,26 @@ if ( function_exists( 'register_block_style' ) ) {
 		);
 
 		// Group: Rounded Borders No Padding.
-		register_block_style(
+		/*register_block_style(
 			'core/group',
 			array(
 				'name'  => 'rounded-borders-no-padding',
 				'label' => esc_html__( 'Borders No Padding', 'flat-blocks' ),
 				'style_handle'	=> 'flatblocks-custom-styles'
 			)
-		);
+		);*/
 
-		// Group: Rounded Borders Thick Padding.
-		register_block_style(
+		// Group: Rounded Borders Large Padding.
+		/*register_block_style(
 			'core/group',
 			array(
-				'name'  => 'rounded-borders-thick-padding',
-				'label' => esc_html__( 'Borders Thick Padding', 'flat-blocks' ),
+				'name'  => 'rounded-borders-large-padding',
+				'label' => esc_html__( 'Borders Large Padding', 'flat-blocks' ),
 				'style_handle'	=> 'flatblocks-custom-styles'
 			)
-		);
+		);*/
 
-		// Group: Thick Rounded Borders.
+		// Group: Thick Rounded Borders with Padding.
 		register_block_style(
 			'core/group',
 			array(
@@ -417,14 +437,14 @@ if ( function_exists( 'register_block_style' ) ) {
 		);
 
 		// Columns: No Top Margin.
-		register_block_style(
+		/*register_block_style(
 			'core/columns',
 			array(
 				'name'  => 'no-bottom-margin',
 				'label' => esc_html__( 'No Bottom Margin', 'flat-blocks' ),
 				'style_handle'	=> 'flatblocks-custom-styles'
 			)
-		);
+		);*/
 
 		// Columns: No Gap.
 		register_block_style(
@@ -469,22 +489,22 @@ if ( function_exists( 'register_block_style' ) ) {
 			)
 		);
 
-		// Column: Medium Padding.
+		// Column: Small Padding.
 		/*register_block_style(
 			'core/column',
 			array(
-				'name'  => 'medium-padding',
-				'label' => esc_html__( 'Medium Padding', 'flat-blocks' ),
+				'name'  => 'small-padding',
+				'label' => esc_html__( 'Small Padding', 'flat-blocks' ),
 				'style_handle'	=> 'flatblocks-custom-styles'
 			)
 		);*/
 
-		// Column: Thick Padding.
+		// Column: Large Padding.
 		register_block_style(
 			'core/column',
 			array(
-				'name'  => 'thick-padding',
-				'label' => esc_html__( 'Thick Padding', 'flat-blocks' ),
+				'name'  => 'large-padding',
+				'label' => esc_html__( 'Large Padding', 'flat-blocks' ),
 				'style_handle'	=> 'flatblocks-custom-styles'
 			)
 		);
@@ -500,14 +520,14 @@ if ( function_exists( 'register_block_style' ) ) {
 		);
 
 		// Column: Rounded Borders No Padding.
-		register_block_style(
+		/*register_block_style(
 			'core/column',
 			array(
 				'name'  => 'rounded-borders-no-padding',
 				'label' => esc_html__( 'Rounded Borders No Padding', 'flat-blocks' ),
 				'style_handle'	=> 'flatblocks-custom-styles'
 			)
-		);
+		);*/
 
 		// Column: No Margin.
 		register_block_style(
@@ -534,14 +554,14 @@ if ( function_exists( 'register_block_style' ) ) {
 		);
 
 		/* For backwards compatibility with the old comments block */
-		register_block_style(
+		/*register_block_style(
 			'core/post-comments',
 			array(
 				'name'  => 'rounded-borders',
 				'label' => esc_html__( 'Borders', 'flat-blocks' ),
 				'style_handle'	=> 'flatblocks-custom-styles'
 			)
-		);
+		);*/
 
 
 		/*--------------------------------------------------------------
