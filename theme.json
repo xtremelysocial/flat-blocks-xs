@@ -1057,9 +1057,6 @@
 			"core/post-date": {
 				"typography": {
 					"fontSize": "var(--wp--preset--font-size--small)"
-				},
-				"color": {
-					"link": "var(--wp--preset--color--foreground)"
 				}
 			},
 			"core/post-terms": {
@@ -1089,9 +1086,6 @@
 			"core/post-comments-count": {
 				"typography": {
 					"fontSize": "var(--wp--preset--font-size--small)"
-				},
-				"color": {
-					"link": "var(--wp--preset--color--foreground)"
 				}
 			},
 			"core/list": {

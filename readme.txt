@@ -58,6 +58,8 @@ Updates for WordPress v6.2:
 * Added a new header menu dark template part and set header dark and header dark fixed to use it. This way those header menus will have a dark background to match the header background itself.
 * Added link and hover color to the Site Title in theme.json (core/site-title) now that it doesn't default from the overall theme link and hover colors.
 * Added button hover color to theme.json and removed the css from flat-blocks.css.
+* Add Bullet style to latest posts and latest comments blocks since default is now plain (no bullets).
+* Remove extra padding on sub-menus that have colored backgrounds.
 * Fix for center align on images now that WordPress uses the figure tag.
 
 = 1.1 =

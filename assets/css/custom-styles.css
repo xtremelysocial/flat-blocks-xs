@@ -534,14 +534,31 @@ p.is-style-no-link-underline a:hover {
 	list-style: none;
 	margin-bottom: var(--wp--preset--spacing--30);
 }**/
-/* Add bullets and padding */
+
+/* Front-end Add bullets and padding */
 .wp-block-latest-comments.is-style-bullets {
 	box-sizing: border-box;
 	list-style: disc;
+}
+.wp-block-latest-comments.is-style-bullets:not(.has-avatars) {
 	padding-left: var(--wp--preset--spacing--60);
 }
-.wp-block-latest-comments.is-style-bullets li { /*.wp-block-latest-comments__comment {*/
+.wp-block-latest-comments.is-style-bullets li {
     list-style: disc;
+}
+.wp-block-latest-comments.is-style-bullets.has-avatars .wp-block-latest-comments__comment {
+	list-style-position: inside;
+}
+
+/* Editor has nested lists, so push padding down to nested one */
+.is-root-container .wp-block-latest-comments.is-style-bullets {
+	padding-left: 0
+}
+.is-root-container .wp-block-latest-comments.is-style-bullets .wp-block-latest-comments:not(.has-avatars) {
+	padding-left: var(--wp--preset--spacing--60);
+}
+.is-root-container .wp-block-latest-comments.is-style-bullets .wp-block-latest-comments.has-avatars .wp-block-latest-comments__comment { 
+	list-style-position: inside;
 }
 
 /*--------------------------------------------------------------

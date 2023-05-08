@@ -205,6 +205,12 @@ pre {
 	overflow-x: auto;
 }
 
+/* Set lists with background to match other padding */
+ol.has-background,
+ul.has-background {
+    padding: var(--wp--preset--spacing--40);
+}
+
 /*--------------------------------------------------------------
 # Buttons
 --------------------------------------------------------------*/
@@ -249,6 +255,11 @@ input:not([type="radio"]):not([type="checkbox"]) {
 /*--------------------------------------------------------------
 # Navigation
 --------------------------------------------------------------*/
+
+/* Remove extra padding on sub-menus with backgrounds */
+ul.wp-block-navigation__submenu-container.has-background {
+	padding: 0;
+}
 
 /* Match navigation padding to our theme */
 /*.wp-block-navigation:where(.has-background) .wp-block-navigation-item__content, 
