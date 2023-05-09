@@ -86,23 +86,17 @@ body {
 --------------------------------------------------------------*/
 
 /* Groups with backgrounds have 2x the block gap setting */
-.wp-block-group.has-background /*,
-.wp-block-group:where(.has-background),
-:where(.wp-block-group.has-background)*/ {
+.wp-block-group.has-background {
 	padding: var(--wp--preset--spacing--60);
 }
 
 /* Columns container with backgrounds have 2x the block gap setting */
-.wp-block-columns.has-background /*,
-.wp-block-columns:where(.has-background),
-:where(.wp-block-columns.has-background)*/ {
+.wp-block-columns.has-background {
 	padding: var(--wp--preset--spacing--60);
 }
 
 /* Individual columns with backgrounds have 1x the block gap setting */
-.wp-block-column.has-background /*,
-.wp-block-column:where(.has-background),
-:where(.wp-block-column.has-background)*/ {
+.wp-block-column.has-background  {
 	padding: var(--wp--preset--spacing--40);
 }
 
@@ -111,10 +105,10 @@ body {
 --------------------------------------------------------------*/
 
 /* FIX to add back padding to full width sections */
-.has-global-padding > .alignfull:not(.wp-block-image),
-.has-global-padding.alignfull:not(.wp-block-image),
-.has-background > .alignfull:not(.wp-block-image),
-.has-background.alignfull:not(.wp-block-image) {
+.has-global-padding > .alignfull:not(.wp-block-image,.wp-block-columns),
+.has-global-padding.alignfull:not(.wp-block-image,.wp-block-columns),
+.has-background > .alignfull:not(.wp-block-image,.wp-block-columns),
+.has-background.alignfull:not(.wp-block-image,.wp-block-columns) {
     padding-left: var(--wp--style--root--padding-left, var(--wp--preset--spacing--52));
     padding-right: var(--wp--style--root--padding-right, var(--wp--preset--spacing--52));
 }
@@ -122,8 +116,6 @@ body {
 /* ADD limit cover image text to wide width */
 .wp-block-cover__inner-container {
 	max-width: var(--wp--style--global--wide-size); 
-	/*padding-left: var(--wp--style--root--padding-left, var(--wp--preset--spacing--52)); 
-	padding-right: var(--wp--style--root--padding-right, var(--wp--preset--spacing--52));*/
 }
 
 /*
@@ -144,7 +136,7 @@ body {
 --------------------------------------------------------------*/
 
 /* FIX for center alignment */
-body .is-layout-constrained > .aligncenter {
+.is-layout-constrained > .aligncenter {
 	text-align: center;
 }
 
@@ -157,7 +149,7 @@ body .is-layout-constrained > .aligncenter {
  * https://github.com/WordPress/gutenberg/issues/27075
  */
 a {
-	/*text-decoration: none !important;*/
+	cursor: pointer;
 	text-decoration-thickness: 1px;
 	text-underline-offset: 0.5ch;
 }
@@ -188,7 +180,6 @@ a {
 	font-weight: var(--wp--custom--typography--font-weight--normal);
 }
 
-
 /*--------------------------------------------------------------
 # Elements
 --------------------------------------------------------------*/
@@ -209,6 +200,7 @@ pre {
 ol.has-background,
 ul.has-background {
     padding: var(--wp--preset--spacing--40);
+    list-style-position: inside;
 }
 
 /*--------------------------------------------------------------
@@ -219,11 +211,6 @@ button {
 	border-radius: var(--wp--custom--border--radius);
 }
 
-/* FIX for comment submit button */
-/*.form-submit.wp-block-button {
-  	margin-bottom: 0;
-}*/
-
 /* Prevent iOS from rounding buttons */
 input:not([type="radio"]):not([type="checkbox"]) {
     -webkit-appearance: none;
@@ -233,23 +220,11 @@ input:not([type="radio"]):not([type="checkbox"]) {
 # Profile Pics (Avatars)
 --------------------------------------------------------------*/
 
-/* Style user profile pics (avatars) as circles and floated with margins */
-/*.avatar {
-	float: left;
-	margin-right: 10px;
-	margin-bottom: 10px;
-}*/
-
-.avatar,
+/*.avatar,
 .testimonial-thumbnail {
 	-webkit-border-radius: 50%;
 	-moz-border-radius: 50%;
 	border-radius: 50%;
-}
-
-/*img.avatar.thumbnail {
-	border: none;
-	padding: 0;
 }*/
 
 /*--------------------------------------------------------------
@@ -260,66 +235,6 @@ input:not([type="radio"]):not([type="checkbox"]) {
 ul.wp-block-navigation__submenu-container.has-background {
 	padding: 0;
 }
-
-/* Match navigation padding to our theme */
-/*.wp-block-navigation:where(.has-background) .wp-block-navigation-item__content, 
-.wp-block-navigation :where(.wp-block-navigation__submenu-container) .wp-block-navigation-item__content {
-    padding: var(--wp--preset--spacing--20) var(--wp--preset--spacing--30);
-}*/
-
-/* Remove the default li left margin because we use padding instead */
-/*.wp-block-navigation ul, 
-.wp-block-navigation ul li {
-	margin-left: 0;
-}*/
-
-/* Adjust navigation padding so that open and close menu buttons line up */
-/*.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content {
-	padding-top: var(--wp--preset--spacing--60);
-}*/
-
-/* Reduce vertical gap on nav menus for when they wrap */
-/*.wp-block-navigation {
-	row-gap: var(--wp--preset--spacing--20) !important;
-}*/
-
-/* Do this in the Block Editor too. It renders a bit differently. */
-/*.is-root-container .wp-block-navigation-item__content {
-	padding-right: var(--wp--preset--spacing--20);
-}
-.is-root-container .wp-block-navigation__submenu-icon {
-	margin-left: 0;
-}*/
-
-/* Replace the default mobile menu with a dashicon */
-/*.wp-block-navigation__responsive-container-open:before {
-	font-family: dashicons;
-	content: "\f333";
-	opacity: 0.85;
-}*/
-
-/* Replace the default mobile menu close button with a dashicon to match */
-/*.wp-block-navigation__responsive-container-close:before {
-	font-family: dashicons;
-	content: "\f335";
-	opacity: 0.85;
-}*/
-
-/*.wp-block-navigation__responsive-container-open,
-.wp-block-navigation__responsive-container-close {
-	font-size: var(--wp--preset--font-size--large);
-}*/
-
-/* Hide the default svg icons */
-/*.wp-block-navigation__responsive-container-open svg,
-.wp-block-navigation__responsive-container-close svg {
-	display: none;
-}*/
-
-/* Align menu text for when images are added */
-/*.wp-block-navigation-item__label img {
-  vertical-align: middle;
-}*/
 
 /*--------------------------------------------------------------
 # Images
@@ -347,48 +262,25 @@ p.has-background {
 
 /* Adjust outer padding on mobile */
 /* Breakpoint of 781 is what is hard-coded in WordPress v6.0 to collapse columns */
-/*@media only screen and (max-width: 781px) {
+@media only screen and (max-width: 781px) {
 	
 	p.has-background {
 		padding-left: var(--wp--style--root--padding-left, var(--wp--preset--spacing--52));
 		padding-right: var(--wp--style--root--padding-right, var(--wp--preset--spacing--52));
 	}
 
-}*/
+}
 
 /*--------------------------------------------------------------
 # Quotes
 --------------------------------------------------------------*/
 
-/* OVERRIDE WordPress removing left border on centered quotes */
-/*.wp-block-quote.is-style-default.has-text-align-center {
-	border-width: 0 0 0 var(--wp--custom--border--thick);
-	border-style: var(--wp--custom--border--style);
-	border-color: var(--wp--preset--color--primary);
-}*/
-
-/* FIX WordPress front end removing left border on quotes but not on backend */
-/**.wp-block-quote.is-large, 
-.wp-block-quote.is-style-large, 
-.wp-block-quote.is-style-plain {
-	border:none
-}**/
-
-/* FIX WordPress further increasing the quote font size beyond what the user set */
-/**.wp-block-quote p,
-.wp-block-pullquote.alignleft p, 
-.wp-block-pullquote.alignright p, 
-.wp-block-pullquote.has-text-align-left p, 
-.wp-block-pullquote.has-text-align-right p {
-	font-size: 1em
-}*/
-
 /* OVERRIDE quote citation to be on new line */
 .wp-block-quote cite,
 .wp-block-pullquote cite {
-	display: inline-block; 
+	display: inline-block;
+	text-transform: none;
 }
-
 
 /* OVERRIDE remove top margin because we use padding instead */
 .wp-block-pullquote p {
@@ -416,14 +308,6 @@ p.has-background {
 	margin: 0;
 }*/
 
-/* Set word breaks so long URL's in comments don't break layout */
-/*.comment-content {
-  overflow-wrap: break-word;
-  word-wrap: break-word;
-  word-break: break-word;*/
-  /*hyphens: auto;*/
-/*}*/
-
 /*--------------------------------------------------------------
 # Separator
 --------------------------------------------------------------*/
@@ -435,53 +319,8 @@ p.has-background {
 }
 
 /*--------------------------------------------------------------
-# Latest Posts
---------------------------------------------------------------*/
-
-/* Set latest posts list (ul's) to match ul lists */
-/**.wp-block-latest-posts.wp-block-latest-posts__list:not(.is-grid) {
-	list-style: disc;
-	padding-left: var(--wp--preset--spacing--60);**/ /*inherit;*/
-/**}**/
-
-/**.wp-block-latest-posts.wp-block-latest-posts__list.is-grid {
-	padding-left: 0;
-}**/
-
-/*.wp-block-latest-posts.wp-block-latest-posts__list li {
-	margin-bottom: var(--wp--preset--spacing--30);
-}*/
-
-/**.wp-block-latest-posts__featured-image.aligncenter {
-	margin-bottom: var(--wp--preset--spacing--30);
-}**/
-
-/*--------------------------------------------------------------
 # Latest Comments
 --------------------------------------------------------------*/
-/* Set latest comments list (ol's) to match ul lists */
-/**.wp-block-latest-comments.is-style-default .wp-block-latest-comments__comment {
-	list-style: disc;
-	margin-bottom: 0;
-}**/
-
-/* Fix extra padding issue in Block Editor */
-/**.wp-block-latest-comments.is-style-default .wp-block-latest-comments {
-	padding-left: var(--wp--preset--spacing--40);
-}**/
-
-/* Remove indent and bullet if has avatars, dates or excerpts */
-/**.wp-block-latest-comments.has-avatars,
-.wp-block-latest-comments.has-dates,
-.wp-block-latest-comments.has-excerpts {
-	padding-left: 0 !important;
-}
-.wp-block-latest-comments.has-avatars .wp-block-latest-comments__comment,
-.wp-block-latest-comments.has-dates .wp-block-latest-comments__comment,
-.wp-block-latest-comments.has-excerpts .wp-block-latest-comments__comment {
-	list-style: none;
-}**/
-
 /* Set default latest comments to match latest posts, which has no bullets or indent */
 .wp-block-latest-comments {
 	list-style: none;

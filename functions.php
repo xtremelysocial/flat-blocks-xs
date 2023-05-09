@@ -159,18 +159,6 @@ if ( ! function_exists( 'flatblocks_editor_styles' ) ) :
 
 	function flatblocks_editor_styles() {
 	
-		// Add the theme base
-		/*add_editor_style( '/assets/css/flat-blocks.css');
-
-		// Add our custom styles and theme style.
-		// Note: Don't add fixedheader yet as its not working in the Block Editor
-		add_editor_style( array(
-				'/assets/css/custom-styles.css', //,
-				//'/assets/css/custom-fixedheader.css'
-				'style.css'
-			)
-		);*/
-		
 		// As a courtesy, add the child theme CSS to the Block Editor if it exists.
 		if ( is_child_theme() && file_exists( get_stylesheet_directory() . '/style.css' ) ) {
 			add_editor_style(

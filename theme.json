@@ -168,7 +168,7 @@
 				},
 				{
 					"colors": ["#34495e", "#1abc9c"],
-					"slug": "secondary-andprimary",
+					"slug": "secondary-and-primary",
 					"name": "Secondary and Primary"
 				},
 				{
@@ -302,8 +302,8 @@
 				},
 				{
 					"slug": "foreground-alt",
-					"color": "#f2f2f2",
-					"name": "Foreground Alt (Off White)"
+					"color": "#ffffff",
+					"name": "Foreground Alt (White)"
 				},
 				{
 					"slug": "background",
@@ -828,11 +828,6 @@
 					}
 				}
 			},
-			"core/columns": {
-				"border": {
-					"color": "var(--wp--custom--border--color)"
-				}
-			},
 			"core/post-title": {
 				"typography": {
 					"fontSize": "var(--wp--preset--font-size--larger)",
@@ -906,9 +901,11 @@
 			},
 			"core/quote": {
 				"border": {
-					"color": "var(--wp--preset--color--primary)",
-					"style": "var(--wp--custom--border--style)",
-					"width": "0 0 0 var(--wp--custom--border--thick)"
+					"left": {
+						"style": "var(--wp--custom--border--style)",
+						"color": "var(--wp--preset--color--primary)",
+						"width": "var(--wp--custom--border--thick)"
+					}
 				},
 				"spacing": {
 					"padding": {
@@ -955,7 +952,20 @@
 			"core/pullquote": {
 				"border": {
 					"style": "var(--wp--custom--border--style)",
-					"width": "var(--wp--custom--border--thin) 0 var(--wp--custom--border--thin) 0"
+					"bottom": {
+						"width": "var(--wp--custom--border--thin)"
+					},
+					"left": {
+						"style": "none",
+						"width": "0px"
+					},
+					"right": {
+						"style": "none",
+						"width": "0px"
+					},
+					"top": {
+						"width": "var(--wp--custom--border--thin)"
+					}
 				},
 				"spacing": {
 					"padding": {
@@ -1086,6 +1096,11 @@
 			"core/post-comments-count": {
 				"typography": {
 					"fontSize": "var(--wp--preset--font-size--small)"
+				}
+			},
+			"core/avatar": {
+				"border": {
+					"radius": "50%"
 				}
 			},
 			"core/list": {
@@ -1243,6 +1258,11 @@
 		{
 			"name": "menu-header-centered",
 			"title": "Menu Header Centered",
+			"area": "uncategorized"
+		},
+		{
+			"name": "menu-header-dark",
+			"title": "Menu Header Dark",
 			"area": "uncategorized"
 		},
 		{
