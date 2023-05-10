@@ -60,6 +60,8 @@ Updates for WordPress v6.2:
 * Added button hover color to theme.json and removed the css from flat-blocks.css.
 * Add Bullet style to latest posts and latest comments blocks since default is now plain (no bullets).
 * Remove extra padding on sub-menus that have colored backgrounds.
+* Remove custom border thin, normal, thick, and style and replace with hard-coded values. custom-border-color and custom-border-radius are still in place and used in the theme CSS
+* Remove bold-faced font from theme style Red Uppercase.
 * Fix for center align on images now that WordPress uses the figure tag.
 
 = 1.1 =

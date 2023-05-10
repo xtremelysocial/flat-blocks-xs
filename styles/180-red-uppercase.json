@@ -11,13 +11,11 @@
 			},
 			"core/navigation": {
 				"typography": {
-					"fontWeight": "400",
 					"textTransform": "none"
 				}
 			},
 			"core/navigation-item": {
 				"typography": {
-					"fontWeight": "400",
 					"textTransform": "none"
 				}
 			}

@@ -168,7 +168,7 @@ a {
 
 /* Set search button to match theme.json */
 .wp-block-search__button {
-	border: var(--wp--custom--border--width) var(--wp--custom--border--style) transparent;
+	border: var(--wp--custom--border--width) solid transparent;
 	border-radius: var(--wp--custom--border--radius);
 	padding: var(--wp--preset--spacing--30) var(--wp--preset--spacing--40);
 }
