@@ -850,10 +850,7 @@
 			},
 			"core/button": {
 				"border": {
-					"color": "var(--wp--preset--color--primary)",
-					"radius": {"ref": "styles.border.radius"},
-					"style": {"ref": "styles.border.style"},
-					"width": "3px"
+					"radius": {"ref": "styles.border.radius"}
 				},
 				"color": {
 					"background": "var(--wp--preset--color--primary)",
@@ -877,7 +874,7 @@
 						"border": {
 							"color": "inherit",
 							"radius": {"ref": "styles.border.radius"},
-							"style": {"ref": "styles.border.style"},
+							"style": "solid",
 							"width": "3px"
 						},
 						"spacing": {
@@ -893,19 +890,16 @@
 			},
 			"core/post-featured-image": {
 				"border": {
-					"color": {"ref": "styles.border.color"},
-					"style": {"ref": "styles.border.style"},
+					"color": "var(--wp--custom--border--color)",
+					"style": "solid",
 					"radius": {"ref": "styles.border.radius"},
 					"width": "1px"
-				},
-				"spacing": {
-					"padding": {"ref": "styles.border.radius"}
 				}
 			},
 			"core/quote": {
 				"border": {
 					"left": {
-						"style": {"ref": "styles.border.style"},
+						"style": "solid",
 						"color": "var(--wp--preset--color--primary)",
 						"width": "6px"
 					}
@@ -954,7 +948,7 @@
 			},
 			"core/pullquote": {
 				"border": {
-					"style": {"ref": "styles.border.style"},
+					"style": "solid",
 					"bottom": {
 						"width": "1px"
 					},
@@ -1040,9 +1034,9 @@
 					"padding": "var:preset|spacing|40"
 				},
 				"border": {
-					"color": {"ref": "styles.border.color"},
+					"color": "var(--wp--custom--border--color)",
 					"radius": {"ref": "styles.border.radius"},
-					"style": {"ref": "styles.border.style"},
+					"style": "solid",
 					"width": "3px"
 				},
 				"color": {
@@ -1119,7 +1113,7 @@
 			"core/separator": {
 				"border": {
 					"color": "currentColor",
-					"style": {"ref": "styles.border.style"},
+					"style": "solid",
 					"width": "0 0 1px 0"
 				},
 				"variations": {
@@ -1181,8 +1175,6 @@
 			},
 			"button": {
 				"border": {
-					"width": "3px",
-					"style": {"ref": "styles.border.style"},
 					"radius": {"ref": "styles.border.radius"}
 				},
 				"color": {

@@ -231,7 +231,7 @@ input:not([type="radio"]):not([type="checkbox"]) {
 # Navigation
 --------------------------------------------------------------*/
 
-/* Remove extra padding on sub-menus with backgrounds */
+/* REMOVE extra padding on sub-menus with backgrounds */
 ul.wp-block-navigation__submenu-container.has-background {
 	padding: 0;
 }
@@ -240,15 +240,22 @@ ul.wp-block-navigation__submenu-container.has-background {
 # Images
 --------------------------------------------------------------*/
 
-/* Fix caption color when on colored background */
+/* FIX caption color when on colored background */
 .has-background .wp-block-image figcaption {
 	color: inherit;
 	font-weight: var(--wp--custom--typography--font-weight--bold);
 }
 
-/* Fix center-aligned images since WordPress started using the figure tag */
+/* FIX center-aligned images since WordPress started using the figure tag */
 figure.wp-block-image {
 	display: table;
+}
+
+/* FIX rounded images when global image style has a border radius */
+.wp-block-image .is-style-rounded img, 
+.wp-block-image.is-style-circle-mask img, 
+.wp-block-image.is-style-rounded img {
+    border-radius: 9999px !important;
 }
 
 /*--------------------------------------------------------------

@@ -62,7 +62,8 @@ Updates for WordPress v6.2:
 * Remove extra padding on sub-menus that have colored backgrounds.
 * Remove custom border thin, normal, thick, and style and replace with hard-coded values. custom-border-color and custom-border-radius are still in place and used in the theme CSS
 * Remove bold-faced font from theme style Red Uppercase.
-* Fix for center align on images now that WordPress uses the figure tag.
+* Fix rounded image styles when global image style has a border radius.
+* Add border to rounded profile pic (avatar) on testimonials pattern.* Fix for center align on images now that WordPress uses the figure tag.
 
 = 1.1 =
 April 14, 2023
