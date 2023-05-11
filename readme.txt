@@ -64,6 +64,8 @@ Updates for WordPress v6.2:
 * Remove bold-faced font from theme style Red Uppercase.
 * Fix rounded image styles when global image style has a border radius.
 * Add border to rounded profile pic (avatar) on testimonials pattern.* Fix for center align on images now that WordPress uses the figure tag.
+* Set Outline button padding to match regular buttons factoring in the outline button border width
+* Style the file download and search buttons to match other buttons
 
 = 1.1 =
 April 14, 2023
