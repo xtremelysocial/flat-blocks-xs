@@ -167,11 +167,11 @@ a {
 }
 
 /* Set search button to match theme.json */
-.wp-block-search__button {
+/*.wp-block-search__button {
 	border: var(--wp--custom--border--width) solid transparent;
 	border-radius: var(--wp--custom--border--radius);
 	padding: var(--wp--preset--spacing--30) var(--wp--preset--spacing--40);
-}
+}*/
 
 /* FIX font size and weight on search label and search text */
 .wp-block-search .wp-block-search__label,

@@ -850,7 +850,10 @@
 			},
 			"core/button": {
 				"border": {
-					"radius": {"ref": "styles.border.radius"}
+					"width": "0px",
+					"style": "solid",
+					"color": "var(--wp--custom--border--color)",
+					"radius": "var(--wp--custom--border--radius)"
 				},
 				"color": {
 					"background": "var(--wp--preset--color--primary)",
@@ -873,17 +876,35 @@
 					"outline": {
 						"border": {
 							"color": "inherit",
-							"radius": {"ref": "styles.border.radius"},
+							"width": "3px",
 							"style": "solid",
-							"width": "3px"
+							"radius": "var(--wp--custom--border--radius)"
 						},
 						"spacing": {
 							"padding": {
-								"bottom": "var:preset|spacing|30",
-								"left": "var:preset|spacing|40",
-								"right": "var:preset|spacing|40",
-								"top": "var:preset|spacing|30"
+								"bottom": "calc(var(--wp--preset--spacing--30) - 3px)",
+								"left": "calc(var(--wp--preset--spacing--40) - 3px)",
+								"right": "calc(var(--wp--preset--spacing--40) - 3px)",
+								"top": "calc(var(--wp--preset--spacing--30) - 3px)"
 							}
+						}
+					}
+				}
+			},
+			"core/file": {
+				"elements": {
+					"button": {
+						"border": {
+							"radius": "var(--wp--custom--border--radius)"
+						}
+					}
+				}
+			},
+			"core/search": {
+				"elements": {
+					"button": {
+						"border": {
+							"width": "0px"
 						}
 					}
 				}
@@ -892,7 +913,7 @@
 				"border": {
 					"color": "var(--wp--custom--border--color)",
 					"style": "solid",
-					"radius": {"ref": "styles.border.radius"},
+					"radius": "var(--wp--custom--border--radius)",
 					"width": "1px"
 				}
 			},
@@ -1035,7 +1056,7 @@
 				},
 				"border": {
 					"color": "var(--wp--custom--border--color)",
-					"radius": {"ref": "styles.border.radius"},
+					"radius": "var(--wp--custom--border--radius)",
 					"style": "solid",
 					"width": "3px"
 				},
@@ -1175,7 +1196,10 @@
 			},
 			"button": {
 				"border": {
-					"radius": {"ref": "styles.border.radius"}
+					"color": {"ref": "styles.blocks.button.border.color"},
+					"style": {"ref": "styles.blocks.button.border.style"},
+					"radius": {"ref": "styles.blocks.button.border.radius"},
+					"width": {"ref": "styles.blocks.button.border.width"}
 				},
 				"color": {
 					"background": "var(--wp--preset--color--primary)",
