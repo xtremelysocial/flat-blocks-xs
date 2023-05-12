@@ -108,7 +108,8 @@ body {
 .has-global-padding > .alignfull:not(.wp-block-image,.wp-block-columns),
 .has-global-padding.alignfull:not(.wp-block-image,.wp-block-columns),
 .has-background > .alignfull:not(.wp-block-image,.wp-block-columns),
-.has-background.alignfull:not(.wp-block-image,.wp-block-columns) {
+.has-background.alignfull:not(.wp-block-image,.wp-block-columns),
+.wp-block-cover.alignfull {
     padding-left: var(--wp--style--root--padding-left, var(--wp--preset--spacing--52));
     padding-right: var(--wp--style--root--padding-right, var(--wp--preset--spacing--52));
 }
