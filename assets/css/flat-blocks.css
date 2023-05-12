@@ -232,6 +232,11 @@ input:not([type="radio"]):not([type="checkbox"]) {
 # Navigation
 --------------------------------------------------------------*/
 
+/* Reduce vertical gap on nav menus for when they wrap */
+.wp-block-navigation {
+	row-gap: var(--wp--preset--spacing--20) !important;
+}
+
 /* REMOVE extra padding on sub-menus with backgrounds */
 ul.wp-block-navigation__submenu-container.has-background {
 	padding: 0;
