@@ -67,7 +67,8 @@ Updates for WordPress v6.2:
 * Set Outline button padding to match regular buttons factoring in the outline button border width
 * Style the file download and search buttons to match other buttons
 * Better support for users turning on link underlining. Added several blocks to theme.json to not display link underlines, such as Lists, Latest Posts, Latest Comments, etc. because it was just TOO much underlining.
-* Added more image duotones, including ones analogous to the bulit-in WordPress ones but using our color scheme. Turned off default WordPress duotones since we now have color-matched ones.
+* Added more image duotones. Turned off default WordPress duotones as the colors clash.
+* Added more gradient colors.
 * Fix horizontal padding on Site Map page template and Sitemap Content template part that it uses. This also fixes it on the 404 page template that uses the same Sitemap Content template part. 
 
 = 1.1 =
