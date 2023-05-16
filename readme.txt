@@ -66,6 +66,9 @@ Updates for WordPress v6.2:
 * Add border to rounded profile pic (avatar) on testimonials pattern.* Fix for center align on images now that WordPress uses the figure tag.
 * Set Outline button padding to match regular buttons factoring in the outline button border width
 * Style the file download and search buttons to match other buttons
+* Better support for users turning on link underlining. Added several blocks to theme.json to not display link underlines, such as Lists, Latest Posts, Latest Comments, etc. because it was just TOO much underlining.
+* Added more image duotones, including ones analogous to the bulit-in WordPress ones but using our color scheme. Turned off default WordPress duotones since we now have color-matched ones.
+* Fix horizontal padding on Site Map page template and Sitemap Content template part that it uses. This also fixes it on the 404 page template that uses the same Sitemap Content template part. 
 
 = 1.1 =
 April 14, 2023

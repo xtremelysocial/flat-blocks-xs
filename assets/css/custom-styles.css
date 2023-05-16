@@ -83,6 +83,17 @@
 	padding: 0;
 }
 
+/*
+.wp-block-group.is-style-no-padding {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+.wp-block-group.is-style-no-padding:not(.has-global-padding) {
+	padding-left: 0;
+    padding-right: 0;
+}
+*/
+
 .wp-block-group.is-style-small-padding {
 	padding: var(--wp--preset--spacing--40) 0;
 }

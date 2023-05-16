@@ -129,17 +129,29 @@ body {
 }
 
 /*--------------------------------------------------------------
-# Links, Buttons, Search
+# Links, Buttons, and Forms
 --------------------------------------------------------------*/
 /*
  * Text and navigation link styles.
  * Necessary until the following issue is resolved in Gutenberg:
  * https://github.com/WordPress/gutenberg/issues/27075
  */
-a {
+a,
+.wp-block-navigation-submenu__toggle {
 	cursor: pointer;
 	text-decoration-thickness: 1px;
 	text-underline-offset: 0.5ch;
+}
+
+/* FIX button radius in Safari */
+button {
+	border-radius: var(--wp--custom--border--radius);
+}
+
+/* Prevent iOS from rounding buttons */
+input:not([type="radio"]):not([type="checkbox"]) {
+    -webkit-appearance: none;
+	border-radius: var(--wp--custom--border--radius);
 }
 
 /*
@@ -152,20 +164,6 @@ a {
 .wp-block-button__link:hover {
 	opacity: 0.8;
 	cursor: pointer;
-}
-
-/* Set search button to match theme.json */
-/*.wp-block-search__button {
-	border: var(--wp--custom--border--width) solid transparent;
-	border-radius: var(--wp--custom--border--radius);
-	padding: var(--wp--preset--spacing--30) var(--wp--preset--spacing--40);
-}*/
-
-/* FIX font size and weight on search label and search text */
-.wp-block-search .wp-block-search__label,
-.wp-block-search__input {
-	font-size: var(--wp--preset--font-size--small);
-	font-weight: var(--wp--custom--typography--font-weight--normal);
 }
 
 /*--------------------------------------------------------------
@@ -192,20 +190,6 @@ ul.has-background {
 }
 
 /*--------------------------------------------------------------
-# Buttons and Forms
---------------------------------------------------------------*/
-/* FIX button radius in Safari */
-button {
-	border-radius: var(--wp--custom--border--radius);
-}
-
-/* Prevent iOS from rounding buttons */
-input:not([type="radio"]):not([type="checkbox"]) {
-    -webkit-appearance: none;
-	border-radius: var(--wp--custom--border--radius);
-}
-
-/*--------------------------------------------------------------
 # Navigation
 --------------------------------------------------------------*/
 
@@ -218,6 +202,18 @@ input:not([type="radio"]):not([type="checkbox"]) {
 ul.wp-block-navigation__submenu-container.has-background {
 	padding: 0;
 }
+
+/* FIX Block Editor showing underlines on menu links */
+/*.wp-block-navigation-item__content:not([class * =has-text-decoration]) a {*/
+/*.wp-block-navigation-item__content a {
+    text-decoration: none;
+}*/
+/*.wp-block-navigation-item__content:not([class * =has-text-decoration]) a:active, 
+.wp-block-navigation-item__content:not([class * =has-text-decoration]) a:focus {*/
+/*.wp-block-navigation-item__content a:active, 
+.wp-block-navigation-item__content a:focus {
+    text-decoration: none;
+}*/
 
 /*
  * Responsive menu container padding.
