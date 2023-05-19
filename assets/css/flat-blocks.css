@@ -144,12 +144,13 @@ a,
 }
 
 /* FIX button radius in Safari */
-button {
+button,
+textarea {
 	border-radius: var(--wp--custom--border--radius);
 }
 
-/* Prevent iOS from rounding buttons */
-input:not([type="radio"]):not([type="checkbox"]) {
+/* Style default inputs (except buttons). Prevent iOS from rounding buttons */
+input:not([type="radio"]):not([type="checkbox"]):not(.wp-block-button__link) {
     -webkit-appearance: none;
 	border-radius: var(--wp--custom--border--radius);
 }
@@ -164,6 +165,25 @@ input:not([type="radio"]):not([type="checkbox"]) {
 .wp-block-button__link:hover {
 	opacity: 0.8;
 	cursor: pointer;
+}
+
+/* Style comment submit and search buttons to match other buttons */
+/*.wp-block-post-comments-form .wp-block-button .wp-block-button__link {
+	box-shadow: inherit; 
+}*/
+
+/*.wp-block-post-comments-form input[type=submit] {
+}*/
+
+/* Style focus outline */
+a:focus,
+input:focus,
+textarea:focus,
+:focus {  
+	outline: none;  
+	/*box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2);*/
+	box-shadow: 0 0 0 3px var(--wp--custom--outline--color);
+	transition: box-shadow 0.3s ease;
 }
 
 /*--------------------------------------------------------------
@@ -187,6 +207,17 @@ ol.has-background,
 ul.has-background {
     padding: var(--wp--preset--spacing--40);
     list-style-position: inside;
+}
+
+/* If user specifies global heading font colors, don't override on colored backgrounds */
+.has-background .wp-block-heading:not(.has-text-color),
+.has-background h1:not(.has-text-color), 
+.has-background h2:not(.has-text-color),
+.has-background h3:not(.has-text-color),
+.has-background h4:not(.has-text-color),  
+.has-background h5:not(.has-text-color),	
+.has-background h6:not(.has-text-color) {
+	color: inherit;
 }
 
 /*--------------------------------------------------------------
