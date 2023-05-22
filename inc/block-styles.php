@@ -22,7 +22,7 @@ if ( function_exists( 'register_block_style' ) ) {
 	 * @return void
 	 */
 	function flatblocks_register_block_styles() {
-		
+				
 		/*--------------------------------------------------------------
 		# Group: Fixed Header.
 		--------------------------------------------------------------*/

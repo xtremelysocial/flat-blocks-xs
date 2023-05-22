@@ -848,9 +848,7 @@
 				"spacing": {
 					"padding": {
 						"top": "var:preset|spacing|40",
-						"right": "0",
-						"bottom": "var:preset|spacing|40",
-						"left": "0"
+						"bottom": "var:preset|spacing|40"
 					}
 				}
 			},
