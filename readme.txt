@@ -62,6 +62,7 @@ Updates for WordPress v6.2:
 * Remove extra padding on sub-menus that have colored backgrounds.
 * Remove custom border thin, normal, thick, and style and replace with hard-coded values. custom-border-color and custom-border-radius are still in place and used in the theme CSS
 * Remove bold-faced font from theme style Red Uppercase.
+* * Remove group style Thick Bottom Border and update block pattern Image with Left and Right Text to just set the thick bottom border directly.
 * Fix rounded image styles when global image style has a border radius.
 * Add border to rounded profile pic (avatar) on testimonials pattern.* Fix for center align on images now that WordPress uses the figure tag.
 * Set Outline button padding to match regular buttons factoring in the outline button border width
@@ -76,7 +77,7 @@ Updates for WordPress v6.2:
 * Set outline (focus) to gray drop-shadow instead of ugly browser defaults.
 * Inherit text color on colored backgrounds for when user defaults headings to a color.
 * If user selects global link underline, also underline post titles. Don't underline latest posts, latest comments, categories, or page lists though.
-* Added new global style for button drop-shadow and link underlines.
+* Added new theme style for button drop-shadow and link underlines.
 
 = 1.1 =
 April 14, 2023

@@ -24,20 +24,6 @@ if ( function_exists( 'register_block_style' ) ) {
 	function flatblocks_register_block_styles() {
 				
 		/*--------------------------------------------------------------
-		# Group: Fixed Header.
-		--------------------------------------------------------------*/
-		 
-		// Fixed Header
-		register_block_style(
-			'core/group',
-			array(
-				'name'  => 'fixed-header',
-				'label' => esc_html__( 'Fixed Header', 'flat-blocks' ),
-				'style_handle'	=> 'flatblocks-fixedheader-styles'
-			)
-		);
-
-		/*--------------------------------------------------------------
 		# Navigation
 		--------------------------------------------------------------*/
 		 
@@ -275,7 +261,7 @@ if ( function_exists( 'register_block_style' ) ) {
 			)
 		);
 
-		// Group: Thick Rounded Borders with Padding.
+		// Group: Thick Rounded Borders.
 		register_block_style(
 			'core/group',
 			array(
@@ -285,13 +271,17 @@ if ( function_exists( 'register_block_style' ) ) {
 			)
 		);
 
-		// Group: Thick bottom border.
+		/*--------------------------------------------------------------
+		# Group: Fixed Header.
+		--------------------------------------------------------------*/
+		 
+		// Fixed Header
 		register_block_style(
 			'core/group',
 			array(
-				'name'  => 'thick-bottom-border',
-				'label' => esc_html__( 'Thick Bottom Border', 'flat-blocks' ),
-				'style_handle'	=> 'flatblocks-custom-styles'
+				'name'  => 'fixed-header',
+				'label' => esc_html__( 'Fixed Header', 'flat-blocks' ),
+				'style_handle'	=> 'flatblocks-fixedheader-styles'
 			)
 		);
 

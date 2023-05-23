@@ -70,11 +70,6 @@ body {
  	margin-top: var(--wp--preset--spacing--40);
 }
 
-/* Remove bottom margin from columns as spacing is handled with top margin */
-/*.wp-block-columns {
-	margin-bottom: 0;
-}*/
-
 /* Also add bottom margin on the last block for convenience */
 .wp-site-blocks main > *:last-child,
 .wp-site-blocks .wp-block-post-content > *:last-child {
@@ -114,15 +109,6 @@ body {
 }
 
 /* FIX to add back padding to full width sections */
-/**.has-global-padding > .alignfull:not(.wp-block-image,.wp-block-columns),
-.has-global-padding.alignfull:not(.wp-block-image,.wp-block-columns),
-.has-background > .alignfull:not(.wp-block-image,.wp-block-columns),
-.has-background.alignfull:not(.wp-block-image,.wp-block-columns),
-.wp-block-cover.alignfull {
-    padding-left: var(--wp--style--root--padding-left, var(--wp--preset--spacing--52));
-    padding-right: var(--wp--style--root--padding-right, var(--wp--preset--spacing--52));
-}**/
-
 .has-global-padding,
 .has-global-padding > .alignfull:not(.wp-block-image,.wp-block-columns),
 .has-global-padding.alignfull:not(.wp-block-image,.wp-block-columns),
@@ -189,24 +175,6 @@ input:not([type="radio"]):not([type="checkbox"]):not(.wp-block-button__link) {
 	cursor: pointer;
 }
 
-/* Style comment submit and search buttons to match other buttons */
-/*.wp-block-post-comments-form .wp-block-button .wp-block-button__link {
-	box-shadow: inherit; 
-}*/
-
-/*.wp-block-post-comments-form input[type=submit] {
-}*/
-
-/* Style focus outline */
-/*a:focus,
-input:focus,
-textarea:focus,
-:focus {  
-	outline: none;  
-	box-shadow: 0 0 0 3px var(--wp--custom--outline--color);
-	transition: box-shadow 0.3s ease;
-}*/
-
 /*--------------------------------------------------------------
 # Elements
 --------------------------------------------------------------*/
@@ -241,6 +209,14 @@ ul.has-background {
 	color: inherit;
 }
 
+/* Style the post title in the Block Editor */
+.edit-post-visual-editor__post-title-wrapper {
+	margin-top: var(--wp--preset--spacing--40);
+	margin-bottom: var(--wp--preset--spacing--40);
+	padding-left: var(--wp--style--root--padding-left, var(--wp--preset--spacing--52));
+	padding-right: var(--wp--style--root--padding-right, var(--wp--preset--spacing--52));
+}
+
 /*--------------------------------------------------------------
 # Navigation
 --------------------------------------------------------------*/
@@ -254,18 +230,6 @@ ul.has-background {
 ul.wp-block-navigation__submenu-container.has-background {
 	padding: 0;
 }
-
-/* FIX Block Editor showing underlines on menu links */
-/*.wp-block-navigation-item__content:not([class * =has-text-decoration]) a {*/
-/*.wp-block-navigation-item__content a {
-    text-decoration: none;
-}*/
-/*.wp-block-navigation-item__content:not([class * =has-text-decoration]) a:active, 
-.wp-block-navigation-item__content:not([class * =has-text-decoration]) a:focus {*/
-/*.wp-block-navigation-item__content a:active, 
-.wp-block-navigation-item__content a:focus {
-    text-decoration: none;
-}*/
 
 /*
  * Responsive menu container padding.
@@ -351,13 +315,6 @@ p.has-background {
 .wp-block-comments-pagination .page-numbers:nth-last-child(n+2) {
 	padding-right: var(--wp--preset--spacing--30);
 }
-
-/* Don't show post comments if comments aren't allowed. */
-/* TO-DO: Get this working */
-/*.post-comments:empty {
-	display: none;
-	margin: 0;
-}*/
 
 /*--------------------------------------------------------------
 # Separator

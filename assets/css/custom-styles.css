@@ -85,14 +85,8 @@
 	border-radius: var(--wp--custom--border--radius);
 }
 
-.wp-block-group.is-style-thick-bottom-border {
-	border: 6px solid var(--wp--custom--border--color);
-	border-width: 0 0 6px 0;
-}
-
 /* Group padding */
 .wp-block-group.is-style-no-padding {
-	/*padding: 0;*/
 	padding-top: 0;
 	padding-bottom: 0;
 }
@@ -100,17 +94,6 @@
 	padding-left: 0;
 	padding-right: 0;
 }
-
-/*
-.wp-block-group.is-style-no-padding {
-    padding-top: 0;
-    padding-bottom: 0;
-}
-.wp-block-group.is-style-no-padding:not(.has-global-padding) {
-	padding-left: 0;
-    padding-right: 0;
-}
-*/
 
 .wp-block-group.is-style-small-padding {
 	/*padding: var(--wp--preset--spacing--40) 0;*/
@@ -121,9 +104,6 @@
 	padding-left: var(--wp--preset--spacing--40);
 	padding-right: var(--wp--preset--spacing--40);
 }
-/*.wp-block-group.is-style-small-padding.has-background {
-	padding: var(--wp--preset--spacing--40);
-}*/
 
 .wp-block-group.is-style-large-padding {
 	/*padding: var(--wp--preset--spacing--60) 0;*/
@@ -135,21 +115,6 @@
 	padding-left: var(--wp--preset--spacing--60);
 	padding-right: var(--wp--preset--spacing--60);
 }
-
-/*.wp-block-group.is-style-large-padding.has-background {
-	padding: var(--wp--preset--spacing--60);
-}*/
-
-/* For all full-width groups with custom padding, override left & right padding */
-/**.has-global-padding.wp-block-group.alignfull.is-style-no-padding,
-.has-global-padding.wp-block-group.alignfull.is-style-small-padding,
-.has-global-padding.wp-block-group.alignfull.is-style-large-padding,
-.has-global-padding.wp-block-group.alignfull.is-style-rounded-borders,
-.has-global-padding.wp-block-group.alignfull.is-style-thick-rounded-borders,
-.has-global-padding.wp-block-group.alignfull.is-style-thick-bottom-border {
-	padding-left: var(--wp--style--root--padding-left, var(--wp--preset--spacing--52));
-	padding-right: var(--wp--style--root--padding-right, var(--wp--preset--spacing--52));
-}**/
 
 /*--------------------------------------------------------------
 # Columns
