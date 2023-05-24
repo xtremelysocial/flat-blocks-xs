@@ -79,6 +79,7 @@ Updates for WordPress v6.2:
 * If user selects global link underline, also underline post titles. Don't underline latest posts, latest comments, categories, or page lists though.
 * Added new theme style for button drop-shadow and link underlines.
 * Changed default theme style tertiary colors to orange.
+* Updated the global theme styles to have duotones that match each style's color scheme.
 
 = 1.1 =
 April 14, 2023
