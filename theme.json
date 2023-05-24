@@ -155,22 +155,22 @@
 					"name": "Foreground and Secondary"
 				},
 				{
-					"colors": ["#f1c40f", "#f2f2f2"],
+					"colors": ["#f39c12", "#f2f2f2"],
 					"slug": "tertiary-and-background",
 					"name": "Tertiary and Background"
 				},
 				{
-					"colors": ["#f2f2f2", "#f1c40f"],
+					"colors": ["#f2f2f2", "#f39c12"],
 					"slug": "background-and-tertiary",
 					"name": "Background and Tertiary"
 				},
 				{
-					"colors": ["#f1c40f", "#555555"],
+					"colors": ["#f39c12", "#555555"],
 					"slug": "tertiary-and-foreground",
 					"name": "Tertiary and Foreground"
 				},
 				{
-					"colors": ["#555555", "#f1c40f"],
+					"colors": ["#555555", "#f39c12"],
 					"slug": "foreground-and-tertiary",
 					"name": "Foreground and Tertiary"
 				},
@@ -185,12 +185,12 @@
 					"name": "Secondary and Primary"
 				},
 				{
-					"colors": ["#1abc9c", "#f1c40f"],
+					"colors": ["#1abc9c", "#f39c12"],
 					"slug": "primary-and-tertiary",
 					"name": "Primary and Tertiary"
 				},
 				{
-					"colors": ["#f1c40f", "#1abc9c"],
+					"colors": ["#f39c12", "#1abc9c"],
 					"slug": "tertiary-and-primary",
 					"name": "Tertiary and Primary"
 				},
@@ -305,8 +305,8 @@
 				},
 				{
 					"slug": "tertiary",
-					"color": "#f1c40f",
-					"name": "Tertiary (Yellow)"
+					"color": "#f39c12",
+					"name": "Tertiary (Light Orange)"
 				},
 				{
 					"slug": "dark",
@@ -330,8 +330,8 @@
 				},
 				{
 					"slug": "tertiary-alt",
-					"color": "#f39c12",
-					"name": "Tertiary Alt (Light Orange)"
+					"color": "#e67e22",
+					"name": "Tertiary Alt (Orange)"
 				},
 				{
 					"slug": "dark-alt",

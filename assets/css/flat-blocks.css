@@ -110,16 +110,16 @@ body {
 
 /* FIX to add back padding to full width sections */
 .has-global-padding,
-.has-global-padding > .alignfull:not(.wp-block-image,.wp-block-columns),
-.has-global-padding.alignfull:not(.wp-block-image,.wp-block-columns),
+.has-global-padding > .alignfull:not(.wp-block-image,.wp-block-columns,.wp-block-buttons),
+.has-global-padding.alignfull:not(.wp-block-image,.wp-block-columns,.wp-block-buttons),
 .wp-block-cover.alignfull,
 .is-root-container .has-global-padding.has-background {
-    padding-left: var(--wp--style--root--padding-left, var(--wp--preset--spacing--52));
-    padding-right: var(--wp--style--root--padding-right, var(--wp--preset--spacing--52));
+    padding-left: var(--wp--style--root--padding-left, var(--wp--preset--spacing--52)) !important;
+    padding-right: var(--wp--style--root--padding-right, var(--wp--preset--spacing--52)) !important;
 }
 .has-global-padding :where(.has-global-padding):not(.has-background) {
-	padding-left: 0;
-	padding-right: 0;
+	padding-left: 0 !important;
+	padding-right: 0 !important;
 }
 
 /*--------------------------------------------------------------
@@ -134,6 +134,29 @@ body {
 /* FIX for center alignment */
 .is-layout-constrained > .aligncenter {
 	text-align: center;
+}
+
+/* ADD padding to align left and align right to honor wide width */
+.wp-site-blocks > .alignleft {
+	margin-right: var(--wp--preset--spacing--40);
+}
+body .is-layout-constrained > .alignleft {
+	padding-left: calc(0.5 * (100% - var(--wp--style--global--wide-size)));
+	margin-inline-end: var(--wp--preset--spacing--40);
+}
+.wp-site-blocks > .alignright {
+	margin-left: var(--wp--preset--spacing--40);
+}
+body .is-layout-constrained > .alignright {
+	padding-right: calc(0.5 * (100% - var(--wp--style--global--wide-size)));
+	margin-inline-start: var(--wp--preset--spacing--40);
+}
+
+/* For convenience, clear floats before groups and columns */
+.clearfix::after {
+	content: "";
+	clear: both;
+	display: table;
 }
 
 /*--------------------------------------------------------------
@@ -173,6 +196,15 @@ input:not([type="radio"]):not([type="checkbox"]):not(.wp-block-button__link) {
 .wp-block-button__link:hover {
 	opacity: 0.8;
 	cursor: pointer;
+}
+
+/* Style focus outline */
+/*a:focus,*/
+input:focus,
+textarea:focus {
+	outline: none !important;
+	box-shadow: 0 0 0 3px var(--wp--custom--outline--color);
+	transition: box-shadow 0.3s ease;
 }
 
 /*--------------------------------------------------------------
@@ -327,8 +359,19 @@ p.has-background {
 }
 
 /*--------------------------------------------------------------
+# Latest Posts
+--------------------------------------------------------------*/
+
+/* Set post thumbnails to match blog */
+.wp-block-latest-posts__featured-image img {
+	border-radius: var(--wp--custom--border--radius);
+	border: 1px solid var(--wp--custom--border--color);
+}
+
+/*--------------------------------------------------------------
 # Latest Comments
 --------------------------------------------------------------*/
+
 /* Set default latest comments to match latest posts, which has no bullets or indent */
 .wp-block-latest-comments {
 	list-style: none;
