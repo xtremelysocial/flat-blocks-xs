@@ -3,6 +3,11 @@
 	"version": 2,
 	"title": "Dark - Midnight Blue",
 	"settings": {
+		"custom": {
+			"border": {
+				"color": "var(--wp--preset--color--midnight-blue)"
+			}
+		},
 		"color": {
 			"palette": [
 				{

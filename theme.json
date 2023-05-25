@@ -102,7 +102,7 @@
 			"background": true,
 			"link": true,
 			"text": true,
-			"defaultDuotone": true,
+			"defaultDuotone": false,
 			"palette": [
 				{
 					"slug": "primary",

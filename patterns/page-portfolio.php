@@ -2,7 +2,7 @@
  /**
   * Title: Sample Portfolio Page
   * Slug: flat-blocks/page-portfolio
-  * Categories: flatblocks, page, portfolio
+  * Categories: flatblocks, page
   * Block Types: core/post-content
   * Description: A sample portfolio or home page with cover image, image gallery (for recent works), 3-column features, and call-to-action button
   */
@@ -10,26 +10,25 @@
 
 <?php echo flatblocks_get_block_pattern( 'cover-geodesic-lights' ); ?>
 
-<!-- wp:heading {"placeholder":"Our Portfolio","textAlign":"left","align":"wide"} -->
-<h2 class="alignwide has-text-align-left" id="our-recent-posts">Our Portfolio</h2>
+<!-- wp:group {"align":"wide","layout":{"type":"constrained"}} -->
+<div id="our-portfolio" class="wp-block-group alignwide"><!-- wp:heading {"textAlign":"center","placeholder":"Our Portfolio"} -->
+<h2 class="wp-block-heading has-text-align-center" id="our-portfolio">Our Portfolio</h2>
 <!-- /wp:heading -->
 
 <!-- wp:columns {"align":"wide"} -->
-<div class="wp-block-columns alignwide">
-<!-- wp:column {"verticalAlignment":"top","className":"is-style-default"} -->
-<div class="wp-block-column is-vertically-aligned-top is-style-default">
-<!-- wp:paragraph {"placeholder":"Our recent works..."} -->
-<p>Our recent works...</p>
+<div class="wp-block-columns alignwide"><!-- wp:column {"verticalAlignment":"top","className":"is-style-default"} -->
+<div class="wp-block-column is-vertically-aligned-top is-style-default"><!-- wp:paragraph {"placeholder":"Our recent works...","className":"is-style-alignwide"} -->
+<p class="is-style-alignwide">Our recent works...</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:column -->
 
 <!-- wp:column -->
-<div class="wp-block-column">
-<!-- wp:paragraph {"placeholder":"See All Works","align":"right"} -->
+<div class="wp-block-column"><!-- wp:paragraph {"align":"right","placeholder":"See All Works"} -->
 <p class="has-text-align-right"><a href="$#">&gt; See All Works</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:column --></div>
-<!-- /wp:columns -->
+<!-- /wp:columns --></div>
+<!-- /wp:group -->
 
 <?php echo flatblocks_get_block_pattern( 'image-gallery' ); ?>
 

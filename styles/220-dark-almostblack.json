@@ -3,6 +3,11 @@
 	"version": 2,
 	"title": "Dark - Almost Black",
 	"settings": {
+		"custom": {
+			"border": {
+				"color": "var(--wp--preset--color--darker-gray)"
+			}
+		},
 		"color": {
 			"palette": [
 				{
