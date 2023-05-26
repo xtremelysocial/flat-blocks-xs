@@ -307,21 +307,6 @@
 			],
 			"gradients": [
 				{
-					"slug": "primary-to-primary-alt",
-					"gradient": "linear-gradient(160deg, var(--wp--preset--color--primary), var(--wp--preset--color--primary-alt))",
-					"name": "Primary to Primary Alternate"
-				},
-				{
-					"slug": "secondary-to-secondary-alt",
-					"gradient": "linear-gradient(160deg, var(--wp--preset--color--secondary), var(--wp--preset--color--secondary-alt))",
-					"name": "Secondary to Secondary Alternate"
-				},
-				{
-					"slug": "tertiary-to-tertiary-alt",
-					"gradient": "linear-gradient(160deg, var(--wp--preset--color--tertiary), var(--wp--preset--color--tertiary-alt))",
-					"name": "Tertiary to Tertiary Alternate"
-				},
-				{
 					"slug": "primary-to-secondary",
 					"gradient": "linear-gradient(160deg, var(--wp--preset--color--primary), var(--wp--preset--color--secondary))",
 					"name": "Primary to Secondary"
@@ -372,7 +357,7 @@
 					"name": "Blue"
 				},
 				{
-					"slug": "Purple",
+					"slug": "purple",
 					"gradient": "linear-gradient(160deg, var(--wp--preset--color--purple), var(--wp--preset--color--dark-purple))",
 					"name": "Purple"
 				},
