@@ -258,6 +258,11 @@ ul.has-background {
 	row-gap: var(--wp--preset--spacing--20) !important;
 }
 
+/* REMOVE extra padding on sub-menu drop-downs */
+.wp-block-navigation-submenu__toggle {
+  padding-left: 0;
+}
+
 /* REMOVE extra padding on sub-menus with backgrounds */
 ul.wp-block-navigation__submenu-container.has-background {
 	padding: 0;
