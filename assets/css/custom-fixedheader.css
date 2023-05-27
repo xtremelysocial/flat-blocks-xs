@@ -14,17 +14,6 @@
 # Fixed Header: Front-end Styles
 --------------------------------------------------------------*/
 .wp-block-group.is-style-fixed-header {
-    /*border-bottom: 1px solid  var(--wp--custom--border--color);
-    border-bottom: none;
-    border-left-style: none;
-    border-right-style: none;
-    border-top-style: none;*/
-    border: 1px solid var(--wp--custom--border--color);
-    border-width: 0 0 1px;
-    padding: var(--wp--preset--spacing--40) var(--wp--style--root--padding-right, var(--wp--preset--spacing--52)) var(--wp--preset--spacing--40) var(--wp--style--root--padding-left, var(--wp--preset--spacing--52));
-}
-
-.wp-block-group.is-style-fixed-header {
     position: fixed;
     top: 0;
 	left: 0;

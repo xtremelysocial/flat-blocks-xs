@@ -11,11 +11,9 @@
 # Fixed Header and Nav Menu. Front-end and Editor.
 --------------------------------------------------------------*/
 .wp-block-group.is-style-fixed-header {
-    border-bottom: 1px solid  var(--wp--custom--border--color);
-    border-left-style: none;
-    border-right-style: none;
-    border-top-style: none;
-    padding: var(--wp--preset--spacing--40);
+    border: 1px solid var(--wp--custom--border--color);
+    border-width: 0 0 1px;
+    padding: var(--wp--preset--spacing--40) var(--wp--style--root--padding-right, var(--wp--preset--spacing--52)) var(--wp--preset--spacing--40) var(--wp--style--root--padding-left, var(--wp--preset--spacing--52));
 }
 
 .wp-block-navigation.is-style-fixed-menu .wp-block-navigation__responsive-container-open {
@@ -248,6 +246,8 @@
 /*--------------------------------------------------------------
 # Featured Images (post / page "thumbnails")
 --------------------------------------------------------------*/
+
+/* No border */
 .wp-block-post-featured-image.is-style-image-no-border img {
 	padding: 0;
 	border: none;
@@ -387,7 +387,7 @@ p.is-style-no-link-underline a:hover {
 # Separators
 --------------------------------------------------------------*/
 .wp-block-separator.is-style-thick {
-	border-width: 0 0 3px; /*calc(1.25 * 1px);*/
+	border-width: 0 0 3px;
 	width: calc(10 * var(--wp--preset--spacing--40)) !important;
 }
 
@@ -419,7 +419,7 @@ p.is-style-no-link-underline a:hover {
 # Latest Posts
 --------------------------------------------------------------*/
 
-/* Add bullets and padding */
+/* Bullets */
 .wp-block-latest-posts.is-style-bullets,
 .wp-block-latest-posts.is-style-bullets.wp-block-latest-posts__list {
 	box-sizing: border-box;

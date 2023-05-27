@@ -342,13 +342,11 @@
 			},
 			"core/navigation": {
 				"typography": {
-					"fontWeight": "400",
 					"textTransform": "none"
 				}
 			},
 			"core/navigation-item": {
 				"typography": {
-					"fontWeight": "400",
 					"textTransform": "none"
 				}
 			}
@@ -370,6 +368,12 @@
 				"typography": {
 					"fontSize": "var(--wp--preset--font-size--medium)",
 					"textTransform": "uppercase"
+				}
+			},
+			"button": {
+				"color": {
+					"background": "var(--wp--preset--color--light-red)",
+					"text": "var(--wp--preset--color--foreground-alt)"
 				}
 			},
 			"link": {
