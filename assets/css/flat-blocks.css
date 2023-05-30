@@ -10,9 +10,16 @@
 /*--------------------------------------------------------------
 # Html
 --------------------------------------------------------------*/
-/* Prevent iOS text size adjust after orientation change, without disabling user zoom. */
+
+/* Default to contain borders and padding within blocks and prevent iOS from adjusting
+ * text sizes after orientation change. 
+ */
 html {
 	-webkit-text-size-adjust: 100%;
+	box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
 }
 
 /*--------------------------------------------------------------
@@ -34,7 +41,7 @@ body {
 --------------------------------------------------------------*/
 /*
  * Don't let anything be wider than our max width. This is so fullwidth images don't
- * get so wide they lose resolution
+ * get so wide they lose resolution.
  */
 .wp-site-blocks {
 	max-width: var(--wp--custom--layout--full-size);
@@ -43,120 +50,45 @@ body {
 }
 
 /*--------------------------------------------------------------
-# Margins (Vertical spacing)
+# Elements
 --------------------------------------------------------------*/
 
-/* Core Wordpress controls vertical spacing by adding the gap setting as top 
- * margin between all blocks on the site. However, certain things like template
- * parts get this too and we want the theme and users to be able to control it. 
- * So push this down to the block level */
- 
- /* Remove top margin from the containers */
-.wp-site-blocks header,
-.wp-site-blocks main,
-.wp-site-blocks footer,
-.wp-site-blocks .wp-block-template-part,
-.wp-site-blocks .wp-block-post-content {
-	margin-block-start: 0 !important;
-}
- 
- /* Add top margin to the container's first block and then between subsequent blocks */
-.wp-site-blocks main > *:first-child:not(.wp-block-template-part, .wp-block-post-content, .wp-block-cover,  .wp-block-query, header, footer, nav),
-.wp-site-blocks .wp-block-template-part > *:first-child:not(.wp-block-template-part, .wp-block-post-content, .wp-block-cover, .wp-block-query, main, header, footer, nav),
-.wp-site-blocks .wp-block-template-part > * + *:not(.wp-block-template-part, .wp-block-query, main, header, footer, nav),
-.wp-site-blocks .wp-block-query > *:first-child:not(.wp-block-cover),
-.wp-site-blocks .wp-block-post-content > *:first-child:not(.wp-block-cover),
-.is-root-container > *:first-child:not(.wp-block-template-part, .wp-block-cover, .wp-block-query) {
- 	margin-top: var(--wp--preset--spacing--40);
+/* Use bold font-weight from theme.json */
+strong, 
+b {
+	font-weight: var(--wp--custom--typography--font-weight--bold);
 }
 
-/* Also add bottom margin on the last block for convenience */
-.wp-site-blocks main > *:last-child,
-.wp-site-blocks .wp-block-post-content > *:last-child {
+/* Prevent code from breaking layout */
+code,
+pre {
+	overflow-x: auto;
+}
+
+/* Set lists with background to match other padding */
+ol.has-background,
+ul.has-background {
+    padding: var(--wp--preset--spacing--40);
+    list-style-position: inside;
+}
+
+/* If user specifies global heading font colors, don't override on colored backgrounds */
+.has-background .wp-block-heading:not(.has-text-color),
+.has-background h1:not(.has-text-color), 
+.has-background h2:not(.has-text-color),
+.has-background h3:not(.has-text-color),
+.has-background h4:not(.has-text-color),  
+.has-background h5:not(.has-text-color),	
+.has-background h6:not(.has-text-color) {
+	color: inherit;
+}
+
+/* Style the post title in the Block Editor */
+.edit-post-visual-editor__post-title-wrapper {
+	margin-top: var(--wp--preset--spacing--40);
 	margin-bottom: var(--wp--preset--spacing--40);
-}
-
-/*--------------------------------------------------------------
-# Padding (Horizontal and vertical spacing)
---------------------------------------------------------------*/
-
-/* Groups with backgrounds have 2x the block gap setting */
-.wp-block-group.has-background {
-	/*padding: var(--wp--preset--spacing--60);*/
-	padding-top: var(--wp--preset--spacing--60);
-	padding-bottom: var(--wp--preset--spacing--60);
-}
-
-.wp-block-group.has-background:not(.has-global-padding) {
-	padding-left: var(--wp--preset--spacing--60);
-	padding-right: var(--wp--preset--spacing--60);
-}
-
-/* Columns container with backgrounds have 2x the block gap setting */
-.wp-block-columns.has-background {
-	/*padding: var(--wp--preset--spacing--60);*/
-	padding-top: var(--wp--preset--spacing--60);
-	padding-bottom: var(--wp--preset--spacing--60);
-}
-.wp-block-columns.has-background:not(.has-global-padding) {
-	padding-left: var(--wp--preset--spacing--60);
-	padding-right: var(--wp--preset--spacing--60);
-}
-
-/* Individual columns with backgrounds have 1x the block gap setting */
-.wp-block-column.has-background  {
-	padding: var(--wp--preset--spacing--40);
-}
-
-/* FIX to add back padding to full width sections */
-.has-global-padding,
-.has-global-padding > .alignfull:not(.wp-block-image,.wp-block-columns,.wp-block-buttons),
-.has-global-padding.alignfull:not(.wp-block-image,.wp-block-columns,.wp-block-buttons),
-.wp-block-cover.alignfull,
-.is-root-container .has-global-padding.has-background {
-    padding-left: var(--wp--style--root--padding-left, var(--wp--preset--spacing--52)) !important;
-    padding-right: var(--wp--style--root--padding-right, var(--wp--preset--spacing--52)) !important;
-}
-.has-global-padding :where(.has-global-padding):not(.has-background) {
-	padding-left: 0 !important;
-	padding-right: 0 !important;
-}
-
-/*--------------------------------------------------------------
-# Additional Alignments
---------------------------------------------------------------*/
-
-/* ADD limit cover image text to wide width */
-.wp-block-cover__inner-container {
-	max-width: var(--wp--style--global--wide-size); 
-}
-
-/* FIX for center alignment */
-.is-layout-constrained > .aligncenter {
-	text-align: center;
-}
-
-/* ADD padding to align left and align right to honor wide width */
-.wp-site-blocks > .alignleft {
-	margin-right: var(--wp--preset--spacing--40);
-}
-body .is-layout-constrained > .alignleft {
-	padding-left: calc(0.5 * (100% - var(--wp--style--global--wide-size)));
-	margin-inline-end: var(--wp--preset--spacing--40);
-}
-.wp-site-blocks > .alignright {
-	margin-left: var(--wp--preset--spacing--40);
-}
-body .is-layout-constrained > .alignright {
-	padding-right: calc(0.5 * (100% - var(--wp--style--global--wide-size)));
-	margin-inline-start: var(--wp--preset--spacing--40);
-}
-
-/* For convenience, clear floats before groups and columns */
-.clearfix::after {
-	content: "";
-	clear: both;
-	display: table;
+	padding-left: var(--wp--style--root--padding-left, var(--wp--preset--spacing--50));
+	padding-right: var(--wp--style--root--padding-right, var(--wp--preset--spacing--50));
 }
 
 /*--------------------------------------------------------------
@@ -207,45 +139,130 @@ textarea:focus {
 }
 
 /*--------------------------------------------------------------
-# Elements
+# Basic Alignments
 --------------------------------------------------------------*/
 
-/* Use bold font-weight from theme.json */
-strong, 
-b {
-	font-weight: var(--wp--custom--typography--font-weight--bold);
+/* ADD limit cover image text to wide width */
+.wp-block-cover__inner-container {
+	max-width: var(--wp--style--global--wide-size); 
 }
 
-/* Prevent code from breaking layout */
-code,
-pre {
-	overflow-x: auto;
+/* FIX for center alignment */
+.is-layout-constrained > .aligncenter {
+	text-align: center;
 }
 
-/* Set lists with background to match other padding */
-ol.has-background,
-ul.has-background {
-    padding: var(--wp--preset--spacing--40);
-    list-style-position: inside;
+/* ADD padding to align left and align right to honor wide width */
+.wp-site-blocks > .alignleft {
+	margin-right: var(--wp--preset--spacing--40);
+}
+body .is-layout-constrained > .alignleft {
+	padding-left: calc(0.5 * (100% - var(--wp--style--global--wide-size)));
+	margin-inline-end: var(--wp--preset--spacing--40);
+}
+.wp-site-blocks > .alignright {
+	margin-left: var(--wp--preset--spacing--40);
+}
+body .is-layout-constrained > .alignright {
+	padding-right: calc(0.5 * (100% - var(--wp--style--global--wide-size)));
+	margin-inline-start: var(--wp--preset--spacing--40);
 }
 
-/* If user specifies global heading font colors, don't override on colored backgrounds */
-.has-background .wp-block-heading:not(.has-text-color),
-.has-background h1:not(.has-text-color), 
-.has-background h2:not(.has-text-color),
-.has-background h3:not(.has-text-color),
-.has-background h4:not(.has-text-color),  
-.has-background h5:not(.has-text-color),	
-.has-background h6:not(.has-text-color) {
-	color: inherit;
+/* For convenience, clear floats before groups and columns */
+/* TO-DO: Get this working! */
+.clearfix::after {
+	content: "";
+	clear: both;
+	display: table;
 }
 
-/* Style the post title in the Block Editor */
-.edit-post-visual-editor__post-title-wrapper {
-	margin-top: var(--wp--preset--spacing--40);
+/*--------------------------------------------------------------
+# Margins (Vertical spacing)
+--------------------------------------------------------------*/
+
+/* Core Wordpress controls vertical spacing by adding the gap setting as top 
+ * margin between all blocks on the site. However, certain things like template
+ * parts get this too and we want the theme and users to be able to control it. 
+ * So push this down to the block level */
+ 
+ /* Remove top margin from the containers */
+.wp-site-blocks header,
+.wp-site-blocks main,
+.wp-site-blocks footer,
+.wp-site-blocks .wp-block-template-part,
+.wp-site-blocks .wp-block-post-content {
+	margin-block-start: 0 !important;
+}
+ 
+ /* Add top margin to the container's first block and then between subsequent blocks */
+.wp-site-blocks main > *:first-child:not(.wp-block-template-part, .wp-block-post-content, .wp-block-cover,  .wp-block-query, header, footer, nav),
+.wp-site-blocks .wp-block-template-part > *:first-child:not(.wp-block-template-part, .wp-block-post-content, .wp-block-cover, .wp-block-query, main, header, footer, nav),
+.wp-site-blocks .wp-block-template-part > * + *:not(.wp-block-template-part, .wp-block-query, main, header, footer, nav),
+.wp-site-blocks .wp-block-query > *:first-child:not(.wp-block-cover),
+.wp-site-blocks .wp-block-post-content > *:first-child:not(.wp-block-cover),
+.is-root-container > *:first-child:not(.wp-block-template-part, .wp-block-cover, .wp-block-query) {
+ 	margin-top: var(--wp--preset--spacing--40);
+}
+
+/* Also add bottom margin on the last block for convenience */
+.wp-site-blocks main > *:last-child,
+.wp-site-blocks .wp-block-post-content > *:last-child {
 	margin-bottom: var(--wp--preset--spacing--40);
-	padding-left: var(--wp--style--root--padding-left, var(--wp--preset--spacing--52));
-	padding-right: var(--wp--style--root--padding-right, var(--wp--preset--spacing--52));
+}
+
+/*--------------------------------------------------------------
+# Padding (Horizontal and vertical spacing)
+--------------------------------------------------------------*/
+
+/* Note: Padding for colored backgrounds on groups and columns is in theme.json */
+
+/* Groups with backgrounds have 2x the block gap setting */
+/*.wp-block-group.has-background {
+	padding-top: var(--wp--preset--spacing--60);
+	padding-bottom: var(--wp--preset--spacing--60);
+}
+
+.wp-block-group.has-background:not(.has-global-padding) {
+	padding-left: var(--wp--preset--spacing--60);
+	padding-right: var(--wp--preset--spacing--60);
+}*/
+
+/* Columns container with backgrounds have 2x the block gap setting */
+/*.wp-block-columns.has-background {
+	padding-top: var(--wp--preset--spacing--60);
+	padding-bottom: var(--wp--preset--spacing--60);
+}
+.wp-block-columns.has-background:not(.has-global-padding) {
+	padding-left: var(--wp--preset--spacing--60);
+	padding-right: var(--wp--preset--spacing--60);
+}*/
+
+/* Individual columns with backgrounds have 1x the block gap setting */
+/*.wp-block-column.has-background  {
+	padding: var(--wp--preset--spacing--40);
+}*/
+
+/* FIX to add back padding to full width sections */
+@media only screen and (max-width: 781px) {
+	.has-global-padding,
+	p.has-background,
+	.wp-block-media-text .wp-block-media-text__content {
+		padding-left: var(--wp--style--root--padding-left, var(--wp--preset--spacing--50)) !important;
+		padding-right: var(--wp--style--root--padding-right, var(--wp--preset--spacing--50)) !important;
+	}
+}
+
+/*.has-global-padding,*/
+.has-global-padding > .alignfull:not(.wp-block-image,.wp-block-columns,.wp-block-buttons),
+.has-global-padding.alignfull:not(.wp-block-image,.wp-block-columns,.wp-block-buttons),
+.wp-block-cover.alignfull,
+.is-root-container .has-global-padding.has-background {
+    padding-left: var(--wp--style--root--padding-left, var(--wp--preset--spacing--50)) !important;
+    padding-right: var(--wp--style--root--padding-right, var(--wp--preset--spacing--50)) !important;
+}
+.has-global-padding :where(.has-global-padding):not(.has-background) {
+	padding-left: 0 !important;
+	padding-right: 0 !important;
 }
 
 /*--------------------------------------------------------------
@@ -255,6 +272,11 @@ ul.has-background {
 /* Reduce vertical gap on nav menus for when they wrap */
 .wp-block-navigation {
 	row-gap: var(--wp--preset--spacing--20) !important;
+}
+
+/* REMOVE extra padding between to-level nav and its children */
+.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content .wp-block-navigation__submenu-container {
+    padding-top: var(--wp--preset--spacing--20);
 }
 
 /* REMOVE extra padding on sub-menu drop-downs */
@@ -276,8 +298,8 @@ ul.wp-block-navigation__submenu-container.has-background {
 .wp-block-navigation__responsive-container.is-menu-open {
 	padding-top: var(--wp--preset--spacing--60);
 	padding-bottom: var(--wp--preset--spacing--60);
-	padding-right: var(--wp--style--root--padding-right, var(--wp--preset--spacing--52));
-	padding-left: var(--wp--style--root--padding-left, var(--wp--preset--spacing--52));
+	padding-right: var(--wp--style--root--padding-right, var(--wp--preset--spacing--50));
+	padding-left: var(--wp--style--root--padding-left, var(--wp--preset--spacing--50));
 }
 
 /*--------------------------------------------------------------
@@ -303,24 +325,34 @@ figure.wp-block-image {
 }
 
 /*--------------------------------------------------------------
+# Media & Text
+--------------------------------------------------------------*/
+
+/* Match our padding */
+.wp-block-media-text .wp-block-media-text__content {
+	padding-left: var(--wp--preset--spacing--40);
+	padding-right: var(--wp--preset--spacing--40);
+}
+
+/*--------------------------------------------------------------
 # Paragraphs
 --------------------------------------------------------------*/
-/* Match our padding for for paragraphs with background colors */
-p.has-background {
-    padding: var(--wp--preset--spacing--40);
-    box-sizing: border-box;
-}
+/* Match our padding for paragraphs with background colors */
+/*p.has-background {
+    padding: var(--wp--preset--spacing--40);*/
+    /*box-sizing: border-box;*/
+/*}*/
 
 /* Adjust outer padding on mobile */
 /* Breakpoint of 781 is what is hard-coded in WordPress v6.0 to collapse columns */
-@media only screen and (max-width: 781px) {
+/*@media only screen and (max-width: 781px) {
 	
 	p.has-background {
-		padding-left: var(--wp--style--root--padding-left, var(--wp--preset--spacing--52));
-		padding-right: var(--wp--style--root--padding-right, var(--wp--preset--spacing--52));
+		padding-left: var(--wp--style--root--padding-left, var(--wp--preset--spacing--50));
+		padding-right: var(--wp--style--root--padding-right, var(--wp--preset--spacing--50));
 	}
 
-}
+}*/
 
 /*--------------------------------------------------------------
 # Quotes
@@ -330,7 +362,7 @@ p.has-background {
 .wp-block-quote cite,
 .wp-block-pullquote cite {
 	display: inline-block;
-	text-transform: none;
+	/*text-transform: none;*/
 }
 
 /* OVERRIDE remove top margin because we use padding instead */
@@ -343,9 +375,9 @@ p.has-background {
 # Comments
 --------------------------------------------------------------*/
 /* Keep comments within content-size even when padding added */
-.wp-block-comments {
+/*.wp-block-comments {
     box-sizing: border-box;
-}
+}*/
 
 /* Add padding to comment page numbers */
 .wp-block-comments-pagination .page-numbers:nth-last-child(n+2) {
@@ -363,6 +395,13 @@ p.has-background {
 }
 
 /*--------------------------------------------------------------
+# Featured Image
+--------------------------------------------------------------*/
+.wp-block-post-featured-image img {
+	padding: var(--wp--custom--border--radius)
+}
+
+/*--------------------------------------------------------------
 # Latest Posts
 --------------------------------------------------------------*/
 
@@ -370,6 +409,20 @@ p.has-background {
 .wp-block-latest-posts__featured-image img {
 	border-radius: var(--wp--custom--border--radius);
 	border: 1px solid var(--wp--custom--border--color);
+	padding: var(--wp--custom--border--radius);
+}
+.wp-block-latest-posts__featured-image.aligncenter {
+	margin-bottom: var(--wp--preset--spacing--20);
+}
+
+/* Remove extra bottom padding and make full width on mobile */
+.wp-block-latest-posts.is-grid li {
+	margin-bottom: 0;
+}
+@media only screen and (max-width: 781px) {
+    .wp-block-latest-posts.is-grid li {
+        margin-right: 0;
+    }
 }
 
 /*--------------------------------------------------------------
@@ -379,7 +432,7 @@ p.has-background {
 /* Set default latest comments to match latest posts, which has no bullets or indent */
 .wp-block-latest-comments {
 	list-style: none;
-	padding-left: 0;
+	/*padding-left: 0;*/
 }
 
 .wp-block-latest-comments__comment {

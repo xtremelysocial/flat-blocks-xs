@@ -13,7 +13,7 @@
 .wp-block-group.is-style-fixed-header {
     border: 1px solid var(--wp--custom--border--color);
     border-width: 0 0 1px;
-    padding: var(--wp--preset--spacing--40) var(--wp--style--root--padding-right, var(--wp--preset--spacing--52)) var(--wp--preset--spacing--40) var(--wp--style--root--padding-left, var(--wp--preset--spacing--52));
+    padding: var(--wp--preset--spacing--40) var(--wp--style--root--padding-right, var(--wp--preset--spacing--50)) var(--wp--preset--spacing--40) var(--wp--style--root--padding-left, var(--wp--preset--spacing--50));
 }
 
 .wp-block-navigation.is-style-fixed-menu .wp-block-navigation__responsive-container-open {
@@ -94,7 +94,6 @@
 }
 
 .wp-block-group.is-style-small-padding {
-	/*padding: var(--wp--preset--spacing--40) 0;*/
 	padding-top: var(--wp--preset--spacing--40);
 	padding-bottom: var(--wp--preset--spacing--40);
 }
@@ -104,7 +103,6 @@
 }
 
 .wp-block-group.is-style-large-padding {
-	/*padding: var(--wp--preset--spacing--60) 0;*/
 	padding-top: var(--wp--preset--spacing--60);
 	padding-bottom: var(--wp--preset--spacing--60);
 
@@ -173,6 +171,11 @@
 /* Breakpoint of 781 is what is hard-coded in WordPress v6.0 to collapse columns */
 @media only screen and (max-width: 781px) {
 
+	/* Reduce row (vertical gap) when collapsing centered columns */
+	.wp-block-columns.is-style-center-on-mobile {
+		row-gap: var(--wp--preset--spacing--30);
+	}
+
 	/* Center left and right aligned text */
 	.wp-block-columns.is-style-center-on-mobile .wp-block-column:not(.wp-block-navigation__responsive-container-content) > * {
 		display: flex;
@@ -182,8 +185,8 @@
 
 	/* Adjust columns padding so outer margins line up */	
 	.wp-block-columns.has-background:not(.is-style-no-gap) {
-		padding-left: var(--wp--style--root--padding-left, var(--wp--preset--spacing--52));
-		padding-right: var(--wp--style--root--padding-right, var(--wp--preset--spacing--52));
+		padding-left: var(--wp--style--root--padding-left, var(--wp--preset--spacing--50));
+		padding-right: var(--wp--style--root--padding-right, var(--wp--preset--spacing--50));
 	}
 
 	/* Adjust columns thick gap so vertical spacing matches up */	
@@ -194,8 +197,8 @@
 	/* Adjust individual column padding so outer margins line up */
 	.wp-block-column.is-style-small-padding,
 	.wp-block-column.is-style-large-padding {
-		padding-left: var(--wp--style--root--padding-left, var(--wp--preset--spacing--52));
-		padding-right: var(--wp--style--root--padding-right, var(--wp--preset--spacing--52));
+		padding-left: var(--wp--style--root--padding-left, var(--wp--preset--spacing--50));
+		padding-right: var(--wp--style--root--padding-right, var(--wp--preset--spacing--50));
 	}
 	
 }
@@ -405,7 +408,7 @@ p.is-style-no-link-underline a:hover {
 .wp-block-comments-query-loop.is-style-rounded-borders {
 	border: 1px solid var(--wp--custom--border--color);
 	border-radius: var(--wp--custom--border--radius);
-	padding: var(--wp--preset--spacing--40);
+	/*padding: var(--wp--preset--spacing--40);*/
 }
 
 /*--------------------------------------------------------------
@@ -422,7 +425,7 @@ p.is-style-no-link-underline a:hover {
 /* Bullets */
 .wp-block-latest-posts.is-style-bullets,
 .wp-block-latest-posts.is-style-bullets.wp-block-latest-posts__list {
-	box-sizing: border-box;
+	/*box-sizing: border-box;*/
 	list-style: disc;
 	padding-left: var(--wp--preset--spacing--60);
 }
@@ -437,7 +440,7 @@ p.is-style-no-link-underline a:hover {
 
 /* Front-end Add bullets and padding */
 .wp-block-latest-comments.is-style-bullets {
-	box-sizing: border-box;
+	/*box-sizing: border-box;*/
 	list-style: disc;
 }
 .wp-block-latest-comments.is-style-bullets:not(.has-avatars) {

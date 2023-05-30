@@ -71,7 +71,7 @@ Updates for WordPress v6.2:
 * Added more image duotones. Turned off default WordPress duotones as the colors clash.
 * Added more gradient colors.
 * Fix horizontal padding on Site Map page template and Sitemap Content template part that it uses. This also fixes it on the 404 page template that uses the same Sitemap Content template part. 
-* Add new custom variable to theme.json to control button drop-shadow (--wp--custom--shadow).
+* Add new custom variable to theme.json to control button drop-shadow (--wp--custom--button--shadow).
 * Add new custom variable to theme.json for focus outline color (--wp--custom--outline--color).
 * Set border radius on input fields, including text areas.
 * Set outline (focus) to gray drop-shadow instead of the browser defaults.
@@ -79,6 +79,7 @@ Updates for WordPress v6.2:
 * If user selects global link underline, also underline post titles. Don't underline latest posts, latest comments, categories, or page lists though.
 * Added new theme style for button drop-shadow and link underlines.
 * Changed default theme style tertiary colors to orange.
+* Added light purple to the color palette and changed the purple theme style to use that one.
 * Updated the global theme styles to have duotones that match each style's color scheme.
 
 = 1.1 =

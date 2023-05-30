@@ -171,6 +171,11 @@
 					"name": "Dark Midnight Blue"
 				},
 				{
+					"slug": "light-purple",
+					"color": "#a29bfe",
+					"name": "Light Purple"
+				},
+				{
 					"slug": "purple",
 					"color": "#9b59b6",
 					"name": "Purple"

@@ -7,8 +7,8 @@
 			"palette": [
 				{
 					"slug": "primary",
-					"color": "#9b59b6",
-					"name": "Primary (Purple)"
+					"color": "#a29bfe",
+					"name": "Primary (Light Purple)"
 				},
 				{
 					"slug": "secondary",
@@ -32,8 +32,8 @@
 				},
 				{
 					"slug": "primary-alt",
-					"color": "#8e44ad",
-					"name": "Primary Alt (Dark Purple)"
+					"color": "#9b59b6",
+					"name": "Primary Alt (Purple)"
 				},
 				{
 					"slug": "secondary-alt",
@@ -166,6 +166,11 @@
 					"name": "Dark Midnight Blue"
 				},
 				{
+					"slug": "light-purple",
+					"color": "#a29bfe",
+					"name": "Light Purple"
+				},
+				{
 					"slug": "purple",
 					"color": "#9b59b6",
 					"name": "Purple"
@@ -218,22 +223,22 @@
 					"name": "Background and Foreground"
 				},
 				{
-					"colors": ["#9b59b6", "#f2f2f2"],
+					"colors": ["#a29bfe", "#f2f2f2"],
 					"slug": "primary-and-background",
 					"name": "Primary and Background"
 				},
 				{
-					"colors": ["#f2f2f2", "#9b59b6"],
+					"colors": ["#f2f2f2", "#a29bfe"],
 					"slug": "background-and-primary",
 					"name": "Background and Primary"
 				},
 				{
-					"colors": ["#9b59b6", "#555555"],
+					"colors": ["#a29bfe", "#555555"],
 					"slug": "primary-and-foreground",
 					"name": "Primary and Foreground"
 				},
 				{
-					"colors": ["#555555", "#9b59b6"],
+					"colors": ["#555555", "#a29bfe"],
 					"slug": "foreground-and-primary",
 					"name": "Foreground and Primary"
 				},
@@ -278,22 +283,22 @@
 					"name": "Foreground and Tertiary"
 				},
 				{
-					"colors": ["#9b59b6", "#f1c40f"],
+					"colors": ["#a29bfe", "#f1c40f"],
 					"slug": "primary-and-secondary",
 					"name": "Primary and Secondary"
 				},
 				{
-					"colors": ["#f1c40f", "#9b59b6"],
+					"colors": ["#f1c40f", "#a29bfe"],
 					"slug": "secondary-and-primary",
 					"name": "Secondary and Primary"
 				},
 				{
-					"colors": ["#9b59b6", "#34495e"],
+					"colors": ["#a29bfe", "#34495e"],
 					"slug": "primary-and-tertiary",
 					"name": "Primary and Tertiary"
 				},
 				{
-					"colors": ["#34495e", "#9b59b6"],
+					"colors": ["#34495e", "#a29bfe"],
 					"slug": "tertiary-and-primary",
 					"name": "Tertiary and Primary"
 				},
