@@ -54,27 +54,27 @@
 				{
 					"slug": "40",
 					"size": "clamp(var(--wp--preset--spacing--30), 3vw, var(--wp--custom--spacing--gap))",
-					"name": "Small (Responsive X-Small->Small)"
+					"name": "Small"
 				},
 				{
 					"slug": "50",
 					"size": "clamp(var(--wp--preset--spacing--40), 4vw, calc(1.5 * var(--wp--custom--spacing--gap)))",
-					"name": "Medium (Responsive Small->Medium)"
+					"name": "Medium"
 				},
 				{
 					"slug": "60",
-					"size": "calc(2 * var(--wp--preset--spacing--40)) /*calc(var(--wp--custom--spacing--gap) + var(--wp--preset--spacing--40))*/",
-					"name": "Large (Responsive 2 x Small)"
+					"size": "calc(2 * var(--wp--preset--spacing--40))",
+					"name": "Large"
 				},
 				{
 					"slug": "70",
 					"size": "clamp(var(--wp--preset--spacing--60), 6vw, calc(3 * var(--wp--custom--spacing--gap)))",
-					"name": "X-Large (Responsive Large->X-Large)"
+					"name": "X-Large"
 				},
 				{
 					"slug": "80",
 					"size": "calc(2 * var(--wp--preset--spacing--60))",
-					"name": "2X-Large (Responsive X-Large->2X-Large)"
+					"name": "2X-Large"
 				}
 			]
 		},
@@ -118,7 +118,7 @@
 				{
 					"slug": "neutral",
 					"color": "#ebebeb",
-					"name": "Neutral (Light Gray)"
+					"name": "Neutral (Very Light Gray)"
 				},
 				{
 					"slug": "primary-alt",
@@ -143,7 +143,7 @@
 				{
 					"slug": "neutral-alt",
 					"color": "#e0e0e0",
-					"name": "Neutral Alt (Dark Gray)"
+					"name": "Neutral Alt (Gray)"
 				},
 				{
 					"slug": "foreground-alt",
@@ -171,24 +171,24 @@
 					"name": "Off White"
 				},
 				{
-					"slug": "light-gray",
+					"slug": "very-light-gray",
 					"color": "#ebebeb",
+					"name": "Very Light Gray"
+				},
+				{
+					"slug": "light-gray",
+					"color": "#e7e7e7",
 					"name": "Light Gray"
 				},
 				{
 					"slug": "gray",
-					"color": "#e7e7e7",
+					"color": "#e0e0e0",
 					"name": "Gray"
 				},
 				{
 					"slug": "dark-gray",
-					"color": "#e0e0e0",
-					"name": "Dark Gray"
-				},
-				{
-					"slug": "darker-gray",
 					"color": "#95a5a6",
-					"name": "Darker Gray"
+					"name": "Dark Gray"
 				},
 				{
 					"slug": "very-dark-gray",
@@ -354,7 +354,7 @@
 				},
 				{
 					"slug": "purple",
-					"gradient": "linear-gradient(160deg, var(--wp--preset--color--purple), var(--wp--preset--color--dark-purple))",
+					"gradient": "linear-gradient(160deg, var(--wp--preset--color--light-purple), var(--wp--preset--color--dark-purple))",
 					"name": "Purple"
 				},
 				{
@@ -364,12 +364,12 @@
 				},
 				{
 					"slug": "gray",
-					"gradient": "linear-gradient(160deg, var(--wp--preset--color--gray), var(--wp--preset--color--darker-gray))",
+					"gradient": "linear-gradient(160deg, var(--wp--preset--color--gray), var(--wp--preset--color--dark-gray))",
 					"name": "Gray"
 				},
 				{
 					"slug": "dark-gray",
-					"gradient": "linear-gradient(160deg, var(--wp--preset--color--darker-gray), var(--wp--preset--color--very-dark-gray))",
+					"gradient": "linear-gradient(160deg, var(--wp--preset--color--dark-gray), var(--wp--preset--color--very-dark-gray))",
 					"name": "Dark Gray"
 				}
 			],
@@ -1211,6 +1211,15 @@
 					}
 				}
 			},
+			"core/site-logo": {
+				"elements": {
+					"link": {
+						"typography": {
+							"lineHeight": "1"
+						}
+					}
+				}
+			},
 			"core/code": {
 				"spacing": {
 					"padding": "var:preset|spacing|40"
@@ -1398,6 +1407,24 @@
 			"area": "uncategorized"
 		},
 		{
+			"name": "menu-footer-1",
+			"title": "Menu Footer 1",
+			"description": "Vertical Footer Menu 1",
+			"area": "uncategorized"
+		},
+		{
+			"name": "menu-footer-2",
+			"title": "Menu Footer 2",
+			"description": "Vertical Footer Menu 2",
+			"area": "uncategorized"
+		},
+		{
+			"name": "menu-footer-3",
+			"title": "Menu Footer 3",
+			"description": "Vertical Footer Menu 3",
+			"area": "uncategorized"
+		},
+		{
 			"name": "header",
 			"title": "Header",
 			"description": "Site-Wide Header",
@@ -1533,6 +1560,11 @@
 			"area": "footer"
 		},
 		{
+			"name": "footer-3-blocks",
+			"title": "Footer 3 Blocks (Recent Posts, Recent Comments, About)",
+			"area": "footer"
+		},
+		{
 			"name": "footer-default",
 			"title": "Footer Default",
 			"area": "footer"
@@ -1548,58 +1580,73 @@
 			"area": "footer"
 		},
 		{
+			"name": "footer-3-blocks-nav-site-social",
+			"title": "Footer 3 Blocks with Menu, Site Info, and Social Icons",
+			"area": "footer"
+		},
+		{
 			"name": "footer-3-blocks-nav-social",
-			"title": "Footer 3 Blocks with Nav and Social Icons",
+			"title": "Footer 3 Blocks with Menu and Social Icons",
+			"area": "footer"
+		},
+		{
+			"name": "footer-about-3-navs-site-info",
+			"title": "Footer About and 3 Menus with Site Info",
 			"area": "footer"
 		},
 		{
 			"name": "footer-3-blocks-nav-tagline",
-			"title": "Footer 3 Blocks with Nav Menu and Tagline",
+			"title": "Footer 3 Blocks with Menu and Tagline",
 			"area": "footer"
 		},
 		{
-			"name": "footer-3-blocks-nav-text-social",
-			"title": "Footer 3 Blocks with Nav Menu, Text, and Social Icons",
+			"name": "footer-compact-site-info",
+			"title": "Footer Compact Site Info",
 			"area": "footer"
 		},
 		{
-			"name": "footer-about-3-navs-text",
-			"title": "Footer About and 3 Nav Menus with Text",
-			"area": "footer"
-		},
-		{
-			"name": "footer-compact-menu-site-info",
+			"name": "footer-compact-nav-site-info",
 			"title": "Footer Compact Menu and Site Info",
 			"area": "footer"
 		},
 		{
-			"name": "footer-contact-info-3-columns",
-			"title": "Footer Contact Info in 3 Columns",
+			"name": "footer-compact-nav-social",
+			"title": "Footer Compact Menu and Social Icons",
+			"area": "footer"
+		},
+		{
+			"name": "footer-compact-nav-site-social",
+			"title": "Footer Compact Menu, Site Info, and Social Icons",
+			"area": "footer"
+		},
+		{
+			"name": "footer-compact-contact-info-social",
+			"title": "Footer Compact Contact Info and Social Icons",
 			"area": "footer"
 		},
 		{
 			"name": "footer-map-static",
-			"title": "Footer Static Map & Contact Info",
+			"title": "Footer Static Map and Contact Info",
 			"area": "footer"
 		},
 		{
 			"name": "footer-map-jetpack",
-			"title": "Footer Jetpack Map & Contact Info",
+			"title": "Footer Jetpack Map and Contact Info",
 			"area": "footer"
 		},
 		{
-			"name": "footer-motto-and-social-icons",
-			"title": "Footer Motto and Social Icons",
+			"name": "footer-motto-social-site",
+			"title": "Footer Motto, Social Icons, and Site Info",
 			"area": "footer"
 		},
 		{
 			"name": "footer-social-map-static",
-			"title": "Footer Colored Social Icons and Static Map & Contact Info",
+			"title": "Footer Colored Social Icons and Static Map and Contact Info",
 			"area": "footer"
 		},
 		{
 			"name": "footer-social-map-jetpack",
-			"title": "Footer Colored Social Icons and Jetpack Map & Contact Info",
+			"title": "Footer Colored Social Icons and Jetpack Map and Contact Info",
 			"area": "footer"
 		}
 	],

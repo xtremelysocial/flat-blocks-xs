@@ -38,14 +38,14 @@ if ( function_exists( 'register_block_style' ) ) {
 		);
 
 		// Navigation: Top Margin
-		register_block_style(
+		/*register_block_style(
 			'core/navigation',
 			array(
 				'name'  => 'top-margin',
 				'label' => esc_html__( 'Top Margin', 'flat-blocks' ),
 				'style_handle'	=> 'flatblocks-custom-styles'
 			)
-		);
+		);*/
 
 		/*--------------------------------------------------------------
 		# Cover styles
@@ -62,7 +62,7 @@ if ( function_exists( 'register_block_style' ) ) {
 		);
 
 		// Cover: Top Margin.
-		register_block_style(
+		/*register_block_style(
 			'core/cover',
 			array(
 				'name'  => 'top-margin',
@@ -79,7 +79,7 @@ if ( function_exists( 'register_block_style' ) ) {
 				'label' => esc_html__( 'No Top Margin', 'flat-blocks' ),
 				'style_handle'	=> 'flatblocks-custom-styles'
 			)
-		);
+		);*/
 
 		/*--------------------------------------------------------------
 		# Media and Text styles
@@ -212,7 +212,7 @@ if ( function_exists( 'register_block_style' ) ) {
 		);
 
 		// Group: Small Padding.
-		register_block_style(
+		/*register_block_style(
 			'core/group',
 			array(
 				'name'  => 'small-padding',
@@ -229,33 +229,33 @@ if ( function_exists( 'register_block_style' ) ) {
 				'label' => esc_html__( 'Large Padding', 'flat-blocks' ),
 				'style_handle'	=> 'flatblocks-custom-styles'
 			)
-		);
+		);*/
 
 		// Group: No Top Margin
-		register_block_style(
+		/*register_block_style(
 			'core/group',
 			array(
 				'name'  => 'no-top-margin',
 				'label' => esc_html__( 'No Top Margin', 'flat-blocks' ),
 				'style_handle'	=> 'flatblocks-custom-styles'
 			)
-		);
+		);*/
 
 		// Group: No Padding or Margin
-		register_block_style(
+		/*register_block_style(
 			'core/group',
 			array(
 				'name'  => 'no-padding-no-margin',
 				'label' => esc_html__( 'No Padding or Margin', 'flat-blocks' ),
 				'style_handle'	=> 'flatblocks-custom-styles'
 			)
-		);
+		);*/
 
 		// Group: Rounded Borders.
 		register_block_style(
 			'core/group',
 			array(
-				'name'  => 'rounded-borders',
+				'name'  => 'rounded-border',
 				'label' => esc_html__( 'Borders', 'flat-blocks' ),
 				'style_handle'	=> 'flatblocks-custom-styles'
 			)
@@ -265,7 +265,7 @@ if ( function_exists( 'register_block_style' ) ) {
 		register_block_style(
 			'core/group',
 			array(
-				'name'  => 'thick-rounded-borders',
+				'name'  => 'thick-rounded-border',
 				'label' => esc_html__( 'Thick Borders', 'flat-blocks' ),
 				'style_handle'	=> 'flatblocks-custom-styles'
 			)
@@ -290,14 +290,14 @@ if ( function_exists( 'register_block_style' ) ) {
 		--------------------------------------------------------------*/
 
 		// Columns: No Top Margin.
-		register_block_style(
+		/*register_block_style(
 			'core/columns',
 			array(
 				'name'  => 'no-top-margin',
 				'label' => esc_html__( 'No Top Margin', 'flat-blocks' ),
 				'style_handle'	=> 'flatblocks-custom-styles'
 			)
-		);
+		);*/
 
 		// Columns: No Gap.
 		register_block_style(
@@ -343,34 +343,34 @@ if ( function_exists( 'register_block_style' ) ) {
 		);
 
 		// Column: Large Padding.
-		register_block_style(
+		/*register_block_style(
 			'core/column',
 			array(
 				'name'  => 'large-padding',
 				'label' => esc_html__( 'Large Padding', 'flat-blocks' ),
 				'style_handle'	=> 'flatblocks-custom-styles'
 			)
-		);
+		);*/
 
 		// Column: Rounded Borders.
 		register_block_style(
 			'core/column',
 			array(
-				'name'  => 'rounded-borders',
+				'name'  => 'rounded-border',
 				'label' => esc_html__( 'Rounded Borders', 'flat-blocks' ),
 				'style_handle'	=> 'flatblocks-custom-styles'
 			)
 		);
 
 		// Column: No Margin.
-		register_block_style(
+		/*register_block_style(
 			'core/column',
 			array(
 				'name'  => 'no-top-margin',
 				'label' => esc_html__( 'No Top Margin', 'flat-blocks' ),
 				'style_handle'	=> 'flatblocks-custom-styles'
 			)
-		);
+		);*/
 
 
 		/*--------------------------------------------------------------
@@ -380,7 +380,7 @@ if ( function_exists( 'register_block_style' ) ) {
 		register_block_style(
 			'core/comments',
 			array(
-				'name'  => 'rounded-borders',
+				'name'  => 'rounded-border',
 				'label' => esc_html__( 'Borders', 'flat-blocks' ),
 				'style_handle'	=> 'flatblocks-custom-styles'
 			)
