@@ -42,18 +42,18 @@ You can check out our other themes here: https://xtremelysocial.com/wordpress/
 == Changelog ==
 
 = 1.2 =
-May 7, 2023
+June 8, 2023
 
 Updates for WordPress v6.2:
-* Updated the theme to use core WordPress v6.2 default, wide, and full width handling (useRootPaddingAwareAlignments). Set the overall layout to have left and right padding (preset spacing 52 which is responsive from small to large).
+* Updated the theme to use core WordPress v6.2 default, wide, and full width handling (useRootPaddingAwareAlignments). Set the overall layout to have left and right padding (preset spacing 50 which is responsive from small to large).
 * In conjunction with the above, updated all templates to use the new "layout":{"type":"constrained"} versus the old "layout":{"inherit":true}. This is important for properly handling full and wide with layouts.
-* Added more preset spacing sizes and renamed them to match core WordPress v6.2. 
+* Added more preset responsive spacing sizes and renamed them to match core WordPress v6.2.
 * Fixes for various block patterns for WordPress v6.2: all the cover images, the button in the 2-column call-to-action, and the large social media icons.
 * Added new pattern for Call to Action Rounded. This is a wide-with group with colored background and rounded borders.
 * Added new pattern for Testimonial. This is a full-wide colored group with profile pic, quote, and the person's name.
 * Cleaned up Quote styling, such as vertical space above the quote author (cite).
 * Remove bold font files (weight 700) as we use weights 300, 400, and 500 only. This reduces the overall size of the theme.
-* Updated the various theme styles that specify fonts to set it at the heading level now that WordPress v6.2 supports that. Previously we had specify each individual h1, h2, h3, etc.
+* Updated the various theme styles that specify fonts to set it at the heading level now that WordPress v6.2 supports that. Previously we had to specify each individual h1, h2, h3, etc.
 * Reduced the number of custom group styles to only the ones used directly in the theme templates, template parts, and patterns. In WordPress v6.2 its very easy for users to choose preset spacing for padding and margin, so fewer group styles related to those are needed.
 * Added a new header menu dark template part and set header dark and header dark fixed to use it. This way those header menus will have a dark background to match the header background itself.
 * Added link and hover color to the Site Title in theme.json (core/site-title) now that it doesn't default from the overall theme link and hover colors.
@@ -61,24 +61,21 @@ Updates for WordPress v6.2:
 * Add Bullet style to latest posts and latest comments blocks since default is now plain (no bullets).
 * Remove extra padding on sub-menus that have colored backgrounds.
 * Remove custom border thin, normal, thick, and style and replace with hard-coded values. custom-border-color and custom-border-radius are still in place and used in the theme CSS
-* Remove bold-faced font from theme style Red Uppercase.
-* Remove group style Thick Bottom Border and update block pattern Image with Left and Right Text to just set the thick bottom border directly.
 * Fix rounded image styles when global image style has a border radius.
-* Add border to rounded profile pic (avatar) on testimonials pattern.* Fix for center align on images now that WordPress uses the figure tag.
-* Set Outline button padding to match regular buttons factoring in the outline button border width
+* Add border to rounded profile pic (avatar) on testimonials pattern.
+* Fix for center align on images now that WordPress uses the figure tag.
+* Set Outline button padding to match regular buttons factoring in the outline button border width.
 * Style the file download and search buttons to match other buttons
 * Better support for users turning on link underlining. Added several blocks to theme.json to not display link underlines, such as Lists, Latest Posts, Latest Comments, etc. because it was just TOO much underlining.
 * Added more image duotones. Turned off default WordPress duotones as the colors clash.
 * Added more gradient colors.
-* Fix horizontal padding on Site Map page template and Sitemap Content template part that it uses. This also fixes it on the 404 page template that uses the same Sitemap Content template part. 
 * Add new custom variable to theme.json to control button drop-shadow (--wp--custom--button--shadow).
 * Add new custom variable to theme.json for focus outline color (--wp--custom--outline--color).
 * Set border radius on input fields, including text areas.
 * Set outline (focus) to gray drop-shadow instead of the browser defaults.
 * Inherit text color on colored backgrounds for when user defaults headings to a color.
-* If user selects global link underline, also underline post titles. Don't underline latest posts, latest comments, categories, or page lists though.
-* Added new theme style for button drop-shadow and link underlines.
-* Changed default theme style tertiary colors to orange.
+* Added new global theme style for button drop-shadow and link underlines.
+* Changed default theme style tertiary color to orange.
 * Added light purple to the color palette and changed the purple theme style to use that one.
 * Updated the global theme styles to have duotones that match each style's color scheme.
 
