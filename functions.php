@@ -170,7 +170,6 @@ if ( ! function_exists( 'flatblocks_editor_styles' ) ) :
 
 endif;
 add_action( 'admin_init', 'flatblocks_editor_styles' );
-//add_action( 'after_setup_theme', 'flatblocks_editor_styles' );
 
 /**
  * Load custom block styles and block patterns

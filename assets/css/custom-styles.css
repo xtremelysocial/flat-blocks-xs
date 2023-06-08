@@ -15,21 +15,21 @@
 .wp-block-group.is-style-fixed-header {
     border: 1px solid var(--wp--custom--border--color);
     border-width: 0 0 1px;
-    padding: var(--wp--preset--spacing--40) var(--wp--style--root--padding-right) var(--wp--preset--spacing--40) var(--wp--style--root--padding-left);
+    padding: var(--wp--preset--spacing--40) var(--wp--style--root--padding-right, var(--wp--preset--spacing--50)) var(--wp--preset--spacing--40) var(--wp--style--root--padding-left, var(--wp--preset--spacing--50)) !important;
 }
 
 /* Fixed mobile menu */
+.wp-block-navigation.is-style-fixed-menu .wp-block-navigation__responsive-container {
+	min-width: calc(10 * var(--wp--preset--spacing--60));
+	max-width: calc(15 * var(--wp--preset--spacing--60));
+}
+
 .wp-block-navigation.is-style-fixed-menu .wp-block-navigation__responsive-container-open {
 	background: rgba(0, 0, 0, .25);
 	padding: var(--wp--preset--spacing--20);
 	color: white;
 	border-radius: 0;
 }
-
-/* No top margin */
-/*.wp-block-navigation.is-style-top-margin {
-	margin-top: var(--wp--preset--spacing--30);
-}*/
 
 /*--------------------------------------------------------------
 # Cover Image
@@ -41,37 +41,9 @@
 	padding: var(--wp--preset--spacing--40);
 }
 
-/* No top margin */
-/*.wp-block-cover.is-style-no-top-margin {
-	margin-block-start: 0 !important; 
-}*/
-
-/* Top margin */
-/*.wp-block-cover.is-style-top-margin {
-	margin-top: var(--wp--preset--spacing--40) !important;
-}*/
-
 /*--------------------------------------------------------------
 # Group
 --------------------------------------------------------------*/
-
-/* Group no padding or margin */
-/*.wp-block-group.is-style-no-padding-no-margin {*/
-	/*padding: 0;*/
-	/*padding-top: 0;
-	padding-bottom: 0;
-	margin-block-start: 0 !important;
-	margin: 0;
-}
-.wp-block-group.is-style-no-padding-no-margin:not(.has-global-padding) {
-	padding-left: 0;
-	padding-right: 0;
-}*/
-
-/* Group no top margin */
-/*.wp-block-group.is-style-no-top-margin {
-	margin-block-start: 0 !important; 
-}*/
 
 /* Group borders */
 .wp-block-group.is-style-rounded-border {
@@ -101,33 +73,9 @@
 	padding-right: 0;
 }
 
-/*.wp-block-group.is-style-small-padding {
-	padding-top: var(--wp--preset--spacing--40);
-	padding-bottom: var(--wp--preset--spacing--40);
-}
-.wp-block-group.is-style-small-padding:not(.has-global-padding) {
-	padding-left: var(--wp--preset--spacing--40);
-	padding-right: var(--wp--preset--spacing--40);
-}
-
-.wp-block-group.is-style-large-padding {
-	padding-top: var(--wp--preset--spacing--60);
-	padding-bottom: var(--wp--preset--spacing--60);
-
-}
-.wp-block-group.is-style-large-padding:not(.has-global-padding) {
-	padding-left: var(--wp--preset--spacing--60);
-	padding-right: var(--wp--preset--spacing--60);
-}*/
-
 /*--------------------------------------------------------------
 # Columns
 --------------------------------------------------------------*/
-
-/* Columns no top margin */
-/*.wp-block-columns.is-style-no-top-margin {
-	margin-block-start: 0 !important; 
-}*/
 
 /* Columns no Gap */
 .wp-block-columns.is-style-no-gap,
@@ -161,19 +109,6 @@
 	padding: 0;
 }
 
-.wp-block-column.is-style-large-padding {
-	padding: var(--wp--preset--spacing--60);
-}
-
-/* Column margins */
-/*.wp-block-columns:not(.is-style-no-top-margin) .wp-block-column.is-style-no-top-margin {
-	margin-block-start: 0 !important; 
-}
-
-.wp-block-columns:not(.is-style-no-top-margin) .wp-block-column.is-style-no-top-margin > .wp-block-post-content > *:first-child {
-	margin-block-start: 0 !important; 
-}*/
-
 /*--------------------------------------------------------------
 # Columns and Column on Mobile
 --------------------------------------------------------------*/
@@ -194,24 +129,25 @@
 	}
 
 	/* OVERRIDE columns padding so outer margins line up */	
-	.wp-block-columns.has-background:not(.is-style-no-gap) {
-		padding-left: var(--wp--style--root--padding-left);
-		padding-right: var(--wp--style--root--padding-right);
-	}
+	/*.wp-block-columns.has-background:not(.has-global-padding):not(.is-style-no-gap) {
+		padding-left: var(--wp--preset--spacing--60);
+		padding-right: var(--wp--preset--spacing--60);
+	}*/
 
-	/* OVERRID columns thick gap so vertical spacing matches up */	
+	/*.wp-block-columns.has-background.has-global-padding:not(.is-style-no-gap) {
+		padding-left: var(--wp--style--root--padding-left, var(--wp--preset--spacing--50));
+		padding-right: var(--wp--style--root--padding-right, var(--wp--preset--spacing--50));
+	}*/
+	/*.wp-block-columns.is-style-no-gap {
+		padding-left: 0;
+		padding-right: 0;
+	}*/
+
+	/* OVERRIDE columns thick gap so vertical spacing matches up */	
 	.wp-block-columns.is-style-thick-gap {
 		gap: var(--wp--preset--spacing--40);
 	}
 	
-	/* OVERRIDE individual column padding so outer margins line up */
-	/*.has-global-padding :where(.wp-block-columns:not(.is-style-no-gap) .wp-block-column),*/
-	/*.has-global-padding :where(:not(.has-global-padding)) .wp-block-column,*/
-	/*.wp-block-column.is-style-small-padding,
-	.wp-block-column.is-style-large-padding {
-		padding-left: var(--wp--style--root--padding-left) !important;
-		padding-right: var(--wp--style--root--padding-right) !important;
-	}*/
 }
 
 /*--------------------------------------------------------------
@@ -435,13 +371,29 @@ p.is-style-no-link-underline a:hover {
 # Latest Posts
 --------------------------------------------------------------*/
 
+/* Default latest posts style to no bullets */
+/*.wp-block-latest-posts.wp-block-latest-posts__list {*/
+/*.wp-site-blocks .wp-block-latest-posts {*/
+    /*padding-left: inherit;
+}*/
+/*.wp-block-latest-posts:not(.is-style-bullets).wp-block-latest-posts__list {
+	padding-left: inherit;
+}*/
+
 /* Bullets */
-.wp-block-latest-posts.is-style-bullets,
+/*.wp-block-latest-posts.is-style-bullets,*/
 .wp-block-latest-posts.is-style-bullets.wp-block-latest-posts__list {
-	/*box-sizing: border-box;*/
 	list-style: disc;
-	padding-left: var(--wp--preset--spacing--60);
+	/*padding-left: var(--wp--preset--spacing--60);*/
+	padding-left: 2em;
 }
+
+/*ul.wp-block-latest-posts.is-style-bullets.wp-block-latest-posts__list {*/
+/*ul.wp-block-latest-posts.is-style-bullets {
+	/*padding-left: inherit;*/
+	/*padding-inline-start: inherit;*/
+/*}*/
+
 .wp-block-latest-posts.is-style-bullets li {
     list-style: disc;
 	overflow: visible;
@@ -450,6 +402,11 @@ p.is-style-no-link-underline a:hover {
 /*--------------------------------------------------------------
 # Latest Comments
 --------------------------------------------------------------*/
+
+/* Default latest comments style to no bullets */
+.wp-block-latest-comments:not(.is-style-bullets) {
+	padding-left: 0;
+}
 
 /* Front-end Add bullets and padding */
 .wp-block-latest-comments.is-style-bullets {

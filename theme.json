@@ -928,9 +928,10 @@
 		},
 		"blocks": {
 			"core/group": {
-				"spacing": {
-					"padding": "var:preset|spacing|40"
-				},
+					"padding": {
+						"top": "var:preset|spacing|40",
+						"bottom": "var:preset|spacing|40"
+					},
 				"css": ".has-background { padding: var(--wp--preset--spacing--60) }"
 			},
 			"core/columns": {
@@ -1297,11 +1298,16 @@
 				},
 				"spacing": {
 					"padding": {
-						"left": "var:preset|spacing|60"
+						"left": "2em"
 					}
 				}
 			},
 			"core/latest-posts": {
+				"spacing": {
+					"padding": {
+						"left": "2em"
+					}
+				},
 				"elements": {
 					"link": {
 						"typography": {
@@ -1311,11 +1317,6 @@
 				}
 			},
 			"core/latest-comments": {
-				"spacing": {
-					"padding": {
-						"left": "0"
-					}
-				},
 				"elements": {
 					"link": {
 						"typography": {
