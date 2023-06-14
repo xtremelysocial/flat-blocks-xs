@@ -41,6 +41,17 @@ You can check out our other themes here: https://xtremelysocial.com/wordpress/
 
 == Changelog ==
 
+= 1.2.1 =
+June 14, 2023
+
+* Updates for inclusion in the WordPress.org Theme Directory:
+	* Added content to the top of the front (home) page for when the user has it set to display the blog. So added a template part for Content Page Top and a Front Page template in PHP to conditionally load it when appropriate. Also added Home template for the blog when static page is set to the front page.
+	* Modified Page Home template and pattern to match the new front page template.
+	* Updated the screenshot to match the new front page template.
+* Updated entry content bottom margin to be on the last block so that user can override it by setting margin-bottom to 0.
+* Added spacing around Team block patterns (both 3 column and 4 column).
+* Changed custom page templates Page Featured Image and Page Featured Cover to allow full width.
+
 = 1.2 =
 June 8, 2023
 

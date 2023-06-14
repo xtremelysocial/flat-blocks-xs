@@ -270,6 +270,15 @@ figure.wp-block-image {
 	margin-top: 0;
 }
 
+/* Hide empty comments so no extra vertical margin */
+#post-comments {
+	margin-bottom: var(--wp--preset--spacing--40);
+}
+#post-comments:empty {
+	display: none;
+	margin-top: 0;
+}
+
 /* Add padding to comment page numbers */
 .wp-block-comments-pagination .page-numbers:nth-last-child(n+2) {
 	padding-right: var(--wp--preset--spacing--30);
@@ -360,7 +369,8 @@ figure.wp-block-image {
 }
 
 /* Also add bottom margin on the last block for convenience */
-.wp-site-blocks main > *:last-child,
+/*.wp-site-blocks main > *:last-child,*/
+/*.wp-site-blocks .wp-block-query > *:last-child,*/
 .wp-site-blocks .wp-block-post-content > *:last-child {
 	margin-bottom: var(--wp--preset--spacing--40);
 }

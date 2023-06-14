@@ -10,8 +10,10 @@
 
 <?php echo flatblocks_get_block_pattern( 'cover-scroll-home-header' ); ?>
 
+<?php echo flatblocks_get_block_pattern( 'text-title-and-text' ); ?>
+
 <!-- wp:paragraph {"textAlign":"center","className":"is-style-default"} -->
-<p class="has-text-align-center is-style-default">Lorem Ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+<p class="has-text-align-center is-style-default">Posuere sollicitudin aliquam ultrices sagittis orci a scelerisque purus.</p>
 <!-- /wp:paragraph -->
 
 <?php echo flatblocks_get_block_pattern( 'columns-features-3-columns' ); ?>

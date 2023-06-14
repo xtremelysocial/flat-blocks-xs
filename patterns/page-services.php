@@ -40,6 +40,6 @@
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
-<?php echo flatblocks_get_block_pattern( 'columns-pricing-table-4-columns' ); ?>
+<?php echo flatblocks_get_block_pattern( 'columns-pricing-table-3-columns' ); ?>
 
 <?php echo flatblocks_get_block_pattern( 'buttons-call-to-action' ); ?>
