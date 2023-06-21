@@ -1,7 +1,7 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/theme.json",
 	"version": 2,
-	"title": "Green, Blue, Yellow",
+	"title": "Pale Palette (TEST ONLY)",
 	"settings": {
 		"color": {		
 			"palette": [

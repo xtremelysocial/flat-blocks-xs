@@ -1184,13 +1184,6 @@
 					"textDecoration": "none"
 				}
 			},
-			"core/query-pagination": {
-				"spacing": {
-					"padding": {
-						"bottom": "var:preset|spacing|40"
-					}
-				}
-			},
 			"core/site-title": {
 				"typography": {
 					"fontSize": "var(--wp--preset--font-size--large)",

@@ -52,7 +52,7 @@ if ( ! function_exists( 'flatblocks_register_block_patterns' ) ) :
 		
 		// Define the list of patterns with translatable titles
 		$block_patterns = array(
-			'query-loop-default' => array( 
+			'query-loop-2-columns' => array( 
 				'title' => __( 'Querly Loop 2 Columns (Default)', 'flat-blocks' ),
 				'categories' => array ('flatblocks', 'query' ),
 				'blockTypes' => array ('core/query')
@@ -176,11 +176,11 @@ if ( ! function_exists( 'flatblocks_register_block_patterns' ) ) :
 				'title' => __( 'Image Gallery', 'flat-blocks' ),
 				'categories' => array ('flatblocks', 'columns', 'gallery', 'image' )
 			),
-			'image-with-left-and-right-text' => array( 
+			'image-left-and-right-text' => array( 
 				'title' => __( 'Image with Left and Right Text', 'flat-blocks' ),
 				'categories' => array ('flatblocks', 'columns', 'image', 'banner', 'featured' )
 			),
-			'image-computer-screen-with-title-and-text-above' => array( 
+			'image-computer-screen-title-and-text' => array( 
 				'title' => __( 'Computer Screen Image with Title and Text Above', 'flat-blocks' ),
 				'categories' => array ('flatblocks', 'image', 'text' )
 			),
