@@ -48,14 +48,15 @@ if ( ! function_exists( 'flatblocks_support' ) ) :
 
 		// Register four nav menus if Gutenberg is activated 
 		// (otherwise the __experimentalMenuLocation attribute isn't available)
-		if ( defined( 'IS_GUTENBERG_PLUGIN' ) ) {
+		//if ( defined( 'IS_GUTENBERG_PLUGIN' ) && IS_GUTENBERG_PLUGIN ) {
 			register_nav_menus( array(
-				'primary' 	=> __( 'Header Menu', 'flat-blocks' ),
+				'header' 	=> __( 'Header Menu', 'flat-blocks' ),
 				'footer' 	=> __( 'Footer Menu', 'flat-blocks' ),
-				'footer-2' 	=> __( 'Footer Menu 2', 'flat-blocks' ),
-				'footer-3' 	=> __( 'Footer Menu 3', 'flat-blocks' )
+				'footer-1' 	=> __( 'Footer Menu Alt 1', 'flat-blocks' ),
+				'footer-2' 	=> __( 'Footer Menu Alt 2', 'flat-blocks' ),
+				'footer-3' 	=> __( 'Footer Menu Alt 3', 'flat-blocks' )
 			) );
-		}
+		//}
 
 		// Allow excerpts on pages so users can control what shows in searches, etc.
 		add_post_type_support( 'page', 'excerpt' );		

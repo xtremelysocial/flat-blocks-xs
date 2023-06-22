@@ -937,6 +937,11 @@
 				"css": ".has-background { padding: var(--wp--preset--spacing--60) }"
 			},
 			"core/columns": {
+				"spacing": {
+					"margin": {
+						"bottom": "0"
+					}
+				},
 				"css": ".has-background { padding: var(--wp--preset--spacing--60) }"
 			},
 			"core/column": {

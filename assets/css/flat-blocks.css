@@ -223,9 +223,9 @@ ul.wp-block-navigation__submenu-container.has-background {
 }
 
 /* FIX images overriding vertical gap spacing */
-figure.wp-block-image {
+/*figure.wp-block-image {
 	margin-top: var(--wp--preset--spacing--40);
-}
+}*/
 
 /* FIX rounded images when global image style has a border radius */
 .wp-block-image .is-style-rounded img, 
@@ -252,13 +252,11 @@ figure.wp-block-image {
 .wp-block-quote cite,
 .wp-block-pullquote cite {
 	display: inline-block;
-	/*text-transform: none;*/
 }
 
 /* OVERRIDE remove top margin because we use padding instead */
 .wp-block-pullquote p {
 	margin-top: 0; 
-	/*font-size: 1em;*/
 }
 
 /*--------------------------------------------------------------
@@ -369,8 +367,7 @@ figure.wp-block-image {
 }
 
 /* Also add bottom margin on the last block for convenience */
-.wp-site-blocks main > *:last-child,
-/*.wp-site-blocks .wp-block-query > *:last-child,*/
+.wp-site-blocks .wp-block-query > *:last-child,
 .wp-site-blocks .wp-block-post-content > *:last-child {
 	margin-bottom: var(--wp--preset--spacing--40);
 }
@@ -388,20 +385,14 @@ figure.wp-block-image {
 	padding: 0;
 }
 
-/* For convenience, remove horizontal padding from non-colored groups */
-/**.wp-block-group:not(.has-global-padding, .has-background) {
-	padding-left: 0;
-	padding-right: 0;
-}**/
-
 /* FIX to add back horizontal padding */
 .has-global-padding {
     padding-left: var(--wp--style--root--padding-left, var(--wp--preset--spacing--50)) !important;
     padding-right: var(--wp--style--root--padding-right, var(--wp--preset--spacing--50)) !important;
 }
 
-.has-global-padding > .alignfull:not(.wp-block-image, .wp-block-columns, .wp-block-buttons),
-.has-global-padding.alignfull:not(.wp-block-image, .wp-block-columns, .wp-block-buttons),
+.has-global-padding > .alignfull:not(.wp-block-post-content, .wp-block-image, .wp-block-columns, .wp-block-buttons),
+.has-global-padding.alignfull:not(wp-block-post-content, .wp-block-image, .wp-block-columns, .wp-block-buttons),
 .is-root-container .has-global-padding.has-background {
     padding-left: var(--wp--style--root--padding-left, var(--wp--preset--spacing--50)) !important;
     padding-right: var(--wp--style--root--padding-right, var(--wp--preset--spacing--50)) !important;
@@ -412,7 +403,6 @@ figure.wp-block-image {
 	padding: 0;
 }
 
-/*.has-global-padding :where(.has-global-padding) {*/
 .has-global-padding :where(.has-global-padding):not(.has-background) {
 	padding-left: 0 !important;
 	padding-right: 0 !important;
@@ -440,7 +430,6 @@ figure.wp-block-image {
 	p.has-background,
 	.wp-block-columns.has-background,
 	.wp-block-column.has-background {
-	/*.wp-block-media-text .wp-block-media-text__content {*/
 		padding-left: var(--wp--preset--spacing--60);
 		padding-right: var(--wp--preset--spacing--60);
 	}
@@ -449,7 +438,6 @@ figure.wp-block-image {
 	.has-global-padding p.has-background,
 	.has-global-padding .wp-block-columns.has-background,
 	.has-global-padding .wp-block-column.has-background {
-	/*.has-global-padding .wp-block-media-text .wp-block-media-text__content {*/
 		padding-left: var(--wp--style--root--padding-left, var(--wp--preset--spacing--50)) !important;
 		padding-right: var(--wp--style--root--padding-right, var(--wp--preset--spacing--50)) !important;
 	}
@@ -461,11 +449,13 @@ figure.wp-block-image {
 --------------------------------------------------------------*/
 
 /* Don't let dashicons force width and height. Let it come from the font size. */
-.dashicons { /*}, 
-.dashicons-before:before {*/
-	width: auto !important;
-	height: auto !important;
-	font-weight: var(--wp--custom--typography--font-weight--normal) !important;
+.wp-site-blocks .dashicons {
+	width: auto;
+	height: auto;
+	font-weight: var(--wp--custom--typography--font-weight--normal);
+}
+.wp-site-blocks .dashicons:before {
+	display: inline-block;
 }
 
 /* Add dashicons to various template tags */
