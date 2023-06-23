@@ -4,7 +4,7 @@
   * Slug: flat-blocks/page-services
   * Categories: flatblocks, page
   * Block Types: core/post-content
-  * Description: A sample services page with cover image, title and text, we do, 4-column features, 4-column pricing table, and call-to-action button
+  * Description: A sample services page with cover image, title and text, what we do, 4-column features, 4-column pricing table, and call-to-action button
   */
 ?>
 

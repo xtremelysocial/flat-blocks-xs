@@ -43,13 +43,13 @@ You can check out our other themes here: https://xtremelysocial.com/wordpress/
 == Changelog ==
 
 = 1.2.2 = 
-June 22, 2023
+June 23, 2023
 
 * Updates for more accurate theme previews on WordPress.org Theme Directory:
 	* Remove bottom margin on columns block
 	* On blog, put date and comment count on the same line to take up less space
 * When Gutenburg plugin active, allow user to set various menus in the Customizer. This is an easy way to assign menus without having to edit the menu Template Parts themselves.
-* Cleaned up some CSS for the included Dashicon font icons, image block top margins, post content bottom margin
+* Cleaned up some CSS for the included Dashicon font icons, image block top margins, featured image top margin, post content bottom margin, heading bottom margin, and post title line height.
 
 = 1.2.1 =
 June 21, 2023

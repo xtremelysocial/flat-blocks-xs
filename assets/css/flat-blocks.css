@@ -282,6 +282,13 @@ ul.wp-block-navigation__submenu-container.has-background {
 	padding-right: var(--wp--preset--spacing--30);
 }
 
+/* Add word "comment(s)" after post comment count. Note this is only available
+ * with the Gutenberg plugin. 
+ */
+.wp-block-post-comments-count:after {
+	content: " comment(s)";
+}
+
 /*--------------------------------------------------------------
 # Separator
 --------------------------------------------------------------*/
