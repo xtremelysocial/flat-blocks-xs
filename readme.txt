@@ -50,6 +50,7 @@ June 23, 2023
 	* On blog, put date and comment count on the same line to take up less space
 * When Gutenburg plugin active, allow user to set various menus in the Customizer. This is an easy way to assign menus without having to edit the menu Template Parts themselves.
 * Cleaned up some CSS for the included Dashicon font icons, image block top margins, featured image top margin, post content bottom margin, heading bottom margin, and post title line height.
+* Clear floats after groups so user's can specify alignright and alignleft within a group and not have it flow into the next element or block on the page.
 
 = 1.2.1 =
 June 21, 2023

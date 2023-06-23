@@ -175,6 +175,14 @@ body .is-layout-constrained > .alignright {
 	margin-inline-start: var(--wp--preset--spacing--40);
 }
 
+/* Clear floats after groups */
+.wp-block-group:after,
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
 /*--------------------------------------------------------------
 # Navigation
 --------------------------------------------------------------*/
