@@ -51,7 +51,7 @@ June 23, 2023
 	* Renumbered global theme styles so more colorful options are at the beginning.
 * When Gutenburg plugin active, allow user to set various menus in the Customizer. This is an easy way to assign menus without having to edit the menu Template Parts themselves.
 * Cleaned up some CSS for the included Dashicon font icons, image block top margins, featured image top margin, post content bottom margin, heading bottom margin, post title line height, and image captions on dark backgrounds.
-* Clear floats after groups so user's can specify alignright and alignleft within a group and not have it flow into the next element or block on the page.
+* Change font color to foreground-alt on pricing tables and social icons to look better on theme styles with dark backgrounds.
 
 = 1.2.1 =
 June 21, 2023

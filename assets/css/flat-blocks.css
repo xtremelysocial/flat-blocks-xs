@@ -175,14 +175,6 @@ body .is-layout-constrained > .alignright {
 	margin-inline-start: var(--wp--preset--spacing--40);
 }
 
-/* Clear floats after groups */
-.wp-block-group:after,
-.clearfix::after {
-  content: "";
-  clear: both;
-  display: table;
-}
-
 /*--------------------------------------------------------------
 # Navigation
 --------------------------------------------------------------*/
@@ -225,16 +217,9 @@ ul.wp-block-navigation__submenu-container.has-background {
 --------------------------------------------------------------*/
 
 /* FIX caption color when on colored background */
-/*.has-background .wp-block-image figcaption {*/
 .wp-block-image figcaption {
 	color: inherit;
-	/*font-weight: var(--wp--custom--typography--font-weight--bold);*/
 }
-
-/* FIX images overriding vertical gap spacing */
-/*figure.wp-block-image {
-	margin-top: var(--wp--preset--spacing--40);
-}*/
 
 /* FIX rounded images when global image style has a border radius */
 .wp-block-image .is-style-rounded img, 
@@ -392,7 +377,9 @@ ul.wp-block-navigation__submenu-container.has-background {
 # Padding Overrides (Horizontal and vertical spacing)
 --------------------------------------------------------------*/
 
-/* Note: Padding for colored backgrounds on groups and columns is in theme.json */
+/* 
+ * Note: Padding for colored backgrounds on groups and columns is in theme.json 
+ */
 
 /* For convenience, remove padding from inner containers */
 .wp-site-blocks main,

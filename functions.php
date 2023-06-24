@@ -22,9 +22,7 @@ if ( ! function_exists( 'flatblocks_support' ) ) :
 
 		// This sets the standard post thumbnail image size for the blog
 		// It is cropped with 16:9 aspect ratio so that widths and heights are the same
-		//////set_post_thumbnail_size( 760, 428, array( 'Left', 'top' ) );
 		set_post_thumbnail_size( 1100, 619, array( 'left', 'top' ) );
-		/////set_post_thumbnail_size( 1600, 900, array( 'left', 'top' ) );
 				
 		// Also add this as a selectable size in the Block Editor
 		add_image_size( 'cropped-large', 1100, 619, array( 'left', 'top' ) );

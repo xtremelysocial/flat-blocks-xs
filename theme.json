@@ -1213,7 +1213,7 @@
 							}
 						},
 						"typography": {
-							"fontWeight": "400",
+							"lineHeight": {"ref": "styles.elements.heading.typography.lineHeight"},
 							"textDecoration": "none"
 						}
 					}
