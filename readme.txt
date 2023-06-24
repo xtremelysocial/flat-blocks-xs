@@ -3,7 +3,7 @@ Contributors: Tim Nicholson / XtremelySocial
 Requires at least: 6.2
 Tested up to: 6.2
 Requires PHP: 5.7
-Stable tag: 1.2
+Stable tag: 1.2.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -15,9 +15,9 @@ Flat Blocks is a modern “flat” style theme with a nice color palette, full a
 
 = Menus = 
 
-The first thing you'll want to do is go into the Site Editor and select the navigation menus you want for the header and the footer. Once you do your old menus will be copied into the header and footer templates and stored there.
+The first thing you'll want to do is go into the Site Editor and select the navigation menus you want for the header and the footer. Once you do, your old menus will be copied into the header and footer templates and stored there.
 
-Note that if you are running the Gutenberg and have menus named "header" and "footer", they will be defaulted already. WordPress v6.0 core doesn't have this functionality so the menus must be selected manually. 
+Note that if you are running the Gutenberg Plugin and have menus named "header" and "footer", they should be defaulted already. Otherwise, go into Appearance -> Customize -> Menus -> View All Locations and select them there. WordPress v6 doesn't have this functionality, so the menus must be selected manually in the Editor per above. 
 
 = Header, Footer, and Blog Layouts = 
 
@@ -34,12 +34,24 @@ Note that Block and Page Patterns are copied into your page or post and unlike B
 = More Information About This Theme = 
 
 For more information, see these pages on the XtremelySocial.com website:
-* How to use our Block Theme: https://xtremelysocial.com/userguide/block-themes/
+* How to use our Block Themes: https://xtremelysocial.com/userguide/block-themes/
+* Our Theme Block Styles: https://xtremelysocial.com/userguide/block-styles/
 * Our Theme Block Patterns: https://xtremelysocial.com/userguide/block-patterns/
 
 You can check out our other themes here: https://xtremelysocial.com/wordpress/
 
 == Changelog ==
+
+= 1.2.2 = 
+June 23, 2023
+
+* Updates for more accurate theme previews on WordPress.org Theme Directory:
+	* Remove bottom margin on columns block
+	* On blog, put date and comment count on the same line to take up less space
+	* Renumbered global theme styles so more colorful options are at the beginning.
+* When Gutenburg plugin active, allow user to set various menus in the Customizer. This is an easy way to assign menus without having to edit the menu Template Parts themselves.
+* Cleaned up some CSS for the included Dashicon font icons, image block top margins, featured image top margin, post content bottom margin, heading bottom margin, post title line height, and image captions on dark backgrounds.
+* Change font color to foreground-alt on pricing tables and social icons to look better on theme styles with dark backgrounds.
 
 = 1.2.1 =
 June 21, 2023

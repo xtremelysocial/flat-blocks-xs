@@ -52,13 +52,13 @@ if ( ! function_exists( 'flatblocks_register_block_patterns' ) ) :
 		
 		// Define the list of patterns with translatable titles
 		$block_patterns = array(
-			'query-loop-2-columns' => array( 
-				'title' => __( 'Querly Loop 2 Columns (Default)', 'flat-blocks' ),
+			'query-loop-1-column' => array( 
+				'title' => __( 'Querly Loop (1 Column)', 'flat-blocks' ),
 				'categories' => array ('flatblocks', 'query' ),
 				'blockTypes' => array ('core/query')
 			),
-			'query-loop-1-column' => array( 
-				'title' => __( 'Querly Loop (1 Column)', 'flat-blocks' ),
+			'query-loop-2-columns' => array( 
+				'title' => __( 'Querly Loop 2 Columns (Default)', 'flat-blocks' ),
 				'categories' => array ('flatblocks', 'query' ),
 				'blockTypes' => array ('core/query')
 			),

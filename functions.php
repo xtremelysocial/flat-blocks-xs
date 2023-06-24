@@ -22,9 +22,7 @@ if ( ! function_exists( 'flatblocks_support' ) ) :
 
 		// This sets the standard post thumbnail image size for the blog
 		// It is cropped with 16:9 aspect ratio so that widths and heights are the same
-		//////set_post_thumbnail_size( 760, 428, array( 'Left', 'top' ) );
 		set_post_thumbnail_size( 1100, 619, array( 'left', 'top' ) );
-		/////set_post_thumbnail_size( 1600, 900, array( 'left', 'top' ) );
 				
 		// Also add this as a selectable size in the Block Editor
 		add_image_size( 'cropped-large', 1100, 619, array( 'left', 'top' ) );
@@ -48,12 +46,13 @@ if ( ! function_exists( 'flatblocks_support' ) ) :
 
 		// Register four nav menus if Gutenberg is activated 
 		// (otherwise the __experimentalMenuLocation attribute isn't available)
-		if ( defined( 'IS_GUTENBERG_PLUGIN' ) ) {
+		if ( defined( 'IS_GUTENBERG_PLUGIN' ) && IS_GUTENBERG_PLUGIN ) {
 			register_nav_menus( array(
-				'primary' 	=> __( 'Header Menu', 'flat-blocks' ),
+				'header' 	=> __( 'Header Menu', 'flat-blocks' ),
 				'footer' 	=> __( 'Footer Menu', 'flat-blocks' ),
-				'footer-2' 	=> __( 'Footer Menu 2', 'flat-blocks' ),
-				'footer-3' 	=> __( 'Footer Menu 3', 'flat-blocks' )
+				'footer-1' 	=> __( 'Footer Menu Alt 1', 'flat-blocks' ),
+				'footer-2' 	=> __( 'Footer Menu Alt 2', 'flat-blocks' ),
+				'footer-3' 	=> __( 'Footer Menu Alt 3', 'flat-blocks' )
 			) );
 		}
 
