@@ -48,8 +48,9 @@ June 23, 2023
 * Updates for more accurate theme previews on WordPress.org Theme Directory:
 	* Remove bottom margin on columns block
 	* On blog, put date and comment count on the same line to take up less space
+	* Renumbered global theme styles so more colorful options are at the beginning.
 * When Gutenburg plugin active, allow user to set various menus in the Customizer. This is an easy way to assign menus without having to edit the menu Template Parts themselves.
-* Cleaned up some CSS for the included Dashicon font icons, image block top margins, featured image top margin, post content bottom margin, heading bottom margin, and post title line height.
+* Cleaned up some CSS for the included Dashicon font icons, image block top margins, featured image top margin, post content bottom margin, heading bottom margin, post title line height, and image captions on dark backgrounds.
 * Clear floats after groups so user's can specify alignright and alignleft within a group and not have it flow into the next element or block on the page.
 
 = 1.2.1 =

@@ -225,9 +225,10 @@ ul.wp-block-navigation__submenu-container.has-background {
 --------------------------------------------------------------*/
 
 /* FIX caption color when on colored background */
-.has-background .wp-block-image figcaption {
+/*.has-background .wp-block-image figcaption {*/
+.wp-block-image figcaption {
 	color: inherit;
-	font-weight: var(--wp--custom--typography--font-weight--bold);
+	/*font-weight: var(--wp--custom--typography--font-weight--bold);*/
 }
 
 /* FIX images overriding vertical gap spacing */
@@ -411,6 +412,12 @@ ul.wp-block-navigation__submenu-container.has-background {
 .is-root-container .has-global-padding.has-background {
     padding-left: var(--wp--style--root--padding-left, var(--wp--preset--spacing--50)) !important;
     padding-right: var(--wp--style--root--padding-right, var(--wp--preset--spacing--50)) !important;
+}
+
+/* FIX alignfull in WordPress.org theme preview */
+.has-global-padding > #wporg-pattern-preview > div > .alignfull {
+	margin-right: calc(var(--wp--style--root--padding-right, var(--wp--preset--spacing--50)) * -1);
+	margin-left: calc(var(--wp--style--root--padding-left, var(--wp--preset--spacing--50)) * -1);
 }
 
 /* But REMOVE duplicate padding */

@@ -880,7 +880,8 @@
 			},
 			"caption": {
 				"typography": {
-					"fontSize": "var(--wp--preset--font-size--small)"
+					"fontSize": "var(--wp--preset--font-size--small)",
+					"fontWeight": "400"
 				}
 			},
 			"button": {
@@ -1011,13 +1012,6 @@
 						"right": "var:preset|spacing|60",
 						"bottom": "var:preset|spacing|60",
 						"left": "var:preset|spacing|60"
-					}
-				}
-			},
-			"core/image": {
-				"elements": {
-					"caption": {
-						"fontSize": "var(--wp--preset--font-size--small)"
 					}
 				}
 			},
