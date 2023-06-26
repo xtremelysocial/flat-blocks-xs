@@ -3,7 +3,7 @@ Contributors: Tim Nicholson / XtremelySocial
 Requires at least: 6.2
 Tested up to: 6.2
 Requires PHP: 5.7
-Stable tag: 1.2.2
+Stable tag: 1.2.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -41,6 +41,15 @@ For more information, see these pages on the XtremelySocial.com website:
 You can check out our other themes here: https://xtremelysocial.com/wordpress/
 
 == Changelog ==
+
+= 1.2.3 = 
+June 26, 2023
+
+* Fix font color on post meta box when using dark theme style.
+* Darken link color on Purple global theme style.
+* Change Title and Text block pattern to have secondary background color so its different than the cover image which uses the primary color.
+* Fix WordPress bug where columns block doesn't have gap in the Block Editor.
+* Added feature to functions.php to load child theme's /assets/css/custom-styles.css file if it exists.
 
 = 1.2.2 = 
 June 23, 2023

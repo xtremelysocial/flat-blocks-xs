@@ -995,8 +995,7 @@
 					"fontFamily": {"ref": "styles.elements.heading.typography.fontFamily"},
 					"fontStyle": {"ref": "styles.elements.heading.typography.fontStyle"},
 					"fontWeight": {"ref": "styles.elements.heading.typography.fontWeight"},
-					"lineHeight": {"ref": "styles.elements.heading.typography.lineHeight"},
-					"textTransform": {"ref": "styles.elements.heading.typography.textTransform"}
+					"lineHeight": {"ref": "styles.elements.heading.typography.lineHeight"}
 				}
 			},
 			"core/paragraph": {

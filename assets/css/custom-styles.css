@@ -144,7 +144,8 @@
 	}*/
 
 	/* OVERRIDE columns thick gap so vertical spacing matches up */	
-	.wp-block-columns.is-style-thick-gap {
+	.wp-block-columns.is-style-thick-gap,
+	.wp-block-columns.is-style-thick-gap.has-background {
 		gap: var(--wp--preset--spacing--40);
 	}
 	
