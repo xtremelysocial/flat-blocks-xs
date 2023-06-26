@@ -116,6 +116,16 @@ if ( ! function_exists( 'flatblocks_styles' ) ) :
 		// WordPress built-in icons (Dashicons)
 		wp_enqueue_style( 'dashicons' );
 
+		// As a courtesy, add the child theme Custom Styles CSS if it exists
+		if ( is_child_theme() && file_exists( get_stylesheet_directory() . '/assets/css/custom-styles.css' ) ) {
+			wp_enqueue_style( 
+				'flatblocks-child-custom-styles', 
+				get_stylesheet_directory_uri() . '/assets/css/custom-styles.css', 
+				array( 'flatblocks-style' ), 
+				$version_string 
+			);
+		}
+
 		// As a courtesy, add the child theme CSS if it exists
 		if ( is_child_theme() && file_exists( get_stylesheet_directory() . '/style.css' ) ) {
 			wp_enqueue_style( 
