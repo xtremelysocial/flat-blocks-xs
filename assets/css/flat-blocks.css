@@ -233,11 +233,9 @@ ul.wp-block-navigation__submenu-container.has-background {
 figure:not(.alignfull),
 figure:not(.alignfull) img,
 .is-root-container .wp-block-image:not(.alignfull) > * {
+	width: 100% !important;
 	height: auto !important;
 	max-width: 100% !important;
-}
-.is-root-container .wp-block-image:not(.alignfull) > * {
-	width: 100% !important;
 }
 
 /* FIX caption color when on colored background */
