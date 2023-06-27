@@ -224,6 +224,20 @@ ul.wp-block-navigation__submenu-container.has-background {
 # Images
 --------------------------------------------------------------*/
 
+/* Prevent images with hard-coded dimensions from breaking the layout. Note the figure
+ * line is for older block editor markup and the is-root-container is for hte editor
+ * which adds an extra div between the image container (figure) and the image itself. 
+ */
+.wp-block-image:not(.alignfull),
+.wp-block-image:not(.alignfull) img,
+figure:not(.alignfull),
+figure:not(.alignfull) img,
+.is-root-container .wp-block-image:not(.alignfull) > * {
+	width: 100% !important;
+	height: auto !important;
+	max-width: 100% !important;
+}
+
 /* FIX caption color when on colored background */
 .wp-block-image figcaption {
 	color: inherit;
