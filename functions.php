@@ -225,7 +225,7 @@ if ( ! function_exists( 'flatblocks_image_sizes' ) ) :
 endif; // end ! function_exists
 add_filter( 'image_size_names_choose', 'flatblocks_image_sizes' );
 
-// Replace [...] with ... from the excerpt
+// Always replace [...] with ... from the excerpt
 if ( ! function_exists( 'flatblocks_excerpt_more' ) ) :
 
 	function flatblocks_excerpt_more( $more ) {

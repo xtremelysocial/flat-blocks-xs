@@ -81,8 +81,6 @@
 .wp-block-columns.is-style-no-gap,
 .wp-block-columns.is-style-no-gap .wp-block-column:not(.has-background),
 .wp-block-columns.is-style-no-gap.has-background:not(.has-global-padding) {
-/*.wp-block-columns.is-style-no-gap:not(.has-global-padding) {*/
-	/*margin-block-start: 0;*/
 	gap: 0 !important;
 	padding: 0 !important;
 }
@@ -90,7 +88,6 @@
 /* Columns thick gap */
 .wp-block-columns.is-style-thick-gap,
 .wp-block-columns.is-style-thick-gap.has-background {
-	/*column-gap: var(--wp--preset--spacing--60);*/
 	gap: var(--wp--preset--spacing--60);
 }
 
@@ -127,21 +124,6 @@
 		justify-content: center;
 		--navigation-layout-justify: center;		
 	}
-
-	/* OVERRIDE columns padding so outer margins line up */	
-	/*.wp-block-columns.has-background:not(.has-global-padding):not(.is-style-no-gap) {
-		padding-left: var(--wp--preset--spacing--60);
-		padding-right: var(--wp--preset--spacing--60);
-	}*/
-
-	/*.wp-block-columns.has-background.has-global-padding:not(.is-style-no-gap) {
-		padding-left: var(--wp--style--root--padding-left, var(--wp--preset--spacing--50));
-		padding-right: var(--wp--style--root--padding-right, var(--wp--preset--spacing--50));
-	}*/
-	/*.wp-block-columns.is-style-no-gap {
-		padding-left: 0;
-		padding-right: 0;
-	}*/
 
 	/* OVERRIDE columns thick gap so vertical spacing matches up */	
 	.wp-block-columns.is-style-thick-gap,
@@ -372,15 +354,6 @@ p.is-style-no-link-underline a:hover {
 # Latest Posts
 --------------------------------------------------------------*/
 
-/* Default latest posts style to no bullets */
-/*.wp-block-latest-posts.wp-block-latest-posts__list {*/
-/*.wp-site-blocks .wp-block-latest-posts {*/
-    /*padding-left: inherit;
-}*/
-/*.wp-block-latest-posts:not(.is-style-bullets).wp-block-latest-posts__list {
-	padding-left: inherit;
-}*/
-
 /* Bullets */
 /*.wp-block-latest-posts.is-style-bullets,*/
 .wp-block-latest-posts.is-style-bullets.wp-block-latest-posts__list {
@@ -388,12 +361,6 @@ p.is-style-no-link-underline a:hover {
 	/*padding-left: var(--wp--preset--spacing--60);*/
 	padding-left: 2em;
 }
-
-/*ul.wp-block-latest-posts.is-style-bullets.wp-block-latest-posts__list {*/
-/*ul.wp-block-latest-posts.is-style-bullets {
-	/*padding-left: inherit;*/
-	/*padding-inline-start: inherit;*/
-/*}*/
 
 .wp-block-latest-posts.is-style-bullets li {
     list-style: disc;

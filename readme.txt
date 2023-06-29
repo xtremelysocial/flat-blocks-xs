@@ -42,6 +42,15 @@ You can check out our other themes here: https://xtremelysocial.com/wordpress/
 
 == Changelog ==
 
+= 1.2.6 = 
+June 28, 2023
+
+* Update icon color to be white for social media icon patterns, both 3-column and 4-column. This looks better on all colored-backgrounds.
+* To better support user's older post and page content and older plubins, added CSS to style non-block buttons, forms, and input fields to better match the block-based ones styled in theme.json.
+* For Comments template part, keep avatar and user name on the same line (don't collapse on mobile)
+* Added bottom padding on sidebar
+* Add filter for child themes to be able to specify whether to remove core WordPress block patterns or not. The filter name is 'flatblocks_remove_core_patterns'. The default is true.
+
 = 1.2.5 = 
 June 27, 2023
 

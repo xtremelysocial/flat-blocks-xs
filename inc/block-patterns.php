@@ -210,41 +210,46 @@ if ( ! function_exists( 'flatblocks_register_block_patterns' ) ) :
 			)
 		);
 		
-		// Allow child themes to alter the list
+		// Allow child themes to alter the block patterns list
 		$block_patterns = apply_filters( 'flatblocks_block_patterns', $block_patterns );
 
-		// First remove the core WordPress block patterns if we're registering any
-		if ( is_array( $block_patterns ) && count( $block_patterns ) > 0 ) {
+		// Allow child themes to alter whether core WordPress patterns are removed or not
+		if ( apply_filters( 'flatblocks_remove_core_patterns', $default = true ) ) {
+
+			// First remove the core WordPress block patterns if we're registering any
+			if ( is_array( $block_patterns ) && count( $block_patterns ) > 0 ) {
 			
-			remove_theme_support( 'core-block-patterns' );
+				remove_theme_support( 'core-block-patterns' );
 
-			// Above still doesn't remove core/query, core/social-links, headers or
-			// footers, so get rid of them as long as we've registed at least one
-			// pattern.
-			$patterns = WP_Block_Patterns_Registry::get_instance()->get_all_registered();
-			foreach ( $patterns as $pattern ) {
-				if (
-					! empty( $pattern['blockTypes'] ) &&
-					is_array( $pattern['blockTypes'] )
-					) {
-
+				// Above still doesn't remove core/query, core/social-links, headers or
+				// footers, so get rid of them as long as we've registed at least one
+				// pattern.
+				$patterns = WP_Block_Patterns_Registry::get_instance()->get_all_registered();
+				foreach ( $patterns as $pattern ) {
 					if (
-						in_array( 'core/query', $pattern['blockTypes'] ) ||
-						in_array( 'core/social-links', $pattern['blockTypes'] ) ||
-						in_array( 'core/template-part/header', $pattern['blockTypes'] ) ||
-						in_array( 'core/template-part/footer', $pattern['blockTypes'] )
-					) {
-						unregister_block_pattern( $pattern['name'] );
-					}// endif
+						! empty( $pattern['blockTypes'] ) &&
+						is_array( $pattern['blockTypes'] )
+						) {
+
+						if (
+							in_array( 'core/query', $pattern['blockTypes'] ) ||
+							in_array( 'core/social-links', $pattern['blockTypes'] ) ||
+							in_array( 'core/template-part/header', $pattern['blockTypes'] ) ||
+							in_array( 'core/template-part/footer', $pattern['blockTypes'] )
+						) {
+							unregister_block_pattern( $pattern['name'] );
+						}// endif
 				
-				}// endif
-			}// endforeach 
-		} // endif
+					}// endif
+					
+				} // endforeach 
+				
+			} // endif is_array
+
+		} //endif apply_filters
 
 		// Then loop through all our patterns and register them
 		foreach ( $block_patterns as $name => $properties ) {
-		
-			//var_dump($properties['title']);
 		
 			// Get the HTML contents and replace partial URL's
 			$content = flatblocks_get_block_pattern( $name );

@@ -106,16 +106,55 @@ a,
 	text-underline-offset: 0.5ch;
 }
 
-/* FIX button radius in Safari */
-button,
-textarea {
+/* Form Fields */
+fieldset {
+	border: 1.5px solid currentColor;
 	border-radius: var(--wp--custom--border--radius);
 }
 
-/* Style default inputs (except buttons). Prevent iOS from rounding buttons */
-input:not([type="radio"]):not([type="checkbox"]):not(.wp-block-button__link) {
-    -webkit-appearance: none;
+/* Style default fields */
+textarea {
+	line-height: 1.5;
+	border: 1px solid currentColor;
 	border-radius: var(--wp--custom--border--radius);
+	text-shadow: none;
+}
+
+input, 
+select {
+	line-height: 1.75;
+	border-radius: var(--wp--custom--border--radius);
+	text-shadow: none;
+}
+input:not([type="radio"]):not([type="checkbox"]):not([type="file"]):not([type="button"]):not([class="button"]):not(.wp-block-button__link) {
+    -webkit-appearance: none;
+	border: 1px solid currentColor;
+	border-radius: var(--wp--custom--border--radius);
+	padding: 5px;
+	text-shadow: none;
+}
+
+input[type="file"] {
+	font-size: var(--wp--preset--font-size--small);
+	width: 100%;
+}
+ 
+/* Style basic buttons to match block buttons. This is for older site content and / or
+ * plugins.
+ */
+button:not(.wp-block-navigation-item__content),
+input[type="button"],
+input[class="button"],
+input[type="file"]::file-selector-button {
+	color: var(--wp--preset--color--foreground-alt);
+	background-color: var(--wp--preset--color--primary);
+	border-width: 0;
+	border-radius: var(--wp--custom--border--radius);
+	padding: var(--wp--preset--spacing--30) var(--wp--preset--spacing--40);
+	font-size: var(--wp--preset--font-size--normal);
+	font-weight: 400;
+	line-height: 1.5;
+	text-shadow: none;
 }
 
 /*
@@ -123,6 +162,9 @@ input:not([type="radio"]):not([type="checkbox"]):not(.wp-block-button__link) {
  * Necessary until the following issue is resolved in Gutenberg:
  * https://github.com/WordPress/gutenberg/issues/27075
  */
+button:hover,
+input[class="button"]:hover,
+input[type="file"]::file-selector-button:hover,
 .wp-block-search__button:hover,
 .wp-block-file .wp-block-file__button:hover,
 .wp-block-button__link:hover {
@@ -324,6 +366,7 @@ figure:not(.alignfull) img,
 	padding: var(--wp--custom--border--radius)
 }
 
+
 /*--------------------------------------------------------------
 # Latest Posts
 --------------------------------------------------------------*/
@@ -395,6 +438,12 @@ figure:not(.alignfull) img,
 .wp-site-blocks .wp-block-query > *:last-child,
 .wp-site-blocks .wp-block-post-content > *:last-child {
 	margin-bottom: var(--wp--preset--spacing--40);
+}
+
+/* Remove bottom margin on Category and Tag descriptions */
+.wp-block-term-description p {
+	margin-block-start: 0;
+	margin-block-end: 0;
 }
 
 /*--------------------------------------------------------------
