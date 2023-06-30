@@ -3,7 +3,7 @@ Contributors: Tim Nicholson / XtremelySocial
 Requires at least: 6.2
 Tested up to: 6.2
 Requires PHP: 5.7
-Stable tag: 1.2.5
+Stable tag: 1.2.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -25,6 +25,12 @@ One of the cool things about this theme is that we provide numerous header, foot
 
 Note that the theme is setup this way so that you can change the header, footer, and query layout across the entire site. If you change the actual Header, Footer, and Query blocks, you'll only be changing them on the Home Page that you are editing by default in the Site Editor.
 
+= Site Home as Blog or Page = 
+
+You can decide whether you want your site home to display your blog or any page on your site. This theme is designed to work well either way. If you have the blog as the home page, it uses the Index template ("index.html") and will have a cover image and title-and-text box at the top that you can edit.
+
+If you have the home page set to a page, then the blog page uses the Home template ("home.html") which has just the standard header on it.
+
 = Page and Block Patterns = 
 
 This theme provides TONS of Block Patterns that you can insert into your pages and posts to quickly build out content. It also includes full Page Patterns that will pull in a whole series of Block Patterns to easily build a Home, About, Services, or Portfolio page. 
@@ -41,6 +47,12 @@ For more information, see these pages on the XtremelySocial.com website:
 You can check out our other themes here: https://xtremelysocial.com/wordpress/
 
 == Changelog ==
+
+= 1.2.7 = 
+June 30, 2023
+
+* Clean up CSS for input fields and buttons
+* Updated readme.txt to discuss setting the blog or a page as the site home page.
 
 = 1.2.6 = 
 June 28, 2023
