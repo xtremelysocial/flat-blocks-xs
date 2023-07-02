@@ -3,7 +3,7 @@ Contributors: Tim Nicholson / XtremelySocial
 Requires at least: 6.2
 Tested up to: 6.2
 Requires PHP: 5.7
-Stable tag: 1.2.7
+Stable tag: 1.2.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -47,6 +47,12 @@ For more information, see these pages on the XtremelySocial.com website:
 You can check out our other themes here: https://xtremelysocial.com/wordpress/
 
 == Changelog ==
+
+= 1.2.8 = 
+June 30, 2023
+
+* Add template parts for footer block 1, block 2, and about block. Update the footer templates that use them. This way when the component blocks are edited, the updates will be reflected in all the footer templates that use them.
+* In conjunction with adding the footer blocks, revise the CSS for vertical margin on template parts.
 
 = 1.2.7 = 
 June 30, 2023

@@ -437,9 +437,12 @@ figure:not(.alignfull) img,
 }
  
  /* Add top margin to the container's first block and then between subsequent blocks */
+ 
 .wp-site-blocks main > *:first-child:not(.wp-block-template-part, .wp-block-post-content, .wp-block-cover,  .wp-block-query, header, footer, nav),
-.wp-site-blocks .wp-block-template-part > *:first-child:not(.wp-block-template-part, .wp-block-post-content, .wp-block-cover, .wp-block-query, main, header, footer, nav),
-.wp-site-blocks .wp-block-template-part > * + *:not(.wp-block-template-part, .wp-block-query, main, header, footer, nav),
+/*.wp-site-blocks .wp-block-template-part > *:first-child:not(.wp-block-template-part, .wp-block-post-content, .wp-block-cover, .wp-block-query, main, header, footer, nav),
+.wp-site-blocks .wp-block-template-part > * + *:not(.wp-block-template-part, .wp-block-query, main, header, footer, nav),*/
+body .is-layout-constrained > * + .wp-block-template-part > *:first-child:not(.wp-block-template-part, .wp-block-post-content, .wp-block-cover, .wp-block-query, main, header, footer, nav),
+body .is-layout-constrained .wp-block-template-part > * + *:not(.wp-block-template-part, .wp-block-post-content, .wp-block-cover, .wp-block-query, main, header, footer, nav),
 .wp-site-blocks .wp-block-query > *:first-child:not(.wp-block-cover),
 .wp-site-blocks .wp-block-post-content > *:first-child:not(.wp-block-cover),
 .is-root-container > *:first-child:not(.wp-block-template-part, .wp-block-cover, .wp-block-query) {

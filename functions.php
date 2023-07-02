@@ -200,7 +200,7 @@ if ( file_exists( get_template_directory() . '/inc/block-patterns.php' ) ) {
 }
 
 // As a courtesy, add the child theme patterns if they exist. Note that child
-// themes can simply add .php files in the /patterns directory and they will
+// themes can alternately add .php files in the /patterns directory and they will
 // automatically be loaded by WordPress.
 if ( file_exists( get_stylesheet_directory() . '/inc/block-patterns.php' ) ) {
 	require_once get_stylesheet_directory() . '/inc/block-patterns.php';

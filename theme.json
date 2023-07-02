@@ -836,6 +836,7 @@
 				},
 				"spacing": {
 					"margin": {
+						"top": "0",
 						"bottom": "var:preset|spacing|40"
 					}
 				}
@@ -1373,60 +1374,6 @@
 	},
 	"templateParts": [
 		{
-			"name": "menu-header",
-			"title": "Menu Header",
-			"description": "Default Header Menu",
-			"area": "uncategorized"
-		},
-		{
-			"name": "menu-header-centered",
-			"title": "Menu Header Centered",
-			"description": "Centered Header Menu",
-			"area": "uncategorized"
-		},
-		{
-			"name": "menu-header-dark",
-			"title": "Menu Header Dark",
-			"description": "Dark Header Menu",
-			"area": "uncategorized"
-		},
-		{
-			"name": "menu-header-no-mobile",
-			"title": "Menu Header Never Mobile",
-			"description": "Never Mobile Header Menu",
-			"area": "uncategorized"
-		},
-		{
-			"name": "menu-header-mobile",
-			"title": "Menu Header Always Mobile",
-			"description": "Always Mobile Header Menu",
-			"area": "uncategorized"
-		},
-		{
-			"name": "menu-footer",
-			"title": "Menu Footer",
-			"description": "Default Footer Menu",
-			"area": "uncategorized"
-		},
-		{
-			"name": "menu-footer-1",
-			"title": "Menu Footer 1",
-			"description": "Vertical Footer Menu 1",
-			"area": "uncategorized"
-		},
-		{
-			"name": "menu-footer-2",
-			"title": "Menu Footer 2",
-			"description": "Vertical Footer Menu 2",
-			"area": "uncategorized"
-		},
-		{
-			"name": "menu-footer-3",
-			"title": "Menu Footer 3",
-			"description": "Vertical Footer Menu 3",
-			"area": "uncategorized"
-		},
-		{
 			"name": "header",
 			"title": "Header",
 			"description": "Site-Wide Header",
@@ -1517,6 +1464,60 @@
 			"area": "header"
 		},
 		{
+			"name": "menu-header",
+			"title": "Menu Header",
+			"description": "Default Header Menu",
+			"area": "uncategorized"
+		},
+		{
+			"name": "menu-header-centered",
+			"title": "Menu Header Centered",
+			"description": "Centered Header Menu",
+			"area": "uncategorized"
+		},
+		{
+			"name": "menu-header-dark",
+			"title": "Menu Header Dark",
+			"description": "Dark Header Menu",
+			"area": "uncategorized"
+		},
+		{
+			"name": "menu-header-no-mobile",
+			"title": "Menu Header Never Mobile",
+			"description": "Never Mobile Header Menu",
+			"area": "uncategorized"
+		},
+		{
+			"name": "menu-header-mobile",
+			"title": "Menu Header Always Mobile",
+			"description": "Always Mobile Header Menu",
+			"area": "uncategorized"
+		},
+		{
+			"name": "menu-footer",
+			"title": "Menu Footer",
+			"description": "Default Footer Menu",
+			"area": "uncategorized"
+		},
+		{
+			"name": "menu-footer-1",
+			"title": "Menu Footer 1",
+			"description": "Vertical Footer Menu 1",
+			"area": "uncategorized"
+		},
+		{
+			"name": "menu-footer-2",
+			"title": "Menu Footer 2",
+			"description": "Vertical Footer Menu 2",
+			"area": "uncategorized"
+		},
+		{
+			"name": "menu-footer-3",
+			"title": "Menu Footer 3",
+			"description": "Vertical Footer Menu 3",
+			"area": "uncategorized"
+		},
+		{
 			"name": "query",
 			"title": "Query",
 			"area": "uncategorized"
@@ -1565,6 +1566,21 @@
 			"name": "footer",
 			"title": "Footer",
 			"area": "footer"
+		},
+		{
+			"name": "footer-block-1",
+			"title": "Footer Block 1",
+			"area": "uncategorized"
+		},
+		{
+			"name": "footer-block-2",
+			"title": "Footer Block 2",
+			"area": "uncategorized"
+		},
+		{
+			"name": "footer-block-3",
+			"title": "Footer Block 3",
+			"area": "uncategorized"
 		},
 		{
 			"name": "footer-3-blocks",
