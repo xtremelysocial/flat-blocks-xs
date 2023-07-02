@@ -106,7 +106,7 @@ a,
 	text-underline-offset: 0.5ch;
 }
 
-/* Form Fields */
+/* Style form fields */
 fieldset,
 textarea,
 input,
@@ -121,12 +121,14 @@ fieldset,
 textarea,
 input:not([type="radio"]):not([type="checkbox"]):not([type="file"]):not([type="button"]):not([class="button"]):not(.wp-block-button__link) {
     -webkit-appearance: none;
-	border: 1px solid currentColor;
+	border: 1px solid var(--wp--preset--color--foreground);
 }
 
 select {
-	font-size: 1.125em;
-	border: 1px solid currentColor;
+	font-family: inherit;
+	font-size: var(--wp--preset--font-size--small);
+	font-weight: var(--wp--custom--font-weight--normal);
+	border: 1px solid var(--wp--preset--color--foreground);
 }
 
 /* Style focus outline */
@@ -136,12 +138,13 @@ textarea:focus {
 	box-shadow: 0 0 0 3px var(--wp--custom--outline--color);
 	transition: box-shadow 0.3s ease;
 }
-/*select:focus {*/
-	/*border: 1px solid rgba(0,0,0,.2);*/
+/*select:focus,
+select:focus-visible {
+	outline: none !important;
+	border: 2px solid rgba(0,0,0,.2);*/
 	/*box-shadow: 0 0 0 3px var(--wp--custom--outline--color);
 	transition: box-shadow 0.3s ease;*/
-	/*outline-color: var(--wp--custom--outline--color);
-}*/
+/*}*/
 
 /* Style basic buttons to match block buttons. This is for older site content and / or
  * plugins.
