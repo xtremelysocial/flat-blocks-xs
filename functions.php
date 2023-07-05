@@ -234,3 +234,17 @@ if ( ! function_exists( 'flatblocks_excerpt_more' ) ) :
 	}
 endif; // end ! function_exists
 add_filter( 'excerpt_more', 'flatblocks_excerpt_more' );
+
+/**
+ * Excerpt in Page or Post Title
+ *
+ * On pages or single posts only, set excerpt length to 25 words. This is for when it is 
+ * used in the Page Title and/or Post Title Template Parts. 
+ * 
+*/
+if ( ! function_exists( 'flatblocks_excerpt_length' ) ) :
+	function flatblocks_excerpt_length ( $length ) {
+		return is_singular() ? 25 : $length;
+	}
+endif; // end ! function_exists
+add_filter('excerpt_length', 'flatblocks_excerpt_length');

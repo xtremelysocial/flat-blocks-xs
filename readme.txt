@@ -55,6 +55,7 @@ July 5, 2023
 * Add template parts for footer block 1, block 2, and about block. Update the footer templates that use them. This way when the component blocks are edited, the updates will be reflected in all the footer templates that use them.
 * In conjunction with adding the footer blocks, revise the CSS for vertical margin on template parts.
 * Adjust font-size on Site Map page template to match the others ("larger" font size).
+* Set Post/Page Excerpt length to 25 words if used in Post Title or Page Title Template Part. However, it still uses the default 55 words on the blog. 
 
 = 1.2.7 = 
 June 30, 2023
