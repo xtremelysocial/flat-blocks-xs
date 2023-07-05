@@ -52,26 +52,6 @@ if ( ! function_exists( 'flatblocks_register_block_patterns' ) ) :
 		
 		// Define the list of patterns with translatable titles
 		$block_patterns = array(
-			'query-loop-1-column' => array( 
-				'title' => __( 'Querly Loop (1 Column)', 'flat-blocks' ),
-				'categories' => array ('flatblocks', 'query' ),
-				'blockTypes' => array ('core/query')
-			),
-			'query-loop-2-columns' => array( 
-				'title' => __( 'Querly Loop 2 Columns (Default)', 'flat-blocks' ),
-				'categories' => array ('flatblocks', 'query' ),
-				'blockTypes' => array ('core/query')
-			),
-			'query-loop-sidebar-left' => array( 
-				'title' => __( 'Querly Loop with Left Sidebar', 'flat-blocks' ),
-				'categories' => array ('flatblocks', 'query' ),
-				'blockTypes' => array ('core/query')
-			),
-			'query-loop-sidebar-right' => array( 
-				'title' => __( 'Querly Loop with Right Sidebar', 'flat-blocks' ),
-				'categories' => array ('flatblocks', 'query' ),
-				'blockTypes' => array ('core/query')
-			),
 			'buttons-call-to-action' => array( 
 				'title' => __( 'Call to Action', 'flat-blocks' ),
 				'categories' => array ('flatblocks', 'buttons', 'call-to-action', 'featured' )
@@ -207,9 +187,29 @@ if ( ! function_exists( 'flatblocks_register_block_patterns' ) ) :
 			'text-testimonial' => array( 
 				'title' => __( 'Testimonial', 'flat-blocks' ),
 				'categories' => array ('flatblocks', 'text', 'image' )
+			),
+			'query-loop-1-column' => array( 
+				'title' => __( 'Querly Loop (1 Column)', 'flat-blocks' ),
+				'categories' => array ('flatblocks', 'query' ),
+				'blockTypes' => array ('core/query')
+			),
+			'query-loop-2-columns' => array( 
+				'title' => __( 'Querly Loop 2 Columns (Default)', 'flat-blocks' ),
+				'categories' => array ('flatblocks', 'query' ),
+				'blockTypes' => array ('core/query')
+			),
+			'query-loop-sidebar-left' => array( 
+				'title' => __( 'Querly Loop with Left Sidebar', 'flat-blocks' ),
+				'categories' => array ('flatblocks', 'query' ),
+				'blockTypes' => array ('core/query')
+			),
+			'query-loop-sidebar-right' => array( 
+				'title' => __( 'Querly Loop with Right Sidebar', 'flat-blocks' ),
+				'categories' => array ('flatblocks', 'query' ),
+				'blockTypes' => array ('core/query')
 			)
 		);
-		
+				
 		// Allow child themes to alter the block patterns list
 		$block_patterns = apply_filters( 'flatblocks_block_patterns', $block_patterns );
 
@@ -264,6 +264,7 @@ if ( ! function_exists( 'flatblocks_register_block_patterns' ) ) :
 						array(
 							'title'      => $properties['title'],
 							'categories' => isset( $properties['categories'] ) ? $properties['categories'] : null,
+							'inserter' 	 => isset ( $properties['inserter'] ) ? $properties['inserter'] : true,
 							'blockTypes' => isset ( $properties['blockTypes'] ) ? $properties['blockTypes'] : null,
 							'viewportWidth' => isset ( $properties['viewportWidth'] ) ? $properties['viewportWidth'] : null,
 							'content'    => $content
