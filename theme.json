@@ -1404,12 +1404,6 @@
 			"area": "header"
 		},
 		{
-			"name": "header-compact",
-			"title": "Header Compact",
-			"description": "Compact Header",
-			"area": "header"
-		},
-		{
 			"name": "header-fixed",
 			"title": "Header Fixed to Top",
 			"description": "Fixed Header",

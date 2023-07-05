@@ -52,6 +52,7 @@ You can check out our other themes here: https://xtremelysocial.com/wordpress/
 July 5, 2023
 
 * Adjust logic for blog on home page so that it shows the extra "Content Top" Template Part only on the first page.
+* Remove large padding in all Header Template Parts, so now defaults to Small spacing.
 * Add template parts for footer block 1, block 2, and about block. Update the footer templates that use them. This way when the component blocks are edited, the updates will be reflected in all the footer templates that use them.
 * In conjunction with adding the footer blocks, revise the CSS for vertical margin on template parts.
 * Adjust font-size on Site Map page template to match the others ("larger" font size).
