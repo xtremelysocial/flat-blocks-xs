@@ -138,13 +138,11 @@ textarea:focus {
 	box-shadow: 0 0 0 3px var(--wp--custom--outline--color);
 	transition: box-shadow 0.3s ease;
 }
-/*select:focus,
+select:focus,
 select:focus-visible {
-	outline: none !important;
-	border: 2px solid rgba(0,0,0,.2);*/
-	/*box-shadow: 0 0 0 3px var(--wp--custom--outline--color);
-	transition: box-shadow 0.3s ease;*/
-/*}*/
+	outline: var(--wp--custom--outline--color) 5px solid;
+	transition: outline 0.3s ease;
+}
 
 /* Style basic buttons to match block buttons. This is for older site content and / or
  * plugins.

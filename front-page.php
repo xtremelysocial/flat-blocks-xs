@@ -12,13 +12,19 @@
  * @since 1.0
  */
 
-// Always show the home page top content
-//block_template_part( 'content-home-top' );
-
 // If blog on front page, then use index.html template. Note that this intentionally
-// bypasses home.html which we use to display the blog when a static home page is set.
+// bypasses home.html which we use to display the blog when a static home page is set. 
+// But only do this on the very first page.
 if ( 'posts' == get_option( 'show_on_front' ) ) {
-	include( get_query_template( 'home', array('index') ) );
+
+	// If not the first page, use the home.html template (which is the default behavior)
+	if ( is_paged() ) {
+		include( get_query_template( 'home' ) );
+	
+	// If the very first page, use the index.html template
+	} else {
+		include( get_query_template( 'home', array('index') ) );
+	}
     
 // Otherwise, use the static front page's template as set by the user
 } else {
