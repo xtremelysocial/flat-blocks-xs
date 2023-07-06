@@ -283,14 +283,14 @@ button.wp-block-navigation__responsive-container-close,
  * line is for older block editor markup and the is-root-container is for hte editor
  * which adds an extra div between the image container (figure) and the image itself. 
  */
-.wp-block-image:not(.alignfull),
+/*.wp-block-image:not(.alignfull),
 .wp-block-image:not(.alignfull) img,
 figure:not(.alignfull),
 figure:not(.alignfull) img,
 .is-root-container .wp-block-image:not(.alignfull) > div {
 	max-width: 100% !important;
 	height: auto !important;
-}
+}*/
 /*.is-root-container .wp-block-image:not(.alignfull) > div {
 	width: 100% !important;
 }*/
@@ -438,7 +438,6 @@ figure:not(.alignfull) img,
 }
  
  /* Add top margin to the container's first block and then between subsequent blocks */
- 
 .wp-site-blocks main > *:first-child:not(.wp-block-template-part, .wp-block-post-content, .wp-block-cover,  .wp-block-query, header, footer, nav),
 /*.wp-site-blocks .wp-block-template-part > *:first-child:not(.wp-block-template-part, .wp-block-post-content, .wp-block-cover, .wp-block-query, main, header, footer, nav),
 .wp-site-blocks .wp-block-template-part > * + *:not(.wp-block-template-part, .wp-block-query, main, header, footer, nav),*/
@@ -447,13 +446,23 @@ body .is-layout-constrained .wp-block-template-part > * + *:not(.wp-block-templa
 .wp-site-blocks .wp-block-query > *:first-child:not(.wp-block-cover),
 .wp-site-blocks .wp-block-post-content > *:first-child:not(.wp-block-cover),
 .is-root-container > *:first-child:not(.wp-block-template-part, .wp-block-cover, .wp-block-query) {
- 	margin-top: var(--wp--preset--spacing--40);
+ 	margin-block-start: var(--wp--preset--spacing--40);
+}
+
+/* But don't add top margin to a template part within a column. e.g. Footers. */
+.wp-site-blocks .wp-block-column > .wp-block-template-part > *:first-child {
+	margin-block-start: 0;
 }
 
 /* Also add bottom margin on the last block for convenience */
 .wp-site-blocks .wp-block-query > *:last-child,
 .wp-site-blocks .wp-block-post-content > *:last-child {
-	margin-bottom: var(--wp--preset--spacing--40);
+	margin-block-end: var(--wp--preset--spacing--40);
+}
+
+/* But don't add bottom margin to a template part within a column. e.g. Footers. */
+.wp-site-blocks .wp-block-column > .wp-block-template-part > *:last-child {
+	margin-block-end: 0;
 }
 
 /* Remove bottom margin on Category and Tag descriptions */
@@ -540,6 +549,20 @@ body .is-layout-constrained .wp-block-template-part > * + *:not(.wp-block-templa
 		padding-right: var(--wp--style--root--padding-right, var(--wp--preset--spacing--50)) !important;
 	}
 		
+}
+
+/*--------------------------------------------------------------
+# Clearfix (Clear floats)
+--------------------------------------------------------------*/
+/* 
+ * For now, this must be added manually in the Advanced section of the block settings.
+ * Be carefull as this will mess up fixed headers, Row Groups (flex boxes), etc.
+ */
+.is-style-clearfix:not(.is-layout-flex):after {
+/*.wp-block-post-content .wp-block-group:not(.is-layout-flex):after {*/
+	content: "";
+	clear: both;
+	display: table;
 }
 
 /*--------------------------------------------------------------

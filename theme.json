@@ -836,7 +836,6 @@
 				},
 				"spacing": {
 					"margin": {
-						"top": "0",
 						"bottom": "var:preset|spacing|40"
 					}
 				}
@@ -997,6 +996,11 @@
 					"fontStyle": {"ref": "styles.elements.heading.typography.fontStyle"},
 					"fontWeight": {"ref": "styles.elements.heading.typography.fontWeight"},
 					"lineHeight": {"ref": "styles.elements.heading.typography.lineHeight"}
+				},
+				"spacing": {
+					"margin": {
+						"bottom": "var:preset|spacing|40"
+					}
 				}
 			},
 			"core/paragraph": {
