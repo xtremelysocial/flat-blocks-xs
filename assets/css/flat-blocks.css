@@ -100,10 +100,11 @@ ul.has-background {
  * https://github.com/WordPress/gutenberg/issues/27075
  */
 a,
-.wp-block-navigation-submenu__toggle {
+.wp-block-navigation a,
+.wp-block-navigation-submenu__toggle { 
 	cursor: pointer;
 	text-decoration-thickness: 1px;
-	text-underline-offset: 0.5ch;
+	text-underline-offset: 0.3ch;
 }
 
 /* Style form fields */
