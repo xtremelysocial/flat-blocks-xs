@@ -57,6 +57,7 @@ July 5, 2023
 * In conjunction with adding the footer blocks, revise the CSS for vertical margin on template parts.
 * Only display Post Comment Count on blog if Gutenberg plugin is enabled. This Block isn't part of standard WordPress. This was done with a new hidden pattern (hidden-post-date.php).
 * Adjust font-size on Site Map page template to match the others ("larger" font size).
+* For global theme style with drop-shadow buttons and link underlines, remove underline from nav menus
 * Set Post/Page Excerpt length to 25 words if used in Post Title or Page Title Template Part. However, it still uses the default 55 words on the blog. 
 
 = 1.2.7 = 
