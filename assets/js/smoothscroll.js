@@ -5,6 +5,7 @@
  * Javascript for smooth scrolling internal links.
  *
  * @package flat-blocks
+ * @since	1.0
  * 
  * This excellent code comes from https://css-tricks.com/snippets/jquery/smooth-scrolling/
  * with only the addition of $(document).ready(function() and some conditions for 

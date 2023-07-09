@@ -5,6 +5,7 @@
  * The base stylesheet for the theme's css
  *
  * @package flat-blocks
+ * @since	1.0
  */
 
 /*--------------------------------------------------------------
@@ -127,6 +128,7 @@ input:not([type="radio"]):not([type="checkbox"]):not([type="file"]):not([type="b
 
 select {
 	font-family: inherit;
+	color: inherit;
 	font-size: var(--wp--preset--font-size--small);
 	font-weight: var(--wp--custom--font-weight--normal);
 	border: 1px solid var(--wp--preset--color--foreground);
@@ -146,10 +148,10 @@ select:focus-visible {
 }
 
 /* Style basic buttons to match block buttons. This is for older site content and / or
- * plugins.
+ * plugins. Note the exclusions of any blocks or Tiny MCE buttons (which are the old
+ * editor prior to the new block editor).
  */
-/*button:not(.wp-block-navigation-item__content, .wp-block-navigation__responsive-container-open, .wp-block-navigation__responsive-container-close, .wp-block-social-link-anchor, .btn),*/
-button:not([class*="wp-block-"]):not(.wp-element-button),
+/*button:not([class*="wp-block-"]):not(.wp-element-button):not([id*=mce]):not([class*=mejs]):not([class*=swiper]):not([class*=wp-story]):not([class*=slick]):not(.components-button),*/
 input[type="button"],
 input[class="button"],
 input[type="file"]::file-selector-button {
@@ -281,20 +283,18 @@ button.wp-block-navigation__responsive-container-close,
 --------------------------------------------------------------*/
 
 /* Prevent images with hard-coded dimensions from breaking the layout. Note the figure
- * line is for older block editor markup and the is-root-container is for hte editor
+ * line is for older block editor markup and the is-root-container is for the editor
  * which adds an extra div between the image container (figure) and the image itself. 
  */
-/*.wp-block-image:not(.alignfull),
-.wp-block-image:not(.alignfull) img,
-figure:not(.alignfull),
-figure:not(.alignfull) img,
-.is-root-container .wp-block-image:not(.alignfull) > div {
-	max-width: 100% !important;
-	height: auto !important;
-}*/
-/*.is-root-container .wp-block-image:not(.alignfull) > div {
-	width: 100% !important;
-}*/
+figure:not(.alignfull, .alignwide),
+figure:not(.alignfull, .alignwide) img {
+/*.is-root-container figure:not(.alignfull, .alignwide) > div,
+.is-root-container figure:not(.alignfull, .alignwide) > div > img {*/
+	max-width: min( 100%, var(--wp--style--global--content-size) ) !important;
+	height: auto;
+	margin-left: auto;
+	margin-right: auto;
+}
 
 /* FIX caption color when on colored background */
 .wp-block-image figcaption {

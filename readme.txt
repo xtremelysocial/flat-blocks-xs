@@ -2,8 +2,8 @@
 Contributors: Tim Nicholson / XtremelySocial
 Requires at least: 6.2
 Tested up to: 6.2
-Requires PHP: 5.7
-Stable tag: 1.2.8
+Requires PHP: 7.4
+Stable tag: 1.2.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -47,6 +47,13 @@ For more information, see these pages on the XtremelySocial.com website:
 You can check out our other themes here: https://xtremelysocial.com/wordpress/
 
 == Changelog ==
+
+= 1.2.9 = 
+July 7, 2023
+
+* Refine CSS for buttons to reduce unintentional styling of buttons in 3rd-party plugins.
+* Refine CSS for images with hard-coded widths to reduce the chance of breaking the page layout. 
+* Update minimum PHP required to v7.4, which is the minimum that WordPress itself recommends. Note that PHP v8.1 is preferred, but this theme doesn't require anything beyond what WordPress itself does.
 
 = 1.2.8 = 
 July 5, 2023

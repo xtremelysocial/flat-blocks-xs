@@ -5,6 +5,7 @@
  * Javascript for fixed header
  *
  * @package flat-blocks
+ * @since	1.0
  * 
  * This excellent code comes from https://wordpress.org/themes/hansen/
  * but with changes to the target fixed header class to match ours

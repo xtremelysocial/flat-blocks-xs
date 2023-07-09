@@ -9,7 +9,7 @@
  * also on the blog page it uses home.html instead of index.html template.
  *
  * @package flat-blocks
- * @since 1.0
+ * @since 1.2.1
  */
 
 // If blog on front page, then use index.html template. Note that this intentionally
