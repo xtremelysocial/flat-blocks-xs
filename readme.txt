@@ -48,6 +48,13 @@ You can check out our other themes here: https://xtremelysocial.com/wordpress/
 
 == Changelog ==
 
+= 1.2.10 = 
+July 11, 2023
+
+* Added global theme style for auto dark mode! This is the second style right afer the default one. It will automatically change to a dark background with light text when the operating system gets set to dark mode. For example in Windows, iOS, etc.
+* Added two new colors: Light Blue and Light Yellow. Updated the theme gradient colors to use them to provide a wider range of color. Also updated the Orange, Yellow, & Midnight Blue global theme style to use the new light yellow color. Updated the Yellow, Orange, & Midnight Blue global theme style to bold links in Post and Page content so they stand out more. 
+* Refine CSS for images with hard-coded widths, mainly for the WordPress.org theme preview which uses older (non-block) markup.
+
 = 1.2.9 = 
 July 7, 2023
 

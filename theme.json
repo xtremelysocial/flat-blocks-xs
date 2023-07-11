@@ -216,6 +216,11 @@
 					"name": "Dark Bright Green"
 				},
 				{
+					"slug": "light-yellow",
+					"color": "#fdcb6e",
+					"name": "Light Yellow"
+				},
+				{
 					"slug": "yellow",
 					"color": "#f1c40f",
 					"name": "Yellow"
@@ -234,6 +239,11 @@
 					"slug": "dark-orange",
 					"color": "#d35400",
 					"name": "Dark Orange"
+				},
+				{
+					"slug": "light-blue",
+					"color": "#74b9ff",
+					"name": "Light Blue"
 				},
 				{
 					"slug": "blue",
@@ -339,7 +349,7 @@
 				},
 				{
 					"slug": "yellow",
-					"gradient": "linear-gradient(160deg, var(--wp--preset--color--yellow), var(--wp--preset--color--light-orange))",
+					"gradient": "linear-gradient(160deg, var(--wp--preset--color--light-yellow), var(--wp--preset--color--light-orange))",
 					"name": "Yellow"
 				},
 				{
@@ -349,7 +359,7 @@
 				},
 				{
 					"slug": "blue",
-					"gradient": "linear-gradient(160deg, var(--wp--preset--color--blue), var(--wp--preset--color--dark-midnight-blue))",
+					"gradient": "linear-gradient(160deg, var(--wp--preset--color--light-blue), var(--wp--preset--color--dark-midnight-blue))",
 					"name": "Blue"
 				},
 				{
@@ -1039,6 +1049,13 @@
 					"fontWeight": {"ref": "styles.elements.heading.typography.fontWeight"},
 					"lineHeight": {"ref": "styles.elements.heading.typography.lineHeight"},
 					"textDecoration": "none"
+				},
+				"elements": {
+					"link": {
+						"typography": {
+							"fontWeight": {"ref": "styles.elements.heading.typography.fontWeight"}
+						}
+					}
 				}
 			},
 			"core/navigation-link": {

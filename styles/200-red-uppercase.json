@@ -126,6 +126,11 @@
 					"name": "Dark Bright Green"
 				},
 				{
+					"slug": "light-yellow",
+					"color": "#fdcb6e",
+					"name": "Light Yellow"
+				},
+				{
 					"slug": "yellow",
 					"color": "#f1c40f",
 					"name": "Yellow"
@@ -144,6 +149,11 @@
 					"slug": "dark-orange",
 					"color": "#d35400",
 					"name": "Dark Orange"
+				},
+				{
+					"slug": "light-blue",
+					"color": "#74b9ff",
+					"name": "Light Blue"
 				},
 				{
 					"slug": "blue",
