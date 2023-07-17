@@ -5,6 +5,7 @@
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
  * @package flat-blocks
+ * @since	1.0
  */
 
 /**
@@ -167,7 +168,7 @@ add_action( 'wp_enqueue_scripts', 'flatblocks_styles' );
 if ( ! function_exists( 'flatblocks_editor_styles' ) ) :
 
 	function flatblocks_editor_styles() {
-	
+
 		// As a courtesy, add the child theme CSS to the Block Editor if it exists.
 		if ( is_child_theme() && file_exists( get_stylesheet_directory() . '/style.css' ) ) {
 			add_editor_style(

@@ -8,6 +8,7 @@
  * remove the bult-in patterns and to add our html-based patterns.
  * 
  * @package flat-blocks
+ * @since	1.0
  */
 if ( ! function_exists( 'flatblocks_register_block_patterns' ) ) :
 
