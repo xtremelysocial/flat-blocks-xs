@@ -3,7 +3,7 @@ Contributors: Tim Nicholson / XtremelySocial
 Requires at least: 6.2
 Tested up to: 6.2
 Requires PHP: 7.4
-Stable tag: 1.2.10
+Stable tag: 1.2.11
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -47,6 +47,15 @@ For more information, see these pages on the XtremelySocial.com website:
 You can check out our other themes here: https://xtremelysocial.com/wordpress/
 
 == Changelog ==
+
+= 1.2.11 =
+July 17, 2023
+
+* Enhancement to Auto Dark Mode global theme style to also darken the drop-down menus and mobile menu.
+* Fix issue with global theme style: Purple, Yellow, & Midnight Blue causing it to not show up as an available style in the Editor.
+* For fixed mobile nav, allow positioning left, center, or right by adjusting it's group container. 
+* Remove theme name from the header template parts. This should allow child themes to override them.
+* Remove menu reference# from the various menu template parts. This should help with WordPress navigation fallback logic. That means it should do a better job at finding an appropriate menu from your site.
 
 = 1.2.10 = 
 July 11, 2023

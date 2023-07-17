@@ -12,7 +12,8 @@
 # Html
 --------------------------------------------------------------*/
 
-/* Default to contain borders and padding within blocks and prevent iOS from adjusting
+/* 
+ * Default to contain borders and padding within blocks and prevent iOS from adjusting
  * text sizes after orientation change. 
  */
 html {
@@ -128,7 +129,7 @@ input:not([type="radio"]):not([type="checkbox"]):not([type="file"]):not([type="b
 
 select {
 	font-family: inherit;
-	color: inherit;
+	/*color: inherit;*/
 	font-size: var(--wp--preset--font-size--small);
 	font-weight: var(--wp--custom--font-weight--normal);
 	border: 1px solid var(--wp--preset--color--foreground);

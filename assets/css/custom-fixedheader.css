@@ -14,6 +14,8 @@
 /*--------------------------------------------------------------
 # Fixed Header: Front-end Styles
 --------------------------------------------------------------*/
+
+/* Position the fixed header group */
 .wp-block-group.is-style-fixed-header {
     position: fixed;
     top: 0;
@@ -43,26 +45,43 @@
 # Fixed Navigation Menu: Front-end Styles
 --------------------------------------------------------------*/
 
+/* Position the fixed nav menu to the top */
 .wp-block-navigation.is-style-fixed-menu {
     position: fixed;
     top: var(--wp--preset--spacing--60);
-    right: max(calc(0.5 * (100% - var(--wp--style--global--wide-size))), var(--wp--style--root--padding-left, calc(2 * var(--wp--preset--spacing--50)) ) );
-    left: auto;
     z-index: 10;
 }
 
-/* Adjust fixed header position so its underneath the WordPress admin bar */
+/* Adjust fixed menu top position so its underneath the WordPress admin bar */
 .admin-bar .is-style-fixed-menu {
   top: calc( var(--wp--preset--spacing--60) + var(--wp-admin--admin-bar--height, 0) );
 }
 
-.is-content-justification-left > .wp-block-navigation.is-style-fixed-menu,
-.is-content-justification-left > .wp-block-template-part > .wp-block-navigation.is-style-fixed-menu {
-    left: max(calc(0.5 * (100% - var(--wp--style--global--wide-size))), var(--wp--style--root--padding-left, calc(2 * var(--wp--preset--spacing--50)) ) );
-    right: auto;
+/* Default the fixed menu and its drop-down menu to the left */ 
+.wp-block-navigation.is-style-fixed-menu {
+	left: max(calc(0.5 * (100% - var(--wp--style--global--wide-size))), var(--wp--style--root--padding-left, calc(2 * var(--wp--preset--spacing--50)) ) );
+	right: auto;
+}
+.wp-block-navigation.is-style-fixed-menu .wp-block-navigation__responsive-container {
+	left: 0;
+	right: auto;
 }
 
-.wp-block-navigation.is-style-fixed-menu .wp-block-navigation__responsive-container {
+/* If right justified, position the fixed menu and its drop-down to the right */
+.is-content-justification-right > .wp-block-navigation.is-style-fixed-menu,
+.is-content-justification-right > .wp-block-template-part > .wp-block-navigation.is-style-fixed-menu {
+    right: max(calc(0.5 * (100% - var(--wp--style--global--wide-size))), var(--wp--style--root--padding-right, calc(2 * var(--wp--preset--spacing--50)) ) );
+    left: auto;
+}
+.is-content-justification-right > .wp-block-navigation.is-style-fixed-menu .wp-block-navigation__responsive-container,
+.is-content-justification-right > .wp-block-template-part > .wp-block-navigation.is-style-fixed-menu .wp-block-navigation__responsive-container {
 	right: 0;
-	left: unset;
+	left: auto;
+}
+
+/* If center justified, position the fixed menu and its drop-down in the center */
+.is-content-justification-center > .wp-block-navigation.is-style-fixed-menu,
+.is-content-justification-center > .wp-block-template-part > .wp-block-navigation.is-style-fixed-menu {
+    left: calc(50% - 12px);
+    right: auto;
 }

@@ -9,17 +9,20 @@
  */
 
 /*--------------------------------------------------------------
-# Fixed Header and Nav Menu. Front-end and Editor.
+# Fixed Header. Front-end and Editor.
 --------------------------------------------------------------*/
 
-/* Fixed header */
+/* Style the fixed header */
 .wp-block-group.is-style-fixed-header {
     border: 1px solid var(--wp--custom--border--color);
     border-width: 0 0 1px;
     padding: var(--wp--preset--spacing--40) var(--wp--style--root--padding-right, var(--wp--preset--spacing--50)) var(--wp--preset--spacing--40) var(--wp--style--root--padding-left, var(--wp--preset--spacing--50)) !important;
 }
 
-/* Fixed mobile menu */
+/*--------------------------------------------------------------
+# Fixed Nav Menu. Front-end and Editor.
+--------------------------------------------------------------*/
+/* Style fixed mobile menu */
 .wp-block-navigation.is-style-fixed-menu .wp-block-navigation__responsive-container {
 	min-width: calc(10 * var(--wp--preset--spacing--60));
 	max-width: calc(15 * var(--wp--preset--spacing--60));
@@ -294,7 +297,7 @@ p.is-style-arrow-icon-no-text > a:active {
 p.is-style-arrow-icon > a:after,
 p.is-style-arrow-icon-no-text > a:after {
 	font-family: dashicons;
-	content: "\A \f347 ";
+	content: "\f347";
 	font-size: var(--wp--preset--font-size--larger);
 	line-height: 1;
 }
