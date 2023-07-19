@@ -3,7 +3,7 @@ Contributors: Tim Nicholson / XtremelySocial
 Requires at least: 6.2
 Tested up to: 6.2
 Requires PHP: 7.4
-Stable tag: 1.2.11
+Stable tag: 1.2.12
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -47,6 +47,15 @@ For more information, see these pages on the XtremelySocial.com website:
 You can check out our other themes here: https://xtremelysocial.com/wordpress/
 
 == Changelog ==
+
+= 1.2.12 =
+July 18, 2023
+
+* Added some sample navigation links to the various Footer Menu template parts. This is to prevent WordPress from displaying a complete list of the sites pages in the footer. Of course once the user specifies an actual footer menu, the sample links get overridden. Note that for the header menu, the default behavior of displaying the full pages list is still in place as it makes sense there.
+* For Site Title, remove link hover color from theme.json so it defaults from the general link hover color or a custom link color if the user specifies one. This was done to the various global theme styles that set the Site Title link hover as well.
+* Adjusted mobile nav menu padding to better match site header padding.
+* On Author Page Template, fix alignment of the author name.
+* Fix input select box font color when previewing theme on WordPress.org. Specifically, set the font to the Foreground color.
 
 = 1.2.11 =
 July 17, 2023

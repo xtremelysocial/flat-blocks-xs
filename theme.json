@@ -1223,16 +1223,6 @@
 						"color": {
 							"text": "var(--wp--preset--color--primary)"
 						},
-						":hover": {
-							"color": {
-								"text": "var(--wp--preset--color--primary-alt)"
-							}
-						},
-						":focus": {
-							"color": {
-								"text": "var(--wp--preset--color--primary-alt)"
-							}
-						},
 						"typography": {
 							"lineHeight": {"ref": "styles.elements.heading.typography.lineHeight"},
 							"textDecoration": "none"

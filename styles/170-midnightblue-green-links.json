@@ -332,16 +332,6 @@
 					"link": {
 						"color": {
 							"text": "var(--wp--preset--color--light-green)"
-						},
-						":hover": {
-							"color": {
-								"text": "var(--wp--preset--color--green)"
-							}
-						},
-						":focus": {
-							"color": {
-								"text": "var(--wp--preset--color--green)"
-							}
 						}
 					}
 				}
