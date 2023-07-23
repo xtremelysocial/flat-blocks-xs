@@ -1,16 +1,17 @@
 <?php
 /**
- * Block Styles
- *
+ * Theme:	Flat Blocks
+ * File:	block-styles.php
+ * 
  * Adds all of our custom styles for selection in the Block Editor
  * 
  * Note the corresponding CSS is in /assets/css/custom-styles.css and 
  * /assets/styles/custom-fixedheader.css
  * 
  * @link https://developer.wordpress.org/reference/functions/register_block_style/
- *
+ * 
  * @package flat-blocks
- * @since 1.0
+ * @since	1.0
  */
 
 if ( function_exists( 'register_block_style' ) ) {

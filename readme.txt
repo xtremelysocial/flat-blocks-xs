@@ -56,6 +56,8 @@ July 18, 2023
 * Adjusted mobile nav menu padding to better match site header padding.
 * On Author Page Template, fix alignment of the author name.
 * Fix input select box font color when previewing theme on WordPress.org. Specifically, set the font to the Foreground color.
+* On the global theme style Default Drop Shadow, fix the drop-shadow on buttons. 
+* Added some sections to categorize Template Parts. This will be useful in a future version of WordPress.
 
 = 1.2.11 =
 July 17, 2023

@@ -1386,295 +1386,319 @@
 	"templateParts": [
 		{
 			"name": "header",
-			"title": "Header",
-			"description": "Site-Wide Header",
+			"title": "Site Header",
+			"description": "Site-wide header",
 			"area": "header"
 		},
 		{
 			"name": "header-default",
-			"title": "Header Default",
-			"description": "Default Header",
+			"title": "Header Standard",
+			"description": "Standard header",
 			"area": "header"
 		},
 		{
 			"name": "header-centered",
 			"title": "Header Centered",
-			"description": "Centered Header w/Tagline",
+			"description": "Centered header w/site tagline",
 			"area": "header"
 		},
 		{
 			"name": "header-centered-no-tagline",
 			"title": "Header Centered No Tagline",
-			"description": "Centered Header w/out Tagline",
+			"description": "Centered header w/out site tagline",
 			"area": "header"
 		},
 		{
 			"name": "header-colored",
-			"title": "Header with Primary Alt Background Color",
-			"description": "Colored Header (Primary Alt)",
+			"title": "Colored Header (Primary Alt)",
+			"description": "Colored header (Primary Alt color)",
 			"area": "header"
 		},
 		{
 			"name": "header-fixed",
 			"title": "Header Fixed to Top",
-			"description": "Fixed Header",
+			"description": "Fixed header",
 			"area": "header"
 		},
 		{
 			"name": "header-logo",
 			"title": "Header Logo (no Site title)",
-			"description": "Logo Only Header (no Site Title)",
+			"description": "Logo only header (no site title or tagline)",
 			"area": "header"
 		},
 		{
 			"name": "header-logo-fixed",
 			"title": "Header Logo Fixed to Top",
-			"description": "Logo Only Fixed Header",
+			"description": "Logo only fixed header",
 			"area": "header"
 		},
 		{
 			"name": "header-dark",
 			"title": "Header Dark",
-			"description": "Dark Header",
+			"description": "Dark header",
 			"area": "header"
 		},
 		{
 			"name": "header-dark-fixed",
 			"title": "Header Dark Fixed to Top",
-			"description": "Fixed Dark Header",
+			"description": "Fixed dark header",
 			"area": "header"
 		},
 		{
 			"name": "header-left-align",
 			"title": "Header Left Align",
-			"description": "Left-Aligned Header w/Tagline",
+			"description": "Left-aligned header w/site tagline",
 			"area": "header"
 		},
 		{
 			"name": "header-left-align-no-tagline",
 			"title": "Header Left Align No Tagline",
-			"description": "Left-Aligned Header w/out Tagline",
+			"description": "Left-aligned header w/out site tagline",
 			"area": "header"
 		},
 		{
 			"name": "header-nav-only-fixed",
 			"title": "Header Mobile Nav Only Fixed to Top",
-			"description": "Fixed Mobile Nav Only Header",
+			"description": "Fixed mobile nav only header",
 			"area": "header"
 		},
 		{
 			"name": "header-tagline",
 			"title": "Header with Tagline",
-			"description": "Header with Tagline",
+			"description": "Header with site tagline",
 			"area": "header"
 		},
 		{
 			"name": "menu-header",
 			"title": "Menu Header",
-			"description": "Default Header Menu",
-			"area": "uncategorized"
+			"description": "Default header nav menu (right)",
+			"area": "menu"
 		},
 		{
 			"name": "menu-header-centered",
 			"title": "Menu Header Centered",
-			"description": "Centered Header Menu",
-			"area": "uncategorized"
+			"description": "Centered header nav menu",
+			"area": "menu"
 		},
 		{
 			"name": "menu-header-dark",
 			"title": "Menu Header Dark",
-			"description": "Dark Header Menu",
-			"area": "uncategorized"
+			"description": "Dark header nav menu (right)",
+			"area": "menu"
 		},
 		{
 			"name": "menu-header-no-mobile",
 			"title": "Menu Header Never Mobile",
-			"description": "Never Mobile Header Menu",
-			"area": "uncategorized"
+			"description": "Never mobile header menu (right)",
+			"area": "menu"
 		},
 		{
 			"name": "menu-header-mobile",
 			"title": "Menu Header Always Mobile",
-			"description": "Always Mobile Header Menu",
-			"area": "uncategorized"
+			"description": "Always mobile header menu (right)",
+			"area": "menu"
 		},
 		{
 			"name": "menu-footer",
 			"title": "Menu Footer",
-			"description": "Default Footer Menu",
-			"area": "uncategorized"
+			"description": "Default footer menu",
+			"area": "menu"
 		},
 		{
 			"name": "menu-footer-1",
 			"title": "Menu Footer 1",
-			"description": "Vertical Footer Menu 1",
-			"area": "uncategorized"
+			"description": "Vertical footer menu 1",
+			"area": "menu"
 		},
 		{
 			"name": "menu-footer-2",
 			"title": "Menu Footer 2",
-			"description": "Vertical Footer Menu 2",
-			"area": "uncategorized"
+			"description": "Vertical footer menu 2",
+			"area": "menu"
 		},
 		{
 			"name": "menu-footer-3",
 			"title": "Menu Footer 3",
-			"description": "Vertical Footer Menu 3",
-			"area": "uncategorized"
+			"description": "Vertical footer menu 3",
+			"area": "menu"
 		},
 		{
 			"name": "query",
 			"title": "Query",
-			"area": "uncategorized"
+			"description": "Site-wide query",
+			"area": "query"
 		},
 		{
 			"name": "post-meta",
 			"title": "Post Meta",
-			"area": "uncategorized"
+			"description": "Post meta (author, categories, and tags)",
+			"area": "content"
 		},
 		{
 			"name": "post-title",
 			"title": "Post Title",
-			"area": "uncategorized"
+			"description": "Title for posts",
+			"area": "title"
 		},
 		{
 			"name": "page-title",
 			"title": "Page Title",
-			"area": "uncategorized"
+			"description": "Title for pages",
+			"area": "content"
 		},
 		{
 			"name": "content-article",
 			"title": "Content Article",
-			"area": "uncategorized"
+			"description": "Blog list article (featured image, title, excerpt)",
+			"area": "content"
 		},
 		{
 			"name": "content-home-top",
 			"title": "Content Home Top (when blog is front page)",
-			"area": "uncategorized"
+			"description": "Content for top of the home page (when blog is front page)",
+			"area": "title"
 		},
 		{
 			"name": "content-sitemap",
 			"title": "Content Sitemap",
-			"area": "uncategorized"
+			"description": "Sitemap content (pages, categories, recent posts)",
+			"area": "content"
 		},
 		{
 			"name": "sidebar",
 			"title": "Sidebar",
-			"area": "uncategorized"
+			"description": "Sidebar (search, account, categories, social links)",
+			"area": "sidebar"
 		},
 		{
 			"name": "comments",
 			"title": "Comments",
-			"area": "uncategorized"
+			"description": "Comments list and comment form",
+			"area": "comments"
 		},
 		{
 			"name": "footer",
-			"title": "Footer",
+			"title": "Site Footer",
+			"description": "Site-wide footer",
 			"area": "footer"
 		},
 		{
 			"name": "footer-block-1",
 			"title": "Footer Block 1",
-			"area": "uncategorized"
+			"description": "Footer block 1 (e.g. recent posts)",
+			"area": "content"
 		},
 		{
 			"name": "footer-block-2",
 			"title": "Footer Block 2",
-			"area": "uncategorized"
+			"description": "Footer block 2 (e.g. recent comments)",
+			"area": "content"
 		},
 		{
 			"name": "footer-block-3",
 			"title": "Footer Block 3",
-			"area": "uncategorized"
+			"description": "Footer block 3 (e.g. about)",
+			"area": "content"
 		},
 		{
 			"name": "footer-3-blocks",
-			"title": "Footer 3 Blocks (Recent Posts, Recent Comments, About)",
+			"title": "Footer 3 Blocks (recent posts, recent comments, about)",
+			"description": "Footer 3 blocks (e.g. recent posts, recent comments, about)",
 			"area": "footer"
 		},
 		{
 			"name": "footer-default",
-			"title": "Footer Default",
+			"title": "Footer Standard",
+			"description": "Standard footer",
 			"area": "footer"
 		},
 		{
 			"name": "footer-default-no-color",
-			"title": "Footer Default No Background Color",
+			"title": "Footer Standard No Background Color",
+			"description": "Standard footer w/out background color",
 			"area": "footer"
 		},
 		{
 			"name": "footer-default-light",
-			"title": "Footer Default Light",
+			"title": "Footer Standard Light",
+			"description": "Standard footer w/light background color",
 			"area": "footer"
 		},
 		{
 			"name": "footer-3-blocks-nav-site-social",
 			"title": "Footer 3 Blocks with Menu, Site Info, and Social Icons",
+			"description": "Footer w/3 blocks with nav menu, site info, and social icons",
 			"area": "footer"
 		},
 		{
 			"name": "footer-3-blocks-nav-social",
 			"title": "Footer 3 Blocks with Menu and Social Icons",
+			"description": "Footer w/3 blocks with nav menu and social icons",
 			"area": "footer"
 		},
 		{
 			"name": "footer-about-3-navs-site-info",
 			"title": "Footer About and 3 Menus with Site Info",
+			"description": "Footer w/block 3 (About), 3 nav menus, and site info",
 			"area": "footer"
 		},
 		{
 			"name": "footer-3-blocks-nav-tagline",
 			"title": "Footer 3 Blocks with Menu and Tagline",
+			"description": "Footer w/3 blocks with nav menu and site tagline",
 			"area": "footer"
 		},
 		{
 			"name": "footer-compact-site-info",
 			"title": "Footer Compact Site Info",
+			"description": "Compact footer w/site info",
 			"area": "footer"
 		},
 		{
 			"name": "footer-compact-nav-site-info",
 			"title": "Footer Compact Menu and Site Info",
+			"description": "Compact footer w/nav menu and site info",
 			"area": "footer"
 		},
 		{
 			"name": "footer-compact-nav-social",
 			"title": "Footer Compact Menu and Social Icons",
+			"description": "Compact footer w/nav menu and social icons",
 			"area": "footer"
 		},
 		{
 			"name": "footer-compact-nav-site-social",
-			"title": "Footer Compact Menu, Site Info, and Social Icons",
+			"title": "Footer compact w/nav menu, site info, and social icons",
 			"area": "footer"
 		},
 		{
 			"name": "footer-compact-contact-info-social",
-			"title": "Footer Compact Contact Info and Social Icons",
+			"title": "Footer compact w/contact info and social icons",
 			"area": "footer"
 		},
 		{
 			"name": "footer-map-static",
-			"title": "Footer Static Map and Contact Info",
+			"title": "Footer w/static map (image) and contact info",
 			"area": "footer"
 		},
 		{
 			"name": "footer-map-jetpack",
-			"title": "Footer Jetpack Map and Contact Info",
+			"title": "Footer w/Jetpack map and contact info",
 			"area": "footer"
 		},
 		{
 			"name": "footer-motto-social-site",
-			"title": "Footer Motto, Social Icons, and Site Info",
+			"title": "Footer w/motto, social icons, and site info",
 			"area": "footer"
 		},
 		{
 			"name": "footer-social-map-static",
-			"title": "Footer Colored Social Icons and Static Map and Contact Info",
+			"title": "Footer w/colored social icons, static map, and contact info",
 			"area": "footer"
 		},
 		{
 			"name": "footer-social-map-jetpack",
-			"title": "Footer Colored Social Icons and Jetpack Map and Contact Info",
+			"title": "Footer w/colored social icons and Jetpack map and contact info",
 			"area": "footer"
 		}
 	],
@@ -1682,73 +1706,85 @@
 		{
 			"name": "page-home",
 			"title": "Page Home (cover image, no comments)",
-			"description": "Page Home (cover image, no comments)",
+			"description": "Home page (cover image, no comments)",
 			"postTypes": ["page"]
 		},
 		{
 			"name": "page-featured-cover",
-			"title": "Page with Featured Cover Image",
+			"title": "Page Featured Cover Image",
+			"description": "Page w/featured cover image",
 			"postTypes": ["page"]
 		},
 		{
 			"name": "page-featured-image",
-			"title": "Page with Featured Image",
+			"title": "Page Featured Image",
+			"description": "Page w/large featured image",
 			"postTypes": ["page"]
 		},
 		{
 			"name": "page-notitle",
 			"title": "Page No Title",
+			"description": "Page w/out title",
 			"postTypes": ["page"]
 		},
 		{
 			"name": "page-nocomments",
 			"title": "Page No Comments",
+			"description": "Page w/out comments",
 			"postTypes": ["page"]
 		},
 		{
 			"name": "page-notitle-nocomments",
 			"title": "Page No Title or Comments",
+			"description": "Page w/out title or comments",
 			"postTypes": ["page"]
 		},
 		{
 			"name": "page-content-only",
 			"title": "Page Content Only (No header, title, comments, or footer)",
-			"description": "Page Content Only (No header, title, comments, or footer)",
+			"description": "Page w/content only (no header, title, comments, or footer)",
 			"postTypes": ["page"]
 		},
 		{
 			"name": "page-sitemap",
 			"title": "Page Site Map",
+			"description": "Sitemap (pages list, categories, recent posts)",
 			"postTypes": ["page"]
 		},
 		{
 			"name": "page-sidebar-left",
 			"title": "Page Left Sidebar",
+			"description": "Page w/left sidebar",
 			"postTypes": ["page"]
 		},
 		{
 			"name": "page-sidebar-right",
 			"title": "Page Right Sidebar",
+			"description": "Page w/right sidebar",
 			"postTypes": ["page"]
 		},
 		{
 			"name": "single-featured-image",
 			"title": "Post with Featured Image",
+			"description": "Post w/large featured image",
 			"postTypes": ["post"]
 		},
 		{
 			"name": "single-featured-cover",
 			"title": "Post with Featured Cover Image",
+			"description": "Post w/featured cover image",
 			"postTypes": ["post"]
 		},
 		{
 			"name": "single-notitle",
 			"title": "Post No Title",
+			"description": "Post w/out title",
 			"postTypes": ["post"]
 		},
 		{
 			"name": "single-notitle-nocomments",
 			"title": "Post No Title or Comments",
+			"description": "Post w/out title or comments",
 			"postTypes": ["post"]
 		},
 		{
@@ -1759,11 +1795,13 @@
 		{
 			"name": "single-sidebar-left",
 			"title": "Post Left Sidebar",
+			"description": "Post w/left sidebar",
 			"postTypes": ["post"]
 		},
 		{
 			"name": "single-sidebar-right",
 			"title": "Post Right Sidebar",
+			"description": "Post w/right sidebar",
 			"postTypes": ["post"]
 		}
 	]

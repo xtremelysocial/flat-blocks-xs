@@ -1,15 +1,17 @@
 <?php
 /**
- * Block Patterns
- *
- * Remove core block patterns and load our HTML block patterns. 
+ * Theme:	Flat Blocks
+ * File:	block-patterns.php
  * 
+ * Remove core block patterns and load our HTML block patterns. 
+ *
  * Note that PHP block patterns are loaded automatically by WordPress. This is to 
  * remove the bult-in patterns and to add our html-based patterns.
  * 
  * @package flat-blocks
  * @since	1.0
  */
+
 if ( ! function_exists( 'flatblocks_register_block_patterns' ) ) :
 
 	function flatblocks_register_block_patterns() {

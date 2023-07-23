@@ -1,6 +1,6 @@
 /**
  * Theme:	Flat Blocks
- * File:	flatblocks.css
+ * File:	flat-blocks.css
  * 
  * The base stylesheet for the theme's css
  *
@@ -115,6 +115,7 @@ textarea,
 input,
 select {
 	font-size: var(--wp--preset--font-size--normal);
+	font-weight: var(--wp--custom--typography--font-weight--normal);
 	line-height: 1.5;
 	border-radius: var(--wp--custom--border--radius);
 	text-shadow: none;
@@ -181,14 +182,15 @@ input[class="button"]:hover,
 input[type="file"]::file-selector-button:hover,
 .wp-block-search__button:hover,
 .wp-block-file .wp-block-file__button:hover,
-.wp-block-button__link:hover {
+.wp-block-button__link:hover,
+.wp-block-navigation-submenu__toggle:hover {
 	opacity: 0.8;
 	cursor: pointer;
 }
 
 /* Link hover styles */
 .has-text-color a:not(.wp-element-button, .wp-block-button, .wp-block-social-link-anchor):hover,
-.wp-block-navigation-submenu__toggle:hover {
+.wp-block-navigation-item a:hover {
 	opacity: 0.8;
 }
 

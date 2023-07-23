@@ -113,7 +113,7 @@ if ( ! function_exists( 'flatblocks_styles' ) ) :
 			//null,
 			$version_string
 		);
-		
+
 		// WordPress built-in icons (Dashicons)
 		wp_enqueue_style( 'dashicons' );
 
@@ -154,9 +154,7 @@ if ( ! function_exists( 'flatblocks_styles' ) ) :
 			$version_string, 
 			true 
 		);
-		
 	}
-
 endif;
 add_action( 'wp_enqueue_scripts', 'flatblocks_styles' );
 
@@ -207,10 +205,62 @@ if ( file_exists( get_stylesheet_directory() . '/inc/block-patterns.php' ) ) {
 	require_once get_stylesheet_directory() . '/inc/block-patterns.php';
 }
 
+// Include Pro version features
+if ( file_exists( get_template_directory() . '/pro/flat-blocks-pro.php' ) ) {
+	require_once get_template_directory() . '/pro/flat-blocks-pro.php';
+}
+
 /**
  * Additional Filters
  *
  */
+
+// Define our custom template part AREAS
+if ( ! function_exists( 'flatblocks_template_part_areas' ) ) :
+	function flatblocks_template_part_areas( array $areas ) {
+
+		$new_areas = array( 
+			array(
+				'area'        => 'title',
+				'area_tag'    => 'section',
+				'label'       => __( 'Title', 'flat-blocks' ),
+				'description' => __( 'Title templates for pages and posts', 'flat-blocks' ),
+				'icon'        => 'header'
+			),
+			array(
+				'area'        => 'sidebar',
+				'area_tag'    => 'section',
+				'label'       => __( 'Sidebar', 'flat-blocks' ),
+				'description' => __( 'Sidebar templates for pages and posts with sidebars', 'flat-blocks' ),
+				'icon'        => 'sidebar'
+			),
+			array(
+				'area'        => 'query',
+				'area_tag'    => 'section',
+				'label'       => __( 'Query', 'flat-blocks' ),
+				'description' => __( 'Query template for blog and archives', 'flat-blocks' ),
+				'icon'        => ''
+			),
+			array(
+				'area'        => 'content',
+				'area_tag'    => 'section',
+				'label'       => __( 'Content', 'flat-blocks' ),
+				'description' => __( 'Content section such as cover and post meta', 'flat-blocks' ),
+				'icon'        => ''
+			),
+			array(
+				'area'        => 'comments',
+				'area_tag'    => 'section',
+				'label'       => __( 'Comments', 'flat-blocks' ),
+				'description' => __( 'Comment template for pages and posts with comments', 'flat-blocks' ),
+				'icon'        => 'footer'
+			)
+		);
+		return array_merge( $areas, $new_areas );
+		
+	}
+endif; // end ! function_exists
+add_filter( 'default_wp_template_part_areas', 'flatblocks_template_part_areas', 12 );
 
 // Add our custom image size(s) to the list that user can pick in the editor 
 // Consider: Add Medium Large since it is standard WordPress and seems to be missing

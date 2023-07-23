@@ -4,7 +4,9 @@
 	"title": "Default - Button Shadow and Link Underlines",
 	"settings": {
 		"custom": {
-			"shadow": "var(--wp--preset--shadow--natural)"
+			"button": {
+				"shadow": "var(--wp--preset--shadow--natural)"
+			}
 		}
 	},
 	"styles": {
