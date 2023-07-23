@@ -57,7 +57,7 @@ July 18, 2023
 * On Author Page Template, fix alignment of the author name.
 * Fix input select box font color when previewing theme on WordPress.org. Specifically, set the font to the Foreground color.
 * On the global theme style Default Drop Shadow, fix the drop-shadow on buttons. 
-* Added some sections to categorize Template Parts. This will be useful in a future version of WordPress.
+* Added some sections to categorize Template Parts. This will be useful in a future version of WordPress. Added Title, Sidebar, Query, Comments, Menu, and Content (for everything else). WordPress already has Header and Footer.
 
 = 1.2.11 =
 July 17, 2023
