@@ -163,7 +163,8 @@
 	padding: var(--wp--custom--border--radius);
 }
 
-.wp-block-image.is-style-image-computer-screen img {
+/*.wp-block-image.is-style-image-computer-screen img {*/
+.wp-block-image.is-style-image-computer-screen {
 	border: var(--wp--preset--spacing--60) solid var(--wp--preset--color--not-quite-black);
 	border-radius: var(--wp--preset--spacing--40);
 	border-bottom: 3px solid var(--wp--preset--color--not-quite-black);
@@ -174,7 +175,8 @@
 	display: none;
 }
 
-.wp-block-image.is-style-image-tablet-phone-screen img {
+/*.wp-block-image.is-style-image-tablet-phone-screen img {*/
+.wp-block-image.is-style-image-tablet-phone-screen {
 	border: calc(0.66 * var(--wp--preset--spacing--60)) solid var(--wp--preset--color--not-quite-black);
 	border-radius: var(--wp--preset--spacing--40);
 }

@@ -249,6 +249,13 @@ if ( ! function_exists( 'flatblocks_template_part_areas' ) ) :
 				'icon'        => ''
 			),
 			array(
+				'area'        => 'menu',
+				'area_tag'    => 'section',
+				'label'       => __( 'Menu', 'flat-blocks' ),
+				'description' => __( 'Navigation Menus', 'flat-blocks' ),
+				'icon'        => ''
+			),
+			array(
 				'area'        => 'comments',
 				'area_tag'    => 'section',
 				'label'       => __( 'Comments', 'flat-blocks' ),
@@ -260,7 +267,7 @@ if ( ! function_exists( 'flatblocks_template_part_areas' ) ) :
 		
 	}
 endif; // end ! function_exists
-add_filter( 'default_wp_template_part_areas', 'flatblocks_template_part_areas', 12 );
+add_filter( 'default_wp_template_part_areas', 'flatblocks_template_part_areas' );
 
 // Add our custom image size(s) to the list that user can pick in the editor 
 // Consider: Add Medium Large since it is standard WordPress and seems to be missing

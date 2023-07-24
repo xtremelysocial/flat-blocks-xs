@@ -8,13 +8,13 @@
   */
 ?>
 
-<?php echo flatblocks_get_block_pattern( 'cover-desk-meeting' ); ?>
+<?php if ( function_exists( 'flatblocks_get_block_pattern' ) ) echo flatblocks_get_block_pattern( 'cover-desk-meeting' ); ?>
 
 <!-- wp:paragraph -->
 <p></p>
 <!-- /wp:paragraph -->
 
-<?php echo flatblocks_get_block_pattern( 'text-title-and-text' ); ?>
+<?php if ( function_exists( 'flatblocks_get_block_pattern' ) ) echo flatblocks_get_block_pattern( 'text-title-and-text' ); ?>
 
 <!-- wp:group {"align":"wide","layout":{"type":"constrained"}} -->
 <div class="wp-block-group alignwide">
@@ -27,7 +27,7 @@
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
-<?php echo flatblocks_get_block_pattern( 'columns-features-4-columns' ); ?>
+<?php if ( function_exists( 'flatblocks_get_block_pattern' ) ) echo flatblocks_get_block_pattern( 'columns-features-4-columns' ); ?>
 
 <!-- wp:group {"align":"wide","layout":{"type":"constrained"}} -->
 <div class="wp-block-group alignwide">
@@ -40,6 +40,6 @@
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
-<?php echo flatblocks_get_block_pattern( 'columns-pricing-table-3-columns' ); ?>
+<?php if ( function_exists( 'flatblocks_get_block_pattern' ) ) echo flatblocks_get_block_pattern( 'columns-pricing-table-3-columns' ); ?>
 
-<?php echo flatblocks_get_block_pattern( 'buttons-call-to-action' ); ?>
+<?php if ( function_exists( 'flatblocks_get_block_pattern' ) ) echo flatblocks_get_block_pattern( 'buttons-call-to-action' ); ?>

@@ -8,15 +8,15 @@
   */
 ?>
 
-<?php echo flatblocks_get_block_pattern( 'cover-scroll-home-header' ); ?>
+<?php if ( function_exists( 'flatblocks_get_block_pattern' ) ) echo flatblocks_get_block_pattern( 'cover-scroll-home-header' ); ?>
 
-<?php echo flatblocks_get_block_pattern( 'text-title-and-text' ); ?>
+<?php if ( function_exists( 'flatblocks_get_block_pattern' ) ) echo flatblocks_get_block_pattern( 'text-title-and-text' ); ?>
 
 <!-- wp:paragraph {"textAlign":"center","className":"is-style-default"} -->
 <p class="has-text-align-center is-style-default">Posuere sollicitudin aliquam ultrices sagittis orci a scelerisque purus.</p>
 <!-- /wp:paragraph -->
 
-<?php echo flatblocks_get_block_pattern( 'columns-features-3-columns' ); ?>
+<?php if ( function_exists( 'flatblocks_get_block_pattern' ) ) echo flatblocks_get_block_pattern( 'columns-features-3-columns' ); ?>
 
 <!-- wp:group {"align":"wide","layout":{"type":"constrained"}} -->
 <div id="our-portfolio" class="wp-block-group alignwide">
@@ -42,11 +42,11 @@
 <!-- /wp:columns --></div>
 <!-- /wp:group -->
 
-<?php echo flatblocks_get_block_pattern( 'image-gallery' ); ?>
+<?php if ( function_exists( 'flatblocks_get_block_pattern' ) ) echo flatblocks_get_block_pattern( 'image-gallery' ); ?>
 
-<?php echo flatblocks_get_block_pattern( 'buttons-call-to-action' ); ?>
+<?php if ( function_exists( 'flatblocks_get_block_pattern' ) ) echo flatblocks_get_block_pattern( 'buttons-call-to-action' ); ?>
 
-<?php echo flatblocks_get_block_pattern( 'columns-recent-posts-3-columns' ); ?>
+<?php if ( function_exists( 'flatblocks_get_block_pattern' ) ) echo flatblocks_get_block_pattern( 'columns-recent-posts-3-columns' ); ?>
 
 <!-- wp:group {"align":"wide","layout":{"type":"constrained"}} -->
 <div class="wp-block-group alignwide">
@@ -59,6 +59,6 @@
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
-<?php echo flatblocks_get_block_pattern( 'columns-social-media-3-columns' ); ?>
+<?php if ( function_exists( 'flatblocks_get_block_pattern' ) ) echo flatblocks_get_block_pattern( 'columns-social-media-3-columns' ); ?>
 
-<?php echo flatblocks_get_block_pattern( 'columns-map-static' ); ?>
+<?php if ( function_exists( 'flatblocks_get_block_pattern' ) ) echo flatblocks_get_block_pattern( 'columns-map-static' ); ?>
