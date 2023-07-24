@@ -3,7 +3,7 @@ Contributors: Tim Nicholson / XtremelySocial
 Requires at least: 6.2
 Tested up to: 6.2
 Requires PHP: 7.4
-Stable tag: 1.2.12
+Stable tag: 1.2.13
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -47,6 +47,12 @@ For more information, see these pages on the XtremelySocial.com website:
 You can check out our other themes here: https://xtremelysocial.com/wordpress/
 
 == Changelog ==
+
+= 1.2.13 =
+July 24, 2023
+
+* Added logic to the sample page Patterns to make sure the necessary theme functions have been properly loaded. Specifically flatblocks_get_block_pattern().
+* Added one more Template Part Area called "Menu". This should be useful in a future version of WordPress. 
 
 = 1.2.12 =
 July 18, 2023
