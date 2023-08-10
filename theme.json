@@ -1403,13 +1403,6 @@
 					}
 				}
 			},
-			"core/rss": {
-				"spacing": {
-					"padding": {
-						"left": "0"
-					}
-				}
-			},
 			"core/separator": {
 				"border": {
 					"color": "currentColor",
@@ -1425,6 +1418,21 @@
 							"fontSize": "var(--wp--preset--font-size--normal)",
 							"lineHeight": "1"
 						}
+					}
+				}
+			},
+			"core/spacer": {
+				"spacing": {
+					"margin": {
+						"top": {"ref": "styles.spacing.blockGap"},
+						"bottom": {"ref": "styles.spacing.blockGap"}
+					}
+				}
+			},
+			"core/rss": {
+				"spacing": {
+					"padding": {
+						"left": "0"
 					}
 				}
 			}
