@@ -12,6 +12,11 @@
  * @since	1.0
  */
 
+// Include the block pattern helper functions
+if ( ! file_exists( get_template_directory() . '/inc/pattern-functions.php' ) ) exit;
+require_once get_template_directory() . '/inc/pattern-functions.php';
+
+// Register the block patterns
 if ( ! function_exists( 'flatblocks_register_block_patterns' ) ) :
 
 	function flatblocks_register_block_patterns() {
@@ -192,7 +197,7 @@ if ( ! function_exists( 'flatblocks_register_block_patterns' ) ) :
 				'categories' => array ('flatblocks', 'text', 'image' )
 			),
 			'query-loop-1-column' => array( 
-				'title' => __( 'Querly Loop (1 Column)', 'flat-blocks' ),
+				'title' => __( 'Querly Loop 1 Column', 'flat-blocks' ),
 				'categories' => array ('flatblocks', 'query' ),
 				'blockTypes' => array ('core/query')
 			),
@@ -281,57 +286,3 @@ if ( ! function_exists( 'flatblocks_register_block_patterns' ) ) :
 	} // function
 endif;
 add_action( 'init', 'flatblocks_register_block_patterns' );
-
-/**
- * Helper functions for block patterns
- * 
- */
-
-// Gets the block template and parses it 
-if ( ! function_exists( 'flatblocks_get_block_pattern' ) ) :
-
-	function flatblocks_get_block_pattern( $name = "" ) {
-
-		// Check if corresponding html file exists. First in the child theme then
-		// the main theme.  
-		$file = get_stylesheet_directory() . '/patterns/' . $name . '.html';
-		if ( !file_exists( $file ) ) {
-			$file = get_template_directory() . '/patterns/' . $name . '.html';
-		}
-		
-		// If file in either location, then add it to block patterns
-		if ( file_exists( $file ) ) {
-
-			//Get the html from the contents of the file
-			$content = file_get_contents( $file );					
-			if ( $content ) {
-			
-				// Replace the partial URL's and image SRC's with full URL's
-				return flatblocks_parse_block_pattern( $content );
-				
-			} // content
-		} // file_exists	
-	} // function
-	
-endif; // end ! function_exists
-
-// Localize the URL's
-if ( ! function_exists( 'flatblocks_parse_block_pattern' ) ) :
-
-	function flatblocks_parse_block_pattern( $content = "" ) {
-
-		// For child themes, override the theme name
-		if ( is_child_theme() ) {
-			$child_slug = wp_get_theme()->get_stylesheet();
-			$content = str_ireplace('"theme":"flat-blocks"', '"theme":"' . $child_slug . '"', $content);
-		}
-
-		// Regardless, override the URL's and image SRC's with parent's full URL's
-		$content = preg_replace( '/(\"url\":\")(.*?)(\/assets\/images\/)/', '$1' . get_template_directory_uri() . '$3', $content);
-		$content = preg_replace( '/(src=\")(.*?)(\/assets\/images\/)/', '$1' . get_template_directory_uri() . '$3', $content);
-				
-		return $content;				
-
-	} // function
-	
-endif; // end ! function_exists

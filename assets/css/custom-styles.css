@@ -24,11 +24,13 @@
 --------------------------------------------------------------*/
 /* Style fixed mobile menu */
 .wp-block-navigation.is-style-fixed-menu .wp-block-navigation__responsive-container {
-	min-width: calc(10 * var(--wp--preset--spacing--60));
-	max-width: calc(15 * var(--wp--preset--spacing--60));
+	/*min-width: calc(10 * var(--wp--preset--spacing--60));
+	max-width: calc(15 * var(--wp--preset--spacing--60));*/
+	width: calc(10 * var(--wp--preset--spacing--60));
 }
 
-.wp-block-navigation.is-style-fixed-menu .wp-block-navigation__responsive-container-open {
+.wp-block-navigation.is-style-fixed-menu .wp-block-navigation__responsive-container-open,
+.wp-block-navigation.is-style-fixed-menu .wp-block-navigation__responsive-container-close {
 	background: rgba(0, 0, 0, .25);
 	padding: var(--wp--preset--spacing--20);
 	color: white;
@@ -44,6 +46,11 @@
 .wp-block-cover.is-style-cover-border {
 	border: 3px solid var(--wp--custom--border--color);
 	padding: var(--wp--preset--spacing--40);
+}
+
+.wp-block-cover.is-style-cover-rounded-corners {
+	border-radius: var(--wp--custom--border--radius);
+	overflow: hidden;
 }
 
 /*--------------------------------------------------------------
@@ -159,7 +166,7 @@
 
 .wp-block-image.is-style-image-round-border img {
 	border: 1px solid var(--wp--custom--border--color);
-	border-radius: 50%;
+	border-radius: 9999px; /*50%;*/
 	padding: var(--wp--custom--border--radius);
 }
 
@@ -287,17 +294,18 @@ p.is-style-arrow-icon-no-text > a {
 	margin: var(--wp--preset--spacing--40) auto;
 }
 
-p.is-style-arrow-icon > a:hover, 
+/*p.is-style-arrow-icon > a:hover,*/
 p.is-style-arrow-icon > a:focus,
 p.is-style-arrow-icon > a:active,
-p.is-style-arrow-icon-no-text > a:hover, 
+/*p.is-style-arrow-icon-no-text > a:hover,*/
 p.is-style-arrow-icon-no-text > a:focus,
 p.is-style-arrow-icon-no-text > a:active {
-	opacity: 0.75;
+	opacity: 1; /*inherit !important;*/ /*0.75;*/
 }
 
 p.is-style-arrow-icon > a:after,
 p.is-style-arrow-icon-no-text > a:after {
+	display: block;
 	font-family: dashicons;
 	content: "\f347";
 	font-size: var(--wp--preset--font-size--larger);
@@ -418,8 +426,20 @@ p.is-style-no-link-underline a:hover {
 # Media & Text
 --------------------------------------------------------------*/
 
+/* Media & Text Border */
 .wp-block-media-text.is-style-media-text-border {
+	padding: var(--wp--custom--border--radius);
 	border: 3px solid var(--wp--custom--border--color);
+	border-radius: var(--wp--custom--border--radius);
+}
+
+/* And OVERRIDE horizontal padding on mobile */
+/* Breakpoint of 601 is what is hard-coded in WordPress v6.0+ to collapse media & text */
+@media only screen and (max-width: 601px) {
+	.wp-block-media-text.is-style-media-text-border.is-stacked-on-mobile .wp-block-media-text__content {
+		padding-left: var(--wp--preset--spacing--40);
+		padding-right: var(--wp--preset--spacing--40);
+	}
 }
 
 /*--------------------------------------------------------------

@@ -8,6 +8,8 @@
   */
 ?>
 
+<?php include_once get_template_directory() . '/inc/pattern-functions.php'; ?>
+
 <?php if ( function_exists( 'flatblocks_get_block_pattern' ) ) echo flatblocks_get_block_pattern( 'cover-desk-meeting' ); ?>
 
 <!-- wp:paragraph -->

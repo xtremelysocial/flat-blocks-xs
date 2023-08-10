@@ -3,7 +3,7 @@ Contributors: Tim Nicholson / XtremelySocial
 Requires at least: 6.2
 Tested up to: 6.2
 Requires PHP: 7.4
-Stable tag: 1.2.13
+Stable tag: 1.2.14
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -13,23 +13,25 @@ Flat Blocks is a modern “flat” style theme with a nice color palette, full a
 
 == Quick Start Guide ==
 
+= Front (Home) Page = 
+
+This theme is designed to work great whether your front (home) page is your blog or a "static page". This theme has a Template Part called "Home Page Top" that displays either way and you can change it whatever you want. By default, it has a cover image with the site title and tagline and colored welcome section with some text.
+
+To check your settings for blog or static page, go to Settings -> Reading in the WordPress Admin Dashboard.
+
+Note that if you have the blog set on the home page, it uses the Template called Index ("index.html"). If you have the home page set to a page, it will use hat page and the blog page uses the Home template ("home.html").
+
 = Menus = 
 
-The first thing you'll want to do is go into the Site Editor and select the navigation menus you want for the header and the footer. Once you do, your old menus will be copied into the header and footer templates and stored there.
+Right away you'll want to go into the Site Editor and select the navigation menus you want for the header and the footer. Once you do, your old menus will be copied into the header and footer templates and stored there.
 
-Note that if you are running the Gutenberg Plugin and have menus named "header" and "footer", they should be defaulted already. Otherwise, go into Appearance -> Customize -> Menus -> View All Locations and select them there. WordPress v6 doesn't have this functionality, so the menus must be selected manually in the Editor per above. 
+Note that if you are running the Gutenberg Plugin and have menus assigned to "header" and "footer", they should be defaulted already. Otherwise, go into Appearance -> Customize -> Menus -> View All Locations and select them there. WordPress v6 doesn't have this functionality.
 
 = Header, Footer, and Blog Layouts = 
 
 One of the cool things about this theme is that we provide numerous header, footer, and blog layouts (Query Loops). While you are in the Site Editor, check them out. Just be sure to replace the "Header Default" block not the main Header block. The same thing applies to the "Footer Default". For blog layouts, change the "Query Loop" block instead of the Query block.
 
 Note that the theme is setup this way so that you can change the header, footer, and query layout across the entire site. If you change the actual Header, Footer, and Query blocks, you'll only be changing them on the Home Page that you are editing by default in the Site Editor.
-
-= Site Home as Blog or Page = 
-
-You can decide whether you want your site home to display your blog or any page on your site. This theme is designed to work well either way. If you have the blog as the home page, it uses the Index template ("index.html") and will have a cover image and title-and-text box at the top that you can edit.
-
-If you have the home page set to a page, then the blog page uses the Home template ("home.html") which has just the standard header on it.
 
 = Page and Block Patterns = 
 
@@ -47,6 +49,19 @@ For more information, see these pages on the XtremelySocial.com website:
 You can check out our other themes here: https://xtremelysocial.com/wordpress/
 
 == Changelog ==
+
+= 1.2.14 =
+August 7, 2023
+
+* Added the Roboto Mono font and set it to the default for code and preformatted blocks.
+* Enhanced the smooth scrolling to factor in whether the site is displaying the Admin Bar or not. This is most beneficial for cover blocks with scroll to content sections. 
+* The Fixed Mobile Nav Menu can now be centered in addition to positioned left or right.
+* Adjusted the CSS for navigation menu colors and highlights to better handle when the user selects colors for the navigation menu and/or it's drop-down menus.
+* Fixed issue with Menu Never Mobile where it was going mobile on small screens. Also added a group to it so there is margin between it and the site title. 
+* Added custom page list styles for checkmarks and plain lists, so you can now choose those styles for them just like on regular lists.
+* For Media & Text block with border style, round the edges and add a bit of padding to be more similar to post thumbnail images.
+* Made some code optimizations to the fixed header javascript.
+* Moved the theme's pattern-related functions into its own 'pattern-functions.php' file in the /inc directory. Added inclusion of that file into the PHP-based patterns that use it. This is to help when admins are using the WP-CLI command line utilities.
 
 = 1.2.13 =
 July 24, 2023
@@ -261,6 +276,11 @@ This license is copied below, and is also available with a FAQ at:
 http://scripts.sil.org/OFL
 
 Roboto font
+Copyright Christian Robertson
+This font is licensed under the Apache License, Version 2.0.
+You can use them in your products & projects – print or digital, commercial or otherwise.
+
+Roboto Mono font
 Copyright Christian Robertson
 This font is licensed under the Apache License, Version 2.0.
 You can use them in your products & projects – print or digital, commercial or otherwise.

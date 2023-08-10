@@ -52,6 +52,16 @@ if ( function_exists( 'register_block_style' ) ) {
 			)
 		);
 
+		// Cover: Rounded Corders.
+		register_block_style(
+			'core/cover',
+			array(
+				'name'  => 'cover-rounded-corners',
+				'label' => esc_html__( 'Rounded Corners', 'flat-blocks' ),
+				'style_handle'	=> 'flatblocks-custom-styles'
+			)
+		);
+
 		/*--------------------------------------------------------------
 		# Media and Text styles
 		--------------------------------------------------------------*/
@@ -78,15 +88,38 @@ if ( function_exists( 'register_block_style' ) ) {
 			)
 		);
 
-		// Image: Round with Borders.
+		// Image: Rounded with Borders.
 		register_block_style(
 			'core/image',
 			array(
 				'name'  => 'image-round-border',
-				'label' => esc_html__( 'Round w/Borders', 'flat-blocks' ),
+				'label' => esc_html__( 'Rounded Borders', 'flat-blocks' ),
 				'style_handle'	=> 'flatblocks-custom-styles'
 			)
 		);
+
+		// Image: Circle Mask. 
+		// Note: WordPress core already styles this, but isn't shown in the Editor
+		/*register_block_style(
+			'core/image',
+			array(
+				'name'  => 'circle-mask',
+				'label' => esc_html__( 'Circle', 'flat-blocks' ),
+				'inline_style'		=> ''
+				//'style_handle'	=> 'flatblocks-custom-styles'
+			)
+		);*/
+
+		// Image: Circle Mask with Borders. 
+		// Note: WordPress core already styles this, but isn't shown in the Editor
+		/*register_block_style(
+			'core/image',
+			array(
+				'name'  => 'circle-mask-border',
+				'label' => esc_html__( 'Circle Borders', 'flat-blocks' ),
+				'style_handle'	=> 'flatblocks-custom-styles'
+			)
+		);*/
 
 		// Image: Computer Screen.
 		register_block_style(
@@ -325,6 +358,39 @@ if ( function_exists( 'register_block_style' ) ) {
 		// List: Plain Centered).
 		register_block_style(
 			'core/list',
+			array(
+				'name'  => 'list-plain-centered',
+				'label' => esc_html__( 'Plain Centered', 'flat-blocks' ),
+				'style_handle'	=> 'flatblocks-custom-styles'
+			)
+		);
+
+		/*--------------------------------------------------------------
+		# Page List styles
+		--------------------------------------------------------------*/
+		// List: Checkmarks.
+		register_block_style(
+			'core/page-list',
+			array(
+				'name'  => 'list-checkmarks',
+				'label' => esc_html__( 'Checkmarks', 'flat-blocks' ),
+				'style_handle'	=> 'flatblocks-custom-styles'
+			)
+		);
+
+		// List: Plain (no bullets).
+		register_block_style(
+			'core/page-list',
+			array(
+				'name'  => 'list-plain',
+				'label' => esc_html__( 'Plain', 'flat-blocks' ),
+				'style_handle'	=> 'flatblocks-custom-styles'
+			)
+		);
+
+		// List: Plain Centered).
+		register_block_style(
+			'core/page-list',
 			array(
 				'name'  => 'list-plain-centered',
 				'label' => esc_html__( 'Plain Centered', 'flat-blocks' ),

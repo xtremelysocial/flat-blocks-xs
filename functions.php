@@ -10,8 +10,6 @@
 
 /**
  * Sets up theme defaults and registers support for various WordPress features.
- *
- * @return void
  */
 if ( ! function_exists( 'flatblocks_support' ) ) :
 
@@ -65,9 +63,7 @@ endif;
 add_action( 'after_setup_theme', 'flatblocks_support' );
 
 /**
- * Enqueue front-end styles.
- *
- * @return void
+ * Enqueue front-end styles and scripts.
  */
 if ( ! function_exists( 'flatblocks_styles' ) ) :
 
@@ -159,13 +155,16 @@ endif;
 add_action( 'wp_enqueue_scripts', 'flatblocks_styles' );
 
 /**
- * Enqueue additional editor scripts.
- * 
- * @return void
+ * Enqueue additional editor styles and scripts.
  */
 if ( ! function_exists( 'flatblocks_editor_styles' ) ) :
 
 	function flatblocks_editor_styles() {
+	
+		// WordPress built-in icons (Dashicons)
+		//wp_enqueue_style( 'dashicons' );
+		//add_editor_style('dashicons');
+		//add_editor_style(get_template_directory_uri() . '../../wp_includes/css/dashicons.min.css');
 
 		// As a courtesy, add the child theme CSS to the Block Editor if it exists.
 		if ( is_child_theme() && file_exists( get_stylesheet_directory() . '/style.css' ) ) {
@@ -180,7 +179,7 @@ endif;
 add_action( 'admin_init', 'flatblocks_editor_styles' );
 
 /**
- * Load custom block styles and block patterns
+ * Load custom block styles and block patterns (and PRO features if purchased)
  *
  */
 // Add custom block styles
@@ -212,7 +211,6 @@ if ( file_exists( get_template_directory() . '/pro/flat-blocks-pro.php' ) ) {
 
 /**
  * Additional Filters
- *
  */
 
 // Define our custom template part AREAS
@@ -224,21 +222,14 @@ if ( ! function_exists( 'flatblocks_template_part_areas' ) ) :
 				'area'        => 'title',
 				'area_tag'    => 'section',
 				'label'       => __( 'Title', 'flat-blocks' ),
-				'description' => __( 'Title templates for pages and posts', 'flat-blocks' ),
-				'icon'        => 'header'
-			),
-			array(
-				'area'        => 'sidebar',
-				'area_tag'    => 'section',
-				'label'       => __( 'Sidebar', 'flat-blocks' ),
-				'description' => __( 'Sidebar templates for pages and posts with sidebars', 'flat-blocks' ),
-				'icon'        => 'sidebar'
+				'description' => __( 'Page and post titles plus home page content top', 'flat-blocks' ),
+				'icon'        => ''
 			),
 			array(
 				'area'        => 'query',
 				'area_tag'    => 'section',
 				'label'       => __( 'Query', 'flat-blocks' ),
-				'description' => __( 'Query template for blog and archives', 'flat-blocks' ),
+				'description' => __( 'Site query template', 'flat-blocks' ),
 				'icon'        => ''
 			),
 			array(
@@ -254,13 +245,6 @@ if ( ! function_exists( 'flatblocks_template_part_areas' ) ) :
 				'label'       => __( 'Menu', 'flat-blocks' ),
 				'description' => __( 'Navigation Menus', 'flat-blocks' ),
 				'icon'        => ''
-			),
-			array(
-				'area'        => 'comments',
-				'area_tag'    => 'section',
-				'label'       => __( 'Comments', 'flat-blocks' ),
-				'description' => __( 'Comment template for pages and posts with comments', 'flat-blocks' ),
-				'icon'        => 'footer'
 			)
 		);
 		return array_merge( $areas, $new_areas );
