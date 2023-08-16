@@ -241,6 +241,11 @@ body .is-layout-constrained > .alignright {
 	row-gap: var(--wp--preset--spacing--20); /*!important;*/
 }
 
+/* REMOVE extra margin on nav menu drop-down icons in Block Editor */
+.is-root-container .wp-block-navigation .wp-block-navigation__submenu-icon {
+	margin-left: 0;
+}
+
 /* REMOVE extra padding between top-level nav and its children */
 .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content .wp-block-navigation__submenu-container {
     padding-top: var(--wp--preset--spacing--20);
@@ -251,7 +256,7 @@ body .is-layout-constrained > .alignright {
   padding-left: 0;
 }
 
-/* REMOVE extra padding on sub-menus with backgrounds */
+/* REMOVE duplicate padding on sub-menus with backgrounds */
 .wp-block-navigation__submenu-container.has-background {
 	padding: 0;
 }
