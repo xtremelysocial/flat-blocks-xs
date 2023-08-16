@@ -92,11 +92,11 @@ ul.has-background {
  */
 a,
 .wp-block-navigation a,
-.wp-block-navigation-submenu__toggle { 
+/*.wp-block-navigation-item__content,*/
+.wp-block-navigation-submenu__toggle {
 	cursor: pointer;
 	text-decoration-thickness: 1px;
 	text-underline-offset: 0.3ch;
-	/*background-color: transparent;*/
 }
 
 /* Style form fields */
@@ -116,6 +116,10 @@ textarea,
 input:not([type="radio"]):not([type="checkbox"]):not([type="file"]):not([type="button"]):not([type="image"]):not([class="button"]):not(.wp-block-button__link) {
     -webkit-appearance: none;
 	border: 1px solid var(--wp--preset--color--foreground);
+}
+
+fieldset {
+	padding: var(--wp--preset--spacing--20) var(--wp--preset--spacing--40);
 }
 
 select {
@@ -143,7 +147,6 @@ select:focus-visible {
  * plugins. Note the exclusions of any blocks or Tiny MCE buttons (which are the old
  * editor prior to the new block editor).
  */
-/*button:not([class*="wp-block-"]):not(.wp-element-button):not([id*=mce]):not([class*=mejs]):not([class*=swiper]):not([class*=wp-story]):not([class*=slick]):not(.components-button),*/
 input[type="button"],
 input[class="button"],
 input[type="file"]::file-selector-button {
@@ -163,7 +166,6 @@ input[type="file"] {
 }
 
 /* Colored link hover styles */
-/*.has-text-color a:not(.wp-element-button, .wp-block-button, .wp-block-social-link-anchor):hover {*/
 .has-text-color a:not(.wp-element-button):not(.wp-block-button):not(.wp-block-social-link-anchor):hover {
 	opacity: 0.8;
 }
@@ -181,21 +183,6 @@ input[type="file"]::file-selector-button:hover,
 .wp-block-button__link:hover {
 	opacity: 0.8;
 	cursor: pointer;
-}
-
-/* Navigation hover styles */
-/*.wp-block-group.site-header:not(.has-link-color) .wp-block-navigation .wp-block-navigation__responsive-container:not(.has-text-color) .wp-block-navigation-item__content.wp-block-navigation-item__content:hover {*/
-.wp-block-group.site-header:not(.has-link-color) .wp-block-navigation__responsive-container:not(.has-text-color) .wp-block-navigation-item__content:hover {
-	color: var(--wp--preset--color--primary-alt);
-	font-weight: inherit;
-}
-
-/* But on mobile nav, don't hover on non-clickable links */
-.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation-item.has-child.open-on-click > .wp-block-navigation-item__content:hover {
-	color: inherit;
-	cursor: unset;
-	font-weight: inherit;
-	opacity: 1;
 }
 
 /*--------------------------------------------------------------
@@ -244,14 +231,6 @@ body .is-layout-constrained > .alignright {
 }
 
 /*--------------------------------------------------------------
-# Columns
---------------------------------------------------------------*/
-/* FIX columns not having gap */
-/**.wp-block-columns {
-	gap: var(--wp--preset--spacing--40);
-}**/
-
-/*--------------------------------------------------------------
 # Navigation
 --------------------------------------------------------------*/
 
@@ -260,20 +239,6 @@ body .is-layout-constrained > .alignright {
 .wp-block-navigation .wp-block-navigation__container,
 .wp-block-navigation .wp-block-page-list {
 	row-gap: var(--wp--preset--spacing--20); /*!important;*/
-}
-
-/* MOVE padding on colored navs to the container instead of the individual menu items */
-.wp-block-navigation.has-background .wp-block-navigation__responsive-dialog {
-	padding: var(--wp--preset--spacing--30) var(--wp--preset--spacing--40);
-}
-:where(.wp-block-navigation.has-background .wp-block-navigation__responsive-container:not(.is-open) .wp-block-navigation__container > .wp-block-navigation-item > a:not(.wp-element-button)), 
-:where(.wp-block-navigation.has-background .wp-block-navigation__responsive-container:not(.is-open) .wp-block-navigation__container > .wp-block-navigation-submenu > a:not(.wp-element-button)) {
-    padding: 0;
-}
-
-/* On colored navs, round out the mobile nav container to match our open/close menu buttons */
-.wp-block-navigation.has-text-color:has(.wp-block-navigation__responsive-container:not(.is-menu-open.is-menu-open)) {
-	border-radius: var(--wp--custom--border--radius);
 }
 
 /* REMOVE extra padding between top-level nav and its children */
@@ -313,33 +278,6 @@ button.wp-block-navigation__responsive-container-close,
 	border: 1px solid var(--wp--preset--color--neutral-alt);
 	border-radius: var(--wp--custom--border--radius);
 	padding: var(--wp--preset--spacing--20);
-}
-
-/* Bold or highlight active top-level menu items, depending on whether text color or not */
-.wp-block-group.site-header .wp-block-navigation__responsive-container .wp-block-navigation__container > .wp-block-navigation-item.current-menu-item:not(.has-child) > a,
-.wp-block-group.site-header .wp-block-navigation__responsive-container .wp-block-navigation__container > .wp-block-navigation-item:has(.current-menu-ancestor),
-.wp-block-group.site-header .wp-block-navigation__responsive-container .wp-block-navigation__container > .wp-block-navigation-item:has(.current-menu-ancestor) > a,
-.wp-block-group.site-header .wp-block-navigation__responsive-container .wp-block-page-list > .wp-block-pages-list__item.current-menu-item > a,
-.wp-block-group.site-header .wp-block-navigation__responsive-container .wp-block-navigation__container > .wp-block-navigation-item.wp-block-home-link > a[aria-current='page'] {
-	font-weight: var(--wp--custom--typography--font-weight--medium);
-}
- 
-.wp-block-group.site-header:not(.has-link-color) .wp-block-navigation__responsive-container .wp-block-navigation__container > .wp-block-navigation-item.current-menu-item:not(.has-child) > a,
-.wp-block-group.site-header:not(.has-link-color) .wp-block-navigation__responsive-container .wp-block-navigation__container > .wp-block-navigation-item:has(.current-menu-ancestor),
-.wp-block-group.site-header:not(.has-link-color) .wp-block-navigation__responsive-container .wp-block-navigation__container > .wp-block-navigation-item:has(.current-menu-ancestor) > a,
-.wp-block-group.site-header:not(.has-link-color) .wp-block-navigation__responsive-container .wp-block-page-list > .wp-block-pages-list__item.current-menu-item > a,
-.wp-block-group.site-header:not(.has-link-color) .wp-block-navigation__responsive-container .wp-block-navigation__container > .wp-block-navigation-item.wp-block-home-link > a[aria-current='page'] {
-	color: var(--wp--preset--color--primary-alt);
-	font-weight: var(--wp--custom--typography--font-weight--normal);
-}
-
-/* Bold or highlight active sub-menu items, depending on whether text color or not */
-.wp-block-navigation__submenu-container .wp-block-navigation-item.current-menu-item .wp-block-navigation-item__content.wp-block-navigation-item__content {
-	font-weight: var(--wp--custom--typography--font-weight--medium);
-}
-.wp-block-navigation__submenu-container:not(.has-text-color) .wp-block-navigation-item.current-menu-item .wp-block-navigation-item__content.wp-block-navigation-item__content {
-	color: var(--wp--preset--color--primary-alt);
-	font-weight: var(--wp--custom--typography--font-weight--normal);
 }
 
 /* Increase animation TIME on nav menu drop-downs */
@@ -553,28 +491,28 @@ body .is-layout-constrained .wp-block-template-part > * + *:not(.wp-block-templa
 
 /* For convenience, remove padding from inner containers */
 .wp-site-blocks main,
-.wp-site-blocks .wp-block-template-part,
-.wp-site-blocks .wp-block-post-content {
+.wp-site-blocks .wp-block-template-part { /*,
+.wp-site-blocks .wp-block-post-content:not(.has-global-padding) {*/
 	padding: 0;
 }
 
 /* FIX to add back horizontal padding */
 .has-global-padding {
-    padding-left: var(--wp--style--root--padding-left) !important;
-    padding-right: var(--wp--style--root--padding-right) !important;
+    padding-left: var(--wp--style--root--padding-left); /*!important;*/
+    padding-right: var(--wp--style--root--padding-right); /*!important;*/
 }
 
 .has-global-padding > .alignfull:not(.wp-block-post-content, .wp-block-image, .wp-block-columns, .wp-block-buttons),
 .has-global-padding.alignfull:not(.wp-block-post-content, .wp-block-image, .wp-block-columns, .wp-block-buttons),
 .is-root-container .has-global-padding.has-background {
-    padding-left: var(--wp--style--root--padding-left) !important;
-    padding-right: var(--wp--style--root--padding-right) !important;
+    padding-left: var(--wp--style--root--padding-left); /*!important;*/
+    padding-right: var(--wp--style--root--padding-right); /*!important;*/
 }
 
 /* But REMOVE duplicate padding */
 .has-global-padding :where(.has-global-padding):not(.has-background) {
-	padding-left: 0 !important;
-	padding-right: 0 !important;
+	padding-left: 0; /*!important;*/
+	padding-right: 0; /*!important;*/
 }
 
 /* But REMOVE duplicate padding from images */

@@ -51,16 +51,16 @@ You can check out our other themes here: https://xtremelysocial.com/wordpress/
 == Changelog ==
 
 = 1.2.14 =
-August 7, 2023
+August 16, 2023
 
 * Added the Roboto Mono font and set it to the default for code and preformatted blocks.
-* Enhanced the smooth scrolling to factor in whether the site is displaying the Admin Bar or not. This is most beneficial for cover blocks with scroll to content sections. 
 * The Fixed Mobile Nav Menu can now be centered in addition to positioned left or right.
-* Adjusted the CSS for navigation menu colors and highlights to better handle when the user selects colors for the navigation menu and/or it's drop-down menus.
 * Fixed issue with Menu Never Mobile where it was going mobile on small screens. Also added a group to it so there is margin between it and the site title. 
 * Added custom page list styles for checkmarks and plain lists, so you can now choose those styles for them just like on regular lists.
 * For Media & Text block with border style, round the edges and add a bit of padding to be more similar to post thumbnail images.
+* Enhanced the smooth scrolling to factor in whether the site is displaying the Admin Bar or not. This is most beneficial for cover blocks with scroll to content sections. 
 * Made some code optimizations to the fixed header javascript.
+* Cleaned up the horizontal padding CSS rules to reduce the number !important designators. This gives user more control in adding their own padding to blocks, but will still overriding the left and right padding on mobile devices so all the blocks line up nicely with consistent margins.
 * Moved the theme's pattern-related functions into its own 'pattern-functions.php' file in the /inc directory. Added inclusion of that file into the PHP-based patterns that use it. This is to help when admins are using the WP-CLI command line utilities.
 
 = 1.2.13 =

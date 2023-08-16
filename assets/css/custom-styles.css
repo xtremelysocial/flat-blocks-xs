@@ -65,9 +65,14 @@
 	padding-top: var(--wp--preset--spacing--40);
 	padding-bottom: var(--wp--preset--spacing--40);
 }
-.wp-block-group.is-style-rounded-border:not(.has-global-padding) {
+/*.wp-block-group.is-style-rounded-border:not(.has-global-padding) {*/
+.wp-block-group.is-style-rounded-border {
 	padding-left: var(--wp--preset--spacing--40);
 	padding-right: var(--wp--preset--spacing--40);	
+}
+
+.wp-block-group.is-style-rounded-border.is-layout-flex {
+	overflow: hidden;
 }
 
 .wp-block-group.is-style-thick-rounded-border {
@@ -75,15 +80,20 @@
 	border-radius: var(--wp--custom--border--radius);
 }
 
+.wp-block-group.is-style-thick-rounded-border.is-layout-flex {
+	overflow: hidden;
+}
+
 /* Group padding */
 .wp-block-group.is-style-no-padding {
-	padding-top: 0;
-	padding-bottom: 0;
+	/*padding-top: 0;
+	padding-bottom: 0;*/
+	padding: 0;
 }
-.wp-block-group.is-style-no-padding:not(.has-global-padding) {
+/*.wp-block-group.is-style-no-padding:not(.has-global-padding) {
 	padding-left: 0;
 	padding-right: 0;
-}
+}*/
 
 /*--------------------------------------------------------------
 # Columns
