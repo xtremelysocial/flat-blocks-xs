@@ -22,20 +22,31 @@
 /*--------------------------------------------------------------
 # Fixed Nav Menu. Front-end and Editor.
 --------------------------------------------------------------*/
-/* Style fixed mobile menu */
-.wp-block-navigation.is-style-fixed-menu .wp-block-navigation__responsive-container {
-	/*min-width: calc(10 * var(--wp--preset--spacing--60));
-	max-width: calc(15 * var(--wp--preset--spacing--60));*/
-	width: calc(10 * var(--wp--preset--spacing--60));
+
+/* For the Editor, add some margin on the fixed nav menu. Note this will be overridden on
+ * the front end
+ */
+nav.wp-block-navigation.is-style-fixed-menu {
+	margin: var(--wp--preset--spacing--20) var(--wp--preset--spacing--40);
+	/*padding: var(--wp--preset--spacing--20) var(--wp--preset--spacing--40);*/
 }
 
-.wp-block-navigation.is-style-fixed-menu .wp-block-navigation__responsive-container-open,
-.wp-block-navigation.is-style-fixed-menu .wp-block-navigation__responsive-container-close {
+/* Style fixed mobile nav open and close buttons */
+nav.wp-block-navigation.is-style-fixed-menu .wp-block-navigation__responsive-container-open,
+nav.wp-block-navigation.is-style-fixed-menu .wp-block-navigation__responsive-container-close {
 	background: rgba(0, 0, 0, .25);
 	padding: var(--wp--preset--spacing--20);
 	color: white;
 	border: none;
 	border-radius: 0;
+}
+
+/* Style fixed mobile menu drop-down */
+nav.wp-block-navigation.is-style-fixed-menu .wp-block-navigation__responsive-container {
+	/*min-width: calc(10 * var(--wp--preset--spacing--60));
+	max-width: calc(15 * var(--wp--preset--spacing--60));*/
+	/*width: calc(10 * var(--wp--preset--spacing--60));*/
+	width: 360px;
 }
 
 /*--------------------------------------------------------------

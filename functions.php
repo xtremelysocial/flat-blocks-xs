@@ -30,18 +30,18 @@ if ( ! function_exists( 'flatblocks_support' ) ) :
 		add_image_size( 'cropped-thumbnail', 760, 428, array( 'left', 'top' ) );
 		
 		// Add support for editor styles.
-		add_theme_support( 'editor-styles' );
+		//add_theme_support( 'editor-styles' );
 
 		// Enqueue editor styles.
 		// Note: Don't included fixed header as that isn't working in the Block Editor
-		add_editor_style( 
+		/*add_editor_style( 
 			array(
 				'/assets/css/flat-blocks.css',
 				'/assets/css/custom-styles.css', //,
 				//'/assets/css/custom-fixedheader.css'
 				'style.css'
 			)
-		);
+		);*/
 
 		// Register four nav menus if Gutenberg is activated 
 		// (otherwise the __experimentalMenuLocation attribute isn't available)
@@ -57,13 +57,40 @@ if ( ! function_exists( 'flatblocks_support' ) ) :
 
 		// Allow excerpts on pages so users can control what shows in searches, etc.
 		add_post_type_support( 'page', 'excerpt' );		
+		
+		/*
+		 * Load block-specific CSS styles.
+		 */
+		/*$styled_blocks = ['latest-comments'];
+		foreach ( $styled_blocks as $block_name ) {
+			$args = array(
+				'handle' => "flatblocks-$block_name",
+				'src'    => get_theme_file_uri( "assets/css/blocks/$block_name.css" ),
+				$args['path'] = get_theme_file_path( "assets/css/blocks/$block_name.css" ),
+			);
+			wp_enqueue_block_style( "core/$block_name", $args );
+		}*/
+		
 	}
 
 endif;
 add_action( 'after_setup_theme', 'flatblocks_support' );
 
 /**
- * Enqueue front-end styles and scripts.
+ * Enqueue styles and scripts on the front end AND back end (Editor)
+ */
+/*if ( ! function_exists( 'flatblocks_block_assets' ) ) :
+
+	function flatblocks_block_assets() {
+		// WordPress built-in icons (Dashicons)
+		wp_enqueue_style( 'dashicons' );
+	}
+	
+endif;
+add_action( 'enqueue_block_assets', 'flatblocks_block_assets' );*/
+
+/**
+ * Enqueue front-end AND back-end styles and scripts.
  */
 if ( ! function_exists( 'flatblocks_styles' ) ) :
 
@@ -88,18 +115,23 @@ if ( ! function_exists( 'flatblocks_styles' ) ) :
 			array('flatblocks-base'),
 			$version_string
 		);
-	
-		wp_register_style(
-			'flatblocks-fixedheader-styles',
-			get_template_directory_uri() . '/assets/css/custom-fixedheader.css',
-			array('flatblocks-base'),
-			$version_string
-		);
 
 		// Note: Conditional loading of custom styles not stable as of WordPress 6.2,
 		// so load manually
 		wp_enqueue_style( 'flatblocks-custom-styles' );
-		wp_enqueue_style( 'flatblocks-fixedheader-styles' );
+	
+		if ( !is_admin() ) {
+			wp_register_style(
+				'flatblocks-fixedheader-styles',
+				get_template_directory_uri() . '/assets/css/custom-fixedheader.css',
+				array('flatblocks-base'),
+				$version_string
+			);
+		
+			// Note: Conditional loading of custom styles not stable as of WordPress 6.2,
+			// so load manually
+			wp_enqueue_style( 'flatblocks-fixedheader-styles' );
+		}
 
 		// Enqueue theme style after theme base style
 		wp_enqueue_style( 
@@ -133,31 +165,37 @@ if ( ! function_exists( 'flatblocks_styles' ) ) :
 			);
 		}
 
-		// Smooth scrolling javascript
-		wp_enqueue_script( 
-			'flatblocks-smoothscroll', 
-			get_template_directory_uri() . '/assets/js/smoothscroll.js', 
-			array('jquery'), 
-			$version_string, 
-			true 
-		);
+		// On the front-end ONLY, load the smoothscroll and fixed header javascript
+		if ( !is_admin() ) {
 
-		// Fixed header javascript
-		wp_enqueue_script( 
-			'flatblocks-fixedheader', 
-			get_template_directory_uri() . '/assets/js/fixedheader.js', 
-			array('jquery'), 
-			$version_string, 
-			true 
-		);
+			// Smooth scrolling javascript
+			wp_enqueue_script( 
+				'flatblocks-smoothscroll', 
+				get_template_directory_uri() . '/assets/js/smoothscroll.js', 
+				array('jquery'), 
+				$version_string, 
+				true 
+			);
+
+			// Fixed header javascript
+			wp_enqueue_script( 
+				'flatblocks-fixedheader', 
+				get_template_directory_uri() . '/assets/js/fixedheader.js', 
+				array('jquery'), 
+				$version_string, 
+				true 
+			);
+			
+		} //!is_admin()
 	}
 endif;
-add_action( 'wp_enqueue_scripts', 'flatblocks_styles' );
+//add_action( 'wp_enqueue_scripts', 'flatblocks_styles' );
+add_action( 'enqueue_block_assets', 'flatblocks_styles' );
 
 /**
  * Enqueue additional editor styles and scripts.
  */
-if ( ! function_exists( 'flatblocks_editor_styles' ) ) :
+/*if ( ! function_exists( 'flatblocks_editor_styles' ) ) :
 
 	function flatblocks_editor_styles() {
 	
@@ -176,7 +214,7 @@ if ( ! function_exists( 'flatblocks_editor_styles' ) ) :
 	}
 
 endif;
-add_action( 'admin_init', 'flatblocks_editor_styles' );
+add_action( 'admin_init', 'flatblocks_editor_styles' );*/
 
 /**
  * Load custom block styles and block patterns (and PRO features if purchased)
