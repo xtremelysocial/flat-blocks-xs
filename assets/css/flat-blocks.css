@@ -311,8 +311,8 @@ button.wp-block-navigation__responsive-container-close,
  * line is for older block editor markup and the is-root-container is for the editor
  * which adds an extra div between the image container (figure) and the image itself. 
  */
-figure.wp-caption:not(.alignfull, .alignwide),
-figure.wp-caption:not(.alignfull, .alignwide) img {
+figure.wp-caption:not(.alignfull):not(.alignwide),
+figure.wp-caption:not(.alignfull):not(.alignwide) img {
 	max-width: min( 100%, var(--wp--style--global--content-size) ) !important;
 	height: auto;
 	margin-left: auto;
