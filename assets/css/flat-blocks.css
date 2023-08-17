@@ -32,10 +32,16 @@ html {
  * Font smoothing.
  * This is a niche setting that will not be available via Global Styles.
  * https://github.com/WordPress/gutenberg/issues/35934
+ * 
+ * Also text decoration styles.
  */
 body {
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
+	
+	text-decoration-thickness: 1.5px;
+	/*text-underline-position: under;*/
+	text-underline-offset: 0.3ch;
 }
 
 /*--------------------------------------------------------------
@@ -83,22 +89,8 @@ ul.has-background {
 }
 
 /*--------------------------------------------------------------
-# Links, Buttons, and Forms
+# Forms, Links, and Buttons
 --------------------------------------------------------------*/
-/*
- * Link styles.
- * Necessary until the following issue is resolved in Gutenberg:
- * https://github.com/WordPress/gutenberg/issues/27075
- */
-a,
-.wp-block-navigation a,
-/*.wp-block-navigation-item__content,*/
-.wp-block-navigation-submenu__toggle {
-	cursor: pointer;
-	text-decoration-thickness: 1px;
-	text-underline-offset: 0.3ch;
-}
-
 /* Style form fields */
 fieldset,
 textarea,
@@ -143,6 +135,25 @@ select:focus-visible {
 	transition: outline 0.3s ease;
 }
 
+/*
+ * Link styles.
+ * Necessary until the following issue is resolved in Gutenberg:
+ * https://github.com/WordPress/gutenberg/issues/27075
+ */
+a,
+.wp-block-navigation a,
+/*.wp-block-navigation-item__content,*/
+.wp-block-navigation-submenu__toggle {
+	cursor: pointer;
+	/*text-decoration-thickness: 1px;
+	text-underline-offset: 0.3ch;*/
+}
+
+/* Colored link hover styles */
+.has-text-color a:not(.wp-element-button):not(.wp-block-button):not(.wp-block-social-link-anchor):hover {
+	opacity: 0.8;
+}
+
 /* Style basic buttons to match block buttons. This is for older site content and / or
  * plugins. Note the exclusions of any blocks or Tiny MCE buttons (which are the old
  * editor prior to the new block editor).
@@ -163,11 +174,6 @@ input[type="file"]::file-selector-button {
 input[type="file"] {
 	font-size: var(--wp--preset--font-size--small);
 	width: 100%;
-}
-
-/* Colored link hover styles */
-.has-text-color a:not(.wp-element-button):not(.wp-block-button):not(.wp-block-social-link-anchor):hover {
-	opacity: 0.8;
 }
 
 /*
@@ -390,10 +396,17 @@ figure.wp-caption:not(.alignfull):not(.alignwide) img {
 # Separator
 --------------------------------------------------------------*/
 
-/* Fix to center default (narrow) separator when user selects alignfull */
-.wp-block-separator.alignfull.is-style-default {
+/* FIX to center default (narrow) separator when user selects alignfull */
+/*.wp-block-separator.alignfull.is-style-default {*/
+.wp-block-separator.alignfull {
 	margin-left: auto !important;
 	margin-right: auto !important;
+}
+
+/* Override our short width for wide and dotted separators */
+.wp-block-separator.is-style-wide,
+.wp-block-separator.is-style-dots {
+	width: 100%; 
 }
 
 /*--------------------------------------------------------------

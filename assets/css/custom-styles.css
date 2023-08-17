@@ -359,12 +359,14 @@ p.is-style-no-link-underline a:hover {
 --------------------------------------------------------------*/
 .wp-block-separator.is-style-thick {
 	border-width: 0 0 3px;
-	width: calc(10 * var(--wp--preset--spacing--40)) !important;
+	/*border-color: var(--wp--preset--color--primary);*/
+	/*width: calc(10 * var(--wp--preset--spacing--40)) !important;*/
 }
 
 .wp-block-separator.is-style-thick-wide {
-	border-width: 0 0 3px; /*calc(1.25 * 1px);*/
-	width: 100% !important;
+	border-width: 0 0 3px;
+	/*border-color: var(--wp--preset--color--primary);*/
+	width: 100%; /*!important;*/
 }
 
 /*.wp-block-separator.is-style-clearfix {

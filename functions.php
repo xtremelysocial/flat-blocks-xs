@@ -16,8 +16,11 @@ if ( ! function_exists( 'flatblocks_support' ) ) :
 	function flatblocks_support() {
 
 		// Add support for additional core block styles. e.g. Separator width, left 
-		// border color on quotes, etc.
-		add_theme_support( 'wp-block-styles' );
+		// border color on quotes, etc. See here for full list:
+		// https://github.com/WordPress/gutenberg/blob/trunk/packages/block-library/src/theme.scss
+		// NOTE: As of WordPress v6.3, these are loaded AFTER the ones from theme.json so 
+		// they are overriding this theme's and the user's settings!
+		/*add_theme_support( 'wp-block-styles' );*/
 
 		// This sets the standard post thumbnail image size for the blog
 		// It is cropped with 16:9 aspect ratio so that widths and heights are the same
@@ -30,18 +33,9 @@ if ( ! function_exists( 'flatblocks_support' ) ) :
 		add_image_size( 'cropped-thumbnail', 760, 428, array( 'left', 'top' ) );
 		
 		// Add support for editor styles.
-		//add_theme_support( 'editor-styles' );
-
-		// Enqueue editor styles.
-		// Note: Don't included fixed header as that isn't working in the Block Editor
-		/*add_editor_style( 
-			array(
-				'/assets/css/flat-blocks.css',
-				'/assets/css/custom-styles.css', //,
-				//'/assets/css/custom-fixedheader.css'
-				'style.css'
-			)
-		);*/
+		// NOTE: No longer needed from WordPress v6.2 on and that is the minimum this
+		// theme supports.
+		/*add_theme_support( 'editor-styles' );*/
 
 		// Register four nav menus if Gutenberg is activated 
 		// (otherwise the __experimentalMenuLocation attribute isn't available)
@@ -60,8 +54,9 @@ if ( ! function_exists( 'flatblocks_support' ) ) :
 		
 		/*
 		 * Load block-specific CSS styles.
+		 * TO-DO: Consider using this
 		 */
-		/*$styled_blocks = ['latest-comments'];
+		/*$styled_blocks = ['group'];
 		foreach ( $styled_blocks as $block_name ) {
 			$args = array(
 				'handle' => "flatblocks-$block_name",
@@ -75,19 +70,6 @@ if ( ! function_exists( 'flatblocks_support' ) ) :
 
 endif;
 add_action( 'after_setup_theme', 'flatblocks_support' );
-
-/**
- * Enqueue styles and scripts on the front end AND back end (Editor)
- */
-/*if ( ! function_exists( 'flatblocks_block_assets' ) ) :
-
-	function flatblocks_block_assets() {
-		// WordPress built-in icons (Dashicons)
-		wp_enqueue_style( 'dashicons' );
-	}
-	
-endif;
-add_action( 'enqueue_block_assets', 'flatblocks_block_assets' );*/
 
 /**
  * Enqueue front-end AND back-end styles and scripts.
@@ -138,12 +120,11 @@ if ( ! function_exists( 'flatblocks_styles' ) ) :
 			'flatblocks-style', 
 			get_template_directory_uri() . '/style.css', 
 			array('flatblocks-base'),
-			//null,
 			$version_string
 		);
 
 		// WordPress built-in icons (Dashicons)
-		wp_enqueue_style( 'dashicons' );
+		/////wp_enqueue_style( 'dashicons' );
 
 		// As a courtesy, add the child theme Custom Styles CSS if it exists
 		if ( is_child_theme() && file_exists( get_stylesheet_directory() . '/assets/css/custom-styles.css' ) ) {
@@ -193,16 +174,33 @@ endif;
 add_action( 'enqueue_block_assets', 'flatblocks_styles' );
 
 /**
+ * Enqueue styles and scripts on the front end AND back end (Editor)
+ */
+/*if ( ! function_exists( 'flatblocks_block_assets' ) ) :
+
+	function flatblocks_block_assets() {
+		// WordPress built-in icons (Dashicons)
+		wp_enqueue_style( 'dashicons' );
+	}
+	
+endif;
+add_action( 'enqueue_block_assets', 'flatblocks_block_assets' );*/
+
+/**
  * Enqueue additional editor styles and scripts.
  */
 /*if ( ! function_exists( 'flatblocks_editor_styles' ) ) :
 
 	function flatblocks_editor_styles() {
-	
-		// WordPress built-in icons (Dashicons)
-		//wp_enqueue_style( 'dashicons' );
-		//add_editor_style('dashicons');
-		//add_editor_style(get_template_directory_uri() . '../../wp_includes/css/dashicons.min.css');
+
+		add_editor_style( 
+			array(
+				'/assets/css/flat-blocks.css',
+				'/assets/css/custom-styles.css', //,
+				//'/assets/css/custom-fixedheader.css'
+				'style.css'
+			)
+		);	
 
 		// As a courtesy, add the child theme CSS to the Block Editor if it exists.
 		if ( is_child_theme() && file_exists( get_stylesheet_directory() . '/style.css' ) ) {
