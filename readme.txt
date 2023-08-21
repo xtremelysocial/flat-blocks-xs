@@ -1,7 +1,7 @@
 === Flat Blocks ===
 Contributors: Tim Nicholson / XtremelySocial
 Requires at least: 6.2
-Tested up to: 6.2
+Tested up to: 6.3
 Requires PHP: 7.4
 Stable tag: 1.3
 License: GPLv2 or later
