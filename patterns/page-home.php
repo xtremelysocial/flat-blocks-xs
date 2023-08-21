@@ -20,18 +20,18 @@
 
 <?php if ( function_exists( 'flatblocks_get_block_pattern' ) ) echo flatblocks_get_block_pattern( 'columns-features-3-columns' ); ?>
 
-<!-- wp:group {"align":"wide","layout":{"type":"constrained"}} -->
-<div id="our-portfolio" class="wp-block-group alignwide">
-<!-- wp:heading {"align":"wide","textAlign":"left","placeholder":"Our Portfolio"} -->
-<h2 class="wp-block-heading alignwide has-text-align-left" id="our-portfolio">Our Portfolio</h2>
+<!-- wp:group {"layout":{"type":"constrained"}} -->
+<div id="our-portfolio" class="wp-block-group">
+<!-- wp:heading {"placeholder":"Our Portfolio"} -->
+<h2 class="wp-block-heading" id="our-portfolio">Our Portfolio</h2>
 <!-- /wp:heading -->
 
-<!-- wp:columns {"align":"wide"} -->
-<div class="wp-block-columns alignwide">
+<!-- wp:columns -->
+<div class="wp-block-columns">
 <!-- wp:column {"verticalAlignment":"top","className":"is-style-default"} -->
 <div class="wp-block-column is-vertically-aligned-top is-style-default">
-<!-- wp:paragraph {"placeholder":"Our recent works...","className":"is-style-alignwide"} -->
-<p class="is-style-alignwide">Our recent works...</p>
+<!-- wp:paragraph {"placeholder":"Our recent works..."} -->
+<p>Our recent works...</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:column -->
 
@@ -50,14 +50,14 @@
 
 <?php if ( function_exists( 'flatblocks_get_block_pattern' ) ) echo flatblocks_get_block_pattern( 'columns-recent-posts-3-columns' ); ?>
 
-<!-- wp:group {"align":"wide","layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignwide">
-<!-- wp:heading {"align":"wide","textAlign":"left","placeholder":"Stay Connected"} -->
-<h2 class="has-text-align-left alignwide" id="stay-connected">Stay Connected</h2>
+<!-- wp:group {"layout":{"type":"constrained"}} -->
+<div class="wp-block-group">
+<!-- wp:heading {"placeholder":"Stay Connected"} -->
+<h2 class="wp-block-heading" id="stay-connected">Stay Connected</h2>
 <!-- /wp:heading -->
 
-<!-- wp:paragraph {"textAlign":"left","className":"is-style-alignwide"} -->
-<p class="has-text-align-left is-style-alignwide">Lorem Ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+<!-- wp:paragraph -->
+<p>Lorem Ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 

@@ -12,27 +12,27 @@
 
 <?php if ( function_exists( 'flatblocks_get_block_pattern' ) ) echo flatblocks_get_block_pattern( 'cover-desk-light' ); ?>
 
-<!-- wp:group {"align":"wide","layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignwide">
-<!-- wp:heading {"align":"wide","textAlign":"left","placeholder":"About Us"} -->
-<h2 class="wp-block-heading alignwide has-text-align-left" id="about-us">About Us</h2>
+<!-- wp:group {"layout":{"type":"constrained"}} -->
+<div class="wp-block-group">
+<!-- wp:heading {"placeholder":"About Us"} -->
+<h2 class="wp-block-heading" id="about-us">About Us</h2>
 <!-- /wp:heading -->
 
-<!-- wp:paragraph {"textAlign":"left","className":"is-style-alignwide"} -->
-<p class="has-text-align-left is-style-alignwide">Lorem Ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+<!-- wp:paragraph -->
+<p>Lorem Ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
 <?php if ( function_exists( 'flatblocks_get_block_pattern' ) ) echo flatblocks_get_block_pattern( 'columns-features-3-columns' ); ?>
 
-<!-- wp:group {"align":"wide","layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignwide">
-<!-- wp:heading {"align":"wide","textAlign":"left","placeholder":"Meet our Team"} -->
-<h2 class="alignwide has-text-align-left" id="stay-connected">Meet our Team</h2>
+<!-- wp:group {"layout":{"type":"constrained"}} -->
+<div class="wp-block-group">
+<!-- wp:heading {"placeholder":"Meet our Team"} -->
+<h2 class="wp-block-heading" id="stay-connected">Meet our Team</h2>
 <!-- /wp:heading -->
 
-<!-- wp:paragraph {"textAlign":"left","className":"is-style-alginwide"} -->
-<p class="has-text-align-left is-style-alignwide">Lorem Ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+<!-- wp:paragraph -->
+<p>Lorem Ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 

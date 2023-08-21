@@ -1208,20 +1208,21 @@
 			},
 			"core/pullquote": {
 				"border": {
-					"style": "solid",
 					"bottom": {
-						"width": "1px"
+						"width": "2px",
+						"style": "solid",
+						"color": "var(--wp--preset--color--primary)"
 					},
 					"left": {
-						"style": "none",
-						"width": "0px"
+						"style": "none"
 					},
 					"right": {
-						"style": "none",
-						"width": "0px"
+						"style": "none"
 					},
 					"top": {
-						"width": "1px"
+						"width": "2px",
+						"style": "solid",
+						"color": "var(--wp--preset--color--primary)"
 					}
 				},
 				"spacing": {

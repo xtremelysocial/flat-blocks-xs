@@ -28,7 +28,6 @@
  */
 nav.wp-block-navigation.is-style-fixed-menu {
 	margin: var(--wp--preset--spacing--20) var(--wp--preset--spacing--40);
-	/*padding: var(--wp--preset--spacing--20) var(--wp--preset--spacing--40);*/
 }
 
 /* Style fixed mobile nav open and close buttons */
@@ -43,9 +42,6 @@ nav.wp-block-navigation.is-style-fixed-menu .wp-block-navigation__responsive-con
 
 /* Style fixed mobile menu drop-down */
 nav.wp-block-navigation.is-style-fixed-menu .wp-block-navigation__responsive-container {
-	/*min-width: calc(10 * var(--wp--preset--spacing--60));
-	max-width: calc(15 * var(--wp--preset--spacing--60));*/
-	/*width: calc(10 * var(--wp--preset--spacing--60));*/
 	width: 360px;
 }
 
@@ -76,7 +72,6 @@ nav.wp-block-navigation.is-style-fixed-menu .wp-block-navigation__responsive-con
 	padding-top: var(--wp--preset--spacing--40);
 	padding-bottom: var(--wp--preset--spacing--40);
 }
-/*.wp-block-group.is-style-rounded-border:not(.has-global-padding) {*/
 .wp-block-group.is-style-rounded-border {
 	padding-left: var(--wp--preset--spacing--40);
 	padding-right: var(--wp--preset--spacing--40);	
@@ -97,14 +92,8 @@ nav.wp-block-navigation.is-style-fixed-menu .wp-block-navigation__responsive-con
 
 /* Group padding */
 .wp-block-group.is-style-no-padding {
-	/*padding-top: 0;
-	padding-bottom: 0;*/
 	padding: 0;
 }
-/*.wp-block-group.is-style-no-padding:not(.has-global-padding) {
-	padding-left: 0;
-	padding-right: 0;
-}*/
 
 /*--------------------------------------------------------------
 # Columns
@@ -193,7 +182,7 @@ nav.wp-block-navigation.is-style-fixed-menu .wp-block-navigation__responsive-con
 
 /*.wp-block-image.is-style-image-computer-screen img {*/
 .wp-block-image.is-style-image-computer-screen {
-	border: var(--wp--preset--spacing--60) solid var(--wp--preset--color--not-quite-black);
+	border: var(--wp--preset--spacing--60) solid var(--wp--preset--color--dark);
 	border-radius: var(--wp--preset--spacing--40);
 	border-bottom: 3px solid var(--wp--preset--color--not-quite-black);
 	border-bottom-left-radius: 0;
@@ -203,9 +192,8 @@ nav.wp-block-navigation.is-style-fixed-menu .wp-block-navigation__responsive-con
 	display: none;
 }
 
-/*.wp-block-image.is-style-image-tablet-phone-screen img {*/
 .wp-block-image.is-style-image-tablet-phone-screen {
-	border: calc(0.66 * var(--wp--preset--spacing--60)) solid var(--wp--preset--color--not-quite-black);
+	border: calc(0.66 * var(--wp--preset--spacing--60)) solid var(--wp--preset--color--dark);
 	border-radius: var(--wp--preset--spacing--40);
 }
 
@@ -296,7 +284,7 @@ ol.is-style-list-plain-centered li {
 
 /* Alignwide */
 p.is-style-alignwide {
-	max-width: var(--wp--style--global--wide-size);
+	max-width: var(--wp--style--global--wide-size) !important;
 	margin-left: auto !important;
     margin-right: auto !important;
 }
@@ -315,13 +303,11 @@ p.is-style-arrow-icon-no-text > a {
 	margin: var(--wp--preset--spacing--40) auto;
 }
 
-/*p.is-style-arrow-icon > a:hover,*/
 p.is-style-arrow-icon > a:focus,
 p.is-style-arrow-icon > a:active,
-/*p.is-style-arrow-icon-no-text > a:hover,*/
 p.is-style-arrow-icon-no-text > a:focus,
 p.is-style-arrow-icon-no-text > a:active {
-	opacity: 1; /*inherit !important;*/ /*0.75;*/
+	opacity: 1;
 }
 
 p.is-style-arrow-icon > a:after,
@@ -359,14 +345,11 @@ p.is-style-no-link-underline a:hover {
 --------------------------------------------------------------*/
 .wp-block-separator.is-style-thick {
 	border-width: 0 0 3px;
-	/*border-color: var(--wp--preset--color--primary);*/
-	/*width: calc(10 * var(--wp--preset--spacing--40)) !important;*/
 }
 
 .wp-block-separator.is-style-thick-wide {
 	border-width: 0 0 3px;
-	/*border-color: var(--wp--preset--color--primary);*/
-	width: 100%; /*!important;*/
+	width: 100%;
 }
 
 /*.wp-block-separator.is-style-clearfix {
@@ -398,10 +381,8 @@ p.is-style-no-link-underline a:hover {
 --------------------------------------------------------------*/
 
 /* Bullets */
-/*.wp-block-latest-posts.is-style-bullets,*/
 .wp-block-latest-posts.is-style-bullets.wp-block-latest-posts__list {
 	list-style: disc;
-	/*padding-left: var(--wp--preset--spacing--60);*/
 	padding-left: 2em;
 }
 

@@ -17,8 +17,9 @@
  * text sizes after orientation change. 
  */
 html {
-	-webkit-text-size-adjust: 100%;
 	box-sizing: border-box;
+	-webkit-text-size-adjust: 100%;
+	scroll-behavior: auto !important;
 }
 *, *:before, *:after {
   box-sizing: inherit;
@@ -39,8 +40,7 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
 	
-	text-decoration-thickness: 1.5px;
-	/*text-underline-position: under;*/
+	text-decoration-thickness: 1px;
 	text-underline-offset: 0.3ch;
 }
 
@@ -80,22 +80,42 @@ ul.has-background {
     list-style-position: inside;
 }
 
-/* Style the post title in the Block Editor */
-.edit-post-visual-editor__post-title-wrapper {
-	margin-top: var(--wp--preset--spacing--40);
-	margin-bottom: var(--wp--preset--spacing--40);
-	padding-left: var(--wp--style--root--padding-left, var(--wp--preset--spacing--50));
-	padding-right: var(--wp--style--root--padding-right, var(--wp--preset--spacing--50));
-}
-
 /*--------------------------------------------------------------
 # Forms, Links, and Buttons
 --------------------------------------------------------------*/
-/* Style form fields */
-fieldset,
-textarea,
-input,
+
+/* 
+ * Style form fields
+ * 
+ * Note: Many of these need to be excluded from the Block Editor toolbars or it will
+ * alter them too.
+ */
+ fieldset {
+	font-size: var(--wp--preset--font-size--normal);
+	font-weight: var(--wp--custom--typography--font-weight--normal);
+	line-height: 1.5;
+	padding: var(--wp--preset--spacing--20) var(--wp--preset--spacing--40);
+	border: 1px solid var(--wp--preset--color--foreground);
+	border-radius: var(--wp--custom--border--radius);
+	text-shadow: none;
+	-webkit-appearance: none;
+ }
+
 select {
+	font-family: inherit;
+	font-size: var(--wp--preset--font-size--small);
+	font-weight: var(--wp--custom--typography--font-weight--normal);
+	line-height: 1.5;
+	border-radius: var(--wp--custom--border--radius);
+	text-shadow: none;
+	color: var(--wp--preset--color--foreground);
+	border: 1px solid var(--wp--preset--color--foreground);	
+}
+  
+/*fieldset:not([class*='block-editor']),*/
+textarea,
+input {
+/*select {*/
 	font-size: var(--wp--preset--font-size--normal);
 	font-weight: var(--wp--custom--typography--font-weight--normal);
 	line-height: 1.5;
@@ -103,24 +123,23 @@ select {
 	text-shadow: none;
 }
 
-fieldset,
+/*:not(.interface-interface-skeleton__sidebar) fieldset,*/
 textarea,
 input:not([type="radio"]):not([type="checkbox"]):not([type="file"]):not([type="button"]):not([type="image"]):not([class="button"]):not(.wp-block-button__link) {
-    -webkit-appearance: none;
+	-webkit-appearance: none;
 	border: 1px solid var(--wp--preset--color--foreground);
 }
 
-fieldset {
+/*:not(.interface-interface-skeleton__sidebar) fieldset {
 	padding: var(--wp--preset--spacing--20) var(--wp--preset--spacing--40);
-}
+}*/
 
-select {
+/*:not(.interface-interface-skeleton__sidebar) select {
 	font-family: inherit;
 	color: var(--wp--preset--color--foreground);
 	font-size: var(--wp--preset--font-size--small);
-	font-weight: var(--wp--custom--font-weight--normal);
 	border: 1px solid var(--wp--preset--color--foreground);
-}
+}*/
 
 /* Style focus outline */
 input:focus,
@@ -145,8 +164,6 @@ a,
 /*.wp-block-navigation-item__content,*/
 .wp-block-navigation-submenu__toggle {
 	cursor: pointer;
-	/*text-decoration-thickness: 1px;
-	text-underline-offset: 0.3ch;*/
 }
 
 /* Colored link hover styles */
@@ -225,6 +242,14 @@ body .is-layout-constrained > .alignright {
 # Headings
 --------------------------------------------------------------*/
 
+/* Style the post title in the Block Editor */
+.edit-post-visual-editor__post-title-wrapper {
+	margin-top: var(--wp--preset--spacing--40);
+	margin-bottom: var(--wp--preset--spacing--40);
+	padding-left: var(--wp--style--root--padding-left, var(--wp--preset--spacing--50));
+	padding-right: var(--wp--style--root--padding-right, var(--wp--preset--spacing--50));
+}
+
 /* If user specifies global heading font colors, don't override on colored backgrounds */
 .has-background .wp-block-heading:not(.has-text-color),
 .has-background h1:not(.has-text-color), 
@@ -239,6 +264,17 @@ body .is-layout-constrained > .alignright {
 /*--------------------------------------------------------------
 # Navigation
 --------------------------------------------------------------*/
+
+/* Style the mobile nav menu open and close buttons */
+button.wp-block-navigation__responsive-container-open,
+.components-button.wp-block-navigation__responsive-container-open.wp-block-navigation__responsive-container-open,
+button.wp-block-navigation__responsive-container-close,
+.components-button.wp-block-navigation__responsive-container-close.wp-block-navigation__responsive-container-close  {
+	background-color: rgba(0, 0, 0, .05);
+	border: 1px solid var(--wp--preset--color--neutral-alt);
+	border-radius: var(--wp--custom--border--radius);
+	padding: var(--wp--preset--spacing--20);
+}
 
 /* Reduce vertical gap on nav menus for when they wrap */
 /*.wp-block-navigation {*/
@@ -284,17 +320,6 @@ body .is-layout-constrained > .alignright {
 	padding-bottom: var(--wp--preset--spacing--60);
 	padding-right: var(--wp--style--root--padding-right, var(--wp--preset--spacing--50));
 	padding-left: var(--wp--style--root--padding-left, var(--wp--preset--spacing--50));
-}
-
-/* Style the mobile nav menu open and close buttons */
-button.wp-block-navigation__responsive-container-open,
-.components-button.wp-block-navigation__responsive-container-open.wp-block-navigation__responsive-container-open,
-button.wp-block-navigation__responsive-container-close,
-.components-button.wp-block-navigation__responsive-container-close.wp-block-navigation__responsive-container-close  {
-	background-color: rgba(0, 0, 0, .05);
-	border: 1px solid var(--wp--preset--color--neutral-alt);
-	border-radius: var(--wp--custom--border--radius);
-	padding: var(--wp--preset--spacing--20);
 }
 
 /* Increase animation TIME on nav menu drop-downs */
@@ -397,7 +422,6 @@ figure.wp-caption:not(.alignfull):not(.alignwide) img {
 --------------------------------------------------------------*/
 
 /* FIX to center default (narrow) separator when user selects alignfull */
-/*.wp-block-separator.alignfull.is-style-default {*/
 .wp-block-separator.alignfull {
 	margin-left: auto !important;
 	margin-right: auto !important;
@@ -406,7 +430,7 @@ figure.wp-caption:not(.alignfull):not(.alignwide) img {
 /* Override our short width for wide and dotted separators */
 .wp-block-separator.is-style-wide,
 .wp-block-separator.is-style-dots {
-	width: 100%; 
+	width: 100% !important;; 
 }
 
 /*--------------------------------------------------------------
@@ -455,6 +479,61 @@ figure.wp-caption:not(.alignfull):not(.alignwide) img {
 	padding-right: var(--wp--preset--spacing--30);
 }
 
+
+/*--------------------------------------------------------------
+# Social Icons
+--------------------------------------------------------------*/
+
+/* Adjust animation on social icons to better match our other animation */
+.wp-block-social-link {
+    transition: transform var(--wp--custom--animation--duration--medium) ease-in-out;
+}
+
+/*--------------------------------------------------------------
+# Details Blocks
+--------------------------------------------------------------*/
+
+/* Closed Summary will have normal foreground font color */
+.wp-block-details > summary {
+	color: var(--wp--preset--color--foreground);
+	transition: color var(--wp--custom--animation--duration--medium) var(--wp--custom--animation--timing-function);
+}
+
+/* Highlight Summary on hover and when open */
+.wp-block-details > summary:hover,
+.wp-block-details[open] > summary {
+	color: var(--wp--preset--color--primary);
+}
+
+.wp-block-details:not([open]) > summary,
+.wp-block-details > summary:active {
+	color: var(--wp--preset--color--foreground);
+}
+	
+/*--------------------------------------------------------------
+# Table Block
+--------------------------------------------------------------*/
+
+/* On striped tables, move the bottom line above the fig caption */
+.wp-block-table.is-style-stripes {
+    border-bottom: none;
+}
+.wp-block-table.is-style-stripes .wp-element-caption {
+	border-top: 1px solid;
+}
+
+/* On striped tables, use our neutral color for odd rows */
+.wp-block-table.is-style-stripes tbody tr:nth-child(odd) {
+    background-color: var(--wp--preset--color--neutral);
+}
+.wp-block-table.is-style-stripes table:not(.has-text-color) tbody tr:nth-child(odd) {
+	color: var(--wp--preset--color--very-dark-gray);
+}
+
+/*.wp-block-table.is-style-stripes tbody tr:nth-child(even) {
+    background-color: var(--wp--preset--color--neutral-alt);
+}*/
+		
 /*--------------------------------------------------------------
 # Margin Overrides (Vertical spacing)
 --------------------------------------------------------------*/
@@ -515,8 +594,7 @@ body .is-layout-constrained .wp-block-template-part > * + *:not(.wp-block-templa
 
 /* For convenience, remove padding from inner containers */
 .wp-site-blocks main,
-.wp-site-blocks .wp-block-template-part { /*,
-.wp-site-blocks .wp-block-post-content:not(.has-global-padding) {*/
+.wp-site-blocks .wp-block-template-part {
 	padding: 0;
 }
 .is-root-container main,
@@ -526,21 +604,21 @@ body .is-layout-constrained .wp-block-template-part > * + *:not(.wp-block-templa
 
 /* FIX to add back horizontal padding */
 .has-global-padding {
-    padding-left: var(--wp--style--root--padding-left); /*!important;*/
-    padding-right: var(--wp--style--root--padding-right); /*!important;*/
+    padding-left: var(--wp--style--root--padding-left); 
+    padding-right: var(--wp--style--root--padding-right);
 }
 
 .has-global-padding > .alignfull:not(.wp-block-post-content, .wp-block-image, .wp-block-columns, .wp-block-buttons),
 .has-global-padding.alignfull:not(.wp-block-post-content, .wp-block-image, .wp-block-columns, .wp-block-buttons),
 .is-root-container .has-global-padding.has-background {
-    padding-left: var(--wp--style--root--padding-left); /*!important;*/
-    padding-right: var(--wp--style--root--padding-right); /*!important;*/
+    padding-left: var(--wp--style--root--padding-left);
+    padding-right: var(--wp--style--root--padding-right);
 }
 
 /* But REMOVE duplicate padding */
 .has-global-padding :where(.has-global-padding):not(.has-background) {
-	padding-left: 0; /*!important;*/
-	padding-right: 0; /*!important;*/
+	padding-left: 0;
+	padding-right: 0;
 }
 
 /* But REMOVE duplicate padding from images */

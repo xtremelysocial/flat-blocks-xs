@@ -21,18 +21,16 @@ if ( ! function_exists( 'flatblocks_register_block_patterns' ) ) :
 
 	function flatblocks_register_block_patterns() {
 
-		// WordPress v6.0 core already has categories for featured, header, query, text, 
-		// buttons, gallery, and columns. 
-		// WordPress v6.1 will add banner and footer. 
-		// WordPress v6.2 will add call-to-action, team, testimonials, services, contact, 
-		// about, portfolio, and media.
-		// Note: As of WordPress v6.2, columns category isn't working
+		// WordPress v6.2 already has categories for featured, header, query, text, 
+		// buttons, gallery, columns, banner, footer, call-to-action, team, testimonials,
+		// services, contract, about, portfolio, and media. However, the columns category
+		// doesn't appear to be working.
 
 		// Add our own block pattern categories
 		$block_pattern_categories = array(
 			'flatblocks'	=> array( 'label' => __( 'All Flat Blocks', 'flat-blocks' ) ),
 			'cover'   		=> array( 'label' => __( 'Cover Images', 'flat-blocks' ) ),				
-			//'columns'   	=> array( 'label' => __( 'Columns', 'flat-blocks' ) ),				
+			'columns'   	=> array( 'label' => __( 'Columns', 'flat-blocks' ) ),				
 			'image'   		=> array( 'label' => __( 'Images', 'flat-blocks' ) ),
 			'page'    		=> array( 'label' => __( 'Pages', 'flat-blocks' ) ),
 		);
@@ -195,6 +193,10 @@ if ( ! function_exists( 'flatblocks_register_block_patterns' ) ) :
 			'text-testimonial' => array( 
 				'title' => __( 'Testimonial', 'flat-blocks' ),
 				'categories' => array ('flatblocks', 'text', 'image' )
+			),
+			'text-faq' => array( 
+				'title' => __( 'Frequently Asked Questions (FAQ)', 'flat-blocks' ),
+				'categories' => array ('flatblocks', 'text', 'featured' )
 			),
 			'query-loop-1-column' => array( 
 				'title' => __( 'Querly Loop 1 Column', 'flat-blocks' ),

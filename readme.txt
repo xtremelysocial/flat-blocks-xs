@@ -3,7 +3,7 @@ Contributors: Tim Nicholson / XtremelySocial
 Requires at least: 6.2
 Tested up to: 6.2
 Requires PHP: 7.4
-Stable tag: 1.2.14
+Stable tag: 1.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -39,6 +39,71 @@ This theme provides TONS of Block Patterns that you can insert into your pages a
 
 Note that Block and Page Patterns are copied into your page or post and unlike Block Templates above, edits you make to Block Patterns are stored only on that page or post.
 
+= Creating a Child theme of Flat Blocks =
+
+== Using the Create Child Theme Plugin ==
+Use the [Create Block Theme](https://wordpress.org/plugins/create-block-theme/) plugin.
+
+Install Flat Blocks (or any Flat Blocks child theme)
+Use the Full Site Editor to adjust any global styles, templates, template parts, etc. to your liking.
+Install the Create Child Theme plugin 
+Use it to export a new child theme of Flat Blocks
+
+== Create a Child Theme Manually ==
+
+Flat Blocks is a [parent theme](https://developer.wordpress.org/themes/advanced-topics/child-themes/#what-is-a-parent-theme). The best way to use it is to create a child theme with Flat Blocks as a parent.
+
+To begin you will need a copy of Flat Blocks, which you can get by cloning this repo or downloading it from WordPress.org.
+
+Next you need to create a child theme. A Child theme needs to contain the following files:
+- `style.css`
+- `theme.json`
+- Block templates and block template parts
+
+These files should be in a new directory at the same level as the parent them, using the child theme's name.
+
+The `style.css` file contains the name of the theme and other details. To make Flat Blocks the parent theme it is important to set the "Template" property to `flat-blocks`.
+
+```
+/*
+Theme Name: {newtheme}
+Theme URI:
+Author:
+Author URI:
+Description:
+Requires at least: 6.2
+Tested up to: 6.3
+Requires PHP: 7.4
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI:
+Template: flat-blocks
+Text Domain: {newthemeslug}
+Tags:
+*/
+```
+
+Block Templates and Block template parts are used to display the content on your site. You can simply copy these directories from the Blockbase theme to get started. You can modify them in the Template Editor and then use the code view to copy the updated template back into your theme.
+
+The `theme.json` file defines the look and feel of your theme; colors, fonts, spacing, etc are all set in this file. Blockbase also defines many custom properties in theme.json which are used to plug the gaps in block themes. Override any values (including the custom values) found in Blockbase's theme.json in the child theme's theme.json.
+
+- It is only necessary to define those properties you wish to change, which keeps your code [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself).
+- As more features are added to block themes, Blockbase will be updated to support them. By using the Blockbase as a parent, the child theme will inherit all these changes.
+
+Simple themes will be able to define everything they need using only a `theme.json` file, but for more complex themes, an additional CSS file can be useful. Blockbase uses node to compile SCSS files.  You may want your child theme to take advantage of the same utilities, but child themes do not need to be built with any build tools.
+
+=== `functions.php` and `theme.css` ===
+
+Flat Blocks will load a theme.css file for each of its children. This file lives at childtheme/assets/theme.css. You may wish to add a functions.php file to add block styles or patterns to your theme, but it's not necessary.
+
+Together these files should give you a strong foundation for a Flat Blocks child theme.
+
+== Keeping The Parent Theme Up to Date ==
+
+When you modify a child theme as opposed to make code changes to a parent theme, the parent theme can be easily updated as new releases come out without necessarily impacting your child theme.
+
+Of course if there are major changes to the parent theme, it may impact your child theme, so be sure to read the release notes for the Flat Blocks theme to see what has changed with each release.
+
 = More Information About This Theme = 
 
 For more information, see these pages on the XtremelySocial.com website:
@@ -49,6 +114,20 @@ For more information, see these pages on the XtremelySocial.com website:
 You can check out our other themes here: https://xtremelysocial.com/wordpress/
 
 == Changelog ==
+
+= 1.3 =
+August 20, 2023
+
+* Updates and enhancements specifically for WordPress v6.3:
+	* Added Frequently Asked Questions (FAQ) Block Pattern now that WordPress v6.3 includes a "Details" block. This block can hide detailed text and display it when the user clicks on the "Summary" (title).
+	* Added the FAQ Block Pattern to the Services Page template.
+	* Now that WordPress core block styles are pretty complete as of v6.3, we no longer include the "extra" block styles. i.e. loaded through add_theme_support( 'wp-block-styles' ). Those were conflicting with the theme and user global style settings as WordPress v6.3 for some reason places them later in the generated CSS style sheet.
+	* Dashicons (icon font) now display properly when editing pages or posts in the new Block Editor. This refers to the calendar, comments, scroll down arrow, etc. Changed the way these Dashicons are loaded now that the Block Editor uses iframes.
+* Additional updates and enhancements:
+	* Separator and pull quote blocks now defaults to the theme style's primary color to match reqular quotes (by default this is light green).
+	* Styled the Table with Stripes style.
+	* Optimized all included image assets to reduce their size while retaining good quality for the web. 
+	* Added section in this readme.txt file about how to create a child theme of Flat Blocks
 
 = 1.2.14 =
 August 16, 2023
