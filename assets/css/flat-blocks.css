@@ -502,7 +502,7 @@ figure.wp-caption:not(.alignfull):not(.alignwide) img {
 .wp-block-social-links.has-small-icon-size {
   font-size: 22px;
 }
-.wp-block-social-links,
+.wp-block-social-links:not(.has-huge-icon-size):not(.has-large-icon-size),
 .wp-block-social-links.has-normal-icon-size {
 	font-size: 26px;
 }
