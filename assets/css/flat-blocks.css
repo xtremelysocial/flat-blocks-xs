@@ -338,6 +338,11 @@ button.wp-block-navigation__responsive-container-close,
 # Images
 --------------------------------------------------------------*/
 
+/* Center captions by default */
+figcaption {
+	text-align: center;
+}
+
 /* Prevent images with hard-coded dimensions from breaking the layout. Note the figure
  * line is for older block editor markup and the is-root-container is for the editor
  * which adds an extra div between the image container (figure) and the image itself. 
@@ -454,7 +459,12 @@ figure.wp-caption:not(.alignfull):not(.alignwide) img {
 	margin-bottom: var(--wp--preset--spacing--30);
 }
 
-/* Remove extra bottom padding and make full width on mobile */
+/* Add some padding to plain posts list */
+.wp-block-latest-posts li {
+	margin-bottom: var(--wp--preset--spacing--30);
+}
+
+/* Remove extra bottom padding on posts grid */
 .wp-block-latest-posts.is-grid li {
 	margin-bottom: 0;
 }
@@ -472,6 +482,11 @@ figure.wp-caption:not(.alignfull):not(.alignwide) img {
 	margin-bottom: 0;
 }
 
+/* Add some padding to plain posts list */
+.wp-block-latest-comments li {
+	margin-bottom: var(--wp--preset--spacing--30);
+}
+
 /*--------------------------------------------------------------
 # Query Pagination
 --------------------------------------------------------------*/
@@ -479,10 +494,18 @@ figure.wp-caption:not(.alignfull):not(.alignwide) img {
 	padding-right: var(--wp--preset--spacing--30);
 }
 
-
 /*--------------------------------------------------------------
 # Social Icons
 --------------------------------------------------------------*/
+
+/* Adjust icon sizes */
+.wp-block-social-links.has-small-icon-size {
+  font-size: 22px;
+}
+.wp-block-social-links,
+.wp-block-social-links.has-normal-icon-size {
+	font-size: 26px;
+}
 
 /* Adjust animation on social icons to better match our other animation */
 .wp-block-social-link {
@@ -513,6 +536,11 @@ figure.wp-caption:not(.alignfull):not(.alignwide) img {
 /*--------------------------------------------------------------
 # Table Block
 --------------------------------------------------------------*/
+
+/* Allow tables to scroll on mobile */
+.wp-block-table {
+	overflow-x: scroll;
+}
 
 /* On striped tables, move the bottom line above the fig caption */
 .wp-block-table.is-style-stripes {
@@ -593,14 +621,16 @@ body .is-layout-constrained .wp-block-template-part > * + *:not(.wp-block-templa
  */
 
 /* For convenience, remove padding from inner containers */
-.wp-site-blocks main,
-.wp-site-blocks .wp-block-template-part {
+/*.wp-site-blocks main,
+.wp-site-blocks .wp-block-template-part {*/
+main.wp-block-group,
+.wp-block-template-part {
 	padding: 0;
 }
-.is-root-container main,
+/*.is-root-container main,
 .is-root-container .wp-block-template-part {
 	padding: 0 !important;
-}
+}*/
 
 /* FIX to add back horizontal padding */
 .has-global-padding {
@@ -609,11 +639,16 @@ body .is-layout-constrained .wp-block-template-part > * + *:not(.wp-block-templa
 }
 
 .has-global-padding > .alignfull:not(.wp-block-post-content, .wp-block-image, .wp-block-columns, .wp-block-buttons),
-.has-global-padding.alignfull:not(.wp-block-post-content, .wp-block-image, .wp-block-columns, .wp-block-buttons),
-.is-root-container .has-global-padding.has-background {
+.has-global-padding.alignfull:not(.wp-block-post-content, .wp-block-image, .wp-block-columns, .wp-block-buttons) {
     padding-left: var(--wp--style--root--padding-left);
     padding-right: var(--wp--style--root--padding-right);
 }
+
+/*.is-root-container .has-global-padding:not(.wp-block-post-content, .wp-block-image, .wp-block-columns, .wp-block-buttons),
+.is-root-container .has-global-padding.alignfull:not(.wp-block-post-content, .wp-block-image, .wp-block-columns, .wp-block-buttons) {
+    padding-left: var(--wp--style--root--padding-left) !important;
+    padding-right: var(--wp--style--root--padding-right) !important;
+}*/
 
 /* But REMOVE duplicate padding */
 .has-global-padding :where(.has-global-padding):not(.has-background) {

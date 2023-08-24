@@ -3,7 +3,7 @@ Contributors: Tim Nicholson / XtremelySocial
 Requires at least: 6.2
 Tested up to: 6.3
 Requires PHP: 7.4
-Stable tag: 1.3
+Stable tag: 1.3.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -53,14 +53,11 @@ Use it to export a new child theme of Flat Blocks
 
 Flat Blocks is a [parent theme](https://developer.wordpress.org/themes/advanced-topics/child-themes/#what-is-a-parent-theme). The best way to use it is to create a child theme with Flat Blocks as a parent.
 
-To begin you will need a copy of Flat Blocks, which you can get by cloning this repo or downloading it from WordPress.org.
+=== `style.css` (Required) ===
 
-Next you need to create a child theme. A Child theme needs to contain the following files:
-- `style.css`
-- `theme.json`
-- Block templates and block template parts
+Create a directory for your child theme at the same level as other parent and child themes. Name the directory something like flat-blocks-child.
 
-These files should be in a new directory at the same level as the parent them, using the child theme's name.
+A Child theme needs a style.css file that links its template to the partent theme.
 
 The `style.css` file contains the name of the theme and other details. To make Flat Blocks the parent theme it is important to set the "Template" property to `flat-blocks`.
 
@@ -83,20 +80,62 @@ Tags:
 */
 ```
 
-Block Templates and Block template parts are used to display the content on your site. You can simply copy these directories from the Blockbase theme to get started. You can modify them in the Template Editor and then use the code view to copy the updated template back into your theme.
+The Flat Blocks parent theme will automatically load this child theme's `style.css` file for you. You don't even need a `functions.php` file to do it. You can place any CSS rules that you want in here.
 
-The `theme.json` file defines the look and feel of your theme; colors, fonts, spacing, etc are all set in this file. Blockbase also defines many custom properties in theme.json which are used to plug the gaps in block themes. Override any values (including the custom values) found in Blockbase's theme.json in the child theme's theme.json.
+=== `screenshot.png` (Recommended) ===
+
+It is recommended that you create a screenshot for your child theme or at least copy down the parent theme's screenshot so something displays in the WordPress Admin.
+
+If you create one, it should be 1200x900 pixels and you should compress it to reduce its size to be suitable for limited bandwidth.
+
+=== theme.json (optional)===
+
+You can also include a `theme.json` file in the child theme root directory. This file defines the look and feel of your theme: colors, fonts, spacing, etc. are all set in this file. Flat Blocks also defines some custom properties in theme.json which are used in the CSS. You can override any values (including the custom values) found in Flat Blocks's theme.json in the child theme's theme.json.
 
 - It is only necessary to define those properties you wish to change, which keeps your code [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself).
-- As more features are added to block themes, Blockbase will be updated to support them. By using the Blockbase as a parent, the child theme will inherit all these changes.
+- As more features are added to block themes, Flat Blocks will be updated to support them. By using Flat Blocks as a parent, the child theme will inherit all these changes.
 
-Simple themes will be able to define everything they need using only a `theme.json` file, but for more complex themes, an additional CSS file can be useful. Blockbase uses node to compile SCSS files.  You may want your child theme to take advantage of the same utilities, but child themes do not need to be built with any build tools.
+=== Templates and Template Parts (optional) ===
 
-=== `functions.php` and `theme.css` ===
+You can also place Block Templates and Block Template Parts into your child theme. They should be placed in /templates and /parts subdirectories, respectively. They are used to display the various pages and posts on your site. You can copy down the Flat Blocks theme full directories or individual files and override them with the Site Editor.
 
-Flat Blocks will load a theme.css file for each of its children. This file lives at childtheme/assets/theme.css. You may wish to add a functions.php file to add block styles or patterns to your theme, but it's not necessary.
+Simple child themes should be able to define everything they need using only the `style.css`, `theme.json`, and Template Parts and Template files, but for more complex child themes, an additional CSS file and/or `functions.php` file may be useful.
 
-Together these files should give you a strong foundation for a Flat Blocks child theme.
+=== custom-style.css ===
+
+If you place a CSS file in `/assets/css/custom-styles.css`, the Flat Blocks parent theme will load it automatically. If you have a lot of CSS rules, this is generally cleaner than adding them to the main child theme's `style.css`.
+
+=== functions.php and more ===
+
+If you place a `functions.php` file in the main child theme directory, PHP can be used to override many more aspects of the theme that aren't possible with the other files above. For example, you can add your own Block Patterns and/or custom Block Styles. The Flat Blocks parent theme provides several "filters" in addition to the ones built into core WordPress.
+
+Take a look at the `/inc/block-patterns.php` and/or `/inc/block-styles.php` files and look for the lines that read `apply_filters`. You can then use an `add_filter` to `functions.php` to alter the arrays. 
+
+If you plan on adding a lot of block patterns or custom blocks styles, rather than putting them into `functions.php` you can put them into `/inc/block-patterns.php` and `/inc/block-styles.php` and those will be loaded automatically.
+
+=== Full Child Theme Directory Structure ===
+
+Here is a visualization of the structure of a fully built out child theme:
+
+/flat-blocks-child/
+`style.css` (required)
+`screenshot.png` (recommended)
+`theme.json` (recommended, only changed values)
+`functions.php`
+
+	/assets/
+		/css/
+			`custom-styles.css` (auto loads)
+	/inc/
+		`block-patterns.php` (auto loads)
+		`block-styles.php` (auto loads)
+	/parts/
+		*.html (auto load)
+	/templates/
+		*.html (auto load)
+	/patterns/
+		*.php (auto load)
+		*.html (load with filter)
 
 == Keeping The Parent Theme Up to Date ==
 
@@ -114,6 +153,16 @@ For more information, see these pages on the XtremelySocial.com website:
 You can check out our other themes here: https://xtremelysocial.com/wordpress/
 
 == Changelog ==
+
+= 1.3.1 = 
+August 23, 2023
+
+* Added Post No Comments Template for when there are historical comments that you no longer want to display on a post. 
+* Tweaks to the CSS for horizontal padding and vertical margin on the front-end and in the editor. The editor should even better match the front-end now. 
+* Tweaks to the CSS for plain style lists (no bullets or numbering) to add some bottom margin to better separate them.
+* Adjusted small and normal social icon sizes up a bit (22px and 26px respectively).
+* For child themes, their /assets/css/custom-styles.css will be automatically loaded if it exists.
+* Updated this readme.txt file to clarify and enhance instructions for creating a child theme.
 
 = 1.3 =
 August 20, 2023

@@ -25,11 +25,11 @@ if ( function_exists( 'register_block_style' ) ) {
 		$custom_styles = array(
 			'fixed-menu' 	=> array( esc_html__('Fixed Menu', 'flat-blocks'), 
 				array('navigation' ),
-				'flatblocks-fixedheader-styles'				
+				'style_handle'	=> 'flatblocks-fixedheader-styles'				
 			),
 			'fixed-header' 	=> array( esc_html__('Fixed Header', 'flat-blocks'), 
 				array('group' ),
-				'flatblocks-fixedheader-styles'				
+				'style_handle'	=> 'flatblocks-fixedheader-styles'				
 			),
 			'cover-border' 	=> array( esc_html__('Borders', 'flat-blocks'), 
 				array('cover' )
@@ -122,12 +122,18 @@ if ( function_exists( 'register_block_style' ) ) {
 		 */
 		foreach ( $custom_styles as $custom_style => [$label, $blocks, $style] ) {
 			foreach ( $blocks as $block ) {
+			
+				// If no style_handle or inline_style, default one
+				if ( !isset( $style ) ) $style = array( 'style_handle' => 'flatblocks-custom-styles' );				
+				
 				register_block_style(
 					'core/' . $block,
 					array(
 						'name'  => $custom_style,
 						'label' => $label,
-						'style_handle'	=> isset($style) ? $style : 'flatblocks-custom-styles'
+						/*'style_handle'	=> isset($style['style_handle']) ? $style['style_handle'] : 'flatblocks-custom-styles'
+						'inline_style'	=> isset($style['inline_style']) ? $style['inline_style'] : ''*/
+						$style
 					)
 				);
 			} //end foreach $animations

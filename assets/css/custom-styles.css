@@ -252,6 +252,11 @@ ol.is-style-list-plain {
 	padding-left: 0;
 }
 
+ul.is-style-list-plain li,
+ol.is-style-list-plain li {
+	margin-bottom: var(--wp--preset--spacing--30);
+}
+
 ul.is-style-list-plain:not(.has-background),
 ol.is-style-list-plain:not(.has-background) {
 	margin-left: 0;
@@ -389,6 +394,7 @@ p.is-style-no-link-underline a:hover {
 .wp-block-latest-posts.is-style-bullets li {
     list-style: disc;
 	overflow: visible;
+	margin-bottom: 0;
 }
 
 /*--------------------------------------------------------------
@@ -402,7 +408,6 @@ p.is-style-no-link-underline a:hover {
 
 /* Front-end Add bullets and padding */
 .wp-block-latest-comments.is-style-bullets {
-	/*box-sizing: border-box;*/
 	list-style: disc;
 }
 .wp-block-latest-comments.is-style-bullets:not(.has-avatars) {
@@ -410,6 +415,7 @@ p.is-style-no-link-underline a:hover {
 }
 .wp-block-latest-comments.is-style-bullets li {
     list-style: disc;
+	margin-bottom: 0;
 }
 .wp-block-latest-comments.is-style-bullets.has-avatars .wp-block-latest-comments__comment {
 	list-style-position: inside;

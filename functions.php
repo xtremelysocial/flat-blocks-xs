@@ -50,8 +50,8 @@ if ( ! function_exists( 'flatblocks_support' ) ) :
 			)
 		);
 
-		// Register four nav menus if Gutenberg is activated 
-		// (otherwise the __experimentalMenuLocation attribute isn't available)
+		// Register four nav menus if Gutenberg is activated (otherwise the 
+		// __experimentalMenuLocation attribute isn't available)
 		if ( defined( 'IS_GUTENBERG_PLUGIN' ) && IS_GUTENBERG_PLUGIN ) {
 			register_nav_menus( array(
 				'header' 	=> __( 'Header Menu', 'flat-blocks' ),
@@ -187,14 +187,24 @@ add_action( 'enqueue_block_assets', 'flatblocks_block_assets' );
  */
 if ( ! function_exists( 'flatblocks_back_end_styles' ) ) :
 
-	// As a courtesy, add the child theme CSS to the Block Editor if it exists.
+	// As a courtesy, add the child theme CSS files to the Block Editor too.
 	function flatblocks_back_end_styles() {
-		if ( is_child_theme() && file_exists( get_stylesheet_directory() . '/style.css' ) ) {
-			add_editor_style(
-				'/style.css'
-			);
-		}
-	}
+
+		if ( is_child_theme() ) {
+
+			if ( file_exists( get_stylesheet_directory() . '/assets/css/custom-styles.css' ) ) {
+				add_editor_style(
+					get_stylesheet_directory() . 'assets/css/custom-styles.css'
+				);
+			}
+
+			if ( file_exists( get_stylesheet_directory() . '/style.css' ) ) {
+				add_editor_style(
+					get_stylesheet_directory() . '/style.css'
+				);
+			}
+		} //endif is_child_theme()
+	} //endfunction
 endif;
 add_action( 'admin_init', 'flatblocks_back_end_styles' );
 
@@ -291,7 +301,6 @@ if ( ! function_exists( 'flatblocks_image_sizes' ) ) :
 endif; // end ! function_exists
 add_filter( 'image_size_names_choose', 'flatblocks_image_sizes' );
 
-// 
 /**
  * Always replace [...] with ... from the excerpt
  */
@@ -313,7 +322,7 @@ add_filter( 'excerpt_more', 'flatblocks_excerpt_more' );
 */
 if ( ! function_exists( 'flatblocks_excerpt_length' ) ) :
 	function flatblocks_excerpt_length ( $length ) {
-		return is_singular() ? apply_filters( 'flatblocks_short_excerpt_link', $default = 25 ) : $length;
+		return is_singular() ? apply_filters( 'flatblocks_short_excerpt_link', $words = 25 ) : $length;
 	}
 endif; // end ! function_exists
 add_filter('excerpt_length', 'flatblocks_excerpt_length');
