@@ -48,6 +48,9 @@
 		},
 		"useRootPaddingAwareAlignments": true,
 		"appearanceTools": true,
+		"position": {
+			"sticky": false
+		},
 		"spacing": {
 			"blockGap": true,
 			"padding": true,
@@ -511,6 +514,8 @@
 			"lineHeight": true,
 			"textDecoration": true,
 			"textTransform": true,
+			"textColumns": true,
+			"writingMode": true,
 			"fluid": false,
 			"fontFamilies": [
 				{

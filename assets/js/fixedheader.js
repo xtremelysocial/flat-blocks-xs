@@ -30,7 +30,6 @@
 				const fixedHeaderHeight = parseInt( fixedHeader.outerHeight() );
 				if ( fixedHeaderHeight > 0 ) {
 					$( '.wp-site-blocks' ).css( { 'margin-top' : fixedHeaderHeight + 'px' } );
-					/*$( '.editor-styles-wrapper .is-root-container' ).css( { 'margin-top' : fixedHeaderHeight + 'px' } );*/
 				}
 			}
 		}

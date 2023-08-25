@@ -21,7 +21,7 @@
     top: 0;
 	left: 0;
 	right: 0;
-    z-index: 10;
+    z-index: 9999;
     margin-top: 0;
 }
 
@@ -30,7 +30,8 @@
   top: var(--wp-admin--admin-bar--height, 32px);
 }
 
-/* Fix WordPress Admin bar on phones not sticking to the top 
+/* 
+ * Fix WordPress Admin bar on phones not sticking to the top 
  *
  * Note to theme reviewers, this issues a warning but is actually fixing an issue
  * in core WordPress v6.0. It is not hiding the admin bar like the warning indicates.
@@ -54,7 +55,7 @@ nav.wp-block-navigation.is-style-fixed-menu {
 	/*padding: var(--wp--preset--spacing--60) 0 0;*/
 	left: max( calc(0.5 * (100% - var(--wp--style--global--wide-size)) ), var(--wp--style--root--padding-left, calc(2 * var(--wp--preset--spacing--50)) ) );
 	right: auto;
-    z-index: 10;
+    z-index: 9999;
 }
 
 /* If WordPress Admin Bar, adjust fixed menu top position so its underneath */
@@ -64,6 +65,7 @@ nav.wp-block-navigation.is-style-fixed-menu {
 
 /* Default the fixed menu's drop-down and close button also to the left */ 
 nav.wp-block-navigation.is-style-fixed-menu .wp-block-navigation__responsive-container {
+	width: 360px;
 	left: 0; 
 	right: auto;
 }

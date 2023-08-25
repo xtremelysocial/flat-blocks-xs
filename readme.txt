@@ -155,14 +155,16 @@ You can check out our other themes here: https://xtremelysocial.com/wordpress/
 == Changelog ==
 
 = 1.3.1 = 
-August 23, 2023
+August 25, 2023
 
+* Fixed Headers and Fixed Nav Menus now are fixed in the Site Editor too! This was a final big step towards the Editor matching the front-end. Related to this, disabled the "Sticky" group option in the Editor which didn't work anyway and could conflict with this.
 * Added Post No Comments Template for when there are historical comments that you no longer want to display on a post. 
 * Tweaks to the CSS for horizontal padding and vertical margin on the front-end and in the editor. The editor should even better match the front-end now. 
 * Tweaks to the CSS for plain style lists (no bullets or numbering) to add some bottom margin to better separate them.
 * Adjusted small and normal social icon sizes up a bit (22px and 26px respectively).
-* For child themes, their /assets/css/custom-styles.css will be automatically loaded if it exists.
+* For child themes, their /assets/css/custom-styles.css will now be automatically loaded into the Editor if it exists.
 * Updated this readme.txt file to clarify and enhance instructions for creating a child theme.
+* Updated the Custom Block Styles logic to allow for non-core styles. This was done in case anyone wants to add custom block styles to blocks added with a plugin, such as Jetpack. Just pass in jetpack/whatever-block instead of core/whatever-block or just whatever-block.
 
 = 1.3 =
 August 20, 2023

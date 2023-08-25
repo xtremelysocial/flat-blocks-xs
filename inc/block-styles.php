@@ -23,94 +23,121 @@ if ( function_exists( 'register_block_style' ) ) {
 		 * 'is-style-' will automatically be added to the names.
 		 */
 		$custom_styles = array(
-			'fixed-menu' 	=> array( esc_html__('Fixed Menu', 'flat-blocks'), 
+			'fixed-menu' 		=> array( esc_html__('Fixed Menu', 'flat-blocks'), 
 				array('navigation' ),
-				'style_handle'	=> 'flatblocks-fixedheader-styles'				
+				'style_handle' 	=> 'flatblocks-fixedheader-styles'				
 			),
-			'fixed-header' 	=> array( esc_html__('Fixed Header', 'flat-blocks'), 
+			'fixed-header' 		=> array( esc_html__('Fixed Header', 'flat-blocks'), 
 				array('group' ),
-				'style_handle'	=> 'flatblocks-fixedheader-styles'				
+				'style_handle' 	=> 'flatblocks-fixedheader-styles'				
 			),
-			'cover-border' 	=> array( esc_html__('Borders', 'flat-blocks'), 
-				array('cover' )
+			'cover-border' 		=> array( esc_html__('Borders', 'flat-blocks'), 
+				array('cover' ),
+				'style_handle' 	=> 'flatblocks-custom-styles'				
 			),
 			'cover-rounded-corners' => array( esc_html__('Rounded Corners', 'flat-blocks'), 
-				array('cover' )
+				array('cover' ),
+				'style_handle' 	=> 'flatblocks-custom-styles'				
 			),
 			'media-text-border' => array( esc_html__('Border', 'flat-blocks'), 
-				array('media-text' )
+				array('media-text' ),
+				'style_handle' 	=> 'flatblocks-custom-styles'				
 			),
-			'image-border' 	=> array( esc_html__('Border', 'flat-blocks'), 
-				array('image' )
+			'image-border' 		=> array( esc_html__('Border', 'flat-blocks'), 
+				array('image' ),
+				'style_handle' 	=> 'flatblocks-custom-styles'				
 			),
 			'image-round-border' => array( esc_html__('Round Border', 'flat-blocks'), 
-				array('image' )
+				array('image' ),
+				'style_handle' 	=> 'flatblocks-custom-styles'				
 			),
-			'image-computer-screen' 	=> array( esc_html__('Computer Screen', 'flat-blocks'), 
-				array('image' )
+			'image-computer-screen' => array( esc_html__('Computer Screen', 'flat-blocks'), 
+				array('image' ),
+				'style_handle' 	=> 'flatblocks-custom-styles'				
 			),
 			'image-tablet-phone-screen' => array( esc_html__('Phone/Tablet Screen', 'flat-blocks'), 
-				array('image' )
+				array('image' ),
+				'style_handle' 	=> 'flatblocks-custom-styles'				
 			),
-			'image-no-border' => array( esc_html__('No Border', 'flat-blocks'), 
-				array('post-featured-image' )
+			'image-no-border'	=> array( esc_html__('No Border', 'flat-blocks'), 
+				array('post-featured-image' ),
+				'style_handle' 	=> 'flatblocks-custom-styles'				
 			),
-			'thick' 	=> array( esc_html__('Thick', 'flat-blocks'), 
-				array('separator' )
+			'thick' 			=> array( esc_html__('Thick', 'flat-blocks'), 
+				array('separator' ),
+				'style_handle' 	=> 'flatblocks-custom-styles'				
 			),
-			'thick-wide' => array( esc_html__('Thick Wide', 'flat-blocks'), 
-				array('separator' )
+			'thick-wide' 		=> array( esc_html__('Thick Wide', 'flat-blocks'), 
+				array('separator' ),
+				'style_handle' 	=> 'flatblocks-custom-styles'				
 			),
-			'bullets' 	=> array( esc_html__('Bullets', 'flat-blocks'), 
-				array('latest-posts', 'latest-comments' )
+			'bullets' 			=> array( esc_html__('Bullets', 'flat-blocks'), 
+				array('latest-posts', 'latest-comments' ),
+				'style_handle' 	=> 'flatblocks-custom-styles'				
 			),
-			'no-padding' 	=> array( esc_html__('No Padding', 'flat-blocks'), 
-				array('group', 'column' )
+			'no-padding' 		=> array( esc_html__('No Padding', 'flat-blocks'), 
+				array('group', 'column' ),
+				'style_handle' 	=> 'flatblocks-custom-styles'				
 			),
-			'rounded-border' => array( esc_html__('Border', 'flat-blocks'), 
-				array('group', 'column', 'post-comments' )
+			'rounded-border' 	=> array( esc_html__('Border', 'flat-blocks'), 
+				array('group', 'column', 'post-comments' ),
+				'style_handle' 	=> 'flatblocks-custom-styles'				
 			),
-			'thick-rounded-border' 	=> array( esc_html__('Thick Border', 'flat-blocks'), 
-				array('group' )
+			'thick-rounded-border' => array( esc_html__('Thick Border', 'flat-blocks'), 
+				array('group' ),
+				'style_handle' 	=> 'flatblocks-custom-styles'				
 			),
-			'no-gap' 	=> array( esc_html__('No Gap', 'flat-blocks'), 
-				array('columns' )
+			'no-gap' 			=> array( esc_html__('No Gap', 'flat-blocks'), 
+				array('columns' ),
+				'style_handle' 	=> 'flatblocks-custom-styles'				
 			),
-			'thick-gap' => array( esc_html__('Thick Gap', 'flat-blocks'), 
-				array('columns' )
+			'thick-gap' 		=> array( esc_html__('Thick Gap', 'flat-blocks'), 
+				array('columns' ),
+				'style_handle' 	=> 'flatblocks-custom-styles'				
 			),
 			'center-on-mobile' 	=> array( esc_html__('Center on Mobile', 'flat-blocks'), 
-				array('columns' )
+				array('columns' ),
+				'style_handle' 	=> 'flatblocks-custom-styles'				
 			),
-			'no-read-more' 	=> array( esc_html__('No Read More', 'flat-blocks'), 
-				array('post-excerpt' )
+			'no-read-more' 		=> array( esc_html__('No Read More', 'flat-blocks'), 
+				array('post-excerpt' ),
+				'style_handle' 	=> 'flatblocks-custom-styles'				
 			),
 			'list-checkmarks' 	=> array( esc_html__('Checkmarks', 'flat-blocks'), 
-				array('list', 'page-list' )
+				array('list', 'page-list' ),
+				'style_handle' 	=> 'flatblocks-custom-styles'				
 			),
-			'list-plain' 	=> array( esc_html__('Plain', 'flat-blocks'), 
-				array('list', 'page-list' )
+			'list-plain' 		=> array( esc_html__('Plain', 'flat-blocks'), 
+				array('list', 'page-list' ),
+				'style_handle' 	=> 'flatblocks-custom-styles'				
 			),
-			'list-plain-centered' 	=> array( esc_html__('Plain Centered', 'flat-blocks'), 
-				array('list', 'page-list' )
+			'list-plain-centered' => array( esc_html__('Plain Centered', 'flat-blocks'), 
+				array('list', 'page-list' ),
+				'style_handle' 	=> 'flatblocks-custom-styles'				
 			),
-			'no-icon' 	=> array( esc_html__('No Icon', 'flat-blocks'), 
-				array('post-author', 'post-date', 'post-terms' )
+			'no-icon' 			=> array( esc_html__('No Icon', 'flat-blocks'), 
+				array('post-author', 'post-date', 'post-terms' ),
+				'style_handle' 	=> 'flatblocks-custom-styles'				
 			),
-			'alignwide' 	=> array( esc_html__('Align Wide', 'flat-blocks'), 
-				array('paragraph' )
+			'alignwide' 		=> array( esc_html__('Align Wide', 'flat-blocks'), 
+				array('paragraph' ),
+				'style_handle' 	=> 'flatblocks-custom-styles'				
 			),
 			'link-underline' 	=> array( esc_html__('Underline Link', 'flat-blocks'), 
-				array('paragraph' )
+				array('paragraph' ),
+				'style_handle' 	=> 'flatblocks-custom-styles'				
 			),
-			'no-link-underline' 	=> array( esc_html__('No Underline Link', 'flat-blocks'), 
-				array('paragraph' )
+			'no-link-underline' => array( esc_html__('No Underline Link', 'flat-blocks'), 
+				array('paragraph' ),
+				'style_handle' 	=> 'flatblocks-custom-styles'				
 			),
-			'arrow-icon' 	=> array( esc_html__('Arrow Icon', 'flat-blocks'), 
-				array('paragraph' )
+			'arrow-icon' 		=> array( esc_html__('Arrow Icon', 'flat-blocks'), 
+				array('paragraph' ),
+				'style_handle' 	=> 'flatblocks-custom-styles'				
 			),
-			'arrow-icon-no-text' 	=> array( esc_html__('Arrow No Text', 'flat-blocks'), 
-				array('paragraph' )
+			'arrow-icon-no-text' => array( esc_html__('Arrow No Text', 'flat-blocks'), 
+				array('paragraph' ),
+				'style_handle' 	=> 'flatblocks-custom-styles'				
 			)
 		);
 		
@@ -124,10 +151,14 @@ if ( function_exists( 'register_block_style' ) ) {
 			foreach ( $blocks as $block ) {
 			
 				// If no style_handle or inline_style, default one
-				if ( !isset( $style ) ) $style = array( 'style_handle' => 'flatblocks-custom-styles' );				
+				if ( !isset( $style ) ) $style = array( 'style_handle' => 'flatblocks-custom-styles' );
+				
+				// If no slug, then use core/
+				if ( !str_contains( $block, '/' ) ) $block = 'core/' . $block;
 				
 				register_block_style(
-					'core/' . $block,
+					//'core/' . $block,
+					$block,
 					array(
 						'name'  => $custom_style,
 						'label' => $label,
@@ -136,7 +167,7 @@ if ( function_exists( 'register_block_style' ) ) {
 						$style
 					)
 				);
-			} //end foreach $animations
+			} //end foreach $custom_styles
 		} //end foreach $blocks
 		
 	}

@@ -19,7 +19,7 @@
 html {
 	box-sizing: border-box;
 	-webkit-text-size-adjust: 100%;
-	scroll-behavior: auto !important;
+	scroll-behavior: auto !important; /*smooth;*/
 }
 *, *:before, *:after {
   box-sizing: inherit;
@@ -90,7 +90,12 @@ ul.has-background {
  * Note: Many of these need to be excluded from the Block Editor toolbars or it will
  * alter them too.
  */
- fieldset {
+ 
+.block-editor-plain-text {
+    color: var(--wp--preset--color--very-dark-gray);
+} 
+
+fieldset {
 	font-size: var(--wp--preset--font-size--normal);
 	font-weight: var(--wp--custom--typography--font-weight--normal);
 	line-height: 1.5;
@@ -112,10 +117,8 @@ select {
 	border: 1px solid var(--wp--preset--color--foreground);	
 }
   
-/*fieldset:not([class*='block-editor']),*/
 textarea,
 input {
-/*select {*/
 	font-size: var(--wp--preset--font-size--normal);
 	font-weight: var(--wp--custom--typography--font-weight--normal);
 	line-height: 1.5;
@@ -123,23 +126,11 @@ input {
 	text-shadow: none;
 }
 
-/*:not(.interface-interface-skeleton__sidebar) fieldset,*/
 textarea,
 input:not([type="radio"]):not([type="checkbox"]):not([type="file"]):not([type="button"]):not([type="image"]):not([class="button"]):not(.wp-block-button__link) {
 	-webkit-appearance: none;
 	border: 1px solid var(--wp--preset--color--foreground);
 }
-
-/*:not(.interface-interface-skeleton__sidebar) fieldset {
-	padding: var(--wp--preset--spacing--20) var(--wp--preset--spacing--40);
-}*/
-
-/*:not(.interface-interface-skeleton__sidebar) select {
-	font-family: inherit;
-	color: var(--wp--preset--color--foreground);
-	font-size: var(--wp--preset--font-size--small);
-	border: 1px solid var(--wp--preset--color--foreground);
-}*/
 
 /* Style focus outline */
 input:focus,
@@ -161,7 +152,6 @@ select:focus-visible {
  */
 a,
 .wp-block-navigation a,
-/*.wp-block-navigation-item__content,*/
 .wp-block-navigation-submenu__toggle {
 	cursor: pointer;
 }
@@ -264,6 +254,17 @@ body .is-layout-constrained > .alignright {
 /*--------------------------------------------------------------
 # Navigation
 --------------------------------------------------------------*/
+
+/* Fix WordPress Admin bar on phones not sticking to the top 
+ *
+ * Note to theme reviewers, this issues a warning but is actually fixing an issue
+ * in core WordPress v6.0. It is not hiding the admin bar like the warning indicates.
+ */
+@media screen and (max-width: 600px) {
+    #wpadminbar {
+        position: fixed;
+    }
+}
 
 /* Style the mobile nav menu open and close buttons */
 button.wp-block-navigation__responsive-container-open,
@@ -580,7 +581,7 @@ figure.wp-caption:not(.alignfull):not(.alignwide) img {
 	margin-block-start: 0 !important;
 }
  
- /* Add top margin to the container's first block and then between subsequent blocks */
+/* Add top margin to the container's first block and then between subsequent blocks */
 .wp-site-blocks main > *:first-child:not(.wp-block-template-part, .wp-block-post-content, .wp-block-cover,  .wp-block-query, header, footer, nav),
 body .is-layout-constrained > * + .wp-block-template-part > *:first-child:not(.wp-block-template-part, .wp-block-post-content, .wp-block-cover, .wp-block-query, main, header, footer, nav),
 body .is-layout-constrained .wp-block-template-part > * + *:not(.wp-block-template-part, .wp-block-post-content, .wp-block-cover, .wp-block-query, main, header, footer, nav),
@@ -735,6 +736,7 @@ main.wp-block-group,
 }
 .wp-site-blocks .dashicons:before {
 	display: inline-block;
+	vertical-align: middle;
 }
 
 /* Add dashicons to various template tags */
@@ -743,7 +745,7 @@ main.wp-block-group,
 .wp-block-post-terms:before,
 .wp-block-post-comments-count:before {	
 	font-family: dashicons;
-	padding-right: var(--wp--preset--spacing--20);
+	margin-right: var(--wp--preset--spacing--20);
 }
 
 .rtl .wp-block-post-author:before,
@@ -752,7 +754,7 @@ main.wp-block-group,
 .rtl .wp-block-post-terms:before,
 .rtl .wp-block-post-comments-count:before {
 	padding-right: 0;
-	padding-left: var(--wp--preset--spacing--20);
+	margin-left: var(--wp--preset--spacing--20);
 }
 
 /* dashicons-admin-users */

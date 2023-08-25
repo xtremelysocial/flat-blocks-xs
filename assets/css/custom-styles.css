@@ -19,15 +19,39 @@
     padding: var(--wp--preset--spacing--40) var(--wp--style--root--padding-right, var(--wp--preset--spacing--50)) var(--wp--preset--spacing--40) var(--wp--style--root--padding-left, var(--wp--preset--spacing--50)) !important;
 }
 
+.is-root-container > header:has(.is-style-fixed-header) {
+	position: sticky;
+	top: 0;
+	background-color: var(--wp--preset--color--background);
+	z-index: 9999;
+	/*opacity: 0.95;*/
+}
+
 /*--------------------------------------------------------------
 # Fixed Nav Menu. Front-end and Editor.
 --------------------------------------------------------------*/
 
-/* For the Editor, add some margin on the fixed nav menu. Note this will be overridden on
- * the front end
+/* 
+ * For the Editor, use sticky positioning and add some margin.
+ * Note the margin will be overridden later on the front end.
  */
-nav.wp-block-navigation.is-style-fixed-menu {
-	margin: var(--wp--preset--spacing--20) var(--wp--preset--spacing--40);
+.is-root-container > header:has(.is-style-fixed-menu) {
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 0;
+	z-index: 9999;
+}
+.is-root-container nav.wp-block-navigation.is-style-fixed-menu {
+	margin: var(--wp--preset--spacing--40) var(--wp--preset--spacing--50);
+}
+/* .is-root-container .block-editor-block-list__block:has(.block-list-appender.wp-block) { */
+/*.is-root-container > header:has(.is-style-fixed-menu) > .block-list-appender.wp-block {*/
+/*.is-root-container > header:has(.is-style-fixed-menu) .block-list-appender.wp-block {
+	background-color: red;
+}*/
+.is-root-container > header:has(.is-style-fixed-menu) .block-list-appender.wp-block {
+	display: none;
 }
 
 /* Style fixed mobile nav open and close buttons */
@@ -38,11 +62,6 @@ nav.wp-block-navigation.is-style-fixed-menu .wp-block-navigation__responsive-con
 	color: white;
 	border: none;
 	border-radius: 0;
-}
-
-/* Style fixed mobile menu drop-down */
-nav.wp-block-navigation.is-style-fixed-menu .wp-block-navigation__responsive-container {
-	width: 360px;
 }
 
 /*--------------------------------------------------------------
