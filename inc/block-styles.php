@@ -154,7 +154,8 @@ if ( function_exists( 'register_block_style' ) ) {
 				if ( !isset( $style ) ) $style = array( 'style_handle' => 'flatblocks-custom-styles' );
 				
 				// If no slug, then use core/
-				if ( !str_contains( $block, '/' ) ) $block = 'core/' . $block;
+				//if ( !str_contains( $block, '/' ) ) $block = 'core/' . $block;
+				if ( stripos( $block, '/' ) === false ) $block = 'core/' . $block;
 				
 				register_block_style(
 					//'core/' . $block,

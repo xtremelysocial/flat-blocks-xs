@@ -109,9 +109,13 @@ nav.wp-block-navigation.is-style-fixed-menu .wp-block-navigation__responsive-con
 	overflow: hidden;
 }
 
-/* Group padding */
-.wp-block-group.is-style-no-padding {
+/* Group No padding */
+.wp-block-group.is-style-no-padding:not(.has-global-padding) {
 	padding: 0;
+}
+.wp-block-group.is-style-no-padding.has-global-padding {
+	padding-top: 0;
+	padding-bottom: 0;
 }
 
 /*--------------------------------------------------------------
