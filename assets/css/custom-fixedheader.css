@@ -16,19 +16,19 @@
 --------------------------------------------------------------*/
 
 /* Position the fixed header group */
-.wp-block-group.is-style-fixed-header {
+/*.wp-block-group.is-style-fixed-header {
     position: fixed;
     top: 0;
 	left: 0;
 	right: 0;
     z-index: 9999;
     margin-top: 0;
-}
+}*/
 
 /* Adjust fixed header position so its underneath the WordPress admin bar */
-.admin-bar .is-style-fixed-header {
+/*.admin-bar .is-style-fixed-header {
   top: var(--wp-admin--admin-bar--height, 32px);
-}
+}*/
 
 /* 
  * Fix WordPress Admin bar on phones not sticking to the top 
