@@ -14,7 +14,7 @@
  * @since	1.0
  */
 
-if ( function_exists( 'register_block_style' ) ) {
+if ( ! function_exists( 'flatblocks_register_block_styles' ) ) :
 
 	function flatblocks_register_block_styles() {
 
@@ -25,11 +25,11 @@ if ( function_exists( 'register_block_style' ) ) {
 		$custom_styles = array(
 			'fixed-menu' 		=> array( esc_html__('Fixed Menu', 'flat-blocks'), 
 				array('navigation' ),
-				'style_handle' 	=> 'flatblocks-fixedheader-styles'				
+				'style_handle' 	=> 'flatblocks-custom-styles'				
 			),
 			'fixed-header' 		=> array( esc_html__('Fixed Header', 'flat-blocks'), 
 				array('group' ),
-				'style_handle' 	=> 'flatblocks-fixedheader-styles'				
+				'style_handle' 	=> 'flatblocks-custom-styles'				
 			),
 			'cover-border' 		=> array( esc_html__('Borders', 'flat-blocks'), 
 				array('cover' ),
@@ -147,30 +147,26 @@ if ( function_exists( 'register_block_style' ) ) {
 		/* 
 		 * Loop through each style and create the custom style for each of its blocks.
 		 */
-		foreach ( $custom_styles as $custom_style => [$label, $blocks, $style] ) {
+		foreach ( $custom_styles as $custom_style => [$label, $blocks, $style_handle_or_inline] ) {
 			foreach ( $blocks as $block ) {
 			
 				// If no style_handle or inline_style, default one
-				if ( !isset( $style ) ) $style = array( 'style_handle' => 'flatblocks-custom-styles' );
+				if ( !isset( $style_handle_or_inline ) ) $style_handle_or_inline = array( 'style_handle' => 'flatblocks-custom-styles' );
 				
 				// If no slug, then use core/
-				//if ( !str_contains( $block, '/' ) ) $block = 'core/' . $block;
 				if ( stripos( $block, '/' ) === false ) $block = 'core/' . $block;
 				
 				register_block_style(
-					//'core/' . $block,
 					$block,
 					array(
 						'name'  => $custom_style,
 						'label' => $label,
-						/*'style_handle'	=> isset($style['style_handle']) ? $style['style_handle'] : 'flatblocks-custom-styles'
-						'inline_style'	=> isset($style['inline_style']) ? $style['inline_style'] : ''*/
-						$style
+						$style_handle_or_inline
 					)
 				);
 			} //end foreach $custom_styles
 		} //end foreach $blocks
 		
 	}
-	add_action( 'init', 'flatblocks_register_block_styles' );
-}
+endif;
+add_action( 'init', 'flatblocks_register_block_styles' );

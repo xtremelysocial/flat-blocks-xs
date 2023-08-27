@@ -15,6 +15,9 @@
 ( function( $ ) {
 	
 	$(document).ready(function() {
+
+		// This is necessary for our smooth scroll to top of the page
+		//$('.wp-site-blocks').attr('id', 'page')
 		
 		// Select all links with hashes (#)
 		$('a[href*="#"]')

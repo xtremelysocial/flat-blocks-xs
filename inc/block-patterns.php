@@ -281,10 +281,10 @@ if ( ! function_exists( 'flatblocks_register_block_patterns' ) ) :
 						)
 					);
 
-			} // content
+			} // $content
 			
-		} // foreach
+		} // $block_patterns
 		
-	} // function
+	} 
 endif;
 add_action( 'init', 'flatblocks_register_block_patterns' );
