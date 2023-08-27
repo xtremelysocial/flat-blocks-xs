@@ -159,13 +159,13 @@ if ( ! function_exists( 'flatblocks_front_end_styles' ) ) :
 
 		// Fixed header javascript
 		// Note: We are loading it here so that it isn't included in the Block Editor
-		wp_enqueue_script( 
+		/*wp_enqueue_script( 
 			'flatblocks-fixedheader', 
 			get_template_directory_uri() . '/assets/js/fixedheader.js', 
 			array('jquery'), 
 			$version_string, 
 			true 
-		);
+		);*/
 	}
 endif;
 add_action( 'wp_enqueue_scripts', 'flatblocks_front_end_styles' );
@@ -245,6 +245,11 @@ if ( file_exists( get_template_directory() . '/pro/flat-blocks-pro.php' ) ) {
 /**
  * Additional Filters
  */
+
+/* 
+ *  Add an anchor to every page for our smooth scroll-to-top nav item
+ */
+add_action( 'wp_body_open', function() { echo '<a id="page"></a>'; } );
 
 /**
  * Define our custom template part AREAS
