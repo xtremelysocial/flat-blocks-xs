@@ -228,11 +228,6 @@ if ( file_exists( get_template_directory() . '/pro/flat-blocks-pro.php' ) ) {
  * Additional Filters
  */
 
-/* 
- *  Add an anchor to every page for our smooth scroll-to-top nav item
- */
-add_action( 'wp_body_open', function() { echo '<a id="page"></a>'; } );
-
 /**
  * Add an anchor of #page for our scroll-to-top navigation item. This is needed
  * because there is currently no way to add an id to the wp-site-blocks wrapper and 
@@ -318,8 +313,8 @@ add_filter( 'excerpt_more', 'flatblocks_excerpt_more' );
  * 
 */
 if ( ! function_exists( 'flatblocks_excerpt_length' ) ) :
-	function flatblocks_excerpt_length ( $length ) {
-		return is_singular() ? apply_filters( 'flatblocks_short_excerpt_link', $words = 25 ) : $length;
+	function flatblocks_excerpt_length ( $words ) {
+		return is_singular() ? apply_filters( 'flatblocks_short_excerpt_link', $short_words = 25 ) : $words;
 	}
 endif;
 add_filter('excerpt_length', 'flatblocks_excerpt_length');

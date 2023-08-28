@@ -462,6 +462,11 @@ figure.wp-caption:not(.alignfull):not(.alignwide) img {
 # Latest Posts
 --------------------------------------------------------------*/
 
+/* Increase post title size */
+.wp-block-latest-posts.is-grid .wp-block-latest-posts__post-title {
+	font-size: var(--wp--preset--font-size--medium);
+}
+
 /* Set post thumbnails to match blog */
 .wp-block-latest-posts__featured-image img {
 	border-radius: var(--wp--custom--border--radius);
