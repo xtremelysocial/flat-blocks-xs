@@ -218,14 +218,14 @@ input[type="file"]::file-selector-button:hover,
 }
 body .is-layout-constrained > .alignleft {
 	padding-left: calc(0.5 * (100% - var(--wp--style--global--wide-size)));
-	margin-inline-end: var(--wp--preset--spacing--40);
+	margin-inline-end: var(--wp--style--block-gap);
 }
 .wp-site-blocks > .alignright {
 	margin-left: var(--wp--preset--spacing--40);
 }
 body .is-layout-constrained > .alignright {
 	padding-right: calc(0.5 * (100% - var(--wp--style--global--wide-size)));
-	margin-inline-start: var(--wp--preset--spacing--40);
+	margin-inline-start: var(--wp--style--block-gap);
 }
 
 /*--------------------------------------------------------------
@@ -416,7 +416,7 @@ figure.wp-caption:not(.alignfull):not(.alignwide) img {
 
 /* Hide empty comments so no extra vertical margin */
 #post-comments {
-	margin-bottom: var(--wp--preset--spacing--40);
+	margin-bottom: var(--wp--style--block-gap);
 }
 #post-comments:empty {
 	display: none;
@@ -605,7 +605,7 @@ body .is-layout-constrained .wp-block-template-part > * + *:not(.wp-block-templa
 .wp-site-blocks .wp-block-query > *:first-child:not(.wp-block-cover),
 .wp-site-blocks .wp-block-post-content > *:first-child:not(.wp-block-cover),
 .is-root-container > *:first-child:not(.wp-block-template-part, .wp-block-cover, .wp-block-query) {
- 	margin-block-start: var(--wp--preset--spacing--40);
+ 	margin-block-start: var(--wp--style--block-gap);
 }
 
 /* But don't add top margin to a template part within a column. e.g. Footers. */
@@ -616,7 +616,7 @@ body .is-layout-constrained .wp-block-template-part > * + *:not(.wp-block-templa
 /* Also add bottom margin on the last block for convenience */
 .wp-site-blocks .wp-block-query > *:last-child,
 .wp-site-blocks .wp-block-post-content > *:last-child {
-	margin-block-end: var(--wp--preset--spacing--40);
+	margin-block-end: var(--wp--style--block-gap);
 }
 
 /* But don't add bottom margin to a template part within a column. e.g. Footers. */

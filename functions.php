@@ -179,13 +179,13 @@ if ( ! function_exists( 'flatblocks_back_end_styles' ) ) :
 
 			if ( file_exists( get_stylesheet_directory() . '/assets/css/custom-styles.css' ) ) {
 				add_editor_style(
-					get_stylesheet_directory() . 'assets/css/custom-styles.css'
+					get_stylesheet_directory_uri() . 'assets/css/custom-styles.css'
 				);
 			}
 
 			if ( file_exists( get_stylesheet_directory() . '/style.css' ) ) {
 				add_editor_style(
-					get_stylesheet_directory() . '/style.css'
+					get_stylesheet_directory_uri() . '/style.css'
 				);
 			}
 		}

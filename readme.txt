@@ -155,10 +155,11 @@ You can check out our other themes here: https://xtremelysocial.com/wordpress/
 == Changelog ==
 
 = 1.3.1 = 
-August 27, 2023
+August 29, 2023
 
 * Rewrote all the logic for Fixed Headers and Fixed Nav Menus. They now both work in the Site Editor! The extra "hidden" group for the #page anchor for smooth scrolling isn't needed anymore either. This also removes the requirement for the fixedheader javascript so that improves site performance. Adjusted the smooth scroll javascript to work with this new method. Also disabled the "Sticky" Group block option in the Editor because it didn't work anyway and could conflict with this.
-* Tweaked the CSS for horizontal padding and vertical margin on the front-end and in the editor. 
+* Tweaked the CSS for horizontal padding and vertical margin on the front-end and in the editor. Updated some of the custom styles to use block-gap instead of preset-spacing-40. This was only done where it was used for the same purpose as vertical gap.
+* Fix for child theme style.css not loading in the Block Editor
 * As a result, the Editor should finally truly match the front-end now.
 * Added new Post No Comments Template for when there are historical comments that you no longer want to display on a post. 
 * Tweaks to the CSS for plain style lists (no bullets or numbering) to add some bottom margin to better separate them.
