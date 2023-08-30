@@ -49,7 +49,7 @@
 					if (siteTopMargin) topOffset += siteTopMargin;
 					const adminbarHeight = parseInt( $( '#wpadminbar' ).outerHeight() );
 					if (adminbarHeight) topOffset += adminbarHeight;
-					//console.log('topOffset=' + topOffset); //TEST
+					console.log('topOffset=' + topOffset); //TEST
 
 					// Only prevent default if animation is actually gonna happen
 					event.preventDefault();

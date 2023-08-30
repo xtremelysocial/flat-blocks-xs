@@ -15,8 +15,8 @@ if ( ! function_exists( 'flatblocks_support' ) ) :
 
 	function flatblocks_support() {
 
-		// Optionally, add support for additional core block styles. e.g. 
-		// Separator width, left border color on quotes, etc. See here for full list:
+		// Add support for additional core block styles. e.g. Separator width, left 
+		// border color on quotes, etc. See here for full list:
 		// https://github.com/WordPress/gutenberg/blob/trunk/packages/block-library/src/theme.scss
 		// NOTE: As of WordPress v6.3, these are loaded AFTER the ones from theme.json so 
 		// they are overriding this theme and the user's settings! Don't load these by
@@ -39,16 +39,12 @@ if ( ! function_exists( 'flatblocks_support' ) ) :
 		// Note: Shouldn't be needed after WordPress v6.2
 		add_theme_support( 'editor-styles' );
 		
-		// Enqueue editor styles
-		// Note these need to be loaded this way so that editor-styles-wrapper is 
-		// automatically prefixed to avoid conflicting with the editor's own user 
-		// interface.
+		// Enqueue editor styles.
 		add_editor_style( 
 			array(
 				'/assets/css/flat-blocks.css',
 				'/assets/css/custom-styles.css',
-				'/assets/css/editor-style.css',
-				//'style.css'
+				'style.css'
 			)
 		);
 
@@ -77,11 +73,7 @@ add_action( 'after_setup_theme', 'flatblocks_support' );
 add_filter( 'should_load_separate_core_block_assets', '__return_true' );
 
 /**
- * Enqueue FRONT-END styles and scripts.
- * 
- * Note these are loaded her specifically because these styles need to be loaded 
- * using add_editor_style on the back-end and/or styles that should only load on 
- * the front-end.
+ * Enqueue FRONT-END ONLY styles and scripts.
  */
 if ( ! function_exists( 'flatblocks_front_end_styles' ) ) :
 
@@ -103,7 +95,7 @@ if ( ! function_exists( 'flatblocks_front_end_styles' ) ) :
 				
 		// Register custom block styles. See /inc/block-styles.php.
 		if ( file_exists( get_template_directory() . '/assets/css/custom-styles.css' ) ) {
-			/*wp_register_style(
+			wp_register_style(
 				'flatblocks-custom-styles',
 				get_template_directory_uri() . '/assets/css/custom-styles.css',
 				array('flatblocks-base'),
@@ -112,101 +104,33 @@ if ( ! function_exists( 'flatblocks_front_end_styles' ) ) :
 		
 			// Note: Conditional loading of custom styles not stable as of WordPress 6.2,
 			// so always load
-			wp_enqueue_style( 'flatblocks-custom-styles' );*/
-			
-			wp_enqueue_style( 
-				'flatblocks-custom-styles', 
-				get_template_directory_uri() . '/assets/css/custom-styles.css', 
-				array('flatblocks-base'),
-				$version_string
-			);
+			wp_enqueue_style( 'flatblocks-custom-styles' );
 		}
 		
 		// Enqueue theme style after theme base style
-		/**wp_enqueue_style( 
+		wp_enqueue_style( 
 			'flatblocks-style', 
 			get_template_directory_uri() . '/style.css', 
 			array('flatblocks-base'),
 			$version_string
-		);**/
+		);
 		
-		// Load the individual block styles for the core blocks
-		/*$block_path = '/assets/css/block-styles/';
-		$block_styles = glob( get_theme_file_path($block_path) . '*.css' );
- 
-		foreach ( $block_styles as $block_name ) {
-
-			// Remove the path and .css extension from the name
-			$block_name = str_replace( array(get_theme_file_path($block_path), '.css'), '', $block_name );
-			var_dump($block_name); //TEST
-
-			//if ( !is_admin() ) {
-				// Add core/ to the block name to get the slug
-				$block_slug = "core/$block_name";
-
-				// Load the block style				
-				wp_enqueue_block_style( $block_slug, array(
-					'handle' => "flatblocks-block-$block_name",
-					'src'    => get_theme_file_uri( $block_path . "$block_name.css" ),
-					'path'   => get_theme_file_path( $block_path . "$block_name.css" )
-				) );
-
-			//} else {
-				// Load the editor style too
-				add_editor_style( $block_path . "$block_name.css" );			
-			//}
-			
-		} // foreach	
-		
-		// Then load the individual custom block styles
-		$custom_path = '/assets/css/custom-styles/';
-		$custom_styles = glob( get_theme_file_path( $custom_path) . '*.css' );
-
-		foreach ( $custom_styles as $block_name ) {
-
-			// Remove the path, -custom, and .css extension from the name
-			$block_name = str_replace( array(get_theme_file_path($custom_path), '-custom', '.css'), '', $block_name );
-			//var_dump($block_name); //TEST
-
-			//if ( !is_admin() ) {
-				// Add core/ to the block name to get the slug
-				$block_slug = "core/$block_name";
-
-				// Load the block style				
-				wp_enqueue_block_style( $block_slug, array(
-					'handle' => "flatblocks-block-$block_name-custom",
-					'src'    => get_theme_file_uri( $custom_path . "$block_name-custom.css" ),
-					'path'   => get_theme_file_path( $custom_path . "$block_name-custom.css" )
-				) );
-				
-			//} else {			
-				// Load the editor style too
-				add_editor_style( $custom_path . "$block_name-custom.css" );
-			//}
-			
-		} // foreach*/
-			
 		// As a courtesy, add the child theme Custom Styles CSS if it exists
 		if ( is_child_theme() && file_exists( get_stylesheet_directory() . '/assets/css/custom-styles.css' ) ) {
 			wp_enqueue_style( 
 				'flatblocks-child-custom-styles', 
 				get_stylesheet_directory_uri() . '/assets/css/custom-styles.css', 
-				//array( 'flatblocks-style' ), 
-				array( 'flatblocks-base' ), 
+				array( 'flatblocks-style' ), 
 				$version_string 
 			);
 		}
 
-		//if ( is_child_theme() ) echo 'child theme attempting to load: ' . get_stylesheet_directory() . '/style.css'; //TEST
-
 		// As a courtesy, add the child theme CSS if it exists
 		if ( is_child_theme() && file_exists( get_stylesheet_directory() . '/style.css' ) ) {
-			//echo 'found it!'; //TEST
 			wp_enqueue_style( 
 				'flatblocks-child-style', 
 				get_stylesheet_directory_uri() . '/style.css', 
-				//array( 'flatblocks-style' ), 
-				array( 'flatblocks-base' ), 
+				array( 'flatblocks-style' ), 
 				$version_string 
 			);
 		}
@@ -224,228 +148,9 @@ if ( ! function_exists( 'flatblocks_front_end_styles' ) ) :
 	} 
 endif;
 add_action( 'wp_enqueue_scripts', 'flatblocks_front_end_styles' );
-//add_action( 'admin_init', 'flatblocks_front_end_styles' );
 
 /**
- * Load BLOCK-specific CSS styles on the FRONT-END
- *
- * Note: As many styles and scripts that can be should be loaded this way because they
- * get loaded into both the front-end and the back-end automatically.
- */
-if ( ! function_exists( 'flatblocks_block_styles' ) ) :
-
-	function flatblocks_block_styles() {
-
-		// First load the styles for the core blocks
-		$block_path = '/assets/css/block-styles/';
-		$block_styles = glob( get_theme_file_path($block_path) . '*.css' );
- 
-		foreach ( $block_styles as $block_name ) {
-
-			// Remove the path and .css extension from the name
-			$block_name = str_replace( array(get_theme_file_path($block_path), '.css'), '', $block_name );
-			//var_dump($block_name); //TEST
-
-			// Get the stylesheet handle. This is backwards-compatible and checks the
-			// availability of the `wp_should_load_separate_core_block_assets` function,
-			// and whether we want to load separate styles per-block or not.
-			$handle = (
-				function_exists( 'wp_should_load_separate_core_block_assets' ) &&
-				wp_should_load_separate_core_block_assets()
-			) ? "wp-block-$block_name" : 'wp-block-library';
- 
-			// Get the styles.
-			$styles = file_get_contents( get_theme_file_path( "assets/css/block-styles/$block_name.css" ) );
- 
-			// Add frontend styles.
-			wp_add_inline_style( $handle, $styles );
-
-			/*//if ( !is_admin() ) {
-				// Add core/ to the block name to get the slug
-				$block_slug = "core/$block_name";
-
-				// Load the block style				
-				wp_enqueue_block_style( $block_slug, array(
-					'handle' => "flatblocks-block-$block_name",
-					'src'    => get_theme_file_uri( $block_path . "$block_name.css" ),
-					'path'   => get_theme_file_path( $block_path . "$block_name.css" )
-				) );
-
-			//} else {
-				// Load the editor style too
-				/////add_editor_style( $block_path . "$block_name.css" );			
-			//}*/
-			
-		} // foreach
-		
-		
-		// Register the main custom block styles
-		/*if ( file_exists( get_template_directory() . '/assets/css/custom-styles.css' ) ) {
-			wp_register_style(
-				'flatblocks-custom-styles',
-				get_template_directory_uri() . '/assets/css/custom-styles.css',
-				array('flatblocks-base'),				
-				//array(), 
-				$version_string
-			);
-		
-			// Note: Conditional loading of custom styles not stable as of WordPress 6.2,
-			// so always load
-			wp_enqueue_style( 'flatblocks-custom-styles' );
-		}*/
-		
-		// Then load the individual custom block styles
-		$custom_path = '/assets/css/custom-styles/';
-		$custom_styles = glob( get_theme_file_path( $custom_path) . '*.css' );
-
-		foreach ( $custom_styles as $block_name ) {
-
-			// Remove the path, -custom, and .css extension from the name
-			$block_name = str_replace( array(get_theme_file_path($custom_path), '-custom', '.css'), '', $block_name );
-			//var_dump($block_name); //TEST
-
-			// Get the stylesheet handle. This is backwards-compatible and checks the
-			// availability of the `wp_should_load_separate_core_block_assets` function,
-			// and whether we want to load separate styles per-block or not.
-			$handle = (
-				function_exists( 'wp_should_load_separate_core_block_assets' ) &&
-				wp_should_load_separate_core_block_assets()
-			) ? "wp-block-$block_name" : 'wp-block-library';
- 
-			// Get the styles.
-			$styles = file_get_contents( get_theme_file_path( "assets/css/custom-styles/$block_name-custom.css" ) );
- 
-			// Add frontend styles.
-			wp_add_inline_style( $handle, $styles );
-
-			/*//if ( !is_admin() ) {
-				// Add core/ to the block name to get the slug
-				$block_slug = "core/$block_name";
-
-				// Load the block style				
-				wp_enqueue_block_style( $block_slug, array(
-					'handle' => "flatblocks-block-$block_name-custom",
-					'src'    => get_theme_file_uri( $custom_path . "$block_name-custom.css" ),
-					'path'   => get_theme_file_path( $custom_path . "$block_name-custom.css" )
-				) );
-				
-			//} else {			
-				// Load the editor style too
-				/////add_editor_style( $custom_path . "$block_name-custom.css" );
-			//}*/
-			
-		} // foreach
-		
-		// As a courtesy, add the child theme Custom Styles CSS if it exists
-		/*if ( is_child_theme() && file_exists( get_stylesheet_directory() . '/assets/css/custom-styles.css' ) ) {
-			wp_enqueue_style( 
-				'flatblocks-child-custom-styles', 
-				get_stylesheet_directory_uri() . '/assets/css/custom-styles.css', 
-				//array( 'flatblocks-style' ), 
-				array( 'flatblocks-base' ), 
-				$version_string 
-			);
-		}
-
-		// As a courtesy, add the child theme CSS if it exists
-		if ( is_child_theme() && file_exists( get_stylesheet_directory() . '/style.css' ) ) {
-			wp_enqueue_style( 
-				'flatblocks-child-style', 
-				get_stylesheet_directory_uri() . '/style.css', 
-				//array( 'flatblocks-style' ), 
-				array( 'flatblocks-base' ), 
-				$version_string 
-			);
-		}*/
-
-	}
-endif;
-/////add_action( 'init', 'flatblocks_block_styles' );
-//add_action( 'enqueue_block_assets', 'flatblocks_block_styles' );
-// Add frontend styles.
-add_action( 'wp_enqueue_scripts', 'flatblocks_block_styles' );
-// Add backend styles.
-/////add_action( 'admin_init', 'flatblocks_block_styles' );
-
-/**
- * Load BLOCK-specific CSS styles on the BACK-END
- */
-if ( ! function_exists( 'flatblocks_back_end_block_styles' ) ) :
-
-	function flatblocks_back_end_block_styles() {
-
-		/**$styled_blocks = [ 'comments', 'cover', 'details', 'featured-image', 'image', 
-			'latest-comments', 'latest-posts', 'list', 'media-text', 'post-excerpt', 
-			'query-pagination', 'quotes', 'separator', 'social-icons', 'table' 
-		];
- 
-		foreach ( $styled_blocks as $block_name ) {
- 
-			// Add editor styles.
-			if ( file_exists( get_theme_file_path( "assets/css/blocks/$block_name.css" ) ) ) {
-				add_editor_style( "assets/css/blocks/$block_name.css" );
-			}
-			if ( file_exists( get_theme_file_path( "assets/css/blocks/$block_name-custom.css" ) ) ) {
-				add_editor_style( "assets/css/blocks/$block_name-custom.css" );
-			}
-		}**/
-		
-		// First load the styles for the core blocks
-		$block_path = '/assets/css/block-styles/';
-		$block_styles = glob( get_theme_file_path($block_path) . '*.css' );
-		foreach ( $block_styles as $block_name ) {
-			// Remove the path and .css extension from the name
-			$block_name = str_replace( array(get_theme_file_path($block_path), '.css'), '', $block_name );
-			// Load the editor style
-			add_editor_style( $block_path . "$block_name.css" );						
-		} // foreach
-				
-		// Then load the individual custom block styles
-		$custom_path = '/assets/css/custom-styles/';
-		$custom_styles = glob( get_theme_file_path( $custom_path) . '*.css' );
-		foreach ( $custom_styles as $block_name ) {
-			// Remove the path, -custom, and .css extension from the name
-			$block_name = str_replace( array(get_theme_file_path($custom_path), '-custom', '.css'), '', $block_name );
-			// Load the editor style
-			add_editor_style( $custom_path . "$block_name-custom.css" );			
-		} // foreach
-		
-	}
-endif;
-add_action( 'admin_init', 'flatblocks_back_end_block_styles' );
-
-/**
- * Enqueue additional BACK-END styles and scripts.
- */
-if ( ! function_exists( 'flatblocks_back_end_styles' ) ) :
-
-	// As a courtesy, add the child theme CSS files to the Block Editor too.
-	function flatblocks_back_end_styles() {
-
-		if ( is_child_theme() ) {
-
-			if ( file_exists( get_stylesheet_directory() . '/assets/css/custom-styles.css' ) ) {
-				add_editor_style(
-					//get_stylesheet_directory() . '/assets/css/custom-styles.css'
-					//get_stylesheet_directory_uri() . '/assets/css/custom-styles.css'
-					'/assets/css/custom-styles.css'
-				);
-			}
-
-			if ( file_exists( get_stylesheet_directory() . '/style.css' ) ) {
-				add_editor_style(
-					//get_stylesheet_directory() . '/style.css'
-					//get_stylesheet_directory_uri() . '/style.css'
-					'/style.css'
-				);
-			}
-		}
-	}
-endif;
-add_action( 'admin_init', 'flatblocks_back_end_styles' );
-
-/**
- * Enqueue additional FRONT-END AND BACK-END styles and scripts
+ * Enqueue FRONT-END AND BACK-END styles and scripts
  * 
  * NOTE: These styles and scripts will be loaded into the font-end, but also into the 
  * Block Editor iFrame, which is necessary for certain styles such as the built-in 
@@ -458,29 +163,6 @@ if ( ! function_exists( 'flatblocks_block_assets' ) ) :
 		// WordPress built-in icons (Dashicons). Note these MUST be loaded here for
 		// them to be in the Block Editor iFrame so they display.
 		wp_enqueue_style( 'dashicons' );
-		
-		// As a courtesy, add the child theme Custom Styles CSS if it exists
-		/*if ( is_child_theme() && file_exists( get_stylesheet_directory() . '/assets/css/custom-styles.css' ) ) {
-			wp_enqueue_style( 
-				'flatblocks-child-custom-styles', 
-				get_stylesheet_directory_uri() . '/assets/css/custom-styles.css', 
-				//array( 'flatblocks-style' ), 
-				array( 'flatblocks-base' ), 
-				$version_string 
-			);
-		}
-
-		// As a courtesy, add the child theme CSS if it exists
-		if ( is_child_theme() && file_exists( get_stylesheet_directory() . '/style.css' ) ) {
-			wp_enqueue_style( 
-				'flatblocks-child-style', 
-				get_stylesheet_directory_uri() . '/style.css', 
-				//array( 'flatblocks-style' ), 
-				array( 'flatblocks-base' ), 
-				$version_string 
-			);
-		}*/
-
 	}
 endif;
 add_action( 'enqueue_block_assets', 'flatblocks_block_assets' );

@@ -1,7 +1,0 @@
-/*--------------------------------------------------------------
-# Cover
---------------------------------------------------------------*/
-/* LIMIT cover image text to wide width */
-.wp-block-cover__inner-container {
-	max-width: var(--wp--style--global--wide-size); 
-}
