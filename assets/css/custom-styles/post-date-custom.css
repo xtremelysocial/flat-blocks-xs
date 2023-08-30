@@ -1,0 +1,6 @@
+/*--------------------------------------------------------------
+# Custom: Dashicons for theme templates
+--------------------------------------------------------------*/
+.wp-block-post-date.is-style-no-icon:before {	
+	display: none;
+}

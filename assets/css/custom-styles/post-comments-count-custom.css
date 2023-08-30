@@ -1,0 +1,6 @@
+/*--------------------------------------------------------------
+# Custom: Dashicons for theme templates
+--------------------------------------------------------------*/
+.wp-block-post-comments-count.is-style-no-icon:before {	
+	display: none;
+}

@@ -1,0 +1,61 @@
+/*--------------------------------------------------------------
+# Custom: Paragraph
+--------------------------------------------------------------*/
+
+/* Alignwide */
+p.is-style-alignwide {
+	max-width: var(--wp--style--global--wide-size) !important;
+	margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+/* Arrow icon */
+p.is-style-arrow-icon-no-text {
+    font-size: 0; /* hide the text */
+}
+
+p.is-style-arrow-icon > a,
+p.is-style-arrow-icon-no-text > a {
+	display: block;
+	text-decoration: none !important;
+	outline: none !important;
+	text-align: center;
+	margin: var(--wp--style--block-gap) auto;
+}
+
+p.is-style-arrow-icon > a:focus,
+p.is-style-arrow-icon > a:active,
+p.is-style-arrow-icon-no-text > a:focus,
+p.is-style-arrow-icon-no-text > a:active {
+	opacity: 1;
+}
+
+p.is-style-arrow-icon > a:after,
+p.is-style-arrow-icon-no-text > a:after {
+	display: block;
+	font-family: dashicons;
+	content: "\f347";
+	font-size: var(--wp--preset--font-size--larger);
+	line-height: 1;
+}
+p.is-style-arrow-icon > a:after {
+	white-space: pre-wrap; /* adds line break */
+}
+
+/* Underline links */
+p.is-style-link-underline a,
+p.is-style-link-underline a:active {
+	text-decoration: underline !important;
+}
+p.is-style-link-underline a:hover {
+	opacity: 0.8;
+}
+
+/* No Underline links */
+p.is-style-no-link-underline a,
+p.is-style-no-link-underline a:active {
+	text-decoration: none !important;
+}
+p.is-style-no-link-underline a:hover {
+	opacity: 0.8;
+}

@@ -1,0 +1,56 @@
+/*--------------------------------------------------------------
+# Groups
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# Fixed Header. Front-end and Editor.
+--------------------------------------------------------------*/
+
+/* Style the fixed header on front-end and editor */
+.wp-block-group.is-style-fixed-header {
+    border: 1px solid var(--wp--custom--border--color);
+    border-width: 0 0 1px;
+    padding: var(--wp--preset--spacing--40) var(--wp--style--root--padding-right, var(--wp--preset--spacing--50)) var(--wp--preset--spacing--40) var(--wp--style--root--padding-left, var(--wp--preset--spacing--50)) !important;
+}
+
+/* Position the fixed header using sticky so we don't have to have top site margin */
+.wp-site-blocks > header:has(.is-style-fixed-header) {
+	position: sticky;
+	top: 0;
+	background-color: var(--wp--preset--color--background);
+	z-index: 9999;
+}
+
+/* If WordPress Admin Bar, then adjust fixed header position so its underneath it */
+.admin-bar .wp-site-blocks > header:has(.is-style-fixed-header) {
+  top: var(--wp-admin--admin-bar--height, 32px);
+}
+
+/*--------------------------------------------------------------
+# Group styles
+--------------------------------------------------------------*/
+
+/* Group borders */
+.wp-block-group.is-style-rounded-border {
+	border: 1px solid var(--wp--custom--border--color);
+	border-radius: var(--wp--custom--border--radius);
+	padding: var(--wp--preset--spacing--40);
+}
+
+.wp-block-group.is-style-rounded-border.is-layout-flex {
+	overflow: hidden;
+}
+
+.wp-block-group.is-style-thick-rounded-border {
+	border: 3px solid var(--wp--custom--border--color);
+	border-radius: var(--wp--custom--border--radius);
+}
+
+.wp-block-group.is-style-thick-rounded-border.is-layout-flex {
+	overflow: hidden;
+}
+
+/* Group padding */
+.wp-block-group.is-style-no-padding {
+	padding: 0;
+}
