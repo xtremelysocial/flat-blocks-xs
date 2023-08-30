@@ -1,0 +1,15 @@
+/*--------------------------------------------------------------
+# Separator
+--------------------------------------------------------------*/
+
+/* FIX to center default (narrow) separator when user selects alignfull */
+.wp-block-separator.alignfull {
+	margin-left: auto !important;
+	margin-right: auto !important;
+}
+
+/* Override our short width for wide and dotted separators */
+.wp-block-separator.is-style-wide,
+.wp-block-separator.is-style-dots {
+	width: 100% !important;; 
+}

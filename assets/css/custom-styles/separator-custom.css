@@ -1,0 +1,16 @@
+/*--------------------------------------------------------------
+# Custom: Separators
+--------------------------------------------------------------*/
+.wp-block-separator.is-style-thick {
+	border-width: 0 0 3px;
+}
+
+.wp-block-separator.is-style-thick-wide {
+	border-width: 0 0 3px;
+	width: 100%;
+}
+
+/*.wp-block-separator.is-style-clearfix {
+	border-width: 0;
+	margin: 0;
+}*/

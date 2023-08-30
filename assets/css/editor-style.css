@@ -1,0 +1,65 @@
+/**
+ * Theme:	Flat Blocks
+ * File:	editor-style.css
+ * 
+ * The stylesheet specifically for the Block Editor only
+ *
+ * @package flat-blocks
+ * @since	1.4
+ */
+
+/* 
+ * CORE STYLES
+ */
+
+/* For forms in dark mode, still need dark text color because field backgrounds are white */
+.block-editor-plain-text {
+    color: var(--wp--preset--color--very-dark-gray);
+}
+
+/* Style the post title in the Block Editor */
+.edit-post-visual-editor__post-title-wrapper {
+	margin-top: var(--wp--preset--spacing--40);
+	margin-bottom: var(--wp--preset--spacing--40);
+	padding-left: var(--wp--style--root--padding-left, var(--wp--preset--spacing--50));
+	padding-right: var(--wp--style--root--padding-right, var(--wp--preset--spacing--50));
+}
+
+/* Remove top margin on certain blocks */
+.is-root-container > *:first-child:not(.wp-block-template-part, .wp-block-cover, .wp-block-query) {
+ 	margin-block-start: var(--wp--preset--spacing--40);
+}
+
+/* In the Editor, REMOVE extra margin on nav menu drop-down icons */
+.is-root-container nav.wp-block-navigation .wp-block-navigation__submenu-icon {
+	margin-left: 0;
+}
+
+/* 
+ * In Editor, position fixed mobile nav menu CONTAINER, add some margin.
+ */
+.is-root-container > header:has(.is-style-fixed-menu) {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 9999;
+}
+.is-root-container nav.wp-block-navigation.is-style-fixed-menu {
+	margin: var(--wp--preset--spacing--60) var(--wp--preset--spacing--50);
+}
+
+/* 
+ * CUSTOM BLOCK STYLES
+ */
+
+/* Editor has nested lists, so push padding down to nested one */
+.is-root-container .wp-block-latest-comments.is-style-bullets {
+	padding-left: 0
+}
+.is-root-container .wp-block-latest-comments.is-style-bullets .wp-block-latest-comments:not(.has-avatars) {
+	padding-left: var(--wp--preset--spacing--60);
+}
+.is-root-container .wp-block-latest-comments.is-style-bullets .wp-block-latest-comments.has-avatars .wp-block-latest-comments__comment { 
+	list-style-position: inside;
+}

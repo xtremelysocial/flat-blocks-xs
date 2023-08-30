@@ -33,43 +33,43 @@ if ( ! function_exists( 'flatblocks_register_block_styles' ) ) :
 			),
 			'cover-border' 		=> array( esc_html__('Borders', 'flat-blocks'), 
 				array('cover' ),
-				'style_handle' 	=> 'flatblocks-custom-styles'				
+				'style_handle' 	=> 'flatblocks-block-cover-custom'				
 			),
 			'cover-rounded-corners' => array( esc_html__('Rounded Corners', 'flat-blocks'), 
 				array('cover' ),
-				'style_handle' 	=> 'flatblocks-custom-styles'				
+				'style_handle' 	=> 'flatblocks-block-cover-custom'				
 			),
 			'media-text-border' => array( esc_html__('Border', 'flat-blocks'), 
 				array('media-text' ),
-				'style_handle' 	=> 'flatblocks-custom-styles'				
+				'style_handle' 	=> 'flatblocks-block-media-text-custom'				
 			),
 			'image-border' 		=> array( esc_html__('Border', 'flat-blocks'), 
 				array('image' ),
-				'style_handle' 	=> 'flatblocks-custom-styles'				
+				'style_handle' 	=> 'flatblocks-block-image-custom'				
 			),
 			'image-round-border' => array( esc_html__('Round Border', 'flat-blocks'), 
 				array('image' ),
-				'style_handle' 	=> 'flatblocks-custom-styles'				
+				'style_handle' 	=> 'flatblocks-block-image-custom'				
 			),
 			'image-computer-screen' => array( esc_html__('Computer Screen', 'flat-blocks'), 
 				array('image' ),
-				'style_handle' 	=> 'flatblocks-custom-styles'				
+				'style_handle' 	=> 'flatblocks-block-image-custom'				
 			),
 			'image-tablet-phone-screen' => array( esc_html__('Phone/Tablet Screen', 'flat-blocks'), 
 				array('image' ),
-				'style_handle' 	=> 'flatblocks-custom-styles'				
+				'style_handle' 	=> 'flatblocks-block-image-custom'				
 			),
 			'image-no-border'	=> array( esc_html__('No Border', 'flat-blocks'), 
 				array('post-featured-image' ),
-				'style_handle' 	=> 'flatblocks-custom-styles'				
+				'style_handle' 	=> 'flatblocks-block-featured-image-custom'				
 			),
 			'thick' 			=> array( esc_html__('Thick', 'flat-blocks'), 
 				array('separator' ),
-				'style_handle' 	=> 'flatblocks-custom-styles'				
+				'style_handle' 	=> 'flatblocks-block-separator-custom'				
 			),
 			'thick-wide' 		=> array( esc_html__('Thick Wide', 'flat-blocks'), 
 				array('separator' ),
-				'style_handle' 	=> 'flatblocks-custom-styles'				
+				'style_handle' 	=> 'flatblocks-block-separator-custom'				
 			),
 			'bullets' 			=> array( esc_html__('Bullets', 'flat-blocks'), 
 				array('latest-posts', 'latest-comments' ),
@@ -85,23 +85,23 @@ if ( ! function_exists( 'flatblocks_register_block_styles' ) ) :
 			),
 			'thick-rounded-border' => array( esc_html__('Thick Border', 'flat-blocks'), 
 				array('group' ),
-				'style_handle' 	=> 'flatblocks-custom-styles'				
+				'style_handle' 	=> 'flatblocks-block-group-custom'				
 			),
 			'no-gap' 			=> array( esc_html__('No Gap', 'flat-blocks'), 
 				array('columns' ),
-				'style_handle' 	=> 'flatblocks-custom-styles'				
+				'style_handle' 	=> 'flatblocks-block-columns-custom'				
 			),
 			'thick-gap' 		=> array( esc_html__('Thick Gap', 'flat-blocks'), 
 				array('columns' ),
-				'style_handle' 	=> 'flatblocks-custom-styles'				
+				'style_handle' 	=> 'flatblocks-block-columns-custom'				
 			),
 			'center-on-mobile' 	=> array( esc_html__('Center on Mobile', 'flat-blocks'), 
 				array('columns' ),
-				'style_handle' 	=> 'flatblocks-custom-styles'				
+				'style_handle' 	=> 'flatblocks-block-columns-custom'				
 			),
 			'no-read-more' 		=> array( esc_html__('No Read More', 'flat-blocks'), 
 				array('post-excerpt' ),
-				'style_handle' 	=> 'flatblocks-custom-styles'				
+				'style_handle' 	=> 'flatblocks-block-post-excerpt-custom'				
 			),
 			'list-checkmarks' 	=> array( esc_html__('Checkmarks', 'flat-blocks'), 
 				array('list', 'page-list' ),

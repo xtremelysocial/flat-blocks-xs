@@ -1,0 +1,7 @@
+/*--------------------------------------------------------------
+# Custom: Excerpt Read More
+--------------------------------------------------------------*/
+.wp-block-post-excerpt.is-style-no-readmore > .wp-block-post-excerpt__more-text {
+	display: none;
+}
+

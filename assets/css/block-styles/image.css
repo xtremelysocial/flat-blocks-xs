@@ -1,0 +1,15 @@
+/*--------------------------------------------------------------
+# Images
+--------------------------------------------------------------*/
+
+/* FIX caption color when on colored background */
+.wp-block-image figcaption {
+	color: inherit;
+}
+
+/* FIX rounded images when global image style has a border radius */
+.wp-block-image .is-style-rounded img, 
+.wp-block-image.is-style-circle-mask img, 
+.wp-block-image.is-style-rounded img {
+    border-radius: 9999px !important;
+}
