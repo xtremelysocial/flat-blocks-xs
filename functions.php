@@ -75,7 +75,6 @@ add_action( 'after_setup_theme', 'flatblocks_support' );
  * Tell WordPress to load only the block styles for blocks in use on a particular page
  */
 add_filter( 'should_load_separate_core_block_assets', '__return_true' );
-//add_filter( 'should_load_separate_core_block_assets', '__return_false' );
 
 /**
  * Enqueue FRONT-END styles and scripts.

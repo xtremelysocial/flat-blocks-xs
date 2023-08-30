@@ -250,6 +250,337 @@ body .is-layout-constrained > .alignright {
 	padding-right: calc(0.5 * (100% - var(--wp--style--global--wide-size)));
 	margin-inline-start: var(--wp--style--block-gap);
 }
+
+/*--------------------------------------------------------------
+# Headings
+--------------------------------------------------------------*/
+
+/* Style the post title in the Block Editor */
+/**.edit-post-visual-editor__post-title-wrapper {
+	margin-top: var(--wp--style--block-gap);
+	margin-bottom: var(--wp--style--block-gap);
+	padding-left: var(--wp--style--root--padding-left, var(--wp--preset--spacing--50));
+	padding-right: var(--wp--style--root--padding-right, var(--wp--preset--spacing--50));
+}**/
+
+/* If user specifies global heading font colors, don't override on colored backgrounds */
+.has-background .wp-block-heading:not(.has-text-color),
+.has-background h1:not(.has-text-color), 
+.has-background h2:not(.has-text-color),
+.has-background h3:not(.has-text-color),
+.has-background h4:not(.has-text-color),  
+.has-background h5:not(.has-text-color),	
+.has-background h6:not(.has-text-color) {
+	color: inherit;
+}
+
+/*--------------------------------------------------------------
+# Navigation
+--------------------------------------------------------------*/
+
+/* Fix WordPress Admin bar on phones not sticking to the top 
+ *
+ * Note to theme reviewers, this issues a warning but is actually fixing an issue
+ * in core WordPress v6.0. It is not hiding the admin bar like the warning indicates.
+ */
+@media screen and (max-width: 600px) {
+    #wpadminbar {
+        position: fixed;
+    }
+}
+
+/* Style the mobile nav menu open and close buttons */
+.wp-block-navigation .wp-block-navigation__responsive-container-open,
+.wp-block-navigation .wp-block-navigation__responsive-container-close {
+	background-color: rgba(0, 0, 0, .05);
+	border: 1px solid var(--wp--preset--color--neutral-alt);
+	border-radius: var(--wp--custom--border--radius);
+	padding: var(--wp--preset--spacing--20);
+}
+
+/* Adjust padding on mobile nav menu */
+.wp-block-navigation .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content {
+    padding-top: calc( var(--wp--preset--spacing--40) + 24px );
+}
+
+/* Reduce vertical gap on top-level nav menus for when they wrap */
+.wp-block-navigation {
+/*.wp-block-navigation .wp-block-navigation__container,
+.wp-block-navigation .wp-block-page-list {*/
+	row-gap: var(--wp--preset--spacing--20);
+}
+
+/* But add it back on mobile menu*/
+.wp-block-navigation__responsive-container.is-menu-open {
+	row-gap: var(--wp--style--block-gap);
+}
+
+/* In the Editor, REMOVE extra margin on nav menu drop-down icons */
+/**.is-root-container nav.wp-block-navigation .wp-block-navigation__submenu-icon {
+	margin-left: 0;
+}**/
+
+/* REMOVE extra padding between top-level nav and its children */
+.wp-block-navigation .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content .wp-block-navigation__submenu-container {
+    padding-top: var(--wp--preset--spacing--20);
+}
+
+/* REMOVE extra padding on sub-menu drop-downs */
+.wp-block-navigation .wp-block-navigation-submenu__toggle {
+  padding-left: 0;
+}
+
+/* REDUCE padding on sub-menu drop-downs on mobile nav */
+.wp-block-navigation .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content .has-child .wp-block-navigation__submenu-container {
+	padding-left: var(--wp--preset--spacing--40);
+	padding-right: var(--wp--preset--spacing--40);
+}
+
+/* REMOVE duplicate padding on sub-menus with backgrounds */
+.wp-block-navigation .wp-block-navigation__submenu-container.has-background {
+	padding: 0;
+}
+
+/*
+ * Responsive menu container padding.
+ * This ensures the responsive container inherits the same
+ * spacing defined above. This behavior may be built into
+ * the Block Editor in the future.
+ */
+.wp-block-navigation .wp-block-navigation__responsive-container.is-menu-open {
+	padding-top: var(--wp--preset--spacing--60);
+	padding-bottom: var(--wp--preset--spacing--60);
+	padding-right: var(--wp--style--root--padding-right, var(--wp--preset--spacing--50));
+	padding-left: var(--wp--style--root--padding-left, var(--wp--preset--spacing--50));
+}
+
+/* Increase animation TIME on nav menu drop-downs */
+.wp-block-navigation .has-child .wp-block-navigation__submenu-container {
+	-webkit-transition-duration: var(--wp--custom--animation--duration--short);
+	transition-duration: var(--wp--custom--animation--duration--short);
+}
+
+/* Increase animation DELAY on nav drop-downs when NOT requiring a click */
+.wp-block-navigation .has-child:not(.open-on-click):hover > .wp-block-navigation__submenu-container {
+	-webkit-transition-delay: var(--wp--custom--animation--duration--short);
+	transition-delay: var(--wp--custom--animation--duration--short);
+}
+
+/*--------------------------------------------------------------
+# Images
+--------------------------------------------------------------*/
+
+/* FIX caption color when on colored background */
+.wp-block-image figcaption {
+	color: inherit;
+}
+
+/* FIX rounded images when global image style has a border radius */
+.wp-block-image .is-style-rounded img, 
+.wp-block-image.is-style-circle-mask img, 
+.wp-block-image.is-style-rounded img {
+    border-radius: 9999px !important;
+}
+
+/*--------------------------------------------------------------
+# Media & Text
+--------------------------------------------------------------*/
+
+/* Match our padding */
+.wp-block-media-text .wp-block-media-text__content {
+	padding-left: var(--wp--preset--spacing--40);
+	padding-right: var(--wp--preset--spacing--40);
+}
+
+/*--------------------------------------------------------------
+# Quotes
+--------------------------------------------------------------*/
+
+/* OVERRIDE quote citation to be on new line */
+.wp-block-quote cite,
+.wp-block-pullquote cite {
+	display: inline-block;
+}
+
+/* OVERRIDE remove top margin because we use padding instead */
+.wp-block-pullquote p {
+	margin-top: 0; 
+}
+
+/*--------------------------------------------------------------
+# Comments
+--------------------------------------------------------------*/
+
+/* Reduce top margin on "Leave a Reply" */
+.comment-reply-title {
+	margin-top: 0;
+}
+
+/* Hide empty comments so no extra vertical margin */
+#post-comments {
+	margin-bottom: var(--wp--style--block-gap);
+}
+#post-comments:empty {
+	display: none;
+	margin-top: 0;
+}
+
+/* Add padding to comment page numbers */
+.wp-block-comments-pagination .page-numbers:nth-last-child(n+2) {
+	padding-right: var(--wp--preset--spacing--30);
+}
+
+/* Add word "comment(s)" after post comment count. Note this is only available
+ * with the Gutenberg plugin. 
+ */
+.wp-block-post-comments-count:after {
+	content: " comment(s)";
+}
+
+/*--------------------------------------------------------------
+# Separator
+--------------------------------------------------------------*/
+
+/* FIX to center default (narrow) separator when user selects alignfull */
+.wp-block-separator.alignfull {
+	margin-left: auto !important;
+	margin-right: auto !important;
+}
+
+/* Override our short width for wide and dotted separators */
+.wp-block-separator.is-style-wide,
+.wp-block-separator.is-style-dots {
+	width: 100% !important;; 
+}
+
+/*--------------------------------------------------------------
+# Featured Image
+--------------------------------------------------------------*/
+.wp-block-post-featured-image img {
+	padding: var(--wp--custom--border--radius);
+}
+
+/*--------------------------------------------------------------
+# Latest Posts
+--------------------------------------------------------------*/
+
+/* Increase post title size */
+.wp-block-latest-posts.is-grid .wp-block-latest-posts__post-title {
+	font-size: var(--wp--preset--font-size--medium);
+}
+
+/* Set post thumbnails to match blog */
+.wp-block-latest-posts__featured-image img {
+	border-radius: var(--wp--custom--border--radius);
+	border: 1px solid var(--wp--custom--border--color);
+	padding: var(--wp--custom--border--radius);
+}
+.wp-block-latest-posts__featured-image.aligncenter {
+	margin-bottom: var(--wp--preset--spacing--30);
+}
+
+/* Add some padding to plain posts list */
+.wp-block-latest-posts li {
+	margin-bottom: var(--wp--preset--spacing--30);
+}
+
+/* Remove extra bottom padding on posts grid */
+.wp-block-latest-posts.is-grid li {
+	margin-bottom: 0;
+}
+
+/*--------------------------------------------------------------
+# Latest Comments
+--------------------------------------------------------------*/
+
+/* Set default latest comments to match latest posts, which has no bullets or indent */
+.wp-block-latest-comments {
+	list-style: none;
+}
+
+.wp-block-latest-comments__comment {
+	margin-bottom: 0;
+}
+
+/* Add some padding to plain posts list */
+.wp-block-latest-comments li {
+	margin-bottom: var(--wp--preset--spacing--30);
+}
+
+/*--------------------------------------------------------------
+# Query Pagination
+--------------------------------------------------------------*/
+.wp-block-query-pagination-numbers .page-numbers:nth-last-child(n+2) {
+	padding-right: var(--wp--preset--spacing--30);
+}
+
+/*--------------------------------------------------------------
+# Social Icons
+--------------------------------------------------------------*/
+
+/* Adjust icon sizes */
+.wp-block-social-links.has-small-icon-size {
+  font-size: 22px;
+}
+.wp-block-social-links:not(.has-huge-icon-size):not(.has-large-icon-size),
+.wp-block-social-links.has-normal-icon-size {
+	font-size: 26px;
+}
+
+/* Adjust animation on social icons to better match our other animation */
+.wp-block-social-link {
+    transition: transform var(--wp--custom--animation--duration--medium) ease-in-out;
+}
+
+/*--------------------------------------------------------------
+# Details Blocks
+--------------------------------------------------------------*/
+
+/* Closed Summary will have normal foreground font color */
+.wp-block-details > summary {
+	color: var(--wp--preset--color--foreground);
+	transition: color var(--wp--custom--animation--duration--medium) var(--wp--custom--animation--timing-function);
+}
+
+/* Highlight Summary on hover and when open */
+.wp-block-details > summary:hover,
+.wp-block-details[open] > summary {
+	color: var(--wp--preset--color--primary);
+}
+
+.wp-block-details:not([open]) > summary,
+.wp-block-details > summary:active {
+	color: var(--wp--preset--color--foreground);
+}
+	
+/*--------------------------------------------------------------
+# Table Block
+--------------------------------------------------------------*/
+
+/* Allow tables to scroll on mobile */
+.wp-block-table {
+	overflow-x: scroll;
+}
+
+/* On striped tables, move the bottom line above the fig caption */
+.wp-block-table.is-style-stripes {
+    border-bottom: none;
+}
+.wp-block-table.is-style-stripes .wp-element-caption {
+	border-top: 1px solid;
+}
+
+/* On striped tables, use our neutral color for odd rows */
+.wp-block-table.is-style-stripes tbody tr:nth-child(odd) {
+    background-color: var(--wp--preset--color--neutral);
+}
+.wp-block-table.is-style-stripes table:not(.has-text-color) tbody tr:nth-child(odd) {
+	color: var(--wp--preset--color--very-dark-gray);
+}
+
+/*.wp-block-table.is-style-stripes tbody tr:nth-child(even) {
+    background-color: var(--wp--preset--color--neutral-alt);
+}*/
 		
 /*--------------------------------------------------------------
 # Margin Overrides (Vertical spacing)
