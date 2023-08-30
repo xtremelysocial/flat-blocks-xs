@@ -59,10 +59,10 @@ if ( ! function_exists( 'flatblocks_parse_block_pattern' ) ) :
 
 		// For child themes, override the theme name
 		// TO-DO: Add logic to determine if pattern should reference parent or child theme
-		if ( is_child_theme() ) {
+		/**if ( is_child_theme() ) {**/
 			$child_slug = wp_get_theme()->get_stylesheet();
 			$content = str_ireplace('"theme":"flat-blocks"', '"theme":"' . $child_slug . '"', $content);
-		}
+		/**}**/
 
 		// Regardless, override the URL's and image SRC's with parent's full URL's
 		$content = preg_replace( '/(\"url\":\")(.*?)(\/assets\/images\/)/', '$1' . get_template_directory_uri() . '$3', $content);
