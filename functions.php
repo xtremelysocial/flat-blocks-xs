@@ -108,12 +108,12 @@ if ( ! function_exists( 'flatblocks_front_end_styles' ) ) :
 		}
 		
 		// Enqueue theme style after theme base style
-		/*wp_enqueue_style( 
+		wp_enqueue_style( 
 			'flatblocks-style', 
 			get_template_directory_uri() . '/style.css', 
 			array('flatblocks-base'),
 			$version_string
-		);*/
+		);
 		
 		// As a courtesy, add the child theme Custom Styles CSS if it exists
 		if ( is_child_theme() && file_exists( get_stylesheet_directory() . '/assets/css/custom-styles.css' ) ) {
