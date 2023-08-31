@@ -43,13 +43,10 @@
 
 					// Figure out top offset from top margin and/or admin bar
 					var topOffset = 0;
-					/*const siteTopMargin = parseInt( $('.wp-site-blocks').css('margin-top') );
-					if (siteTopMargin) topOffset += siteTopMargin;*/
 					const siteTopMargin = parseInt( $('.is-style-fixed-header').outerHeight() );
 					if (siteTopMargin) topOffset += siteTopMargin;
 					const adminbarHeight = parseInt( $( '#wpadminbar' ).outerHeight() );
 					if (adminbarHeight) topOffset += adminbarHeight;
-					console.log('topOffset=' + topOffset); //TEST
 
 					// Only prevent default if animation is actually gonna happen
 					event.preventDefault();

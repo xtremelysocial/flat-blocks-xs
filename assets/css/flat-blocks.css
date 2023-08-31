@@ -62,20 +62,20 @@ body {
 --------------------------------------------------------------*/
 
 /* Use bold font-weight from theme.json */
-strong, 
-b {
+.wp-site-blocks strong, 
+.wp-site-blocks b {
 	font-weight: var(--wp--custom--typography--font-weight--bold);
 }
 
 /* Prevent code from breaking layout */
-code,
-pre {
+.wp-site-blocks code,
+.wp-site-blocks pre {
 	overflow-x: auto;
 }
 
 /* Set lists with background to match other padding */
-ol.has-background,
-ul.has-background {
+.wp-site-blocks ol.has-background,
+.wp-site-blocks ul.has-background {
     padding: var(--wp--preset--spacing--40);
     list-style-position: inside;
 }
@@ -89,13 +89,8 @@ ul.has-background {
  * 
  * Note: Many of these need to be excluded from the Block Editor toolbars or it will
  * alter them too.
- */
- 
-.block-editor-plain-text {
-    color: var(--wp--preset--color--very-dark-gray);
-} 
-
-fieldset {
+ */ 
+.wp-site-blocks fieldset {
 	font-size: var(--wp--preset--font-size--normal);
 	font-weight: var(--wp--custom--typography--font-weight--normal);
 	line-height: 1.5;
@@ -106,7 +101,7 @@ fieldset {
 	-webkit-appearance: none;
  }
 
-select {
+.wp-site-blocks select {
 	font-family: inherit;
 	font-size: var(--wp--preset--font-size--small);
 	font-weight: var(--wp--custom--typography--font-weight--normal);
@@ -117,8 +112,8 @@ select {
 	border: 1px solid var(--wp--preset--color--foreground);	
 }
   
-textarea,
-input {
+.wp-site-blocks textarea,
+.wp-site-blocks input {
 	font-size: var(--wp--preset--font-size--normal);
 	font-weight: var(--wp--custom--typography--font-weight--normal);
 	line-height: 1.5;
@@ -126,38 +121,43 @@ input {
 	text-shadow: none;
 }
 
-textarea,
-input:not([type="radio"]):not([type="checkbox"]):not([type="file"]):not([type="button"]):not([type="image"]):not([class="button"]):not(.wp-block-button__link) {
+.wp-site-blocks textarea,
+.wp-site-blocks input:not([type="radio"]):not([type="checkbox"]):not([type="file"]):not([type="button"]):not([type="image"]):not([class="button"]):not(.wp-block-button__link) {
 	-webkit-appearance: none;
 	border: 1px solid var(--wp--preset--color--foreground);
 }
 
 /* Style focus outline */
-input:focus,
-textarea:focus {
+.wp-site-blocks input:focus,
+.wp-site-blocks textarea:focus {
 	outline: none !important;
 	box-shadow: 0 0 0 3px var(--wp--custom--outline--color);
 	transition: box-shadow 0.3s ease;
 }
-select:focus,
-select:focus-visible {
+.wp-site-blocks select:focus,
+.wp-site-blocks select:focus-visible {
 	outline: var(--wp--custom--outline--color) 5px solid;
 	transition: outline 0.3s ease;
 }
+
+/* Fields are still light background, so make text dark in Editor */
+.block-editor-plain-text {
+    color: var(--wp--preset--color--very-dark-gray);
+} 
 
 /*
  * Link styles.
  * Necessary until the following issue is resolved in Gutenberg:
  * https://github.com/WordPress/gutenberg/issues/27075
  */
-a,
-.wp-block-navigation a,
-.wp-block-navigation-submenu__toggle {
+.wp-site-blocks a,
+.wp-site-blocks .wp-block-navigation a,
+.wp-site-blocks .wp-block-navigation-submenu__toggle {
 	cursor: pointer;
 }
 
 /* Colored link hover styles */
-.has-text-color a:not(.wp-element-button):not(.wp-block-button):not(.wp-block-social-link-anchor):hover {
+.wp-site-blocks .has-text-color a:not(.wp-element-button):not(.wp-block-button):not(.wp-block-social-link-anchor):hover {
 	opacity: 0.8;
 }
 
@@ -165,9 +165,9 @@ a,
  * plugins. Note the exclusions of any blocks or Tiny MCE buttons (which are the old
  * editor prior to the new block editor).
  */
-input[type="button"],
-input[class="button"],
-input[type="file"]::file-selector-button {
+.wp-site-blocks input[type="button"],
+.wp-site-blocks input[class="button"],
+.wp-site-blocks input[type="file"]::file-selector-button {
 	color: var(--wp--preset--color--foreground-alt);
 	background-color: var(--wp--preset--color--primary);
 	border-width: 0;
@@ -178,7 +178,7 @@ input[type="file"]::file-selector-button {
 	line-height: 1.5;
 	text-shadow: none;
 }
-input[type="file"] {
+.wp-site-blocks input[type="file"] {
 	font-size: var(--wp--preset--font-size--small);
 	width: 100%;
 }
@@ -188,12 +188,12 @@ input[type="file"] {
  * Necessary until the following issue is resolved in Gutenberg:
  * https://github.com/WordPress/gutenberg/issues/27075
  */
-button:hover,
-input[class="button"]:hover,
-input[type="file"]::file-selector-button:hover,
-.wp-block-search__button:hover,
-.wp-block-file .wp-block-file__button:hover,
-.wp-block-button__link:hover {
+.wp-site-blocks button:hover,
+.wp-site-blocks input[class="button"]:hover,
+.wp-site-blocks input[type="file"]::file-selector-button:hover,
+.wp-site-blocks .wp-block-search__button:hover,
+.wp-site-blocks .wp-block-file .wp-block-file__button:hover,
+.wp-site-blocks .wp-block-button__link:hover {
 	opacity: 0.8;
 	cursor: pointer;
 }
@@ -202,26 +202,21 @@ input[type="file"]::file-selector-button:hover,
 # Basic Alignments
 --------------------------------------------------------------*/
 
-/* LIMIT cover image text to wide width */
-.wp-block-cover__inner-container {
-	max-width: var(--wp--style--global--wide-size); 
-}
-
 /* FIX for center alignment */
-.is-layout-constrained > .aligncenter {
+.wp-site-blocks .is-layout-constrained > .aligncenter {
 	text-align: center;
 }
 
 /* ADD padding to align left and align right to honor wide width */
 .wp-site-blocks > .alignleft {
-	margin-right: var(--wp--preset--spacing--40);
+	margin-right: var(--wp--style--block-gap);
 }
 body .is-layout-constrained > .alignleft {
 	padding-left: calc(0.5 * (100% - var(--wp--style--global--wide-size)));
 	margin-inline-end: var(--wp--style--block-gap);
 }
 .wp-site-blocks > .alignright {
-	margin-left: var(--wp--preset--spacing--40);
+	margin-left: var(--wp--style--block-gap);
 }
 body .is-layout-constrained > .alignright {
 	padding-right: calc(0.5 * (100% - var(--wp--style--global--wide-size)));
@@ -249,6 +244,14 @@ body .is-layout-constrained > .alignright {
 .has-background h5:not(.has-text-color),	
 .has-background h6:not(.has-text-color) {
 	color: inherit;
+}
+
+/*--------------------------------------------------------------
+# Cover
+--------------------------------------------------------------*/
+/* LIMIT cover image text to wide width */
+.wp-block-cover__inner-container {
+	max-width: var(--wp--style--global--wide-size); 
 }
 
 /*--------------------------------------------------------------
@@ -517,12 +520,13 @@ figure.wp-caption:not(.alignfull):not(.alignwide) img {
 --------------------------------------------------------------*/
 
 /* Adjust icon sizes */
-.wp-block-social-links.has-small-icon-size {
-  font-size: 22px;
-}
 .wp-block-social-links:not(.has-huge-icon-size):not(.has-large-icon-size),
 .wp-block-social-links.has-normal-icon-size {
 	font-size: 26px;
+}
+
+.wp-block-social-links.has-small-icon-size {
+  font-size: 22px;
 }
 
 /* Adjust animation on social icons to better match our other animation */
@@ -643,12 +647,12 @@ body .is-layout-constrained .wp-block-template-part > * + *:not(.wp-block-templa
 .wp-site-blocks .wp-block-template-part {*/
 main.wp-block-group,
 .wp-block-template-part {
-	padding: 0;
+	padding: 0; /* !important */
 }
-/*.is-root-container main,
+.is-root-container main,
 .is-root-container .wp-block-template-part {
 	padding: 0 !important;
-}*/
+}
 
 /* FIX to add back horizontal padding */
 .has-global-padding {

@@ -155,17 +155,18 @@ You can check out our other themes here: https://xtremelysocial.com/wordpress/
 == Changelog ==
 
 = 1.3.1 = 
-August 30, 2023
+August 31, 2023
 
 * Rewrote all the logic for Fixed Headers and Fixed Nav Menus. They now both work in the Site Editor! The extra "hidden" group for the #page anchor for smooth scrolling isn't needed anymore either. This also removes the requirement for the fixedheader javascript, so site performance is improved. 
 * Disabled the "Sticky" Group block option in the Editor because it didn't work anyway and could conflict with the new fixed header logic.
 * Adjusted the smooth scroll javascript to work with this new fixed header method. 
 * Tweaked the CSS for horizontal padding and vertical margin on the front-end and in the editor. Updated some of the custom styles to use block-gap instead of preset-spacing-40. This was only done where it was used for the same purpose as vertical gap.
 * Fix for child theme style.css not loading in the Block Editor
-* As a result, the Editor should finally truly match the front-end now.
+* As a result, the Editor now matches the front-end even better!
 * Added new Post No Comments Template for when there are historical comments that you no longer want to display on a post. 
 * Tweaks to the CSS for plain style lists (no bullets or numbering) to add some bottom margin to better separate them.
 * Adjusted small and normal social icon sizes up a bit (22px and 26px respectively).
+* No longer load the theme's style.css since it is only required by WordPress to describe the theme itself. There is no actual CSS in it. The CSS for this theme is in /assets/css/flat-blocks.css and /assets/css/custom-styles.css.
 * For child themes, their /assets/css/custom-styles.css will now be automatically loaded into the Editor if it exists.
 * Updated this readme.txt file to clarify and enhance instructions for creating a child theme.
 * Updated the Custom Block Styles logic to allow for non-core styles. This was done in case anyone wants to add custom block styles to blocks added with a plugin, such as Jetpack. Just pass in jetpack/whatever-block instead of core/whatever-block or just whatever-block.

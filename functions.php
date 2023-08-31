@@ -70,7 +70,7 @@ add_action( 'after_setup_theme', 'flatblocks_support' );
 /* 
  * Tell WordPress to load only the block styles for blocks in use on a particular page
  */
-add_filter( 'should_load_separate_core_block_assets', '__return_true' );
+//add_filter( 'should_load_separate_core_block_assets', '__return_true' );
 
 /**
  * Enqueue FRONT-END ONLY styles and scripts.
@@ -108,19 +108,20 @@ if ( ! function_exists( 'flatblocks_front_end_styles' ) ) :
 		}
 		
 		// Enqueue theme style after theme base style
-		wp_enqueue_style( 
+		/*wp_enqueue_style( 
 			'flatblocks-style', 
 			get_template_directory_uri() . '/style.css', 
 			array('flatblocks-base'),
 			$version_string
-		);
+		);*/
 		
 		// As a courtesy, add the child theme Custom Styles CSS if it exists
 		if ( is_child_theme() && file_exists( get_stylesheet_directory() . '/assets/css/custom-styles.css' ) ) {
 			wp_enqueue_style( 
 				'flatblocks-child-custom-styles', 
 				get_stylesheet_directory_uri() . '/assets/css/custom-styles.css', 
-				array( 'flatblocks-style' ), 
+				//array( 'flatblocks-style' ), 
+				array('flatblocks-base'),
 				$version_string 
 			);
 		}
@@ -130,7 +131,8 @@ if ( ! function_exists( 'flatblocks_front_end_styles' ) ) :
 			wp_enqueue_style( 
 				'flatblocks-child-style', 
 				get_stylesheet_directory_uri() . '/style.css', 
-				array( 'flatblocks-style' ), 
+				//array( 'flatblocks-style' ), 
+				array('flatblocks-base'),
 				$version_string 
 			);
 		}
@@ -142,7 +144,7 @@ if ( ! function_exists( 'flatblocks_front_end_styles' ) ) :
 				get_template_directory_uri() . '/assets/js/smoothscroll.js', 
 				array('jquery'), 
 				$version_string, 
-				true 
+				$load_in_footer = true 
 			);
 		}		
 	} 
@@ -153,15 +155,12 @@ add_action( 'wp_enqueue_scripts', 'flatblocks_front_end_styles' );
  * Enqueue FRONT-END AND BACK-END styles and scripts
  * 
  * NOTE: These styles and scripts will be loaded into the font-end, but also into the 
- * Block Editor iFrame, which is necessary for certain styles such as the built-in 
+ * Block Editor iFrame, which is necessary for certain styles, such as the built-in 
  * Dashicons.
  */
 if ( ! function_exists( 'flatblocks_block_assets' ) ) :
 
-	function flatblocks_block_assets() {
-	
-		// WordPress built-in icons (Dashicons). Note these MUST be loaded here for
-		// them to be in the Block Editor iFrame so they display.
+	function flatblocks_block_assets() {	
 		wp_enqueue_style( 'dashicons' );
 	}
 endif;
