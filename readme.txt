@@ -53,11 +53,11 @@ Use it to export a new child theme of Flat Blocks
 
 Flat Blocks is a [parent theme](https://developer.wordpress.org/themes/advanced-topics/child-themes/#what-is-a-parent-theme). The best way to use it is to create a child theme with Flat Blocks as a parent.
 
-=== `style.css` (Required) ===
+=== style.css (Required) ===
 
 Create a directory for your child theme at the same level as other parent and child themes. Name the directory something like flat-blocks-child.
 
-A Child theme needs a style.css file that links its template to the partent theme.
+A Child theme needs a `style.css` file that links its template to the partent theme.
 
 The `style.css` file contains the name of the theme and other details. To make Flat Blocks the parent theme it is important to set the "Template" property to `flat-blocks`.
 
@@ -82,9 +82,9 @@ Tags:
 
 The Flat Blocks parent theme will automatically load this child theme's `style.css` file for you. You don't even need a `functions.php` file to do it. You can place any CSS rules that you want in here.
 
-=== `screenshot.png` (Recommended) ===
+=== screenshot.png (Recommended) ===
 
-It is recommended that you create a screenshot for your child theme or at least copy down the parent theme's screenshot so something displays in the WordPress Admin.
+It is recommended that you create a `screenshot.png` for your child theme or at least copy down the parent theme's screenshot so something displays in the WordPress Admin.
 
 If you create one, it should be 1200x900 pixels and you should compress it to reduce its size to be suitable for limited bandwidth.
 
