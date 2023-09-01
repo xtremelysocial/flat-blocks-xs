@@ -118,17 +118,17 @@ If you plan on adding a lot of block patterns or custom blocks styles, rather th
 Here is a visualization of the structure of a fully built out child theme:
 
 /flat-blocks-child/
-`style.css` (required)
-`screenshot.png` (recommended)
-`theme.json` (recommended, only changed values)
-`functions.php`
+style.css (required)
+screenshot.png (recommended)
+theme.json (recommended, only changed values)
+functions.php
 
 	/assets/
 		/css/
-			`custom-styles.css` (auto loads)
+			custom-styles.css (auto loads)
 	/inc/
-		`block-patterns.php` (auto loads)
-		`block-styles.php` (auto loads)
+		block-patterns.php (auto loads)
+		block-styles.php (auto loads)
 	/parts/
 		*.html (auto load)
 	/templates/
