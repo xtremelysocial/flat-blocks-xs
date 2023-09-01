@@ -157,11 +157,12 @@ You can check out our other themes here: https://xtremelysocial.com/wordpress/
 = 1.3.2 =
 September 1, 2023
 
+* Added Post Featured Image with Left Sidebar and Post Featured Image with Right Sidebar templates for those that like a more "classic" look to their blog posts. 
 * Turned off WordPress loading core block CSS files separately. This was supposed to improve performance, but in practice it doesn't because it causes more files to need to load before the page displays. 
 * Enhanced the CSS for horizontal spacing on mobile. Don't allow user to set it to zero on headers, footers, or on the comments template part. 
 * Enhanced the CSS for cover block inner content to allow for full-width groups if desired. The default is still wide-width though.
 * Enhanced Dashicons CSS so the icons better match the element you are placing them on. For example to match the font size and font weight.
-* Set links and navigation links simply default their font-weight (by removing them from theme.json). This allows the font-weight to be overridden on individual blocks.
+* Set links and navigation links to simply default their font-weight (by removing the font-weight designators in theme.json). This allows the font-weight to be overridden on individual blocks. Also, set hover color on Site Title link. 
 * Enhanced the smooth scroll javascript to better calculate the scroll position with the new fixed header logic.
 * Set dependencies on child theme styles so they are sure to load after the Flat Blocks ones. 
 

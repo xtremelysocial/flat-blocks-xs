@@ -693,14 +693,6 @@ main.wp-block-group,
     padding-right: var(--wp--style--root--padding-right);
 }
 
-/* Don't allow users to override horizontal padding on certain groups */
-header.has-global-padding.wp-block-group,
-footer.has-global-padding.wp-block-group,
-.post-comments.has-global-padding.wp-block-group {
-    padding-left: var(--wp--style--root--padding-left) !important;
-    padding-right: var(--wp--style--root--padding-right) !important;
-}
-
 /* But REMOVE duplicate padding */
 /*.has-global-padding :where(.has-global-padding):not(.has-background) {*/
 .has-global-padding :where(.has-global-padding),
@@ -746,10 +738,13 @@ footer.has-global-padding.wp-block-group,
 		padding-right: var(--wp--preset--spacing--60);
 	}
 
-	/* If global padding, then OVERRIDE horizontal padding */
+	/* If global padding, then OVERRIDE horizontal padding on mobile */
 	.has-global-padding p.has-background,
 	.has-global-padding .wp-block-columns.has-background,
-	.has-global-padding .wp-block-column.has-background {
+	.has-global-padding .wp-block-column.has-background,
+	.site-header.has-global-padding.wp-block-group,
+	.site-footer.has-global-padding.wp-block-group,
+	.post-comments.has-global-padding.wp-block-group {
 		padding-left: var(--wp--style--root--padding-left) !important;
 		padding-right: var(--wp--style--root--padding-right) !important;
 	}
