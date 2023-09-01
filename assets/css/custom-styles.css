@@ -16,7 +16,8 @@
 .wp-block-group.is-style-fixed-header {
     border: 1px solid var(--wp--custom--border--color);
     border-width: 0 0 1px;
-    padding: var(--wp--preset--spacing--40) var(--wp--style--root--padding-right, var(--wp--preset--spacing--50)) var(--wp--preset--spacing--40) var(--wp--style--root--padding-left, var(--wp--preset--spacing--50)) !important;
+    /*padding: var(--wp--preset--spacing--40) var(--wp--style--root--padding-right, var(--wp--preset--spacing--50)) var(--wp--preset--spacing--40) var(--wp--style--root--padding-left, var(--wp--preset--spacing--50)) !important;*/
+    padding: var(--wp--preset--spacing--40);
 }
 
 /* Position the fixed header using sticky so we don't have to have top site margin */
@@ -166,7 +167,12 @@ nav.wp-block-navigation.is-style-fixed-menu .wp-block-navigation__responsive-con
 
 /* Group padding */
 .wp-block-group.is-style-no-padding {
-	padding: 0;
+	padding-top: 0;
+	padding-bottom: 0;
+}
+.wp-block-group.is-style-no-padding:not(.has-global-padding) {
+	padding-left: 0;
+	padding-right: 0;
 }
 
 /*--------------------------------------------------------------

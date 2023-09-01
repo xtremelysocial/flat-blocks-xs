@@ -3,7 +3,7 @@ Contributors: Tim Nicholson / XtremelySocial
 Requires at least: 6.2
 Tested up to: 6.3
 Requires PHP: 7.4
-Stable tag: 1.3.1
+Stable tag: 1.3.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -153,6 +153,17 @@ For more information, see these pages on the XtremelySocial.com website:
 You can check out our other themes here: https://xtremelysocial.com/wordpress/
 
 == Changelog ==
+
+= 1.3.2 =
+September 1, 2023
+
+* Turned off WordPress loading core block CSS files separately. This was supposed to improve performance, but in practice it doesn't because it causes more files to need to load before the page displays. 
+* Enhanced the CSS for horizontal spacing on mobile. Don't allow user to set it to zero on headers, footers, or on the comments template part. 
+* Enhanced the CSS for cover block inner content to allow for full-width groups if desired. The default is still wide-width though.
+* Enhanced Dashicons CSS so the icons better match the element you are placing them on. For example to match the font size and font weight.
+* Set links and navigation links simply default their font-weight (by removing them from theme.json). This allows the font-weight to be overridden on individual blocks.
+* Enhanced the smooth scroll javascript to better calculate the scroll position with the new fixed header logic.
+* Set dependencies on child theme styles so they are sure to load after the Flat Blocks ones. 
 
 = 1.3.1 = 
 August 31, 2023

@@ -43,7 +43,7 @@
 
 					// Figure out top offset from top margin and/or admin bar
 					var topOffset = 0;
-					const siteTopMargin = parseInt( $('.is-style-fixed-header').outerHeight() );
+					const siteTopMargin = parseInt( $('.wp-site-blocks > header:has(.is-style-fixed-header)').outerHeight() );
 					if (siteTopMargin) topOffset += siteTopMargin;
 					const adminbarHeight = parseInt( $( '#wpadminbar' ).outerHeight() );
 					if (adminbarHeight) topOffset += adminbarHeight;
