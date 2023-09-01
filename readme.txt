@@ -53,11 +53,11 @@ Use it to export a new child theme of Flat Blocks
 
 Flat Blocks is a [parent theme](https://developer.wordpress.org/themes/advanced-topics/child-themes/#what-is-a-parent-theme). The best way to use it is to create a child theme with Flat Blocks as a parent.
 
-=== `style.css` (Required) ===
+=== style.css (Required) ===
 
 Create a directory for your child theme at the same level as other parent and child themes. Name the directory something like flat-blocks-child.
 
-A Child theme needs a style.css file that links its template to the partent theme.
+A Child theme needs a `style.css` file that links its template to the partent theme.
 
 The `style.css` file contains the name of the theme and other details. To make Flat Blocks the parent theme it is important to set the "Template" property to `flat-blocks`.
 
@@ -82,9 +82,9 @@ Tags:
 
 The Flat Blocks parent theme will automatically load this child theme's `style.css` file for you. You don't even need a `functions.php` file to do it. You can place any CSS rules that you want in here.
 
-=== `screenshot.png` (Recommended) ===
+=== screenshot.png (Recommended) ===
 
-It is recommended that you create a screenshot for your child theme or at least copy down the parent theme's screenshot so something displays in the WordPress Admin.
+It is recommended that you create a `screenshot.png` for your child theme or at least copy down the parent theme's screenshot so something displays in the WordPress Admin.
 
 If you create one, it should be 1200x900 pixels and you should compress it to reduce its size to be suitable for limited bandwidth.
 
@@ -118,17 +118,17 @@ If you plan on adding a lot of block patterns or custom blocks styles, rather th
 Here is a visualization of the structure of a fully built out child theme:
 
 /flat-blocks-child/
-`style.css` (required)
-`screenshot.png` (recommended)
-`theme.json` (recommended, only changed values)
-`functions.php`
+style.css (required)
+screenshot.png (recommended)
+theme.json (recommended, only changed values)
+functions.php
 
 	/assets/
 		/css/
-			`custom-styles.css` (auto loads)
+			custom-styles.css (auto loads)
 	/inc/
-		`block-patterns.php` (auto loads)
-		`block-styles.php` (auto loads)
+		block-patterns.php (auto loads)
+		block-styles.php (auto loads)
 	/parts/
 		*.html (auto load)
 	/templates/
@@ -157,11 +157,12 @@ You can check out our other themes here: https://xtremelysocial.com/wordpress/
 = 1.3.2 =
 September 1, 2023
 
+* Added Post Featured Image with Left Sidebar and Post Featured Image with Right Sidebar templates for those that like a more "classic" look to their blog posts. 
 * Turned off WordPress loading core block CSS files separately. This was supposed to improve performance, but in practice it doesn't because it causes more files to need to load before the page displays. 
 * Enhanced the CSS for horizontal spacing on mobile. Don't allow user to set it to zero on headers, footers, or on the comments template part. 
 * Enhanced the CSS for cover block inner content to allow for full-width groups if desired. The default is still wide-width though.
 * Enhanced Dashicons CSS so the icons better match the element you are placing them on. For example to match the font size and font weight.
-* Set links and navigation links simply default their font-weight (by removing them from theme.json). This allows the font-weight to be overridden on individual blocks.
+* Set links and navigation links to simply default their font-weight (by removing the font-weight designators in theme.json). This allows the font-weight to be overridden on individual blocks. Also, set hover color on Site Title link. 
 * Enhanced the smooth scroll javascript to better calculate the scroll position with the new fixed header logic.
 * Set dependencies on child theme styles so they are sure to load after the Flat Blocks ones. 
 
