@@ -252,19 +252,28 @@ body .is-layout-constrained > .alignright {
 --------------------------------------------------------------*/
 
 /* Override core WordPress limiting the cover inner content */
-.wp-block-cover-image.has-custom-content-position.has-custom-content-position .wp-block-cover__inner-container, 
+/*.wp-block-cover-image.has-custom-content-position.has-custom-content-position .wp-block-cover__inner-container, 
 .wp-block-cover.has-custom-content-position.has-custom-content-position .wp-block-cover__inner-container {
 	width: 100%;
-}
+}*/
 
 /* Use our widths to limit cover image inner content */
-.wp-block-cover .wp-block-cover__inner-container {
-	max-width: var(--wp--style--global--wide-size); 
-	width: 100%;
+.wp-block-cover .wp-block-cover__inner-container > *:not(.alignfull):not(.alignwide) {
+	max-width: var(--wp--style--global--content-size); 
+	margin-left: auto;
+	margin-right: auto;
 }
 
-.wp-block-cover .wp-block-cover__inner-container > *:not(.alignfull) {
+.wp-block-cover .wp-block-cover__inner-container > *.alignwide {
 	max-width: var(--wp--style--global--wide-size); 
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.wp-block-cover .wp-block-cover__inner-container > *.alignfull {
+	max-width: var(--wp--custom--layout--full-size); 
+	margin-left: auto;
+	margin-right: auto;
 }
 
 /*--------------------------------------------------------------
