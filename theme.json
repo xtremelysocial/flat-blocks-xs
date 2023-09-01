@@ -949,8 +949,6 @@
 					"text": "var(--wp--preset--color--primary)"
 				},
 				"typography": {
-					"lineHeight": {"ref": "styles.typography.lineHeight"},
-					"fontWeight": {"ref": "styles.typography.fontWeight"},
 					"textDecoration": "none"
 				},
 				":hover": {
@@ -1085,15 +1083,10 @@
 			"core/navigation": {
 				"typography": {
 					"fontSize": "var(--wp--preset--font-size--small)",
-					"fontWeight": {"ref": "styles.elements.heading.typography.fontWeight"},
-					"lineHeight": {"ref": "styles.elements.heading.typography.lineHeight"},
 					"textDecoration": "none"
 				},
 				"elements": {
 					"link": {
-						"typography": {
-							"fontWeight": {"ref": "styles.elements.heading.typography.fontWeight"}
-						},
 						":hover": {
 							"color": {
 								"text": "var(--wp--preset--color--primary-alt)"
@@ -1106,9 +1099,6 @@
 						}
 					},
 					"button": {
-						"typography": {
-							"fontWeight": {"ref": "styles.elements.heading.typography.fontWeight"}
-						},
 						":hover": {
 							"color": {
 								"text": "var(--wp--preset--color--primary-alt)"
@@ -1124,7 +1114,6 @@
 			},
 			"core/navigation-link": {
 				"typography": {
-					"fontWeight": {"ref": "styles.elements.heading.typography.fontWeight"},
 					"lineHeight": {"ref": "styles.typography.lineHeight"}
 				}
 			},
@@ -1287,6 +1276,16 @@
 					"link": {
 						"color": {
 							"text": "var(--wp--preset--color--primary)"
+						},
+						":hover": {
+							"color": {
+								"text": "var(--wp--preset--color--primary-alt)"
+							}
+						},
+						":focus": {
+							"color": {
+								"text": "var(--wp--preset--color--primary-alt)"
+							}
 						},
 						"typography": {
 							"lineHeight": {"ref": "styles.elements.heading.typography.lineHeight"},
@@ -1847,6 +1846,18 @@
 			"name": "single-featured-image",
 			"title": "Post with Featured Image",
 			"description": "Post w/large featured image",
+			"postTypes": ["post"]
+		},
+		{
+			"name": "single-featured-image-sidebar-left",
+			"title": "Post with Featured Image and Left Sidebar",
+			"description": "Post w/large featured image and left sidebar",
+			"postTypes": ["post"]
+		},
+		{
+			"name": "single-featured-image-sidebar-right",
+			"title": "Post with Featured Image and Right Sidebar",
+			"description": "Post w/large featured image and right sidebar",
 			"postTypes": ["post"]
 		},
 		{

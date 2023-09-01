@@ -44,7 +44,7 @@ if ( ! function_exists( 'flatblocks_support' ) ) :
 			array(
 				'/assets/css/flat-blocks.css',
 				'/assets/css/custom-styles.css',
-				'style.css'
+				//'style.css'
 			)
 		);
 
@@ -71,6 +71,7 @@ add_action( 'after_setup_theme', 'flatblocks_support' );
  * Tell WordPress to load only the block styles for blocks in use on a particular page
  */
 //add_filter( 'should_load_separate_core_block_assets', '__return_true' );
+add_filter( 'should_load_separate_core_block_assets', '__return_false' );
 
 /**
  * Enqueue FRONT-END ONLY styles and scripts.
@@ -95,16 +96,12 @@ if ( ! function_exists( 'flatblocks_front_end_styles' ) ) :
 				
 		// Register custom block styles. See /inc/block-styles.php.
 		if ( file_exists( get_template_directory() . '/assets/css/custom-styles.css' ) ) {
-			wp_register_style(
+			wp_enqueue_style(
 				'flatblocks-custom-styles',
 				get_template_directory_uri() . '/assets/css/custom-styles.css',
 				array('flatblocks-base'),
 				$version_string
 			);
-		
-			// Note: Conditional loading of custom styles not stable as of WordPress 6.2,
-			// so always load
-			wp_enqueue_style( 'flatblocks-custom-styles' );
 		}
 		
 		// Enqueue theme style after theme base style
@@ -121,7 +118,7 @@ if ( ! function_exists( 'flatblocks_front_end_styles' ) ) :
 				'flatblocks-child-custom-styles', 
 				get_stylesheet_directory_uri() . '/assets/css/custom-styles.css', 
 				//array( 'flatblocks-style' ), 
-				array('flatblocks-base'),
+				array('flatblocks-base', 'flatblocks-custom-styles'),
 				$version_string 
 			);
 		}
@@ -132,7 +129,7 @@ if ( ! function_exists( 'flatblocks_front_end_styles' ) ) :
 				'flatblocks-child-style', 
 				get_stylesheet_directory_uri() . '/style.css', 
 				//array( 'flatblocks-style' ), 
-				array('flatblocks-base'),
+				array('flatblocks-base', 'flatblocks-custom-styles'),
 				$version_string 
 			);
 		}
