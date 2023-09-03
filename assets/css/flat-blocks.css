@@ -1,6 +1,6 @@
 /**
- * Theme:	Flat Blocks
  * File:	flat-blocks.css
+ * Theme:	Flat Blocks
  * 
  * The base stylesheet for the theme's css
  *
@@ -225,6 +225,15 @@ body .is-layout-constrained > .alignright {
 }
 
 /*--------------------------------------------------------------
+# Captions (images, tables, etc.)
+--------------------------------------------------------------*/
+
+/* Center captions by default */
+.wp-site-blocks figcaption {
+	text-align: center;
+}
+
+/*--------------------------------------------------------------
 # Headings
 --------------------------------------------------------------*/
 
@@ -254,18 +263,12 @@ h3.has-background,
 h4.has-background, 
 h5.has-background,
 h6.has-background {
-    padding: 0;
+    padding: var(--wp--preset--spacing--40);
 }
 
 /*--------------------------------------------------------------
 # Cover
 --------------------------------------------------------------*/
-
-/* Override core WordPress limiting the cover inner content */
-/*.wp-block-cover-image.has-custom-content-position.has-custom-content-position .wp-block-cover__inner-container, 
-.wp-block-cover.has-custom-content-position.has-custom-content-position .wp-block-cover__inner-container {
-	width: 100%;
-}*/
 
 /* LIMIT cover image inner content to standard unless wide or full */
 .wp-block-cover .wp-block-cover__inner-container > *:not(.alignfull):not(.alignwide) {
@@ -289,10 +292,11 @@ h6.has-background {
  *
  * Note to theme reviewers, this issues a warning but is actually
  * fixing an issue in core WordPress v6.0. It is not hiding the 
- * admin bar like the warning indicates.
+ * admin bar like the warning indicates. Body is used for more
+ * specificity than the core WordPress CSS.
  */
 @media screen and (max-width: 600px) {
-    #wpadminbar {
+    body > #wpadminbar {
         position: fixed;
     }
 }
@@ -384,11 +388,6 @@ header > .wp-block-cover {
 /*--------------------------------------------------------------
 # Images
 --------------------------------------------------------------*/
-
-/* Center captions by default */
-.wp-site-blocks figcaption {
-	text-align: center;
-}
 
 /* Prevent images with hard-coded dimensions from breaking the 
  * layout. Note the figure line is for older block editor markup. 
@@ -684,8 +683,6 @@ body .is-layout-constrained .wp-block-template-part > * + *:not(.wp-block-templa
  */
 
 /* For convenience, remove padding from inner containers */
-/*.wp-site-blocks main,
-.wp-site-blocks .wp-block-template-part {*/
 main.wp-block-group,
 .wp-block-template-part {
 	padding: 0;
@@ -704,7 +701,6 @@ main.wp-block-group,
 }
 
 /* But REMOVE duplicate padding */
-/*.has-global-padding :where(.has-global-padding):not(.has-background) {*/
 .has-global-padding :where(.has-global-padding),
 .has-global-padding > .alignfull:where(:not(.has-global-padding)) > :where(.wp-block-image) {
 	padding-left: 0;

@@ -3,7 +3,7 @@ Contributors: Tim Nicholson / XtremelySocial
 Requires at least: 6.2
 Tested up to: 6.3
 Requires PHP: 7.4
-Stable tag: 1.3.2
+Stable tag: 1.3.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -153,6 +153,16 @@ For more information, see these pages on the XtremelySocial.com website:
 You can check out our other themes here: https://xtremelysocial.com/wordpress/
 
 == Changelog ==
+
+= 1.3.3 =
+September 3, 2023
+
+* Locked numerous theme elements that are critical to the templates, such as the main group for the page/post, sidebar on the templates with sidebars, etc. These can always be unlocked by the user, but will prevent accidentally deleting critical template components.
+* Set separators to not default to centered (but of course allow the user to center them).
+* Removed footer from Post Content Only template. This template is designed to be like a "landing page" where all of the content is built on the page itself. i.e. The user will create a unique header and/or footer, if desired.
+* Enhanced CSS for:
+	* WordPress Admin Bar on mobile to make sure it stays in its fixed position.
+	* Padding and background color on Fixed headers.
 
 = 1.3.2 =
 September 1, 2023

@@ -1,7 +1,7 @@
 <?php
 /**
- * Theme:	Flat Blocks
  * File:	pattern-functions.php
+ * Theme:	Flat Blocks
  * 
  * These are helper functions for registering this theme's block patterns from PHP. 
  * For example the sample about, home, portfolio, and services page patterns.
