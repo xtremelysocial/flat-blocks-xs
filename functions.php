@@ -1,5 +1,8 @@
 <?php
 /**
+ * File:	functions.php
+ * Theme:	Flat Blocks
+ * 
  * Flat Blocks functions and definitions
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/

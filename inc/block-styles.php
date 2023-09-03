@@ -1,7 +1,7 @@
 <?php
 /**
- * Theme:	Flat Blocks
  * File:	block-styles.php
+ * Theme:	Flat Blocks
  * 
  * Adds all of our custom styles for selection in the Block Editor
  * 

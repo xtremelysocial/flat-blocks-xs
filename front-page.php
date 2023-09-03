@@ -1,5 +1,8 @@
 <?php
 /**
+ * File:	front-page.php
+ * Theme:	Flat Blocks
+ * 
  * The Front Page template file
  *
  * This template is written in PHP so it can conditionally handle the front page
