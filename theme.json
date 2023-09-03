@@ -1427,7 +1427,9 @@
 				"spacing": {
 					"margin": {
 						"top": {"ref": "styles.spacing.blockGap"},
-						"bottom": {"ref": "styles.spacing.blockGap"}
+						"bottom": {"ref": "styles.spacing.blockGap"},
+						"left": "0",
+						"right": "0"
 					}
 				},
 				"css": "width: calc(3 * var(--wp--preset--spacing--60))"

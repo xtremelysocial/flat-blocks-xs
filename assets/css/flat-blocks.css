@@ -256,6 +256,16 @@ body .is-layout-constrained > .alignright {
 	color: inherit;
 }
 
+/* Don't add extra padding to headings with backgrounds */
+h1.has-background, 
+h2.has-background, 
+h3.has-background, 
+h4.has-background, 
+h5.has-background,
+h6.has-background {
+    padding: var(--wp--preset--spacing--40);
+}
+
 /*--------------------------------------------------------------
 # Cover
 --------------------------------------------------------------*/
