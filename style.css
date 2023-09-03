@@ -103,7 +103,8 @@ GNU General Public License for more details.
 --------------------------------------------------------------*/
 
 /* Come on now, of course we need a margin before their name and comment */
-.avatar {
+.avatar,
+.xs_recent_member {
 	float: left;
 	margin-right: 10px;
 	margin-bottom: 10px;
