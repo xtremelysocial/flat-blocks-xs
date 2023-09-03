@@ -279,10 +279,11 @@ body .is-layout-constrained > .alignright {
  *
  * Note to theme reviewers, this issues a warning but is actually
  * fixing an issue in core WordPress v6.0. It is not hiding the 
- * admin bar like the warning indicates.
+ * admin bar like the warning indicates. body is used here for
+ * more specificity than the core WordPress CSS.
  */
 @media screen and (max-width: 600px) {
-    #wpadminbar {
+    body > #wpadminbar {
         position: fixed;
     }
 }
