@@ -247,6 +247,15 @@ body .is-layout-constrained > .alignright {
 	color: inherit;
 }
 
+h1.has-background, 
+h2.has-background, 
+h3.has-background, 
+h4.has-background, 
+h5.has-background,
+h6.has-background {
+    padding: 0; /*var(--wp--preset--spacing--40);*/
+}
+
 /*--------------------------------------------------------------
 # Cover
 --------------------------------------------------------------*/
