@@ -232,7 +232,7 @@ if ( file_exists( get_template_directory() . '/pro/flat-blocks-pro.php' ) ) {
  * because there is currently no way to add an id to the wp-site-blocks wrapper and 
  * we need this to be the very first thing on the page.
  */
-add_action( 'wp_body_open', function() { echo '<a id="page"></a>'; } );
+add_action( 'wp_body_open', function() { echo '<a id="page"></a><a id="wrapper"></a>'; } );
 
 /**
  * Define our custom template part AREAS
