@@ -160,7 +160,8 @@ September 5, 2023
 * In header navigation, also highlight the current menu item (or parent item). By default, the primary color will be used (light green). On user-colored headers, bold will be used.
 * Reduce default cover image overlay color to 40% (was 60%) on the colored block image to allow more of the image's natural colors to show through.
 * Updated screenshot to reflect highlight of home page link and lightening of cover overlay in the site header.
-* Remove automatically centering figure captions (image, table, etc.) since the user can specify what position they want it in.
+* Set footer columns to use thick gap to match pages with sidebars. The thick gap style is twice the standard block gap (which is preset spacing 40 that is responsive up to 18px). So the gap is up to 36px now.
+* Don't automatically center figure captions (image, table, etc.) since the user can specify what position they want it in (and it defaults to left).
 * Added an anchor link of #wrapper at the top of each page for the theme preview on WordPress.org and for users with older navigation menus that point to that as it was the standard on older WordPress themes (before Block based themes). This theme uses #page and that still works as well.
 
 = 1.3.3 =
