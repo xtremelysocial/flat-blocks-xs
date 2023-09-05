@@ -28,25 +28,6 @@ GNU General Public License for more details.
 */
 
 /*--------------------------------------------------------------
-# WordPress Admin Bar
---------------------------------------------------------------*/
-
-/* Prevent admin bar from spilling over site header */
-#wpadminbar {
-	overflow: hidden;
-}
-#wpadminbar .quicklinks {
-	display: flex;
-}
-#wpadminbar #wp-admin-bar-top-secondary {
-	flex-grow: 2;
-	flex-basis: auto;
-}
-#wpadminbar .ab-top-secondary {
-	float: none;
-}
-
-/*--------------------------------------------------------------
 # Site Header
 --------------------------------------------------------------*/
 /* Link hover animation for headings and post titles */
@@ -88,7 +69,6 @@ GNU General Public License for more details.
 	opacity: .7;
 }
 
-
 /*--------------------------------------------------------------
 # Lists
 --------------------------------------------------------------*/
@@ -99,53 +79,10 @@ GNU General Public License for more details.
 }
 
 /*--------------------------------------------------------------
-## Profile Pictures ("avatars")
---------------------------------------------------------------*/
-
-/* Come on now, of course we need a margin before their name and comment */
-.avatar,
-.xs_recent_member {
-	float: left;
-	margin-right: 10px;
-	margin-bottom: 10px;
-}
-
-/* Make user profile pics (avatars) circles */
-.avatar,
-.testimonial-thumbnail {
-	-webkit-border-radius: 50%;
-	-moz-border-radius: 50%;
-	border-radius: 50%;
-}
-img.avatar.thumbnail {
-	border: none;
-	padding: 0;
-}
-
-
-/* Get rid of WordPress-applied top margin on our shortcodes */
-.xs_members_login_pic,
-.xs_members_login_meta {
-	margin-top: 0 !important;
-}
-
-/*--------------------------------------------------------------
 # Site Footer
 --------------------------------------------------------------*/
 
 /* We want our hover color in our footer nav */
 .footer-widgets a:hover {
 	color: var(--wp--preset--color--primary-alt);
-}
-
-/*--------------------------------------------------------------
-# Plugins
---------------------------------------------------------------*/
-
-/* Get rid of Cookies for Comments spacing added to bottom of site */
-img[alt="css.php"] {
-	position: absolute;
-	clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
-	clip: rect(1px, 1px, 1px, 1px);
-	height:0;  /* Chrome */
 }
