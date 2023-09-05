@@ -229,9 +229,9 @@ body .is-layout-constrained > .alignright {
 --------------------------------------------------------------*/
 
 /* Center captions by default */
-.wp-site-blocks figcaption {
+/**.wp-site-blocks figcaption {
 	text-align: center;
-}
+}**/
 
 /*--------------------------------------------------------------
 # Headings
@@ -301,6 +301,52 @@ h6.has-background {
     }
 }
 
+/* Navigation hover styles */
+.wp-block-group.site-header:not(.has-link-color) .wp-block-navigation__responsive-container:not(.has-text-color) .wp-block-navigation-item:hover,
+.wp-block-navigation__submenu-container:not(.has-text-color) .wp-block-navigation-item:hover,
+.wp-block-group.site-header:not(.has-link-color) .wp-block-navigation__responsive-container:not(.has-text-color) .wp-block-navigation-item__content:hover,
+.wp-block-navigation__submenu-container:not(.has-text-color) .wp-block-navigation-item__content:hover {
+	color: var(--wp--preset--color--primary-alt);
+	/*font-weight: var(--wp--custom--typography--font-weight--bold);*/
+	font-weight: inherit;
+}
+
+/* But on mobile nav, don't hover on non-clickable links */
+.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation-item.has-child.open-on-click > .wp-block-navigation-item:hover,
+.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation-item.has-child.open-on-click > .wp-block-navigation-item__content:hover {
+	color: inherit;
+	cursor: unset;
+	font-weight: inherit;
+	opacity: 1;
+}
+
+/* Bold or highlight active top-level menu items, depending on whether text color or not */
+.wp-block-group.site-header .wp-block-navigation__responsive-container .wp-block-navigation__container > .wp-block-navigation-item.current-menu-item:not(.has-child) > a,
+.wp-block-group.site-header .wp-block-navigation__responsive-container .wp-block-navigation__container > .wp-block-navigation-item:has(.current-menu-ancestor),
+.wp-block-group.site-header .wp-block-navigation__responsive-container .wp-block-navigation__container > .wp-block-navigation-item:has(.current-menu-ancestor) > a,
+.wp-block-group.site-header .wp-block-navigation__responsive-container .wp-block-page-list > .wp-block-pages-list__item.current-menu-item > a,
+.wp-block-group.site-header .wp-block-navigation__responsive-container .wp-block-navigation__container > .wp-block-navigation-item.wp-block-home-link > a[aria-current='page'] {
+	font-weight: var(--wp--custom--typography--font-weight--medium);
+}
+ 
+.wp-block-group.site-header:not(.has-link-color) .wp-block-navigation__responsive-container .wp-block-navigation__container > .wp-block-navigation-item.current-menu-item:not(.has-child) > a,
+.wp-block-group.site-header:not(.has-link-color) .wp-block-navigation__responsive-container .wp-block-navigation__container > .wp-block-navigation-item:has(.current-menu-ancestor),
+.wp-block-group.site-header:not(.has-link-color) .wp-block-navigation__responsive-container .wp-block-navigation__container > .wp-block-navigation-item:has(.current-menu-ancestor) > a,
+.wp-block-group.site-header:not(.has-link-color) .wp-block-navigation__responsive-container .wp-block-page-list > .wp-block-pages-list__item.current-menu-item > a,
+.wp-block-group.site-header:not(.has-link-color) .wp-block-navigation__responsive-container .wp-block-navigation__container > .wp-block-navigation-item.wp-block-home-link > a[aria-current='page'] {
+	color: var(--wp--preset--color--primary-alt);
+	font-weight: var(--wp--custom--typography--font-weight--normal);
+}
+
+/* Bold or highlight active sub-menu items, depending on whether text color or not */
+.wp-block-navigation__submenu-container .wp-block-navigation-item.current-menu-item .wp-block-navigation-item__content.wp-block-navigation-item__content {
+	font-weight: var(--wp--custom--typography--font-weight--medium);
+}
+.wp-block-navigation__submenu-container:not(.has-text-color) .wp-block-navigation-item.current-menu-item .wp-block-navigation-item__content.wp-block-navigation-item__content {
+	color: var(--wp--preset--color--primary-alt);
+	font-weight: inherit; /*var(--wp--custom--typography--font-weight--normal);*/
+}
+
 /* Style the mobile nav menu open and close buttons */
 .wp-block-navigation .wp-block-navigation__responsive-container-open,
 .wp-block-navigation .wp-block-navigation__responsive-container-close {
@@ -308,6 +354,11 @@ h6.has-background {
 	border: 1px solid var(--wp--preset--color--neutral-alt);
 	border-radius: var(--wp--custom--border--radius);
 	padding: var(--wp--preset--spacing--20);
+}
+
+/* On colored navs, round out the mobile nav container to match our open/close menu buttons */
+.wp-block-navigation.has-text-color:has(.wp-block-navigation__responsive-container:not(.is-menu-open.is-menu-open)) {
+	border-radius: var(--wp--custom--border--radius);
 }
 
 /* 
