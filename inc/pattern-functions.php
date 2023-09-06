@@ -31,7 +31,7 @@ if ( ! function_exists( 'flatblocks_get_block_pattern' ) ) :
 			$file = get_template_directory() . '/patterns/' . $name . '.html';
 		}
 		
-		// If file in either location, then add it to block patterns
+		// If file in any location, then add it to block patterns
 		if ( file_exists( $file ) ) {
 
 			//Get the html from the contents of the file
@@ -61,6 +61,7 @@ if ( ! function_exists( 'flatblocks_parse_block_pattern' ) ) :
 		// TO-DO: Add logic to determine if pattern should reference parent or child theme
 		if ( is_child_theme() ) {
 			$child_slug = wp_get_theme()->get_stylesheet();
+			//var_dump('child_slug=', $child_slug); //TEST
 			$content = str_ireplace('"theme":"flat-blocks"', '"theme":"' . $child_slug . '"', $content);
 		}
 

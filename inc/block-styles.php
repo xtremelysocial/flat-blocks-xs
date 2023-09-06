@@ -147,12 +147,13 @@ if ( ! function_exists( 'flatblocks_register_block_styles' ) ) :
 		/* 
 		 * Loop through each style and create the custom style for each of its blocks.
 		 */
-		foreach ( $custom_styles as $custom_style => [$label, $blocks, $style_handle_or_inline] ) {
+		//foreach ( $custom_styles as $custom_style => [$label, $blocks, $style_handle_or_inline] ) {
+		foreach ( $custom_styles as $custom_style => [$label, $properties] ) {
+			$blocks = ( isset($properties[0]) and is_array($properties[0]) ) ? $properties[0] : array();
+
+			// Loop through each block and register the custom style
 			foreach ( $blocks as $block ) {
-			
-				// If no style_handle or inline_style, default one
-				if ( !isset( $style_handle_or_inline ) ) $style_handle_or_inline = array( 'style_handle' => 'flatblocks-custom-styles' );
-				
+							
 				// If no slug, then use core/
 				if ( stripos( $block, '/' ) === false ) $block = 'core/' . $block;
 				
@@ -161,7 +162,8 @@ if ( ! function_exists( 'flatblocks_register_block_styles' ) ) :
 					array(
 						'name'  => $custom_style,
 						'label' => $label,
-						$style_handle_or_inline
+						$inline_style => $properties['inline_style'] ?? '',
+						$style_handle => $properties['style_handle'] ?? 'flatblocks-custom-styles'
 					)
 				);
 			} //end foreach $custom_styles
