@@ -3,7 +3,7 @@ Contributors: Tim Nicholson / XtremelySocial
 Requires at least: 6.2
 Tested up to: 6.3
 Requires PHP: 7.4
-Stable tag: 1.3.4
+Stable tag: 1.3.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -152,6 +152,13 @@ For more information, see these pages on the XtremelySocial.com website:
 You can check out our other themes here: https://xtremelysocial.com/wordpress/
 
 == Changelog ==
+
+= 1.3.5 =
+September 6, 2023
+
+* Quick fix for Query Patterns: Sidebar Left, Sidebar Right, and Single Column that were creating issues if running PHP v8+.
+* Quick fix for Cover Colored Blocks Pattern.
+* Enhanced block-styles.php to not issue a PHP warning if malformed block array passed to it. This is a nice touch for child themes that may add a filter to override or add custom block patterns.
 
 = 1.3.4 =
 September 5, 2023
