@@ -108,11 +108,11 @@ if ( ! function_exists( 'flatblocks_register_block_styles' ) ) :
 				'style_handle' 	=> 'flatblocks-custom-styles'				
 			),
 			'list-plain' 		=> array( esc_html__('Plain', 'flat-blocks'), 
-				array('list', 'page-list' ),
+				array('list', 'page-list', 'categories' ),
 				'style_handle' 	=> 'flatblocks-custom-styles'				
 			),
 			'list-plain-centered' => array( esc_html__('Plain Centered', 'flat-blocks'), 
-				array('list', 'page-list' ),
+				array('list', 'page-list', 'categories' ),
 				'style_handle' 	=> 'flatblocks-custom-styles'				
 			),
 			'no-icon' 			=> array( esc_html__('No Icon', 'flat-blocks'), 
@@ -148,8 +148,9 @@ if ( ! function_exists( 'flatblocks_register_block_styles' ) ) :
 		 * Loop through each style and create the custom style for each of its blocks.
 		 */
 		//foreach ( $custom_styles as $custom_style => [$label, $blocks, $style_handle_or_inline] ) {
-		foreach ( $custom_styles as $custom_style => [$label, $properties] ) {
-			$blocks = ( isset($properties[0]) and is_array($properties[0]) ) ? $properties[0] : array();
+		foreach ( $custom_styles as $custom_style => $properties ) {
+			$label = $properties[0] ?? '';
+			$blocks = ( isset($properties[1]) and is_array($properties[1]) ) ? $properties[1] : array();
 
 			// Loop through each block and register the custom style
 			foreach ( $blocks as $block ) {

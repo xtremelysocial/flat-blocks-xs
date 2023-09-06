@@ -3,7 +3,7 @@ Contributors: Tim Nicholson / XtremelySocial
 Requires at least: 6.2
 Tested up to: 6.3
 Requires PHP: 7.4
-Stable tag: 1.3.5
+Stable tag: 1.3.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -152,6 +152,11 @@ For more information, see these pages on the XtremelySocial.com website:
 You can check out our other themes here: https://xtremelysocial.com/wordpress/
 
 == Changelog ==
+
+= 1.3.6 =
+September 6, 2023
+
+* Quick fix for Block Patterns not loading (block-styles.php).
 
 = 1.3.5 =
 September 6, 2023
