@@ -163,8 +163,8 @@ if ( ! function_exists( 'flatblocks_register_block_styles' ) ) :
 					array(
 						'name'  => $custom_style,
 						'label' => $label,
-						$inline_style => $properties['inline_style'] ?? '',
-						$style_handle => $properties['style_handle'] ?? 'flatblocks-custom-styles'
+						'inline_style' => $properties['inline_style'] ?? '',
+						'style_handle' => $properties['style_handle'] ?? 'flatblocks-custom-styles'
 					)
 				);
 			} //end foreach $custom_styles

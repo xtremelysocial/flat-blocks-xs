@@ -153,10 +153,16 @@ You can check out our other themes here: https://xtremelysocial.com/wordpress/
 
 == Changelog ==
 
+= 1.3.7 =
+September 7, 2023
+
+* Style the Tag and Category Cloud alternate Outline style to use the theme's border radius (5px by default) and padding. 
+* Enhancement to Block Styles logic to allow inlining styles or referencing a registered style handle. This is mainly for child themes or possible future performance enhancements as WordPress v6 evolves.
+
 = 1.3.6 =
 September 6, 2023
 
-* Quick fix for Block Patterns not loading (block-styles.php).
+* Quick fix for Custom Block Styles not loading (block-styles.php).
 
 = 1.3.5 =
 September 6, 2023
