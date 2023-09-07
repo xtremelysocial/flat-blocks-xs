@@ -1,6 +1,6 @@
 /**
- * Theme: 	Flat Blocks
  * File:	smoothscroll.js
+ * Theme: 	Flat Blocks
  * 
  * Javascript for smooth scrolling internal links.
  *

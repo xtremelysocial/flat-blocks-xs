@@ -3,7 +3,7 @@ Contributors: Tim Nicholson / XtremelySocial
 Requires at least: 6.2
 Tested up to: 6.3
 Requires PHP: 7.4
-Stable tag: 1.3.2
+Stable tag: 1.3.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -39,9 +39,9 @@ This theme provides TONS of Block Patterns that you can insert into your pages a
 
 Note that Block and Page Patterns are copied into your page or post and unlike Block Templates above, edits you make to Block Patterns are stored only on that page or post.
 
-= Creating a Child theme of Flat Blocks =
+== Creating a Child theme of Flat Blocks ==
 
-== Using the Create Child Theme Plugin ==
+= Using the Create Child Theme Plugin =
 Use the [Create Block Theme](https://wordpress.org/plugins/create-block-theme/) plugin.
 
 Install Flat Blocks (or any Flat Blocks child theme)
@@ -53,7 +53,7 @@ Use it to export a new child theme of Flat Blocks
 
 Flat Blocks is a [parent theme](https://developer.wordpress.org/themes/advanced-topics/child-themes/#what-is-a-parent-theme). The best way to use it is to create a child theme with Flat Blocks as a parent.
 
-=== style.css (Required) ===
+= style.css (Required) =
 
 Create a directory for your child theme at the same level as other parent and child themes. Name the directory something like flat-blocks-child.
 
@@ -82,30 +82,30 @@ Tags:
 
 The Flat Blocks parent theme will automatically load this child theme's `style.css` file for you. You don't even need a `functions.php` file to do it. You can place any CSS rules that you want in here.
 
-=== screenshot.png (Recommended) ===
+= screenshot.png (Recommended) =
 
 It is recommended that you create a `screenshot.png` for your child theme or at least copy down the parent theme's screenshot so something displays in the WordPress Admin.
 
 If you create one, it should be 1200x900 pixels and you should compress it to reduce its size to be suitable for limited bandwidth.
 
-=== theme.json (optional)===
+= theme.json (optional) =
 
 You can also include a `theme.json` file in the child theme root directory. This file defines the look and feel of your theme: colors, fonts, spacing, etc. are all set in this file. Flat Blocks also defines some custom properties in theme.json which are used in the CSS. You can override any values (including the custom values) found in Flat Blocks's theme.json in the child theme's theme.json.
 
 - It is only necessary to define those properties you wish to change, which keeps your code [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself).
 - As more features are added to block themes, Flat Blocks will be updated to support them. By using Flat Blocks as a parent, the child theme will inherit all these changes.
 
-=== Templates and Template Parts (optional) ===
+= Templates and Template Parts (optional) =
 
 You can also place Block Templates and Block Template Parts into your child theme. They should be placed in /templates and /parts subdirectories, respectively. They are used to display the various pages and posts on your site. You can copy down the Flat Blocks theme full directories or individual files and override them with the Site Editor.
 
 Simple child themes should be able to define everything they need using only the `style.css`, `theme.json`, and Template Parts and Template files, but for more complex child themes, an additional CSS file and/or `functions.php` file may be useful.
 
-=== custom-style.css ===
+= custom-style.css =
 
 If you place a CSS file in `/assets/css/custom-styles.css`, the Flat Blocks parent theme will load it automatically. If you have a lot of CSS rules, this is generally cleaner than adding them to the main child theme's `style.css`.
 
-=== functions.php and more ===
+= functions.php and more =
 
 If you place a `functions.php` file in the main child theme directory, PHP can be used to override many more aspects of the theme that aren't possible with the other files above. For example, you can add your own Block Patterns and/or custom Block Styles. The Flat Blocks parent theme provides several "filters" in addition to the ones built into core WordPress.
 
@@ -113,37 +113,36 @@ Take a look at the `/inc/block-patterns.php` and/or `/inc/block-styles.php` file
 
 If you plan on adding a lot of block patterns or custom blocks styles, rather than putting them into `functions.php` you can put them into `/inc/block-patterns.php` and `/inc/block-styles.php` and those will be loaded automatically.
 
-=== Full Child Theme Directory Structure ===
+= Full Child Theme Directory Structure =
 
 Here is a visualization of the structure of a fully built out child theme:
 
 /flat-blocks-child/
-style.css (required)
-screenshot.png (recommended)
-theme.json (recommended, only changed values)
-functions.php
+   |--- style.css (required)
+   |--- screenshot.png (recommended)
+   |--- theme.json (recommended, only changed values)
+   |--- functions.php
+   /assets/
+      /css/
+  	     |--- custom-styles.css (auto loads)
+   /inc/
+      |--- block-patterns.php (auto loads)
+	  |--- block-styles.php (auto loads)
+   /parts/
+	  |--- *.html (auto load)
+   /templates/
+	  |--- *.html (auto load)
+   /patterns/
+	  |--- *.php (auto load)
+	  |--- *.html (load with filter)
 
-	/assets/
-		/css/
-			custom-styles.css (auto loads)
-	/inc/
-		block-patterns.php (auto loads)
-		block-styles.php (auto loads)
-	/parts/
-		*.html (auto load)
-	/templates/
-		*.html (auto load)
-	/patterns/
-		*.php (auto load)
-		*.html (load with filter)
-
-== Keeping The Parent Theme Up to Date ==
+= Keeping The Parent Theme Up to Date =
 
 When you modify a child theme as opposed to make code changes to a parent theme, the parent theme can be easily updated as new releases come out without necessarily impacting your child theme.
 
 Of course if there are major changes to the parent theme, it may impact your child theme, so be sure to read the release notes for the Flat Blocks theme to see what has changed with each release.
 
-= More Information About This Theme = 
+== More Information About This Theme ==
 
 For more information, see these pages on the XtremelySocial.com website:
 * How to use our Block Themes: https://xtremelysocial.com/userguide/block-themes/
@@ -153,6 +152,39 @@ For more information, see these pages on the XtremelySocial.com website:
 You can check out our other themes here: https://xtremelysocial.com/wordpress/
 
 == Changelog ==
+
+= 1.3.6 =
+September 6, 2023
+
+* Quick fix for Block Patterns not loading (block-styles.php).
+
+= 1.3.5 =
+September 6, 2023
+
+* Quick fix for Query Patterns: Sidebar Left, Sidebar Right, and Single Column that were creating issues if running PHP v8+.
+* Quick fix for Cover Colored Blocks Pattern.
+* Enhanced block-styles.php to not issue a PHP warning if malformed block array passed to it. This is a nice touch for child themes that may add a filter to override or add custom block patterns.
+
+= 1.3.4 =
+September 5, 2023
+
+* In header navigation, use the primary color as the link hover color. Note that if the header color is overriden by the user, this won't apply. The chosen color will just be lightened like it worked prior to this change.
+* In header navigation, also highlight the current menu item (or parent item). By default, the primary color will be used (light green). On user-colored headers, bold will be used.
+* Reduce default cover image overlay color to 40% (was 60%) on the colored block image to allow more of the image's natural colors to show through.
+* Updated screenshot to reflect highlight of home page link and lightening of cover overlay in the site header.
+* Set footer columns to use thick gap to match pages with sidebars. The thick gap style is twice the standard block gap (which is preset spacing 40 that is responsive up to 18px). So the gap is up to 36px now.
+* Don't automatically center figure captions (image, table, etc.) since the user can specify what position they want it in (and it defaults to left).
+* Added an anchor link of #wrapper at the top of each page for the theme preview on WordPress.org and for users with older navigation menus that point to that as it was the standard on older WordPress themes (before Block based themes). This theme uses #page and that still works as well.
+
+= 1.3.3 =
+September 3, 2023
+
+* Locked numerous theme elements that are critical to the templates, such as the main group for the page/post, sidebar on the templates with sidebars, etc. These can always be unlocked by the user, but will prevent accidentally deleting critical template components.
+* Set separators to not default to centered (but of course allow the user to center them).
+* Removed footer from Post Content Only template. This template is designed to be like a "landing page" where all of the content is built on the page itself. i.e. The user will create a unique header and/or footer, if desired.
+* Enhanced CSS for:
+	* WordPress Admin Bar on mobile to make sure it stays in its fixed position.
+	* Padding and background color on Fixed headers.
 
 = 1.3.2 =
 September 1, 2023

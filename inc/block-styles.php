@@ -1,7 +1,7 @@
 <?php
 /**
- * Theme:	Flat Blocks
  * File:	block-styles.php
+ * Theme:	Flat Blocks
  * 
  * Adds all of our custom styles for selection in the Block Editor
  * 
@@ -108,11 +108,11 @@ if ( ! function_exists( 'flatblocks_register_block_styles' ) ) :
 				'style_handle' 	=> 'flatblocks-custom-styles'				
 			),
 			'list-plain' 		=> array( esc_html__('Plain', 'flat-blocks'), 
-				array('list', 'page-list' ),
+				array('list', 'page-list', 'categories' ),
 				'style_handle' 	=> 'flatblocks-custom-styles'				
 			),
 			'list-plain-centered' => array( esc_html__('Plain Centered', 'flat-blocks'), 
-				array('list', 'page-list' ),
+				array('list', 'page-list', 'categories' ),
 				'style_handle' 	=> 'flatblocks-custom-styles'				
 			),
 			'no-icon' 			=> array( esc_html__('No Icon', 'flat-blocks'), 
@@ -147,12 +147,14 @@ if ( ! function_exists( 'flatblocks_register_block_styles' ) ) :
 		/* 
 		 * Loop through each style and create the custom style for each of its blocks.
 		 */
-		foreach ( $custom_styles as $custom_style => [$label, $blocks, $style_handle_or_inline] ) {
+		//foreach ( $custom_styles as $custom_style => [$label, $blocks, $style_handle_or_inline] ) {
+		foreach ( $custom_styles as $custom_style => $properties ) {
+			$label = $properties[0] ?? '';
+			$blocks = ( isset($properties[1]) and is_array($properties[1]) ) ? $properties[1] : array();
+
+			// Loop through each block and register the custom style
 			foreach ( $blocks as $block ) {
-			
-				// If no style_handle or inline_style, default one
-				if ( !isset( $style_handle_or_inline ) ) $style_handle_or_inline = array( 'style_handle' => 'flatblocks-custom-styles' );
-				
+							
 				// If no slug, then use core/
 				if ( stripos( $block, '/' ) === false ) $block = 'core/' . $block;
 				
@@ -161,7 +163,8 @@ if ( ! function_exists( 'flatblocks_register_block_styles' ) ) :
 					array(
 						'name'  => $custom_style,
 						'label' => $label,
-						$style_handle_or_inline
+						$inline_style => $properties['inline_style'] ?? '',
+						$style_handle => $properties['style_handle'] ?? 'flatblocks-custom-styles'
 					)
 				);
 			} //end foreach $custom_styles

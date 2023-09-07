@@ -1,7 +1,7 @@
 <?php
 /**
- * Theme:	Flat Blocks
  * File:	block-patterns.php
+ * Theme:	Flat Blocks
  * 
  * Remove core block patterns and load our HTML block patterns. 
  *
