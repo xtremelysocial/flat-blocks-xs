@@ -44,7 +44,7 @@ if ( ! function_exists( 'flatblocks_support' ) ) :
 			array(
 				'/assets/css/flat-blocks.css',
 				'/assets/css/custom-styles.css',
-				//'style.css'
+				'style.css'
 			)
 		);
 
