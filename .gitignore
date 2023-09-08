@@ -3,3 +3,6 @@
 styles/*TEST-ONLY*.json
 zz_unused
 PRO
+src
+assets/css/blocks
+**/*-SAVE*
