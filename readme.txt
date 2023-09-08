@@ -3,7 +3,7 @@ Contributors: Tim Nicholson / XtremelySocial
 Requires at least: 6.2
 Tested up to: 6.3
 Requires PHP: 7.4
-Stable tag: 1.3.6
+Stable tag: 1.3.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -152,6 +152,11 @@ For more information, see these pages on the XtremelySocial.com website:
 You can check out our other themes here: https://xtremelysocial.com/wordpress/
 
 == Changelog ==
+
+= 1.3.8 =
+September 7, 2023
+
+* Refactored flat-blocks.css and custom-styles.css to move all block-related styles, both core and custom styles, to custom-styles.css. This was done in preparation of some possible future block-specific stylesheets. In fact, the underlying SASS that generates our CSS is broken out by blocks now.
 
 = 1.3.7 =
 September 7, 2023

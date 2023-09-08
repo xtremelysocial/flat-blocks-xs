@@ -1,7 +1,11 @@
 .DS_Store
 **/.DS_Store
+**/*-SAVE*
 styles/*TEST-ONLY*.json
-zz_unused
-PRO
+pro
+src
+src/sass
+assets/css/blocks
 *.css.map
+zz_unused
 
