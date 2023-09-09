@@ -3,7 +3,7 @@ Contributors: Tim Nicholson / XtremelySocial
 Requires at least: 6.2
 Tested up to: 6.3
 Requires PHP: 7.4
-Stable tag: 1.3.6
+Stable tag: 1.3.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -152,6 +152,16 @@ For more information, see these pages on the XtremelySocial.com website:
 You can check out our other themes here: https://xtremelysocial.com/wordpress/
 
 == Changelog ==
+
+= 1.3.8 =
+September 9, 2023
+
+* Enhanced Post Featured Images to use the new WordPress v6.3 "aspect ratio" feature to set them to 16:9 format. This is the format the theme has always intended to use and all included images are in that format and the theme even adds two additional image sizes that are also 16:9 format. Now this aspect ratio will be honored on all Post Featured Images. Note that this was NOT done to Cover images. Those images are intended to also be in 16:9 format, but the user can set the "minimum height" to make them shorter and we don't want to override that. 
+* Updated border and spacing on some styles in theme.json to prevent crashing the Editor. Specifically these were values set to reference other styles ("ref":). These are replaced now with custom border settings (--wp--custom--border--style and --wp--custom--border--radius) and preset spacing (--wp--preset--spacing--40). Block Styles effected are: Code, Featured Image, Spacer, Separator.
+* Put back default of centering figure captions (images and tables) as there are some situations where the user can't alter it, such as when left or right aligning an image.
+* Moved all editor styles into their own stylesheet (/assets/css/editor-styles.css). This reduces the front-end CSS which helps performance a bit.
+* Removed ID's from all images and queries used in patterns. They weren't a problem, but WordPress suggests removing them.
+* Refactored flat-blocks.css and custom-styles.css to move non-critical core block styles to custom-styles.css. This way the flat-blocks.css file contains all the styles needed to render the vast majority of "above the fold" content. Also, we implemented SASS behind the scenes to generate the theme's CSS files. This will let us change how various styles load more easily in the future.
 
 = 1.3.7 =
 September 7, 2023
