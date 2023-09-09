@@ -14,6 +14,7 @@
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  */
+add_action( 'after_setup_theme', 'flatblocks_support' );
 if ( ! function_exists( 'flatblocks_support' ) ) :
 
 	function flatblocks_support() {
@@ -39,14 +40,16 @@ if ( ! function_exists( 'flatblocks_support' ) ) :
 		add_image_size( 'cropped-thumbnail', 760, 428, array( 'left', 'top' ) );
 		
 		// Add support for editor styles.
-		// Note: Shouldn't be needed after WordPress v6.2
+		// Note: Shouldn't be needed since WordPress v6.2
 		add_theme_support( 'editor-styles' );
 		
-		// Enqueue editor styles.
+		// Enqueue only the editor styles for now. Additional ones will be loaded
+		// later.
 		add_editor_style( 
 			array(
-				'/assets/css/flat-blocks.css',
-				'/assets/css/custom-styles.css',
+				/////'/assets/css/flat-blocks.css',
+				/////'/assets/css/custom-styles.css',
+				'/assets/css/editor-styles.css',
 				//'style.css'
 			)
 		);
@@ -68,7 +71,6 @@ if ( ! function_exists( 'flatblocks_support' ) ) :
 				
 	}
 endif;
-add_action( 'after_setup_theme', 'flatblocks_support' );
 
 /* 
  * Tell WordPress to load only the block styles for blocks in use on a particular page
@@ -76,9 +78,21 @@ add_action( 'after_setup_theme', 'flatblocks_support' );
 //add_filter( 'should_load_separate_core_block_assets', '__return_true' );
 add_filter( 'should_load_separate_core_block_assets', '__return_false' );
 
-/**
- * Enqueue FRONT-END ONLY styles and scripts.
+/* 
+ * Tell this theme to load only the block styles for blocks in use on a particular page
  */
+//add_filter( 'flatblocks_should_load_separate_block_assets', '__return_true' );
+add_filter( 'flatblocks_should_load_separate_block_assets', '__return_false' );
+
+/**
+ * Enqueue FRONT-END ONLY and/or BACK-END styles and scripts depending on 
+ * flatblocks_should_load_separate_block_assets.
+ */
+if ( apply_filters( 'flatblocks_should_load_separate_block_assets', $default = true ) ) {
+	add_action( 'enqueue_block_assets', 'flatblocks_front_end_styles' );
+} else {
+	add_action( 'wp_enqueue_scripts', 'flatblocks_front_end_styles' );
+}
 if ( ! function_exists( 'flatblocks_front_end_styles' ) ) :
 
 	function flatblocks_front_end_styles() {
@@ -87,7 +101,7 @@ if ( ! function_exists( 'flatblocks_front_end_styles' ) ) :
 		$theme_version = wp_get_theme()->get( 'Version' );
 		$version_string = is_string( $theme_version ) ? $theme_version : false;
 
-		// Enqueue base theme style
+		// Always load base theme style
 		if ( file_exists( get_template_directory() . '/assets/css/flat-blocks.css' ) ) {
 			wp_enqueue_style( 
 				'flatblocks-base', 
@@ -97,8 +111,10 @@ if ( ! function_exists( 'flatblocks_front_end_styles' ) ) :
 			);
 		}
 				
-		// Register custom block styles. See /inc/block-styles.php.
-		if ( file_exists( get_template_directory() . '/assets/css/custom-styles.css' ) ) {
+		// If not loading separate block styles, then load custom block styles
+		if ( ! apply_filters( 'flatblocks_should_load_separate_block_assets', true ) 
+			and file_exists( get_template_directory() . '/assets/css/custom-styles.css' ) ) {
+
 			wp_enqueue_style(
 				'flatblocks-custom-styles',
 				get_template_directory_uri() . '/assets/css/custom-styles.css',
@@ -107,7 +123,8 @@ if ( ! function_exists( 'flatblocks_front_end_styles' ) ) :
 			);
 		}
 		
-		// Enqueue theme style after theme base style
+		// Load theme style
+		// Note: Not needed because there is no CSS in it
 		/*wp_enqueue_style( 
 			'flatblocks-style', 
 			get_template_directory_uri() . '/style.css', 
@@ -120,8 +137,8 @@ if ( ! function_exists( 'flatblocks_front_end_styles' ) ) :
 			wp_enqueue_style( 
 				'flatblocks-child-custom-styles', 
 				get_stylesheet_directory_uri() . '/assets/css/custom-styles.css', 
-				//array( 'flatblocks-style' ), 
-				array('flatblocks-base', 'flatblocks-custom-styles'),
+				//array('flatblocks-base', 'flatblocks-custom-styles'),
+				array('flatblocks-base'),
 				$version_string 
 			);
 		}
@@ -131,14 +148,16 @@ if ( ! function_exists( 'flatblocks_front_end_styles' ) ) :
 			wp_enqueue_style( 
 				'flatblocks-child-style', 
 				get_stylesheet_directory_uri() . '/style.css', 
-				//array( 'flatblocks-style' ), 
-				array('flatblocks-base', 'flatblocks-custom-styles'),
+				//array('flatblocks-base', 'flatblocks-custom-styles'),
+				array('flatblocks-base'),
 				$version_string 
 			);
 		}
 
-		// Smooth scrolling javascript
-		if ( file_exists( get_template_directory() . '/assets/js/smoothscroll.js' ) ) {
+		// On front-end only, load smooth scrolling javascript
+		if ( !is_admin()
+			and file_exists( get_template_directory() . '/assets/js/smoothscroll.js' ) ) {
+
 			wp_enqueue_script( 
 				'flatblocks-smoothscroll', 
 				get_template_directory_uri() . '/assets/js/smoothscroll.js', 
@@ -146,10 +165,10 @@ if ( ! function_exists( 'flatblocks_front_end_styles' ) ) :
 				$version_string, 
 				$load_in_footer = true 
 			);
-		}		
+		}
+		
 	} 
 endif;
-add_action( 'wp_enqueue_scripts', 'flatblocks_front_end_styles' );
 
 /**
  * Enqueue FRONT-END AND BACK-END styles and scripts
@@ -158,22 +177,33 @@ add_action( 'wp_enqueue_scripts', 'flatblocks_front_end_styles' );
  * Block Editor iFrame, which is necessary for certain styles, such as the built-in 
  * Dashicons.
  */
+add_action( 'enqueue_block_assets', 'flatblocks_block_assets' );	
 if ( ! function_exists( 'flatblocks_block_assets' ) ) :
-
 	function flatblocks_block_assets() {	
 		wp_enqueue_style( 'dashicons' );
 	}
 endif;
-add_action( 'enqueue_block_assets', 'flatblocks_block_assets' );
 
 /**
- * Enqueue BACK-END ONLY styles and scripts.
+ * Enqueue BACK-END ONLY styles and scripts IF NOT 
+ * flatblocks_should_load_separate_block_assets.
  */
+if (! apply_filters( 'flatblocks_should_load_separate_block_assets', $default = true ) ) {
+	add_action( 'admin_init', 'flatblocks_back_end_styles' );
+}
 if ( ! function_exists( 'flatblocks_back_end_styles' ) ) :
 
-	// As a courtesy, add the child theme CSS files to the Block Editor too.
 	function flatblocks_back_end_styles() {
 
+		// Add the theme's base styles and custom block styles
+		add_editor_style( 
+			array(
+				'/assets/css/flat-blocks.css',
+				'/assets/css/custom-styles.css'
+			)
+		);
+
+		// As a courtesy, add the child theme CSS files to the Block Editor too.
 		if ( is_child_theme() ) {
 
 			if ( file_exists( get_stylesheet_directory() . '/assets/css/custom-styles.css' ) ) {
@@ -190,7 +220,59 @@ if ( ! function_exists( 'flatblocks_back_end_styles' ) ) :
 		}
 	}
 endif;
-add_action( 'admin_init', 'flatblocks_back_end_styles' );
+
+/**
+ * Load BLOCK-specific CSS styles on the FRONT-END AND BACK-END if
+ * flatblocks_should_load_separate_block_assets.
+ */
+if ( apply_filters( 'flatblocks_should_load_separate_block_assets', $default = true ) ) {
+	/////add_action( 'wp_enqueue_scripts', 'flatblocks_load_block_styles' );
+	add_action( 'init', 'flatblocks_load_block_styles' ); 
+}
+if ( ! function_exists( 'flatblocks_load_block_styles' ) ) :
+
+	function flatblocks_load_block_styles() {
+
+		// Get the theme version
+		$theme_version = wp_get_theme()->get( 'Version' );
+		$version_string = is_string( $theme_version ) ? $theme_version : false;
+
+		// Load the styles for the individual blocks
+		$block_path = '/assets/css/blocks/';
+		$block_styles = glob( get_theme_file_path($block_path) . '*.css' );
+ 
+		foreach ( $block_styles as $block_name ) {
+
+			// Remove the path and .css extension from the name
+			$block_name = str_replace( array(get_theme_file_path($block_path), '.css'), '', $block_name );
+
+			// Get the stylesheet handle. This is backwards-compatible and checks the
+			// availability of the `wp_should_load_separate_core_block_assets` function,
+			// and whether we want to load separate styles per-block or not.
+			//$handle = (
+				//function_exists( 'wp_should_load_separate_core_block_assets' ) &&
+				//wp_should_load_separate_core_block_assets()
+			//) ? "wp-block-$block_name" : 'wp-block-library';
+ 
+			// Get the styles.
+			//$styles = file_get_contents( get_theme_file_path( "assets/css/block-styles/$block_name.css" ) );
+ 
+			// Add frontend styles.
+			//wp_add_inline_style( $handle, $styles );
+
+			// Load the block style
+			// Note: WordPress will decide whether to enqueue or inline the style
+			wp_enqueue_block_style( "core/$block_name", array(
+				'handle' => "flatblocks-block-$block_name",
+				'src'    => get_theme_file_uri( $block_path . "$block_name.css" ),
+				'path'   => get_theme_file_path( $block_path . "$block_name.css" ),
+				'deps'	 => array( 'flatblocks-base' ), 
+				'ver'	 => $version_string
+			) );
+			
+		} // foreach		
+	}
+endif;
 
 /**
  * Load custom block styles and block patterns (and PRO features if purchased)
@@ -232,11 +314,17 @@ if ( file_exists( get_template_directory() . '/pro/flat-blocks-pro.php' ) ) {
  * because there is currently no way to add an id to the wp-site-blocks wrapper and 
  * we need this to be the very first thing on the page.
  */
-add_action( 'wp_body_open', function() { echo '<a id="page"></a><a id="wrapper"></a>'; } );
+add_action( 'wp_body_open', 'flatblocks_body_open' );
+if ( ! function_exists( 'flatblocks_body_open' ) ) :
+	function flatblocks_body_open() { 
+		echo '<a id="page"></a><a id="wrapper"></a>'; 
+	}
+endif;
 
 /**
  * Define our custom template part AREAS
  */
+add_filter( 'default_wp_template_part_areas', 'flatblocks_template_part_areas' );
 if ( ! function_exists( 'flatblocks_template_part_areas' ) ) :
 	function flatblocks_template_part_areas( array $areas ) {
 
@@ -274,14 +362,13 @@ if ( ! function_exists( 'flatblocks_template_part_areas' ) ) :
 		
 	}
 endif;
-add_filter( 'default_wp_template_part_areas', 'flatblocks_template_part_areas' );
 
 /**
  * Add our custom image size(s) to the list that user can pick in the editor.
  * Consider: Add Medium Large since it is standard WordPress and seems to be missing.
  */
+add_filter( 'image_size_names_choose', 'flatblocks_image_sizes' );
 if ( ! function_exists( 'flatblocks_image_sizes' ) ) :
-
 	function flatblocks_image_sizes( $sizes ) {
 		return array_merge( $sizes, array(
 			//'medium-large' => __( 'Medium Large', 'flat-blocks' ),
@@ -290,19 +377,17 @@ if ( ! function_exists( 'flatblocks_image_sizes' ) ) :
 		) );
 	}
 endif;
-add_filter( 'image_size_names_choose', 'flatblocks_image_sizes' );
 
 /**
  * Always replace [...] with ... from the excerpt
  */
+add_filter( 'excerpt_more', 'flatblocks_excerpt_more' );
 if ( ! function_exists( 'flatblocks_excerpt_more' ) ) :
-
 	function flatblocks_excerpt_more( $more ) {
 		return '&hellip;';
 		//return str_ireplace( '[…]', '&hellip;', $more);
 	}
 endif;
-add_filter( 'excerpt_more', 'flatblocks_excerpt_more' );
 
 /**
  * Excerpt in Page or Post Title
@@ -311,9 +396,9 @@ add_filter( 'excerpt_more', 'flatblocks_excerpt_more' );
  * used in the Page Title and/or Post Title Template Parts. 
  * 
 */
+add_filter('excerpt_length', 'flatblocks_excerpt_length');
 if ( ! function_exists( 'flatblocks_excerpt_length' ) ) :
 	function flatblocks_excerpt_length ( $words ) {
 		return is_singular() ? apply_filters( 'flatblocks_short_excerpt_link', $short_words = 25 ) : $words;
 	}
 endif;
-add_filter('excerpt_length', 'flatblocks_excerpt_length');
