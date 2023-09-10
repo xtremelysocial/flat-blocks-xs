@@ -48,6 +48,7 @@
 			"wideSize": "1100px"
 		},
 		"useRootPaddingAwareAlignments": true,
+		"shouldLoadSeparateCoreBlockAssets": false,
 		"appearanceTools": true,
 		"position": {
 			"sticky": false
@@ -1795,6 +1796,18 @@
 			"name": "page-featured-image",
 			"title": "Page Featured Image",
 			"description": "Page w/large featured image",
+			"postTypes": ["page"]
+		},
+		{
+			"name": "page-featured-image-sidebar-left",
+			"title": "Page Featured Image Sidebar Left",
+			"description": "Page w/large featured image and left sidebar",
+			"postTypes": ["page"]
+		},
+		{
+			"name": "page-featured-image-sidebar-right",
+			"title": "Page Featured Image Sidebar Right",
+			"description": "Page w/large featured image and right sidebar",
 			"postTypes": ["page"]
 		},
 		{

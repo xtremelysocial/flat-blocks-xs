@@ -925,14 +925,9 @@ body .is-layout-constrained .wp-block-template-part > * + *:not(.wp-block-templa
  * is now in theme.json as custom block CSS
  */
 /* For convenience, remove padding from inner containers */
-main.wp-block-group,
+main.wp-block-group:not(.has-global-padding),
 .wp-block-template-part {
   padding: 0;
-}
-
-.is-root-container main,
-.is-root-container .wp-block-template-part {
-  padding: 0 !important;
 }
 
 /* FIX to add back horizontal padding */

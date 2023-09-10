@@ -4,8 +4,6 @@
 styles/*TEST-ONLY*.json
 pro
 src
-src/sass
-assets/css/blocks
 *.css.map
 zz_unused
 
