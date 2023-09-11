@@ -57,12 +57,10 @@ if ( ! function_exists( 'flatblocks_parse_block_pattern' ) ) :
 
 	function flatblocks_parse_block_pattern( $content = "" ) {
 
-		// For child themes, override the theme name
-		// TO-DO: Add logic to determine if pattern should reference parent or child theme
-		if ( is_child_theme() ) {
-			$child_slug = wp_get_theme()->get_stylesheet();
-			//var_dump('child_slug=', $child_slug); //TEST
-			$content = str_ireplace('"theme":"flat-blocks"', '"theme":"' . $child_slug . '"', $content);
+		// For child themes or new parent theme, override the theme name
+		$theme_slug = wp_get_theme()->get_stylesheet();
+		if ( $theme_slug != 'flat-blocks' ) {
+			$content = str_ireplace('"theme":"flat-blocks"', '"theme":"' . $theme_slug . '"', $content);
 		}
 
 		// Regardless, override the URL's and image SRC's with parent's full URL's

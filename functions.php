@@ -24,8 +24,8 @@ if ( ! function_exists( 'flatblocks_support' ) ) :
 		// https://github.com/WordPress/gutenberg/blob/trunk/packages/block-library/src/theme.scss
 		// NOTE: As of WordPress v6.3, these are loaded AFTER the ones from theme.json so 
 		// they are overriding this theme and the user's settings! Don't load these by
-		// default, but allow child themes to override that.
-		if ( apply_filters( 'flatblocks_additional_core_styles', $default = false ) ) {		
+		// default, but allow child themes to override that.		
+		if ( apply_filters( 'flatblocks_additional_core_styles', $addl_core_styles ?? false ) ) {		
 			add_theme_support( 'wp-block-styles' );
 		}
 
@@ -39,18 +39,11 @@ if ( ! function_exists( 'flatblocks_support' ) ) :
 		// And add a smaller size for recent posts in columns
 		add_image_size( 'cropped-thumbnail', 760, 428, array( 'left', 'top' ) );
 		
-		// Add support for editor styles.
-		// Note: Shouldn't be needed since WordPress v6.2
-		add_theme_support( 'editor-styles' );
-		
 		// Enqueue only the editor styles for now. Additional ones will be loaded
 		// later.
 		add_editor_style( 
 			array(
-				/////'/assets/css/flat-blocks.css',
-				/////'/assets/css/custom-styles.css',
-				'/assets/css/editor-styles.css',
-				//'style.css'
+				'/assets/css/editor-styles.css'
 			)
 		);
 
@@ -75,20 +68,20 @@ endif;
 /* 
  * Tell WordPress to load only the block styles for blocks in use on a particular page
  */
-//add_filter( 'should_load_separate_core_block_assets', '__return_true' );
 add_filter( 'should_load_separate_core_block_assets', '__return_false' );
+//add_filter( 'should_load_separate_core_block_assets', '__return_true' );
 
 /* 
- * Tell this theme to load only the block styles for blocks in use on a particular page
+ * Tell the theme to load only the block styles for blocks in use 
  */
-//add_filter( 'flatblocks_should_load_separate_block_assets', '__return_true' );
 add_filter( 'flatblocks_should_load_separate_block_assets', '__return_false' );
+//add_filter( 'flatblocks_should_load_separate_block_assets', '__return_true' );
 
 /**
  * Enqueue FRONT-END ONLY and/or BACK-END styles and scripts depending on 
  * flatblocks_should_load_separate_block_assets.
  */
-if ( apply_filters( 'flatblocks_should_load_separate_block_assets', $default = true ) ) {
+if ( apply_filters( 'flatblocks_should_load_separate_block_assets', $separate_theme_block_assets ?? false ) ) {
 	add_action( 'enqueue_block_assets', 'flatblocks_front_end_styles' );
 } else {
 	add_action( 'wp_enqueue_scripts', 'flatblocks_front_end_styles' );
@@ -112,7 +105,7 @@ if ( ! function_exists( 'flatblocks_front_end_styles' ) ) :
 		}
 				
 		// If not loading separate block styles, then load custom block styles
-		if ( ! apply_filters( 'flatblocks_should_load_separate_block_assets', true ) 
+		if ( ! apply_filters( 'flatblocks_should_load_separate_block_assets', $separate_theme_block_assets ?? false ) 
 			and file_exists( get_template_directory() . '/assets/css/custom-styles.css' ) ) {
 
 			wp_enqueue_style(
@@ -163,7 +156,7 @@ if ( ! function_exists( 'flatblocks_front_end_styles' ) ) :
 				get_template_directory_uri() . '/assets/js/smoothscroll.js', 
 				array('jquery'), 
 				$version_string, 
-				$load_in_footer = true 
+				$in_footer = true 
 			);
 		}
 		
@@ -188,7 +181,7 @@ endif;
  * Enqueue BACK-END ONLY styles and scripts IF NOT 
  * flatblocks_should_load_separate_block_assets.
  */
-if (! apply_filters( 'flatblocks_should_load_separate_block_assets', $default = true ) ) {
+if (! apply_filters( 'flatblocks_should_load_separate_block_assets', $separate_theme_block_assets ?? false ) ) {
 	add_action( 'admin_init', 'flatblocks_back_end_styles' );
 }
 if ( ! function_exists( 'flatblocks_back_end_styles' ) ) :
@@ -225,7 +218,7 @@ endif;
  * Load BLOCK-specific CSS styles on the FRONT-END AND BACK-END if
  * flatblocks_should_load_separate_block_assets.
  */
-if ( apply_filters( 'flatblocks_should_load_separate_block_assets', $default = true ) ) {
+if ( apply_filters( 'flatblocks_should_load_separate_block_assets', $separate_theme_block_assets ?? false ) ) {
 	/////add_action( 'wp_enqueue_scripts', 'flatblocks_load_block_styles' );
 	add_action( 'init', 'flatblocks_load_block_styles' ); 
 }
@@ -245,20 +238,6 @@ if ( ! function_exists( 'flatblocks_load_block_styles' ) ) :
 
 			// Remove the path and .css extension from the name
 			$block_name = str_replace( array(get_theme_file_path($block_path), '.css'), '', $block_name );
-
-			// Get the stylesheet handle. This is backwards-compatible and checks the
-			// availability of the `wp_should_load_separate_core_block_assets` function,
-			// and whether we want to load separate styles per-block or not.
-			//$handle = (
-				//function_exists( 'wp_should_load_separate_core_block_assets' ) &&
-				//wp_should_load_separate_core_block_assets()
-			//) ? "wp-block-$block_name" : 'wp-block-library';
- 
-			// Get the styles.
-			//$styles = file_get_contents( get_theme_file_path( "assets/css/block-styles/$block_name.css" ) );
- 
-			// Add frontend styles.
-			//wp_add_inline_style( $handle, $styles );
 
 			// Load the block style
 			// Note: WordPress will decide whether to enqueue or inline the style

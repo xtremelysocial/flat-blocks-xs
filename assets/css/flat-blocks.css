@@ -896,8 +896,8 @@ p.is-style-no-link-underline a:hover {
 body .is-layout-constrained > * + .wp-block-template-part > *:first-child:not(.wp-block-template-part, .wp-block-post-content, .wp-block-cover, .wp-block-query, main, header, footer, nav),
 body .is-layout-constrained .wp-block-template-part > * + *:not(.wp-block-template-part, .wp-block-post-content, .wp-block-cover, .wp-block-query, main, header, footer, nav),
 .wp-site-blocks .wp-block-query > *:first-child:not(.wp-block-cover),
-.wp-site-blocks .wp-block-post-content > *:first-child:not(.wp-block-cover),
-.is-root-container > *:first-child:not(.wp-block-template-part, .wp-block-cover, .wp-block-query) {
+.wp-site-blocks .wp-block-post-content > *:first-child:not(.wp-block-cover) { /*,
+.is-root-container > *:first-child:not(.wp-block-template-part, .wp-block-cover, .wp-block-query) {*/
   margin-block-start: var(--wp--style--block-gap);
 }
 
@@ -925,16 +925,19 @@ body .is-layout-constrained .wp-block-template-part > * + *:not(.wp-block-templa
  * is now in theme.json as custom block CSS
  */
 /* For convenience, remove padding from inner containers */
-main.wp-block-group,
+main.wp-block-group:not(.has-global-padding),
+header.wp-block-group:not(.has-global-padding),
+footer.wp-block-group:not(.has-global-padding),
 .wp-block-template-part {
   padding: 0;
 }
 
-.is-root-container main,
-.is-root-container .wp-block-template-part {
-  padding: 0 !important;
-}
-
+/*main.wp-block-group.has-global-padding,
+header.wp-block-group.has-global-padding,
+footer.wp-block-group.has-global-padding {
+	padding-top: 0;
+	padding-bottom: 0;
+}*/
 /* FIX to add back horizontal padding */
 .has-global-padding,
 .has-global-padding > .alignfull:not(.wp-block-post-content, .wp-block-image, .wp-block-columns, .wp-block-buttons),
@@ -954,4 +957,36 @@ main.wp-block-group,
 .has-global-padding > #wporg-pattern-preview > div > .alignfull {
   margin-right: calc(var(--wp--style--root--padding-right) * -1);
   margin-left: calc(var(--wp--style--root--padding-left) * -1);
+}
+
+/*--------------------------------------------------------------
+# Compatibility with other themes
+--------------------------------------------------------------*/
+/* 
+ * TwentyTwentyThree theme uses the same primary, secondary, and 
+ * tertiary as us, but uses base and contrast instead of 
+ * background and foreground.
+ */
+.has-base-color {
+  color: var(--wp--preset--color--background) !important;
+}
+
+.has-base-background-color {
+  background-color: var(--wp--preset--color--background) !important;
+}
+
+.has-base-border-color {
+  border-color: var(--wp--preset--color--background) !important;
+}
+
+.has-contrast-color {
+  color: var(--wp--preset--color--foreground) !important;
+}
+
+.has-contrast-background-color {
+  background-color: var(--wp--preset--color--foreground) !important;
+}
+
+.has-contrast-border-color {
+  border-color: var(--wp--preset--color--foreground) !important;
 }
