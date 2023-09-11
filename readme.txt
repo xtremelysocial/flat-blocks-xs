@@ -157,6 +157,7 @@ You can check out our other themes here: https://xtremelysocial.com/wordpress/
 September 10, 2023
 
 * Added "Page Featured Image with Left Sidebar" and "Page Featured Image with Right Sidebar" templates for those that like a more "classic" look to certain pages. 
+* Enhanced footers with maps to not have top and bottom margin on them since these footers have dark backgrounds and would let the light background show through.
 * Enhanced functions.php to add two new filters that can be used to alter the way WordPress and this theme loads its stylesheets. By default, everything works the same way as it has in prior versions, so you shouldn't see any difference. If a child theme overrides these default values, it will tell WordPress and/or this theme to load individual block styles separately. The logic is smart enough to only load block styles for ones in use on any given page or post. This enhancement was done to pave the way for taking advantage of any performance enhancements in WordPress. From our testing, however, this tends to lower performance scores not improve them so that is why this is turned OFF by default. To override the defaults and turn on separate block style loading, add the following to functions.php in your child theme.
 	add_filter( 'should_load_separate_core_block_assets', '__return_true' );
 	add_filter( 'flatblocks_should_load_separate_block_assets', '__return_true' );

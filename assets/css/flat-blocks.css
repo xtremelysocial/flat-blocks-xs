@@ -932,13 +932,12 @@ footer.wp-block-group:not(.has-global-padding),
   padding: 0;
 }
 
-main.wp-block-group.has-global-padding,
+/*main.wp-block-group.has-global-padding,
 header.wp-block-group.has-global-padding,
 footer.wp-block-group.has-global-padding {
-  padding-top: 0;
-  padding-bottom: 0;
-}
-
+	padding-top: 0;
+	padding-bottom: 0;
+}*/
 /* FIX to add back horizontal padding */
 .has-global-padding,
 .has-global-padding > .alignfull:not(.wp-block-post-content, .wp-block-image, .wp-block-columns, .wp-block-buttons),
