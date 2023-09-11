@@ -154,7 +154,7 @@ You can check out our other themes here: https://xtremelysocial.com/wordpress/
 == Changelog ==
 
 = 1.3.9 =
-September 10, 2023
+September 11, 2023
 
 * Added "Page Featured Image with Left Sidebar" and "Page Featured Image with Right Sidebar" templates for those that like a more "classic" look to certain pages. 
 * Enhanced footers with maps to not have top and bottom margin on them since these footers have dark backgrounds and would let the light background show through. Also updated the contact info on them to include an email address. 
