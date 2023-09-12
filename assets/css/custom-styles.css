@@ -11,6 +11,9 @@
  * @since 	1.0
  */
 /*--------------------------------------------------------------
+# CUSTOM BLOCK STYLES
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
 # Comments
 --------------------------------------------------------------*/
 /* Reduce top margin on "Leave a Reply" */
@@ -21,8 +24,7 @@
 
 /* TO-DO: See if we can remove having to use our ID */
 /* Match our bottom margin */
-/*#post-comments,*/
-.wp-block-group:has(.wp-block-comments) {
+#post-comments {
   margin-bottom: var(--wp--style--block-gap);
 }
 

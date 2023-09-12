@@ -3,7 +3,7 @@ Contributors: Tim Nicholson / XtremelySocial
 Requires at least: 6.2
 Tested up to: 6.3
 Requires PHP: 7.4
-Stable tag: 1.3.8
+Stable tag: 1.3.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -152,6 +152,20 @@ For more information, see these pages on the XtremelySocial.com website:
 You can check out our other themes here: https://xtremelysocial.com/wordpress/
 
 == Changelog ==
+
+= 1.3.9 =
+September 11, 2023
+
+* Added "Page Featured Image with Left Sidebar" and "Page Featured Image with Right Sidebar" templates for those that like a more "classic" look to certain pages. 
+* Enhanced footers with maps to not have top and bottom margin on them since these footers have dark backgrounds and would let the light background show through. Also updated the contact info on them to include an email address. 
+* Enhanced functions.php to add two new filters that can be used to alter the way WordPress and this theme loads its stylesheets. By default, everything works the same way as it has in prior versions, so you shouldn't see any difference. If a child theme overrides these default values, it will tell WordPress and/or this theme to load individual block styles separately. The logic is smart enough to only load block styles for ones in use on any given page or post. This enhancement was done to pave the way for taking advantage of any performance enhancements in WordPress. From our testing, however, this tends to lower performance scores not improve them so that is why this is turned OFF by default. To override the defaults and turn on separate block style loading, add the following to functions.php in your child theme.
+	add_filter( 'should_load_separate_core_block_assets', '__return_true' );
+	add_filter( 'flatblocks_should_load_separate_block_assets', '__return_true' );
+* As a result of above, we are now including invidual block styles in the /assets/css/blocks/ directory. These are only used if you override the default setting above, but if you do, they are needed.
+* Simplified CSS in editor-styles.css to remove .is-root-container before each CSS style because that was only needed when also loading these styles on the front-end.
+* Enhanced CSS in the Editor for horizontal spacing (padding) on tablet and mobile.
+* Enhance CSS for groups that are header, footer, or main. Top padding will be removed automatically and left and right padding will depend on whether site horizontal spacing is needed (.has-global-padding).
+* Enhanced our function that loads block patterns to alter the theme name not just for child themes but now also for parent themes created from Flat Blocks. i.e. The theme slug is now overridden whenever the theme slug isn't exactly 'flat-blocks'.
 
 = 1.3.8 =
 September 9, 2023
