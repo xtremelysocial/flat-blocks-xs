@@ -4,6 +4,7 @@
 /* Closed Summary will have normal foreground font color */
 .wp-block-details > summary {
   color: var(--wp--preset--color--foreground);
+  font-weight: var(--wp--custom--typography--font-weight--medium);
   transition: color var(--wp--custom--animation--duration--medium) var(--wp--custom--animation--timing-function);
 }
 

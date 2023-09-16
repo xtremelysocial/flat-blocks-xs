@@ -148,6 +148,7 @@ body {
 /* Colored link hover styles */
 .wp-site-blocks .has-text-color a:not(.wp-element-button):not(.wp-block-button):not(.wp-block-social-link-anchor):hover {
   opacity: 0.8;
+  /*filter: brightness(80%);*/
 }
 
 /* Style basic buttons to match block buttons. This is for older 
@@ -186,6 +187,7 @@ body {
 .wp-site-blocks .wp-block-file .wp-block-file__button:hover,
 .wp-site-blocks .wp-block-button__link:hover {
   opacity: 0.8;
+  /*background-image: linear-gradient(var(--wp--custom--outline--color) 0 0) !important;*/
   cursor: pointer;
 }
 
@@ -532,7 +534,6 @@ h6.has-background {
 .wp-block-group.site-header:not(.has-link-color) .wp-block-navigation__responsive-container:not(.has-text-color) .wp-block-navigation-item__content:hover,
 .wp-block-navigation__submenu-container:not(.has-text-color) .wp-block-navigation-item__content:hover {
   color: var(--wp--preset--color--primary-alt);
-  /*font-weight: var(--wp--custom--typography--font-weight--bold);*/
   font-weight: inherit;
 }
 
@@ -673,8 +674,6 @@ nav.wp-block-navigation.is-style-fixed-menu .wp-block-navigation__responsive-con
 /* On the front-end, position the fixed nav menu to the top left */
 .wp-site-blocks:not(.is-root-container) nav.wp-block-navigation.is-style-fixed-menu {
   position: fixed;
-  /*top: var(--wp--style--root--padding-top, 0);
-  margin: var(--wp--preset--spacing--60) 0 0;*/
   top: calc(var(--wp--preset--spacing--60) + 1px * var(--wp--style--root--padding-top, 0));
   left: max(0.5 * (100% - var(--wp--style--global--wide-size)), var(--wp--style--root--padding-left, calc(2 * var(--wp--preset--spacing--50))));
   right: auto;
@@ -683,7 +682,6 @@ nav.wp-block-navigation.is-style-fixed-menu .wp-block-navigation__responsive-con
 
 /* If WordPress Admin Bar, adjust fixed menu top position so its underneath */
 .admin-bar .wp-site-blocks:not(.is-root-container) nav.wp-block-navigation.is-style-fixed-menu {
-  /*top: calc( var(--wp--style--root--padding-top, 0) + var(--wp-admin--admin-bar--height, 0) );*/
   top: calc(var(--wp--preset--spacing--60) + 1px * var(--wp--style--root--padding-top, 0) + var(--wp-admin--admin-bar--height, 0));
 }
 
@@ -729,7 +727,6 @@ nav.wp-block-navigation.is-style-fixed-menu .wp-block-navigation__responsive-con
 
 .site-header.is-content-justification-center > nav.wp-block-navigation.is-style-fixed-menu .wp-block-navigation__responsive-container,
 .site-header.is-content-justification-center > .wp-block-template-part > nav.wp-block-navigation.is-style-fixed-menu .wp-block-navigation__responsive-container {
-  /*left: calc(50% - 5 * var(--wp--preset--spacing--60));*/
   left: calc(50% - 180px);
   right: auto;
 }
@@ -814,16 +811,19 @@ p.is-style-link-underline a:active {
 
 p.is-style-link-underline a:hover {
   opacity: 0.8;
+  /*filter: brightness(80%);*/
 }
 
 /* No Underline links */
-p.is-style-no-link-underline a,
-p.is-style-no-link-underline a:active {
+p.is-style-link-no-underline a,
+p.is-style-link-no-underline a:active {
+  /*font-weight: var(--wp--custom--typography--font-weight--medium);*/
   text-decoration: none !important;
 }
 
-p.is-style-no-link-underline a:hover {
+p.is-style-link-no-underline a:hover {
   opacity: 0.8;
+  /*filter: brightness(80%);*/
 }
 
 /*--------------------------------------------------------------
@@ -867,6 +867,10 @@ p.is-style-no-link-underline a:hover {
   font-size: 1em;
   font-weight: var(--wp--custom--typography--font-weight--normal);
   /*vertical-align: middle; top;*/
+}
+
+.wp-site-blocks .dashicons a {
+  text-decoration: none;
 }
 
 /*--------------------------------------------------------------

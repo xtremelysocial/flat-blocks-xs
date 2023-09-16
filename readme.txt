@@ -3,7 +3,7 @@ Contributors: Tim Nicholson / XtremelySocial
 Requires at least: 6.2
 Tested up to: 6.3
 Requires PHP: 7.4
-Stable tag: 1.3.9
+Stable tag: 1.3.10
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -152,6 +152,13 @@ For more information, see these pages on the XtremelySocial.com website:
 You can check out our other themes here: https://xtremelysocial.com/wordpress/
 
 == Changelog ==
+
+= 1.3.10 = 
+September 16, 2023
+
+* Defaulted links to underline on post/page content and in comment contents per WordPress.org Theme Guidelines. So then set various other theme elements to not underline links in theme.json, such as post title, post date, post author name, lists, etc. Also updated the various footer template parts to set the paragraph style to not underline links. Note that the no underline paragraph style was also changed to "is-style-link-no-underline" (previously it was "is-style-no-link-underline").
+* Increased the font weight on the new WordPress v6.3 Details Block heading line (called "Summary").
+* Center-align captions by default in the Block Editor. The CSS there is different than on the front-end, so had to add this to /assets/css/editor-styles.css.
 
 = 1.3.9 =
 September 11, 2023
