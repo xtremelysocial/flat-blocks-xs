@@ -112,7 +112,7 @@ body {
 }
 
 .wp-site-blocks textarea,
-.wp-site-blocks input:not([type=radio]):not([type=checkbox]):not([type=file]):not([type=button]):not([type=image]):not([class=button]):not(.wp-block-button__link) {
+.wp-site-blocks input:not([type=radio]):not([type=checkbox]):not([type=file]):not([type=button]):not([type=image]):not([class*=button]):not(.wp-block-button__link) {
   -webkit-appearance: none;
   border: 1px solid var(--wp--preset--color--foreground);
 }
@@ -151,16 +151,17 @@ body {
   /*filter: brightness(80%);*/
 }
 
-/* Style basic buttons to match block buttons. This is for older 
- * site content and / or plugins. Note the exclusions of any blocks 
- * or Tiny MCE buttons (which are the old editor prior to the new 
- * block editor).
+/* 
+ * Style basic buttons to match block buttons. This is for older 
+ * site content and / or plugins. Note the .wp-site-blocks ensures
+ * we aren't affecting the block editor or older Tiny MCE buttons.
  */
 .wp-site-blocks input[type=button],
-.wp-site-blocks input[class=button],
+.wp-site-blocks input[type=submit][class*=button],
 .wp-site-blocks input[type=file]::file-selector-button {
   color: var(--wp--preset--color--foreground-alt);
   background-color: var(--wp--preset--color--primary);
+  border: none;
   border-width: 0;
   border-radius: var(--wp--custom--border--radius);
   padding: var(--wp--preset--spacing--30) var(--wp--preset--spacing--40);
@@ -175,13 +176,20 @@ body {
   width: 100%;
 }
 
+/* But override buttons to look like outlines on colored backgrounds */
+.wp-site-blocks .has-text-color input[type=button],
+.wp-site-blocks .has-text-color input[type=submit][class*=button],
+.wp-site-blocks .has-text-color input[type=file]::file-selector-button {
+  border: 3px solid var(--wp--preset--color--foreground-alt);
+}
+
 /*
  * Button hover styles.
  * Necessary until the following issue is resolved in Gutenberg:
  * https://github.com/WordPress/gutenberg/issues/27075
  */
 .wp-site-blocks button:hover,
-.wp-site-blocks input[class=button]:hover,
+.wp-site-blocks input[type=submit][class*=button]:hover,
 .wp-site-blocks input[type=file]::file-selector-button:hover,
 .wp-site-blocks .wp-block-search__button:hover,
 .wp-site-blocks .wp-block-file .wp-block-file__button:hover,
@@ -253,6 +261,10 @@ body .is-layout-constrained > .alignright {
 /*--------------------------------------------------------------
 # Columns and Column
 --------------------------------------------------------------*/
+/* 
+ * Note: Padding for colored backgrounds on columns is now in
+ * theme.json as custom block CSS.
+ */
 /* 
  * Note: Breakpoint of 781 is what is hard-coded in WordPress 
  * v6.0+ to collapse columns
@@ -356,6 +368,10 @@ body .is-layout-constrained > .alignright {
 /*--------------------------------------------------------------
 # Group
 --------------------------------------------------------------*/
+/* 
+ * Note: Padding for colored backgrounds on groups is now in
+ * theme.json as custom block CSS.
+ */
 /* For convenience, remove padding on nested groups */
 .wp-site-blocks .wp-block-group > .wp-block-group:not(.has-background) {
   padding: 0;
@@ -397,7 +413,7 @@ body .is-layout-constrained > .alignright {
   overflow: hidden;
 }
 
-/* Group padding */
+/* Group no padding */
 .wp-block-group.is-style-no-padding {
   padding-top: 0;
   padding-bottom: 0;
@@ -413,7 +429,8 @@ body .is-layout-constrained > .alignright {
 .wp-block-group.has-background.is-style-fixed-header {
   border: 1px solid var(--wp--custom--border--color);
   border-width: 0 0 1px;
-  padding: var(--wp--preset--spacing--40);
+  padding-top: var(--wp--preset--spacing--40);
+  padding-bottom: var(--wp--preset--spacing--40);
 }
 
 /* Position the fixed header using sticky so we don't have to have top site margin */
@@ -924,23 +941,20 @@ body .is-layout-constrained .wp-block-template-part > * + *:not(.wp-block-templa
 /*--------------------------------------------------------------
 # Padding (Horizontal and vertical spacing)
 --------------------------------------------------------------*/
-/* 
- * Note: Padding for colored backgrounds on groups and columns 
- * is now in theme.json as custom block CSS
- */
 /* For convenience, remove padding from inner containers */
 main.wp-block-group:not(.has-global-padding),
-header.wp-block-group:not(.has-global-padding),
-footer.wp-block-group:not(.has-global-padding),
 .wp-block-template-part {
   padding: 0;
 }
 
-/*main.wp-block-group.has-global-padding,
-header.wp-block-group.has-global-padding,
-footer.wp-block-group.has-global-padding {
-	padding-top: 0;
-	padding-bottom: 0;
+/* 
+ * If user turns off "useRootPaddingAwareAlignments" in theme.json,
+ * then still add some padding to the site so text isn't scrunched
+ * up against the sides of the browser.
+ */
+/*.wp-site-blocks:not(:has(.has-global-padding)) {
+    padding-left: var(--wp--style--root--padding-left, var(--wp--preset--spacing--50));
+    padding-right: var(--wp--style--root--padding-right, var(--wp--preset--spacing--50));
 }*/
 /* FIX to add back horizontal padding */
 .has-global-padding,

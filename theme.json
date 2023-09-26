@@ -48,7 +48,6 @@
 			"wideSize": "1100px"
 		},
 		"useRootPaddingAwareAlignments": true,
-		"shouldLoadSeparateCoreBlockAssets": false,
 		"appearanceTools": true,
 		"position": {
 			"sticky": false
@@ -1397,6 +1396,9 @@
 				}
 			},
 			"core/comment-author-name": {
+				"typography": {
+					"fontWeight": "var(--wp--custom--typography--font-weight--medium)"
+				},
 				"elements": {
 					"link": {
 						"typography": {
