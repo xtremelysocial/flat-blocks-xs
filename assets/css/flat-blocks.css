@@ -822,23 +822,29 @@ p.is-style-arrow-icon > a:after {
 
 /* Underline links */
 p.is-style-link-underline a,
-p.is-style-link-underline a:active {
+p.is-style-link-underline a:active,
+a.is-style-link-underline,
+a.is-style-link-underline:active {
   text-decoration: underline !important;
 }
 
-p.is-style-link-underline a:hover {
+p.is-style-link-underline a:hover,
+a.is-style-link-underline:hover {
   opacity: 0.8;
   /*filter: brightness(80%);*/
 }
 
 /* No Underline links */
 p.is-style-link-no-underline a,
-p.is-style-link-no-underline a:active {
+p.is-style-link-no-underline a:active,
+a.is-style-link-no-underline,
+a.is-style-link-no-underline:active {
   /*font-weight: var(--wp--custom--typography--font-weight--medium);*/
   text-decoration: none !important;
 }
 
-p.is-style-link-no-underline a:hover {
+p.is-style-link-no-underline a:hover,
+a.is-style-link-no-underline:hover {
   opacity: 0.8;
   /*filter: brightness(80%);*/
 }
