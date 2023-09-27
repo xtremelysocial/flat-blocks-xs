@@ -956,6 +956,15 @@ main.wp-block-group:not(.has-global-padding),
     padding-left: var(--wp--style--root--padding-left, var(--wp--preset--spacing--50));
     padding-right: var(--wp--style--root--padding-right, var(--wp--preset--spacing--50));
 }*/
+/* Override horizontal padding when no global padding */
+header.site-header:not(.has-global-padding),
+footer.site-footer:not(.has-global-padding),
+header.entry-header:not(.has-global-padding),
+#post-comments:not(.has-global-padding) {
+  padding-left: var(--wp--style--root--padding-left) !important;
+  padding-right: var(--wp--style--root--padding-right) !important;
+}
+
 /* FIX to add back horizontal padding */
 .has-global-padding,
 .has-global-padding > .alignfull:not(.wp-block-post-content, .wp-block-image, .wp-block-columns, .wp-block-buttons),
@@ -974,7 +983,9 @@ main.wp-block-group:not(.has-global-padding),
 /* FIX alignfull in WordPress.org theme preview */
 .has-global-padding > #wporg-pattern-preview > div > .alignfull {
   margin-right: calc(var(--wp--style--root--padding-right) * -1);
+  padding-right: var(--wp--style--root--padding-right);
   margin-left: calc(var(--wp--style--root--padding-left) * -1);
+  padding-left: var(--wp--style--root--padding-left);
 }
 
 /*--------------------------------------------------------------
