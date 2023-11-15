@@ -6,4 +6,4 @@ pro
 src
 *.css.map
 zz_unused
-
+/assets/css/blocks/

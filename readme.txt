@@ -1,9 +1,9 @@
 === Flat Blocks ===
 Contributors: Tim Nicholson / XtremelySocial
 Requires at least: 6.2
-Tested up to: 6.3
+Tested up to: 6.4
 Requires PHP: 7.4
-Stable tag: 1.3.12
+Stable tag: 1.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -152,6 +152,20 @@ For more information, see these pages on the XtremelySocial.com website:
 You can check out our other themes here: https://xtremelysocial.com/wordpress/
 
 == Changelog ==
+
+= 1.4 = 
+November 15, 2023
+
+* Enhancement for the WordPress v6.4 new image "lightbox" ("expand on click"): Hide caption on our custom style for Image with Computer Screen.
+* Enhance smooth scrolling on internal links to page or post comments to account for fixed header height.
+* Changed the default global style setting to not underline links except for in paragraph blocks. Previously link underlines were defaulted everywhere but then overridden in global styles for most blocks, such as the site title, list block, query pagination, etc. By changing to no link underline except in paragraphs, 3rd-party plugin content links will not default to having underlines. We had already provided custom styles on paragraphs to either show or not show link underlines, so this can continue to be controlled at the individual paragraph block level.
+* Fix Pattern Image with Computer Screen Title and Text to use the newer preset spacing format.
+* Lighten day numbers on Calendar block when using a global theme style with a dark background. 
+* Miscellaneous CSS adjustments primarily for the theme preview on WordPress.org:
+	* Style older form reset button styles to match the theme button styles.
+	* Align built-in (Dashicon) icons to the top so they align better with text.
+	* Default social link icons to be centered.
+* Changed the full-page Block Patterns for About, Home, Portfolio, and Services to use the other block patterns to build the page (<!-- wp:pattern /-->) rather than the custom function flatblocks_get_block_pattern(). This makes the code easier to maintain.
 
 = 1.3.12 = 
 September 26, 2023

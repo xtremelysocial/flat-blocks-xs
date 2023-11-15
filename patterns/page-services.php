@@ -8,15 +8,13 @@
   */
 ?>
 
-<?php include_once get_template_directory() . '/inc/pattern-functions.php'; ?>
-
-<?php if ( function_exists( 'flatblocks_get_block_pattern' ) ) echo flatblocks_get_block_pattern( 'cover-desk-meeting' ); ?>
+<!-- wp:pattern {"slug":"flat-blocks/cover-desk-meeting"} /-->
 
 <!-- wp:paragraph -->
 <p></p>
 <!-- /wp:paragraph -->
 
-<?php if ( function_exists( 'flatblocks_get_block_pattern' ) ) echo flatblocks_get_block_pattern( 'text-title-and-text' ); ?>
+<!-- wp:pattern {"slug":"flat-blocks/text-title-and-text"} /-->
 
 <!-- wp:group {"layout":{"type":"constrained"}} -->
 <div class="wp-block-group">
@@ -29,7 +27,7 @@
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
-<?php if ( function_exists( 'flatblocks_get_block_pattern' ) ) echo flatblocks_get_block_pattern( 'columns-features-4-columns' ); ?>
+<!-- wp:pattern {"slug":"flat-blocks/columns-features-4-columns"} /-->
 
 <!-- wp:group {"layout":{"type":"constrained"}} -->
 <div class="wp-block-group">
@@ -42,8 +40,8 @@
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
-<?php if ( function_exists( 'flatblocks_get_block_pattern' ) ) echo flatblocks_get_block_pattern( 'columns-pricing-table-3-columns' ); ?>
+<!-- wp:pattern {"slug":"flat-blocks/columns-pricing-table-3-columns"} /-->
 
-<?php if ( function_exists( 'flatblocks_get_block_pattern' ) ) echo flatblocks_get_block_pattern( 'text-faq' ); ?>
+<!-- wp:pattern {"slug":"flat-blocks/text-faq"} /-->
 
-<?php if ( function_exists( 'flatblocks_get_block_pattern' ) ) echo flatblocks_get_block_pattern( 'buttons-call-to-action' ); ?>
+<!-- wp:pattern {"slug":"flat-blocks/buttons-call-to-action"} /-->

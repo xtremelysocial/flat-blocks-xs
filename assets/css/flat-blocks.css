@@ -66,9 +66,13 @@ body {
   list-style-position: inside;
 }
 
-/* Center captions by default */
+/* Center captions and don't underline links in them by default */
 .wp-site-blocks figcaption {
   text-align: center;
+}
+
+.wp-site-blocks figcaption a {
+  text-decoration: none;
 }
 
 /*--------------------------------------------------------------
@@ -158,6 +162,7 @@ body {
  */
 .wp-site-blocks input[type=button],
 .wp-site-blocks input[type=submit][class*=button],
+.wp-site-blocks input[type=reset][class*=button],
 .wp-site-blocks input[type=file]::file-selector-button {
   color: var(--wp--preset--color--foreground-alt);
   background-color: var(--wp--preset--color--primary);
@@ -179,6 +184,7 @@ body {
 /* But override buttons to look like outlines on colored backgrounds */
 .wp-site-blocks .has-text-color input[type=button],
 .wp-site-blocks .has-text-color input[type=submit][class*=button],
+.wp-site-blocks .hast-text-color input[type=reset][class*=button],
 .wp-site-blocks .has-text-color input[type=file]::file-selector-button {
   border: 3px solid var(--wp--preset--color--foreground-alt);
 }
@@ -190,6 +196,7 @@ body {
  */
 .wp-site-blocks button:hover,
 .wp-site-blocks input[type=submit][class*=button]:hover,
+.wp-site-blocks input[type=reset][class*=button]:hover,
 .wp-site-blocks input[type=file]::file-selector-button:hover,
 .wp-site-blocks .wp-block-search__button:hover,
 .wp-site-blocks .wp-block-file .wp-block-file__button:hover,
@@ -494,6 +501,11 @@ h6.has-background {
 .wp-block-image.is-style-circle-mask img,
 .wp-block-image.is-style-rounded img {
   border-radius: 9999px !important;
+}
+
+/* Hide the caption in new WordPress v6.4 "lightbox" image feature when enlarged */
+.lightbox-image-container .wp-block-image img {
+  color: rgba(0, 0, 0, 0) !important;
 }
 
 /*--------------------------------------------------------------
@@ -884,12 +896,11 @@ a.is-style-link-no-underline:hover {
 .wp-site-blocks .dashicons:before,
 .wp-site-blocks .dashicons-before:before {
   display: inline-block;
-  vertical-align: middle;
+  vertical-align: top;
   width: auto;
   height: auto;
   font-size: 1em;
   font-weight: var(--wp--custom--typography--font-weight--normal);
-  /*vertical-align: middle; top;*/
 }
 
 .wp-site-blocks .dashicons a {
@@ -966,6 +977,7 @@ main.wp-block-group:not(.has-global-padding),
 header.site-header:not(.has-global-padding),
 footer.site-footer:not(.has-global-padding),
 header.entry-header:not(.has-global-padding),
+.wp-block-query:not(.has-global-padding),
 #post-comments:not(.has-global-padding) {
   padding-left: var(--wp--style--root--padding-left) !important;
   padding-right: var(--wp--style--root--padding-right) !important;

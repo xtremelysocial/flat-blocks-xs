@@ -8,9 +8,7 @@
   */
 ?>
 
-<?php include_once get_template_directory() . '/inc/pattern-functions.php'; ?>
-
-<?php if ( function_exists( 'flatblocks_get_block_pattern' ) ) echo flatblocks_get_block_pattern( 'cover-desk-light' ); ?>
+<!-- wp:pattern {"slug":"flat-blocks/cover-desk-light"} /-->
 
 <!-- wp:group {"layout":{"type":"constrained"}} -->
 <div class="wp-block-group">
@@ -23,7 +21,7 @@
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
-<?php if ( function_exists( 'flatblocks_get_block_pattern' ) ) echo flatblocks_get_block_pattern( 'columns-features-3-columns' ); ?>
+<!-- wp:pattern {"slug":"flat-blocks/columns-features-3-columns"} /-->
 
 <!-- wp:group {"layout":{"type":"constrained"}} -->
 <div class="wp-block-group">
@@ -36,8 +34,8 @@
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
-<?php if ( function_exists( 'flatblocks_get_block_pattern' ) ) echo flatblocks_get_block_pattern( 'columns-team-4-people' ); ?>
+<!-- wp:pattern {"slug":"flat-blocks/columns-team-4-people"} /-->
 
-<?php if ( function_exists( 'flatblocks_get_block_pattern' ) ) echo flatblocks_get_block_pattern( 'buttons-call-to-action' ); ?>
+<!-- wp:pattern {"slug":"flat-blocks/buttons-call-to-action"} /-->
 
 
