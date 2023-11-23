@@ -1,9 +1,9 @@
 === Flat Blocks ===
 Contributors: Tim Nicholson / XtremelySocial
 Requires at least: 6.2
-Tested up to: 6.3
+Tested up to: 6.4
 Requires PHP: 7.4
-Stable tag: 1.3.12
+Stable tag: 1.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -152,6 +152,30 @@ For more information, see these pages on the XtremelySocial.com website:
 You can check out our other themes here: https://xtremelysocial.com/wordpress/
 
 == Changelog ==
+
+= 1.4 = 
+November 23, 2023
+
+* Block Patterns
+	* Added Block Patterns for Content with Right Sidebar and Content with Left Sidebar. This allows you to make any individual page or post have a custom sidebar that you can put anything you want into.
+	* Fix Pattern Image with Computer Screen Title and Text to use the newer preset spacing format.
+	* Changed the full-page Block Patterns for About, Home, Portfolio, and Services to use the other block patterns to build the page (<!-- wp:pattern /-->) rather than the custom function flatblocks_get_block_pattern(). This makes the code easier to maintain.
+	
+* Global Styles Enhancements
+	* Changed the default global style setting to not underline links except for in paragraph blocks. Previously link underlines were defaulted everywhere but then overridden in global styles for most blocks, such as the site title, list block, query pagination, etc. By changing to no link underline except in paragraphs, 3rd-party plugin content links will not default to having underlines. We had already provided custom styles on paragraphs to either show or not show link underlines, so this can continue to be controlled at the individual paragraph block level.
+	* Center separator block by default (change left and right margin in global theme styles to "auto").
+
+* CSS Enhancements and Fixes
+	* Enhancement for the WordPress v6.4 new image "lightbox" ("expand on click"): Hide caption on our custom style for Image with Computer Screen.
+	* Lighten day numbers on Calendar block when using a global theme style with a dark background. 
+	* Enhance CSS to allow users to manually add Dashicon icon CSS to paragraphs. e.g. "dashicons dashicons-before dashicons-arrow-up-alt2" will add an Arrow Up icon before a text link, such as in the footer nav.
+	* Enhanced the CSS for theme compatibility with background/base and foreground/contrast colors. This is for users of TwentyTwentyThree and other themes that use base and contrast colors moving to this theme which uses background and foreground colors. Accent color(s) now map to this theme's primary color too.
+	* Style older form reset button styles to match the theme button styles.
+	* Align built-in (Dashicon) icons to the top so they align better with text.
+	* Default social link icons to be centered.
+
+* Javascript Enhancements
+	* Enhance smooth scrolling on internal links to page or post comments to account for fixed header height.
 
 = 1.3.12 = 
 September 26, 2023

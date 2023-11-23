@@ -14,6 +14,17 @@
 # BLOCK STYLES
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
+# Calendar
+--------------------------------------------------------------*/
+.wp-block-calendar table:where(:not(.has-text-color)) {
+  color: var(--wp--preset--color--foreground);
+}
+
+.wp-block-calendar table th:not(.has-text-color) {
+  color: var(--wp--preset--color--dark);
+}
+
+/*--------------------------------------------------------------
 # Comments
 --------------------------------------------------------------*/
 /* Reduce top margin on "Leave a Reply" */
@@ -480,6 +491,12 @@ ol.is-style-list-plain-centered li {
 /*--------------------------------------------------------------
 # Social Links (Icons)
 --------------------------------------------------------------*/
+/* Set some defaults. These are needed for WordPres.org theme preview */
+.wp-block-social-links {
+  display: flex;
+  gap: var(--wp--style--block-gap);
+}
+
 /* Adjust icon sizes */
 .wp-block-social-links.has-small-icon-size {
   font-size: 22px;

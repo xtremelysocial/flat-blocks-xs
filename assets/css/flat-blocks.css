@@ -66,9 +66,13 @@ body {
   list-style-position: inside;
 }
 
-/* Center captions by default */
+/* Center captions and don't underline links in them by default */
 .wp-site-blocks figcaption {
   text-align: center;
+}
+
+.wp-site-blocks figcaption a {
+  text-decoration: none;
 }
 
 /*--------------------------------------------------------------
@@ -158,6 +162,7 @@ body {
  */
 .wp-site-blocks input[type=button],
 .wp-site-blocks input[type=submit][class*=button],
+.wp-site-blocks input[type=reset][class*=button],
 .wp-site-blocks input[type=file]::file-selector-button {
   color: var(--wp--preset--color--foreground-alt);
   background-color: var(--wp--preset--color--primary);
@@ -179,6 +184,7 @@ body {
 /* But override buttons to look like outlines on colored backgrounds */
 .wp-site-blocks .has-text-color input[type=button],
 .wp-site-blocks .has-text-color input[type=submit][class*=button],
+.wp-site-blocks .hast-text-color input[type=reset][class*=button],
 .wp-site-blocks .has-text-color input[type=file]::file-selector-button {
   border: 3px solid var(--wp--preset--color--foreground-alt);
 }
@@ -190,6 +196,7 @@ body {
  */
 .wp-site-blocks button:hover,
 .wp-site-blocks input[type=submit][class*=button]:hover,
+.wp-site-blocks input[type=reset][class*=button]:hover,
 .wp-site-blocks input[type=file]::file-selector-button:hover,
 .wp-site-blocks .wp-block-search__button:hover,
 .wp-site-blocks .wp-block-file .wp-block-file__button:hover,
@@ -225,21 +232,21 @@ body {
  * in case they aren't defined.
  */
 .wp-site-blocks > .alignleft {
-  margin-right: var(--wp--style--block-gap);
+  margin-right: var(--wp--style--root--padding-right, var(--wp--preset--spacing--50));
 }
 
 body .is-layout-constrained > .alignleft {
   padding-left: calc(0.5 * (100% - var(--wp--style--global--wide-size)));
-  margin-inline-end: var(--wp--style--block-gap);
+  margin-inline-end: var(--wp--style--root--padding-right, var(--wp--preset--spacing--50));
 }
 
 .wp-site-blocks > .alignright {
-  margin-left: var(--wp--style--block-gap);
+  margin-left: var(--wp--style--root--padding-left, var(--wp--preset--spacing--50));
 }
 
 body .is-layout-constrained > .alignright {
   padding-right: calc(0.5 * (100% - var(--wp--style--global--wide-size)));
-  margin-inline-start: var(--wp--style--block-gap);
+  margin-inline-start: var(--wp--style--root--padding-left, var(--wp--preset--spacing--50));
 }
 
 /* 
@@ -494,6 +501,11 @@ h6.has-background {
 .wp-block-image.is-style-circle-mask img,
 .wp-block-image.is-style-rounded img {
   border-radius: 9999px !important;
+}
+
+/* Hide the caption in new WordPress v6.4 "lightbox" image feature when enlarged */
+.lightbox-image-container .wp-block-image img {
+  color: rgba(0, 0, 0, 0) !important;
 }
 
 /*--------------------------------------------------------------
@@ -873,7 +885,8 @@ a.is-style-link-no-underline:hover {
 # Dashicons
 --------------------------------------------------------------*/
 /* Don't let dashicons force width and height. Let it come from the font size. */
-.wp-site-blocks .dashicons {
+.wp-site-blocks .dashicons,
+.dashicons {
   display: block;
   width: auto;
   height: auto;
@@ -884,15 +897,15 @@ a.is-style-link-no-underline:hover {
 .wp-site-blocks .dashicons:before,
 .wp-site-blocks .dashicons-before:before {
   display: inline-block;
-  vertical-align: middle;
+  vertical-align: top;
   width: auto;
   height: auto;
   font-size: 1em;
   font-weight: var(--wp--custom--typography--font-weight--normal);
-  /*vertical-align: middle; top;*/
 }
 
-.wp-site-blocks .dashicons a {
+.wp-site-blocks .dashicons a,
+.dashicons a {
   text-decoration: none;
 }
 
@@ -966,6 +979,7 @@ main.wp-block-group:not(.has-global-padding),
 header.site-header:not(.has-global-padding),
 footer.site-footer:not(.has-global-padding),
 header.entry-header:not(.has-global-padding),
+.wp-block-query:not(.has-global-padding),
 #post-comments:not(.has-global-padding) {
   padding-left: var(--wp--style--root--padding-left) !important;
   padding-right: var(--wp--style--root--padding-right) !important;
@@ -1001,27 +1015,67 @@ header.entry-header:not(.has-global-padding),
  * TwentyTwentyThree theme uses the same primary, secondary, and 
  * tertiary as us, but uses base and contrast instead of 
  * background and foreground.
+ * 
+ * TwentyTwentyFour theme uses base and contrast in numbered shades
+ * instead of background and foreground. It also uses accent colors 
+ * in numbered shades instead of primary, secondary, and tertiary.
  */
-.has-base-color {
+.has-base-color,
+.has-base-2-color,
+.has-base-3-color {
   color: var(--wp--preset--color--background) !important;
 }
 
-.has-base-background-color {
+.has-base-background-color,
+.has-base-2-background-color,
+.has-base-3-background-color {
   background-color: var(--wp--preset--color--background) !important;
 }
 
-.has-base-border-color {
+.has-base-border-color,
+.has-base-2-border-color,
+.has-base-3-border-color {
   border-color: var(--wp--preset--color--background) !important;
 }
 
-.has-contrast-color {
+.has-contrast-color,
+.has-contrast-2-color,
+.has-contrast-3-color {
   color: var(--wp--preset--color--foreground) !important;
 }
 
-.has-contrast-background-color {
+.has-contrast-background-color,
+.has-contrast-2-background-color,
+.has-contrast-3-background-color {
   background-color: var(--wp--preset--color--foreground) !important;
 }
 
-.has-contrast-border-color {
+.has-contrast-border-color,
+.has-contrast-2-border-color,
+.has-contrast-3-border-color {
   border-color: var(--wp--preset--color--foreground) !important;
+}
+
+.has-accent-color,
+.has-accent-2-color,
+.has-accent-3-color,
+.has-accent-4-color,
+.has-accent-5-color {
+  color: var(--wp--preset--color--primary);
+}
+
+.has-accent-background-color,
+.has-accent-2-background-color,
+.has-accent-3-background-color,
+.has-accent-4-background-color,
+.has-accent-5-background-color {
+  background-color: var(--wp--preset--color--primary);
+}
+
+.has-accent-border-color,
+.has-accent-2-border-color,
+.has-accent-3-border-color,
+.has-accent-4-border-color,
+.has-accent-5-border-color {
+  border-color: var(--wp--preset--color--primary);
 }

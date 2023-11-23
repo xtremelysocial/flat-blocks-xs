@@ -102,6 +102,14 @@ if ( ! function_exists( 'flatblocks_register_block_patterns' ) ) :
 				'title' => __( 'Recent Posts with 3 Columns', 'flat-blocks' ),
 				'categories' => array ('flatblocks', 'columns' )
 			),
+			'columns-sidebar-left' => array( 
+				'title' => __( 'Content with Left Sidebar', 'flat-blocks' ),
+				'categories' => array ('flatblocks', 'columns' )
+			),
+			'columns-sidebar-right' => array( 
+				'title' => __( 'Content with Right Sidebar', 'flat-blocks' ),
+				'categories' => array ('flatblocks', 'columns' )
+			),
 			'columns-social-media-3-columns' => array( 
 				'title' => __( 'Social Media Icons with 3 Columns', 'flat-blocks' ),
 				'categories' => array ('flatblocks', 'columns', 'featured' )

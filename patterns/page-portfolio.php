@@ -8,9 +8,7 @@
   */
 ?>
 
-<?php include_once get_template_directory() . '/inc/pattern-functions.php'; ?>
-
-<?php if ( function_exists( 'flatblocks_get_block_pattern' ) ) echo flatblocks_get_block_pattern( 'cover-geodesic-lights' ); ?>
+<!-- wp:pattern {"slug":"flat-blocks/cover-geodesic-lights"} /-->
 
 <!-- wp:group {"layout":{"type":"constrained"}} -->
 <div id="our-portfolio" class="wp-block-group">
@@ -36,8 +34,8 @@
 <!-- /wp:columns --></div>
 <!-- /wp:group -->
 
-<?php if ( function_exists( 'flatblocks_get_block_pattern' ) ) echo flatblocks_get_block_pattern( 'image-gallery' ); ?>
+<!-- wp:pattern {"slug":"flat-blocks/image-gallery"} /-->
 
-<?php if ( function_exists( 'flatblocks_get_block_pattern' ) ) echo flatblocks_get_block_pattern( 'columns-features-3-columns' ); ?>
+<!-- wp:pattern {"slug":"flat-blocks/columns-features-3-columns"} /-->
 
-<?php if ( function_exists( 'flatblocks_get_block_pattern' ) ) echo flatblocks_get_block_pattern( 'buttons-call-to-action' ); ?>
+<!-- wp:pattern {"slug":"flat-blocks/buttons-call-to-action"} /-->
