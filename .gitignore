@@ -5,6 +5,5 @@ styles/*TEST-ONLY*.json
 pro
 src
 *.css.map
-/assets/src/blocks/
+assets/css/blocks/
 zz_unused
-/assets/css/blocks/
