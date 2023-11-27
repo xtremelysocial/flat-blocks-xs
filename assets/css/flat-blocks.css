@@ -66,9 +66,13 @@ body {
   list-style-position: inside;
 }
 
-/* Center captions by default */
+/* Center captions and don't underline links in them by default */
 .wp-site-blocks figcaption {
   text-align: center;
+}
+
+.wp-site-blocks figcaption a {
+  text-decoration: none;
 }
 
 /*--------------------------------------------------------------
@@ -112,7 +116,7 @@ body {
 }
 
 .wp-site-blocks textarea,
-.wp-site-blocks input:not([type=radio]):not([type=checkbox]):not([type=file]):not([type=button]):not([type=image]):not([class=button]):not(.wp-block-button__link) {
+.wp-site-blocks input:not([type=radio]):not([type=checkbox]):not([type=file]):not([type=button]):not([type=image]):not([class*=button]):not(.wp-block-button__link) {
   -webkit-appearance: none;
   border: 1px solid var(--wp--preset--color--foreground);
 }
@@ -148,18 +152,21 @@ body {
 /* Colored link hover styles */
 .wp-site-blocks .has-text-color a:not(.wp-element-button):not(.wp-block-button):not(.wp-block-social-link-anchor):hover {
   opacity: 0.8;
+  /*filter: brightness(80%);*/
 }
 
-/* Style basic buttons to match block buttons. This is for older 
- * site content and / or plugins. Note the exclusions of any blocks 
- * or Tiny MCE buttons (which are the old editor prior to the new 
- * block editor).
+/* 
+ * Style basic buttons to match block buttons. This is for older 
+ * site content and / or plugins. Note the .wp-site-blocks ensures
+ * we aren't affecting the block editor or older Tiny MCE buttons.
  */
 .wp-site-blocks input[type=button],
-.wp-site-blocks input[class=button],
+.wp-site-blocks input[type=submit][class*=button],
+.wp-site-blocks input[type=reset][class*=button],
 .wp-site-blocks input[type=file]::file-selector-button {
   color: var(--wp--preset--color--foreground-alt);
   background-color: var(--wp--preset--color--primary);
+  border: none;
   border-width: 0;
   border-radius: var(--wp--custom--border--radius);
   padding: var(--wp--preset--spacing--30) var(--wp--preset--spacing--40);
@@ -174,18 +181,28 @@ body {
   width: 100%;
 }
 
+/* But override buttons to look like outlines on colored backgrounds */
+.wp-site-blocks .has-text-color input[type=button],
+.wp-site-blocks .has-text-color input[type=submit][class*=button],
+.wp-site-blocks .hast-text-color input[type=reset][class*=button],
+.wp-site-blocks .has-text-color input[type=file]::file-selector-button {
+  border: 3px solid var(--wp--preset--color--foreground-alt);
+}
+
 /*
  * Button hover styles.
  * Necessary until the following issue is resolved in Gutenberg:
  * https://github.com/WordPress/gutenberg/issues/27075
  */
 .wp-site-blocks button:hover,
-.wp-site-blocks input[class=button]:hover,
+.wp-site-blocks input[type=submit][class*=button]:hover,
+.wp-site-blocks input[type=reset][class*=button]:hover,
 .wp-site-blocks input[type=file]::file-selector-button:hover,
 .wp-site-blocks .wp-block-search__button:hover,
 .wp-site-blocks .wp-block-file .wp-block-file__button:hover,
 .wp-site-blocks .wp-block-button__link:hover {
   opacity: 0.8;
+  /*background-image: linear-gradient(var(--wp--custom--outline--color) 0 0) !important;*/
   cursor: pointer;
 }
 
@@ -215,21 +232,21 @@ body {
  * in case they aren't defined.
  */
 .wp-site-blocks > .alignleft {
-  margin-right: var(--wp--style--block-gap);
+  margin-right: var(--wp--style--root--padding-right, var(--wp--preset--spacing--50));
 }
 
 body .is-layout-constrained > .alignleft {
   padding-left: calc(0.5 * (100% - var(--wp--style--global--wide-size)));
-  margin-inline-end: var(--wp--style--block-gap);
+  margin-inline-end: var(--wp--style--root--padding-right, var(--wp--preset--spacing--50));
 }
 
 .wp-site-blocks > .alignright {
-  margin-left: var(--wp--style--block-gap);
+  margin-left: var(--wp--style--root--padding-left, var(--wp--preset--spacing--50));
 }
 
 body .is-layout-constrained > .alignright {
   padding-right: calc(0.5 * (100% - var(--wp--style--global--wide-size)));
-  margin-inline-start: var(--wp--style--block-gap);
+  margin-inline-start: var(--wp--style--root--padding-left, var(--wp--preset--spacing--50));
 }
 
 /* 
@@ -251,6 +268,10 @@ body .is-layout-constrained > .alignright {
 /*--------------------------------------------------------------
 # Columns and Column
 --------------------------------------------------------------*/
+/* 
+ * Note: Padding for colored backgrounds on columns is now in
+ * theme.json as custom block CSS.
+ */
 /* 
  * Note: Breakpoint of 781 is what is hard-coded in WordPress 
  * v6.0+ to collapse columns
@@ -354,6 +375,10 @@ body .is-layout-constrained > .alignright {
 /*--------------------------------------------------------------
 # Group
 --------------------------------------------------------------*/
+/* 
+ * Note: Padding for colored backgrounds on groups is now in
+ * theme.json as custom block CSS.
+ */
 /* For convenience, remove padding on nested groups */
 .wp-site-blocks .wp-block-group > .wp-block-group:not(.has-background) {
   padding: 0;
@@ -395,7 +420,7 @@ body .is-layout-constrained > .alignright {
   overflow: hidden;
 }
 
-/* Group padding */
+/* Group no padding */
 .wp-block-group.is-style-no-padding {
   padding-top: 0;
   padding-bottom: 0;
@@ -411,7 +436,8 @@ body .is-layout-constrained > .alignright {
 .wp-block-group.has-background.is-style-fixed-header {
   border: 1px solid var(--wp--custom--border--color);
   border-width: 0 0 1px;
-  padding: var(--wp--preset--spacing--40);
+  padding-top: var(--wp--preset--spacing--40);
+  padding-bottom: var(--wp--preset--spacing--40);
 }
 
 /* Position the fixed header using sticky so we don't have to have top site margin */
@@ -477,6 +503,11 @@ h6.has-background {
   border-radius: 9999px !important;
 }
 
+/* Hide the caption in new WordPress v6.4 "lightbox" image feature when enlarged */
+.lightbox-image-container .wp-block-image img {
+  color: rgba(0, 0, 0, 0) !important;
+}
+
 /*--------------------------------------------------------------
 # Image: Custom
 --------------------------------------------------------------*/
@@ -532,7 +563,6 @@ h6.has-background {
 .wp-block-group.site-header:not(.has-link-color) .wp-block-navigation__responsive-container:not(.has-text-color) .wp-block-navigation-item__content:hover,
 .wp-block-navigation__submenu-container:not(.has-text-color) .wp-block-navigation-item__content:hover {
   color: var(--wp--preset--color--primary-alt);
-  /*font-weight: var(--wp--custom--typography--font-weight--bold);*/
   font-weight: inherit;
 }
 
@@ -673,8 +703,6 @@ nav.wp-block-navigation.is-style-fixed-menu .wp-block-navigation__responsive-con
 /* On the front-end, position the fixed nav menu to the top left */
 .wp-site-blocks:not(.is-root-container) nav.wp-block-navigation.is-style-fixed-menu {
   position: fixed;
-  /*top: var(--wp--style--root--padding-top, 0);
-  margin: var(--wp--preset--spacing--60) 0 0;*/
   top: calc(var(--wp--preset--spacing--60) + 1px * var(--wp--style--root--padding-top, 0));
   left: max(0.5 * (100% - var(--wp--style--global--wide-size)), var(--wp--style--root--padding-left, calc(2 * var(--wp--preset--spacing--50))));
   right: auto;
@@ -683,7 +711,6 @@ nav.wp-block-navigation.is-style-fixed-menu .wp-block-navigation__responsive-con
 
 /* If WordPress Admin Bar, adjust fixed menu top position so its underneath */
 .admin-bar .wp-site-blocks:not(.is-root-container) nav.wp-block-navigation.is-style-fixed-menu {
-  /*top: calc( var(--wp--style--root--padding-top, 0) + var(--wp-admin--admin-bar--height, 0) );*/
   top: calc(var(--wp--preset--spacing--60) + 1px * var(--wp--style--root--padding-top, 0) + var(--wp-admin--admin-bar--height, 0));
 }
 
@@ -729,7 +756,6 @@ nav.wp-block-navigation.is-style-fixed-menu .wp-block-navigation__responsive-con
 
 .site-header.is-content-justification-center > nav.wp-block-navigation.is-style-fixed-menu .wp-block-navigation__responsive-container,
 .site-header.is-content-justification-center > .wp-block-template-part > nav.wp-block-navigation.is-style-fixed-menu .wp-block-navigation__responsive-container {
-  /*left: calc(50% - 5 * var(--wp--preset--spacing--60));*/
   left: calc(50% - 180px);
   right: auto;
 }
@@ -808,22 +834,31 @@ p.is-style-arrow-icon > a:after {
 
 /* Underline links */
 p.is-style-link-underline a,
-p.is-style-link-underline a:active {
+p.is-style-link-underline a:active,
+a.is-style-link-underline,
+a.is-style-link-underline:active {
   text-decoration: underline !important;
 }
 
-p.is-style-link-underline a:hover {
+p.is-style-link-underline a:hover,
+a.is-style-link-underline:hover {
   opacity: 0.8;
+  /*filter: brightness(80%);*/
 }
 
 /* No Underline links */
-p.is-style-no-link-underline a,
-p.is-style-no-link-underline a:active {
+p.is-style-link-no-underline a,
+p.is-style-link-no-underline a:active,
+a.is-style-link-no-underline,
+a.is-style-link-no-underline:active {
+  /*font-weight: var(--wp--custom--typography--font-weight--medium);*/
   text-decoration: none !important;
 }
 
-p.is-style-no-link-underline a:hover {
+p.is-style-link-no-underline a:hover,
+a.is-style-link-no-underline:hover {
   opacity: 0.8;
+  /*filter: brightness(80%);*/
 }
 
 /*--------------------------------------------------------------
@@ -850,7 +885,8 @@ p.is-style-no-link-underline a:hover {
 # Dashicons
 --------------------------------------------------------------*/
 /* Don't let dashicons force width and height. Let it come from the font size. */
-.wp-site-blocks .dashicons {
+.wp-site-blocks .dashicons,
+.dashicons {
   display: block;
   width: auto;
   height: auto;
@@ -861,12 +897,16 @@ p.is-style-no-link-underline a:hover {
 .wp-site-blocks .dashicons:before,
 .wp-site-blocks .dashicons-before:before {
   display: inline-block;
-  vertical-align: middle;
+  vertical-align: top;
   width: auto;
   height: auto;
   font-size: 1em;
   font-weight: var(--wp--custom--typography--font-weight--normal);
-  /*vertical-align: middle; top;*/
+}
+
+.wp-site-blocks .dashicons a,
+.dashicons a {
+  text-decoration: none;
 }
 
 /*--------------------------------------------------------------
@@ -920,24 +960,31 @@ body .is-layout-constrained .wp-block-template-part > * + *:not(.wp-block-templa
 /*--------------------------------------------------------------
 # Padding (Horizontal and vertical spacing)
 --------------------------------------------------------------*/
-/* 
- * Note: Padding for colored backgrounds on groups and columns 
- * is now in theme.json as custom block CSS
- */
 /* For convenience, remove padding from inner containers */
 main.wp-block-group:not(.has-global-padding),
-header.wp-block-group:not(.has-global-padding),
-footer.wp-block-group:not(.has-global-padding),
 .wp-block-template-part {
   padding: 0;
 }
 
-/*main.wp-block-group.has-global-padding,
-header.wp-block-group.has-global-padding,
-footer.wp-block-group.has-global-padding {
-	padding-top: 0;
-	padding-bottom: 0;
+/* 
+ * If user turns off "useRootPaddingAwareAlignments" in theme.json,
+ * then still add some padding to the site so text isn't scrunched
+ * up against the sides of the browser.
+ */
+/*.wp-site-blocks:not(:has(.has-global-padding)) {
+    padding-left: var(--wp--style--root--padding-left, var(--wp--preset--spacing--50));
+    padding-right: var(--wp--style--root--padding-right, var(--wp--preset--spacing--50));
 }*/
+/* Override horizontal padding when no global padding */
+header.site-header:not(.has-global-padding),
+footer.site-footer:not(.has-global-padding),
+header.entry-header:not(.has-global-padding),
+.wp-block-query:not(.has-global-padding),
+#post-comments:not(.has-global-padding) {
+  padding-left: var(--wp--style--root--padding-left) !important;
+  padding-right: var(--wp--style--root--padding-right) !important;
+}
+
 /* FIX to add back horizontal padding */
 .has-global-padding,
 .has-global-padding > .alignfull:not(.wp-block-post-content, .wp-block-image, .wp-block-columns, .wp-block-buttons),
@@ -956,7 +1003,9 @@ footer.wp-block-group.has-global-padding {
 /* FIX alignfull in WordPress.org theme preview */
 .has-global-padding > #wporg-pattern-preview > div > .alignfull {
   margin-right: calc(var(--wp--style--root--padding-right) * -1);
+  padding-right: var(--wp--style--root--padding-right);
   margin-left: calc(var(--wp--style--root--padding-left) * -1);
+  padding-left: var(--wp--style--root--padding-left);
 }
 
 /*--------------------------------------------------------------
@@ -966,27 +1015,67 @@ footer.wp-block-group.has-global-padding {
  * TwentyTwentyThree theme uses the same primary, secondary, and 
  * tertiary as us, but uses base and contrast instead of 
  * background and foreground.
+ * 
+ * TwentyTwentyFour theme uses base and contrast in numbered shades
+ * instead of background and foreground. It also uses accent colors 
+ * in numbered shades instead of primary, secondary, and tertiary.
  */
-.has-base-color {
+.has-base-color,
+.has-base-2-color,
+.has-base-3-color {
   color: var(--wp--preset--color--background) !important;
 }
 
-.has-base-background-color {
+.has-base-background-color,
+.has-base-2-background-color,
+.has-base-3-background-color {
   background-color: var(--wp--preset--color--background) !important;
 }
 
-.has-base-border-color {
+.has-base-border-color,
+.has-base-2-border-color,
+.has-base-3-border-color {
   border-color: var(--wp--preset--color--background) !important;
 }
 
-.has-contrast-color {
+.has-contrast-color,
+.has-contrast-2-color,
+.has-contrast-3-color {
   color: var(--wp--preset--color--foreground) !important;
 }
 
-.has-contrast-background-color {
+.has-contrast-background-color,
+.has-contrast-2-background-color,
+.has-contrast-3-background-color {
   background-color: var(--wp--preset--color--foreground) !important;
 }
 
-.has-contrast-border-color {
+.has-contrast-border-color,
+.has-contrast-2-border-color,
+.has-contrast-3-border-color {
   border-color: var(--wp--preset--color--foreground) !important;
+}
+
+.has-accent-color,
+.has-accent-2-color,
+.has-accent-3-color,
+.has-accent-4-color,
+.has-accent-5-color {
+  color: var(--wp--preset--color--primary);
+}
+
+.has-accent-background-color,
+.has-accent-2-background-color,
+.has-accent-3-background-color,
+.has-accent-4-background-color,
+.has-accent-5-background-color {
+  background-color: var(--wp--preset--color--primary);
+}
+
+.has-accent-border-color,
+.has-accent-2-border-color,
+.has-accent-3-border-color,
+.has-accent-4-border-color,
+.has-accent-5-border-color {
+  border-color: var(--wp--preset--color--primary);
 }

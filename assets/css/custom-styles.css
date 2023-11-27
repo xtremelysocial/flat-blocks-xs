@@ -11,15 +11,26 @@
  * @since 	1.0
  */
 /*--------------------------------------------------------------
-# CUSTOM BLOCK STYLES
+# BLOCK STYLES
 --------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Calendar
+--------------------------------------------------------------*/
+.wp-block-calendar table:where(:not(.has-text-color)) {
+  color: var(--wp--preset--color--foreground);
+}
+
+.wp-block-calendar table th:not(.has-text-color) {
+  color: var(--wp--preset--color--dark);
+}
+
 /*--------------------------------------------------------------
 # Comments
 --------------------------------------------------------------*/
 /* Reduce top margin on "Leave a Reply" */
 /* TO-DO: See if can move to theme.json */
 .comment-reply-title {
-  margin-top: 0;
+  margin-top: var(--wp--style--block-gap); /*0;*/
 }
 
 /* TO-DO: See if we can remove having to use our ID */
@@ -56,6 +67,7 @@
 /* Closed Summary will have normal foreground font color */
 .wp-block-details > summary {
   color: var(--wp--preset--color--foreground);
+  font-weight: var(--wp--custom--typography--font-weight--medium);
   transition: color var(--wp--custom--animation--duration--medium) var(--wp--custom--animation--timing-function);
 }
 
@@ -479,6 +491,12 @@ ol.is-style-list-plain-centered li {
 /*--------------------------------------------------------------
 # Social Links (Icons)
 --------------------------------------------------------------*/
+/* Set some defaults. These are needed for WordPres.org theme preview */
+.wp-block-social-links {
+  display: flex;
+  gap: var(--wp--style--block-gap);
+}
+
 /* Adjust icon sizes */
 .wp-block-social-links.has-small-icon-size {
   font-size: 22px;

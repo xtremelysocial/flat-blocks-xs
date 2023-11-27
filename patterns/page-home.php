@@ -8,17 +8,15 @@
   */
 ?>
 
-<?php include_once get_template_directory() . '/inc/pattern-functions.php'; ?>
+<!-- wp:pattern {"slug":"flat-blocks/cover-scroll-home-header"} /-->
 
-<?php if ( function_exists( 'flatblocks_get_block_pattern' ) ) echo flatblocks_get_block_pattern( 'cover-scroll-home-header' ); ?>
-
-<?php if ( function_exists( 'flatblocks_get_block_pattern' ) ) echo flatblocks_get_block_pattern( 'text-title-and-text' ); ?>
+<!-- wp:pattern {"slug":"flat-blocks/text-title-and-text"} /-->
 
 <!-- wp:paragraph {"textAlign":"center","className":"is-style-default"} -->
 <p class="has-text-align-center is-style-default">Posuere sollicitudin aliquam ultrices sagittis orci a scelerisque purus.</p>
 <!-- /wp:paragraph -->
 
-<?php if ( function_exists( 'flatblocks_get_block_pattern' ) ) echo flatblocks_get_block_pattern( 'columns-features-3-columns' ); ?>
+<!-- wp:pattern {"slug":"flat-blocks/columns-features-3-columns"} /-->
 
 <!-- wp:group {"layout":{"type":"constrained"}} -->
 <div id="our-portfolio" class="wp-block-group">
@@ -44,11 +42,11 @@
 <!-- /wp:columns --></div>
 <!-- /wp:group -->
 
-<?php if ( function_exists( 'flatblocks_get_block_pattern' ) ) echo flatblocks_get_block_pattern( 'image-gallery' ); ?>
+<!-- wp:pattern {"slug":"flat-blocks/image-gallery"} /-->
 
-<?php if ( function_exists( 'flatblocks_get_block_pattern' ) ) echo flatblocks_get_block_pattern( 'buttons-call-to-action' ); ?>
+<!-- wp:pattern {"slug":"flat-blocks/buttons-call-to-action"} /-->
 
-<?php if ( function_exists( 'flatblocks_get_block_pattern' ) ) echo flatblocks_get_block_pattern( 'columns-recent-posts-3-columns' ); ?>
+<!-- wp:pattern {"slug":"flat-blocks/columns-recent-posts-3-columns"} /-->
 
 <!-- wp:group {"layout":{"type":"constrained"}} -->
 <div class="wp-block-group">
@@ -61,6 +59,6 @@
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
-<?php if ( function_exists( 'flatblocks_get_block_pattern' ) ) echo flatblocks_get_block_pattern( 'columns-social-media-3-columns' ); ?>
+<!-- wp:pattern {"slug":"flat-blocks/columns-social-media-3-columns"} /-->
 
-<?php if ( function_exists( 'flatblocks_get_block_pattern' ) ) echo flatblocks_get_block_pattern( 'columns-map-static' ); ?>
+<!-- wp:pattern {"slug":"flat-blocks/columns-map-static"} /-->

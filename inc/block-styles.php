@@ -127,7 +127,7 @@ if ( ! function_exists( 'flatblocks_register_block_styles' ) ) :
 				array('paragraph' ),
 				'style_handle' 	=> 'flatblocks-custom-styles'				
 			),
-			'no-link-underline' => array( esc_html__('No Underline Link', 'flat-blocks'), 
+			'link-no-underline' => array( esc_html__('No Underline Link', 'flat-blocks'), 
 				array('paragraph' ),
 				'style_handle' 	=> 'flatblocks-custom-styles'				
 			),
