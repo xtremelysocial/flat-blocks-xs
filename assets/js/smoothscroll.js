@@ -31,7 +31,7 @@
 			if (siteTopMargin) topOffset += siteTopMargin;
 			const adminbarHeight = parseInt( $( '#wpadminbar' ).outerHeight() );
 			if (adminbarHeight) topOffset += adminbarHeight;
-			console.log('topOffset=' + topOffset); //TEST
+			//console.log('topOffset=' + topOffset); //TEST
 
 			// Set each link to have scroll offset
 			if ( topOffset ) {
