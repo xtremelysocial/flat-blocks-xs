@@ -11,7 +11,7 @@
  * @since	1.0
  */
 /*--------------------------------------------------------------
-# BASE STYLES
+# CRITICAL BASE STYLES
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
 # Normalize
@@ -181,11 +181,11 @@ body {
   width: 100%;
 }
 
-/* But override buttons to look like outlines on colored backgrounds */
-.wp-site-blocks .has-text-color input[type=button],
-.wp-site-blocks .has-text-color input[type=submit][class*=button],
-.wp-site-blocks .hast-text-color input[type=reset][class*=button],
-.wp-site-blocks .has-text-color input[type=file]::file-selector-button {
+/* But override buttons to look like outlines on primary-colored backgrounds */
+.wp-site-blocks .has-primary-background-color input[type=button],
+.wp-site-blocks .has-primary-background-color input[type=submit][class*=button],
+.wp-site-blocks .has-primary-background-color input[type=reset][class*=button],
+.wp-site-blocks .has-primary-background-color input[type=file]::file-selector-button {
   border: 3px solid var(--wp--preset--color--foreground-alt);
 }
 
@@ -272,6 +272,11 @@ body .is-layout-constrained > .alignright {
  * Note: Padding for colored backgrounds on columns is now in
  * theme.json as custom block CSS.
  */
+/* ADD BACK gap on flex columns by default */
+.wp-block-columns-is-layout-flex {
+  gap: var(--wp--style--block-gap);
+}
+
 /* 
  * Note: Breakpoint of 781 is what is hard-coded in WordPress 
  * v6.0+ to collapse columns
@@ -834,53 +839,30 @@ p.is-style-arrow-icon > a:after {
 
 /* Underline links */
 p.is-style-link-underline a,
-p.is-style-link-underline a:active,
-a.is-style-link-underline,
-a.is-style-link-underline:active {
+p.is-style-link-underline a:active {
   text-decoration: underline !important;
 }
 
-p.is-style-link-underline a:hover,
-a.is-style-link-underline:hover {
+p.is-style-link-underline a:hover {
   opacity: 0.8;
   /*filter: brightness(80%);*/
 }
 
 /* No Underline links */
 p.is-style-link-no-underline a,
-p.is-style-link-no-underline a:active,
-a.is-style-link-no-underline,
-a.is-style-link-no-underline:active {
+p.is-style-link-no-underline a:active {
   /*font-weight: var(--wp--custom--typography--font-weight--medium);*/
   text-decoration: none !important;
 }
 
-p.is-style-link-no-underline a:hover,
-a.is-style-link-no-underline:hover {
+p.is-style-link-no-underline a:hover {
   opacity: 0.8;
   /*filter: brightness(80%);*/
 }
 
 /*--------------------------------------------------------------
-# ADDITIONAL STYLES
+# ADDITIONAL CRITICAL BASE STYLES
 --------------------------------------------------------------*/
-/*--------------------------------------------------------------
-# Utilities
---------------------------------------------------------------*/
-/* 
- * Clearfix (Clear floats)
- * 
- * Note: For now, this must be added manually in the Advanced 
- * section of the block settings. Be carefull as this will mess 
- * up fixed headers, Row Groups (flex boxes), etc. We've tried to
- * style around those though.
- */
-.is-style-clearfix:not(.is-layout-flex):not(.is-style-fixed-header):after {
-  content: "";
-  clear: both;
-  display: table;
-}
-
 /*--------------------------------------------------------------
 # Dashicons
 --------------------------------------------------------------*/
@@ -1006,76 +988,4 @@ header.entry-header:not(.has-global-padding),
   padding-right: var(--wp--style--root--padding-right);
   margin-left: calc(var(--wp--style--root--padding-left) * -1);
   padding-left: var(--wp--style--root--padding-left);
-}
-
-/*--------------------------------------------------------------
-# Compatibility with other themes
---------------------------------------------------------------*/
-/* 
- * TwentyTwentyThree theme uses the same primary, secondary, and 
- * tertiary as us, but uses base and contrast instead of 
- * background and foreground.
- * 
- * TwentyTwentyFour theme uses base and contrast in numbered shades
- * instead of background and foreground. It also uses accent colors 
- * in numbered shades instead of primary, secondary, and tertiary.
- */
-.has-base-color,
-.has-base-2-color,
-.has-base-3-color {
-  color: var(--wp--preset--color--background) !important;
-}
-
-.has-base-background-color,
-.has-base-2-background-color,
-.has-base-3-background-color {
-  background-color: var(--wp--preset--color--background) !important;
-}
-
-.has-base-border-color,
-.has-base-2-border-color,
-.has-base-3-border-color {
-  border-color: var(--wp--preset--color--background) !important;
-}
-
-.has-contrast-color,
-.has-contrast-2-color,
-.has-contrast-3-color {
-  color: var(--wp--preset--color--foreground) !important;
-}
-
-.has-contrast-background-color,
-.has-contrast-2-background-color,
-.has-contrast-3-background-color {
-  background-color: var(--wp--preset--color--foreground) !important;
-}
-
-.has-contrast-border-color,
-.has-contrast-2-border-color,
-.has-contrast-3-border-color {
-  border-color: var(--wp--preset--color--foreground) !important;
-}
-
-.has-accent-color,
-.has-accent-2-color,
-.has-accent-3-color,
-.has-accent-4-color,
-.has-accent-5-color {
-  color: var(--wp--preset--color--primary);
-}
-
-.has-accent-background-color,
-.has-accent-2-background-color,
-.has-accent-3-background-color,
-.has-accent-4-background-color,
-.has-accent-5-background-color {
-  background-color: var(--wp--preset--color--primary);
-}
-
-.has-accent-border-color,
-.has-accent-2-border-color,
-.has-accent-3-border-color,
-.has-accent-4-border-color,
-.has-accent-5-border-color {
-  border-color: var(--wp--preset--color--primary);
 }

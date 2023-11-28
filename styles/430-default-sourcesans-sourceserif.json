@@ -11,6 +11,11 @@
 				"typography": {
 					"fontFamily": "var(--wp--preset--font-family--source-serif-pro)"
 				}
+			},
+			"core/site-title": {
+				"typography": {
+					"fontWeight": "400"
+				}
 			}
 		},
 		"elements": {
