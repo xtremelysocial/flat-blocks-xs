@@ -154,17 +154,17 @@ You can check out our other themes here: https://xtremelysocial.com/wordpress/
 == Changelog ==
 
 = 1.4.1 = 
-November 23, 2023
+December 2, 2023
 
 * Updates for WordPress v6.4:
+	* Updates to Editor styles for older HTML-based buttons, forms, etc. WordPress v6.4 has removed the .wp-site-blocks class from the block Editor so all the styles using that had to be updated.
 	* Default column spacing (gap) on flex columns just like on other columns (by default 18px). WordPress v6.4 sets this to zero for some reason so there is no spacing between columns. Note that the user can override this on individual columns blocks, if desired. 
 	* In the Editor, fix site title link to be the primary color.
 	* Fix custom styles for List block with Checkmarks and Plain Centered.
 	* For theme users coming from the TwentyTwentyThree or TwentyTwentyFour theme, changed the mapping of that theme's base color to our foreground-alt color, base color 2 to light gray and base color 3 to gray. This is mainly for when a user set their background and foreground to one of these base colors. In that case, the text would be indistinguishable from the background.
-* Don't set older-style input buttons to have light border on colored backgrounds. Instead, users can't replace the older style buttons with the Button block and choose Outline style.
+* Don't set older-style input buttons to have light border on colored backgrounds. Instead, users can replace the older style buttons with the Button block and choose Outline style.
 * Added custom styles for user to set link underline or not on Categories, Latest Posts, Latest Comments, and Page List blocks.
 * For global theme style Source Sans & Source Serif Pro, slightly increase the font weight on the Site Title block because this font is very thin.
-* Moved CSS utilities (.is-style-clearfix) and theme compatibility CSS (.has-contrast-color, etc.) from flat-blocks.css to custom-styles.css as these aren't critical styles that are needed on all page views. 
 
 = 1.4 = 
 November 23, 2023

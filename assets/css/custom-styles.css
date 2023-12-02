@@ -28,12 +28,10 @@
 # Comments
 --------------------------------------------------------------*/
 /* Reduce top margin on "Leave a Reply" */
-/* TO-DO: See if can move to theme.json */
 .comment-reply-title {
   margin-top: var(--wp--style--block-gap); /*0;*/
 }
 
-/* TO-DO: See if we can remove having to use our ID */
 /* Match our bottom margin */
 #post-comments {
   margin-bottom: var(--wp--style--block-gap);
@@ -185,7 +183,7 @@
 }
 
 /* Add some padding to plain posts list */
-.wp-block-latest-posts li {
+.wp-block-latest-posts:not(.is-grid) li {
   margin-bottom: var(--wp--preset--spacing--30);
 }
 
@@ -617,91 +615,3 @@ ol.is-style-list-plain-centered li {
 /*--------------------------------------------------------------
 # ADDITIONAL BASE STYLES
 --------------------------------------------------------------*/
-/*--------------------------------------------------------------
-# Utilities
---------------------------------------------------------------*/
-/* 
- * Clearfix (Clear floats)
- * 
- * Note: For now, this must be added manually in the Advanced 
- * section of the block settings. Be carefull as this will mess 
- * up fixed headers, Row Groups (flex boxes), etc. We've tried to
- * style around those though.
- */
-.is-style-clearfix:not(.is-layout-flex):not(.is-style-fixed-header):after {
-  content: "";
-  clear: both;
-  display: table;
-}
-
-/*--------------------------------------------------------------
-# Compatibility with other themes
---------------------------------------------------------------*/
-/* 
- * TwentyTwentyThree theme uses the same primary, secondary, and 
- * tertiary as us, but uses base and contrast instead of 
- * background and foreground.
- * 
- * TwentyTwentyFour theme uses base and contrast in numbered shades
- * instead of background and foreground. It also uses accent colors 
- * in numbered shades instead of primary, secondary, and tertiary.
- */
-.has-base-color,
-.has-base-2-color,
-.has-base-3-color {
-  color: var(--wp--preset--color--foreground-alt);
-}
-
-.has-base-background-color,
-.has-base-2-background-color,
-.has-base-3-background-color {
-  background-color: var(--wp--preset--color--light-gray);
-}
-
-.has-base-border-color,
-.has-base-2-border-color,
-.has-base-3-border-color {
-  border-color: var(--wp--preset--color--gray);
-}
-
-.has-contrast-color,
-.has-contrast-2-color,
-.has-contrast-3-color {
-  color: var(--wp--preset--color--foreground);
-}
-
-.has-contrast-background-color,
-.has-contrast-2-background-color,
-.has-contrast-3-background-color {
-  background-color: var(--wp--preset--color--foreground);
-}
-
-.has-contrast-border-color,
-.has-contrast-2-border-color,
-.has-contrast-3-border-color {
-  border-color: var(--wp--preset--color--foreground);
-}
-
-.has-accent-color,
-.has-accent-2-color,
-.has-accent-3-color,
-.has-accent-4-color,
-.has-accent-5-color {
-  color: var(--wp--preset--color--primary);
-}
-
-.has-accent-background-color,
-.has-accent-2-background-color,
-.has-accent-3-background-color,
-.has-accent-4-background-color,
-.has-accent-5-background-color {
-  background-color: var(--wp--preset--color--primary);
-}
-
-.has-accent-border-color,
-.has-accent-2-border-color,
-.has-accent-3-border-color,
-.has-accent-4-border-color,
-.has-accent-5-border-color {
-  border-color: var(--wp--preset--color--primary);
-}
