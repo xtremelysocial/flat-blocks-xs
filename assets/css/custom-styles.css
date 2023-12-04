@@ -11,7 +11,7 @@
  * @since 	1.0
  */
 /*--------------------------------------------------------------
-# BLOCK STYLES
+# ADDITIONAL BLOCK STYLES
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
 # Calendar
@@ -28,12 +28,10 @@
 # Comments
 --------------------------------------------------------------*/
 /* Reduce top margin on "Leave a Reply" */
-/* TO-DO: See if can move to theme.json */
 .comment-reply-title {
   margin-top: var(--wp--style--block-gap); /*0;*/
 }
 
-/* TO-DO: See if we can remove having to use our ID */
 /* Match our bottom margin */
 #post-comments {
   margin-bottom: var(--wp--style--block-gap);
@@ -145,6 +143,26 @@
   list-style-position: inside;
 }
 
+/* Underline links */
+.wp-block-latest-comments.is-style-link-underline a,
+.wp-block-latest-comments.is-style-link-underline a:active {
+  text-decoration: underline !important;
+}
+
+.wp-block-latest-comments.is-style-link-underline a:hover {
+  opacity: 0.8;
+}
+
+/* No Underline links */
+.wp-block-latest-comments.is-style-link-no-underline a,
+.wp-block-latest-comments.is-style-link-no-underline a:active {
+  text-decoration: none !important;
+}
+
+.wp-block-latest-comments.is-style-link-no-underline a:hover {
+  opacity: 0.8;
+}
+
 /*--------------------------------------------------------------
 # Latest Posts
 --------------------------------------------------------------*/
@@ -165,7 +183,7 @@
 }
 
 /* Add some padding to plain posts list */
-.wp-block-latest-posts li {
+.wp-block-latest-posts:not(.is-grid) li {
   margin-bottom: var(--wp--preset--spacing--30);
 }
 
@@ -199,6 +217,26 @@
   margin-bottom: 0;
 }
 
+/* Underline links */
+.wp-block-latest-posts.is-style-link-underline a,
+.wp-block-latest-posts.is-style-link-underline a:active {
+  text-decoration: underline !important;
+}
+
+.wp-block-latest-posts.is-style-link-underline a:hover {
+  opacity: 0.8;
+}
+
+/* No Underline links */
+.wp-block-latest-posts.is-style-link-no-underline a,
+.wp-block-latest-posts.is-style-link-no-underline a:active {
+  text-decoration: none !important;
+}
+
+.wp-block-latest-posts.is-style-link-no-underline a:hover {
+  opacity: 0.8;
+}
+
 /*--------------------------------------------------------------
 # List: Custom
 --------------------------------------------------------------*/
@@ -214,8 +252,8 @@ ol.is-style-list-checkmarks > li {
 }
 
 /* dashicons-saved */
-ul.is-style-list-checkmarks li:before,
-ol.is-style-list-checkmarks li:before {
+ul.is-style-list-checkmarks > li:before,
+ol.is-style-list-checkmarks > li:before {
   font-family: dashicons;
   content: "\f15e";
   position: absolute;
@@ -225,8 +263,8 @@ ol.is-style-list-checkmarks li:before {
   transition: color 0.1s ease-in;
 }
 
-.rtl ul.is-style-list-checkmarks li:before,
-.rtl ol.is-style-list-checkmarks li:before {
+.rtl ul.is-style-list-checkmarks > li:before,
+.rtl ol.is-style-list-checkmarks > li:before {
   left: 0;
   right: calc(-8px - 1em);
 }
@@ -262,8 +300,11 @@ ol.is-style-list-plain:not(.has-background) li ul li {
 
 /* Plain Centered */
 ul.is-style-list-plain-centered,
-ol.is-style-list-plain-centered {
+ul.is-style-list-plain-centered ul,
+ol.is-style-list-plain-centered,
+ol.is-style-list-plain-centered ol {
   list-style: none;
+  padding-left: 0;
   margin-left: 0;
   text-align: center;
 }
@@ -315,6 +356,29 @@ ol.is-style-list-plain-centered li {
     padding-right: var(--wp--preset--spacing--40);
   }
 }
+/*--------------------------------------------------------------
+# Page List: Custom
+--------------------------------------------------------------*/
+/* Underline links */
+.wp-block-page-list.is-style-link-underline a,
+.wp-block-page-list.is-style-link-underline a:active {
+  text-decoration: underline !important;
+}
+
+.wp-block-page-list.is-style-link-underline a:hover {
+  opacity: 0.8;
+}
+
+/* No Underline links */
+.wp-block-page-list.is-style-link-no-underline a,
+.wp-block-page-list.is-style-link-no-underline a:active {
+  text-decoration: none !important;
+}
+
+.wp-block-page-list.is-style-link-no-underline a:hover {
+  opacity: 0.8;
+}
+
 /*--------------------------------------------------------------
 # Post Author
 --------------------------------------------------------------*/
@@ -547,3 +611,7 @@ ol.is-style-list-plain-centered li {
   border-radius: var(--wp--custom--border--radius);
   padding: var(--wp--preset--spacing--20) var(--wp--preset--spacing--30);
 }
+
+/*--------------------------------------------------------------
+# ADDITIONAL BASE STYLES
+--------------------------------------------------------------*/

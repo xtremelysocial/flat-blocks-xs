@@ -25,6 +25,14 @@
 }
 
 /*--------------------------------------------------------------
+# Site Title
+--------------------------------------------------------------*/
+/* Override WordPress v6.4 defaulting this to inherit */
+.editor-styles-wrapper .wp-block-site-title a {
+  color: var(--wp--preset--color--primary);
+}
+
+/*--------------------------------------------------------------
 # Forms
 --------------------------------------------------------------*/
 /* Fields are still light background, so make text dark in Editor */

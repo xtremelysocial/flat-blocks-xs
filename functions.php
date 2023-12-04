@@ -22,6 +22,7 @@ if ( ! function_exists( 'flatblocks_support' ) ) :
 		// Add support for additional core block styles. e.g. Separator width, left 
 		// border color on quotes, etc. See here for full list:
 		// https://github.com/WordPress/gutenberg/blob/trunk/packages/block-library/src/theme.scss
+		//
 		// NOTE: As of WordPress v6.3, these are loaded AFTER the ones from theme.json so 
 		// they are overriding this theme and the user's settings! Don't load these by
 		// default, but allow child themes to override that.		

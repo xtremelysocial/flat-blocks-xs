@@ -11,7 +11,7 @@
  * @since	1.0
  */
 /*--------------------------------------------------------------
-# BASE STYLES
+# CRITICAL BASE STYLES
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
 # Normalize
@@ -48,30 +48,30 @@ body {
 # Elements
 --------------------------------------------------------------*/
 /* Use bold font-weight from theme.json */
-.wp-site-blocks strong,
-.wp-site-blocks b {
+strong,
+b {
   font-weight: var(--wp--custom--typography--font-weight--bold);
 }
 
 /* Prevent code from breaking layout */
-.wp-site-blocks code,
-.wp-site-blocks pre {
+code,
+pre {
   overflow-x: auto;
 }
 
 /* Set lists with background to match other padding */
-.wp-site-blocks ol.has-background,
-.wp-site-blocks ul.has-background {
+ol.has-background,
+ul.has-background {
   padding: var(--wp--preset--spacing--40);
   list-style-position: inside;
 }
 
 /* Center captions and don't underline links in them by default */
-.wp-site-blocks figcaption {
+figcaption {
   text-align: center;
 }
 
-.wp-site-blocks figcaption a {
+figcaption a {
   text-decoration: none;
 }
 
@@ -84,7 +84,7 @@ body {
  * Note: Many of these need to be excluded from the Block Editor 
  * toolbars or it will alter them too.
  */
-.wp-site-blocks fieldset {
+fieldset {
   font-size: var(--wp--preset--font-size--normal);
   font-weight: var(--wp--custom--typography--font-weight--normal);
   line-height: 1.5;
@@ -95,7 +95,7 @@ body {
   -webkit-appearance: none;
 }
 
-.wp-site-blocks select {
+select {
   font-family: inherit;
   font-size: var(--wp--preset--font-size--small);
   font-weight: var(--wp--custom--typography--font-weight--normal);
@@ -106,8 +106,8 @@ body {
   border: 1px solid var(--wp--preset--color--foreground);
 }
 
-.wp-site-blocks textarea,
-.wp-site-blocks input {
+textarea,
+input {
   font-size: var(--wp--preset--font-size--normal);
   font-weight: var(--wp--custom--typography--font-weight--normal);
   line-height: 1.5;
@@ -115,22 +115,22 @@ body {
   text-shadow: none;
 }
 
-.wp-site-blocks textarea,
-.wp-site-blocks input:not([type=radio]):not([type=checkbox]):not([type=file]):not([type=button]):not([type=image]):not([class*=button]):not(.wp-block-button__link) {
+textarea,
+input:not([type=radio]):not([type=checkbox]):not([type=file]):not([type=button]):not([type=image]):not([class*=button]):not(.wp-block-button__link) {
   -webkit-appearance: none;
   border: 1px solid var(--wp--preset--color--foreground);
 }
 
 /* Style focus outline */
-.wp-site-blocks input:focus,
-.wp-site-blocks textarea:focus {
+input:focus,
+textarea:focus {
   outline: none !important;
   box-shadow: 0 0 0 3px var(--wp--custom--outline--color);
   transition: box-shadow 0.3s ease;
 }
 
-.wp-site-blocks select:focus,
-.wp-site-blocks select:focus-visible {
+select:focus,
+select:focus-visible {
   outline: var(--wp--custom--outline--color) 5px solid;
   transition: outline 0.3s ease;
 }
@@ -143,27 +143,24 @@ body {
  * Necessary until the following issue is resolved in Gutenberg:
  * https://github.com/WordPress/gutenberg/issues/27075
  */
-.wp-site-blocks a,
-.wp-site-blocks .wp-block-navigation a,
-.wp-site-blocks .wp-block-navigation-submenu__toggle {
+a,
+.wp-block-navigation a,
+.wp-block-navigation-submenu__toggle {
   cursor: pointer;
 }
 
 /* Colored link hover styles */
-.wp-site-blocks .has-text-color a:not(.wp-element-button):not(.wp-block-button):not(.wp-block-social-link-anchor):hover {
+.has-text-color a:not(.wp-element-button):not(.wp-block-button):not(.wp-block-social-link-anchor):hover {
   opacity: 0.8;
-  /*filter: brightness(80%);*/
 }
 
 /* 
- * Style basic buttons to match block buttons. This is for older 
- * site content and / or plugins. Note the .wp-site-blocks ensures
- * we aren't affecting the block editor or older Tiny MCE buttons.
+ * Style basic buttons to match block buttons. 
  */
-.wp-site-blocks input[type=button],
-.wp-site-blocks input[type=submit][class*=button],
-.wp-site-blocks input[type=reset][class*=button],
-.wp-site-blocks input[type=file]::file-selector-button {
+input[type=button],
+input[type=submit][class*=button],
+input[type=reset][class*=button],
+input[type=file]::file-selector-button {
   color: var(--wp--preset--color--foreground-alt);
   background-color: var(--wp--preset--color--primary);
   border: none;
@@ -176,16 +173,16 @@ body {
   text-shadow: none;
 }
 
-.wp-site-blocks input[type=file] {
+input[type=file] {
   font-size: var(--wp--preset--font-size--small);
   width: 100%;
 }
 
-/* But override buttons to look like outlines on colored backgrounds */
-.wp-site-blocks .has-text-color input[type=button],
-.wp-site-blocks .has-text-color input[type=submit][class*=button],
-.wp-site-blocks .hast-text-color input[type=reset][class*=button],
-.wp-site-blocks .has-text-color input[type=file]::file-selector-button {
+/* But override buttons to look like outlines on primary-colored backgrounds */
+.has-primary-background-color input[type=button],
+.has-primary-background-color input[type=submit][class*=button],
+.has-primary-background-color input[type=reset][class*=button],
+.has-primary-background-color input[type=file]::file-selector-button {
   border: 3px solid var(--wp--preset--color--foreground-alt);
 }
 
@@ -194,13 +191,13 @@ body {
  * Necessary until the following issue is resolved in Gutenberg:
  * https://github.com/WordPress/gutenberg/issues/27075
  */
-.wp-site-blocks button:hover,
-.wp-site-blocks input[type=submit][class*=button]:hover,
-.wp-site-blocks input[type=reset][class*=button]:hover,
-.wp-site-blocks input[type=file]::file-selector-button:hover,
-.wp-site-blocks .wp-block-search__button:hover,
-.wp-site-blocks .wp-block-file .wp-block-file__button:hover,
-.wp-site-blocks .wp-block-button__link:hover {
+button:hover,
+input[type=submit][class*=button]:hover,
+input[type=reset][class*=button]:hover,
+input[type=file]::file-selector-button:hover,
+.wp-block-search__button:hover,
+.wp-block-file .wp-block-file__button:hover,
+.wp-block-button__link:hover {
   opacity: 0.8;
   /*background-image: linear-gradient(var(--wp--custom--outline--color) 0 0) !important;*/
   cursor: pointer;
@@ -220,16 +217,12 @@ body {
 }
 
 /* FIX for center alignment */
-.wp-site-blocks .is-layout-constrained > .aligncenter {
+body .is-layout-constrained > .aligncenter {
   text-align: center;
 }
 
 /* 
  * ADD padding to align left and align right to honor wide width 
- * 
- * TO-DO: Consider using var(--wp--style--root--padding-left) and 
- * var(--wp--style--root--padding-right) but be sure to use backup
- * in case they aren't defined.
  */
 .wp-site-blocks > .alignleft {
   margin-right: var(--wp--style--root--padding-right, var(--wp--preset--spacing--50));
@@ -272,6 +265,11 @@ body .is-layout-constrained > .alignright {
  * Note: Padding for colored backgrounds on columns is now in
  * theme.json as custom block CSS.
  */
+/* ADD BACK gap on flex columns by default */
+.wp-block-columns-is-layout-flex {
+  gap: var(--wp--style--block-gap);
+}
+
 /* 
  * Note: Breakpoint of 781 is what is hard-coded in WordPress 
  * v6.0+ to collapse columns
@@ -317,7 +315,7 @@ body .is-layout-constrained > .alignright {
   padding: var(--wp--preset--spacing--40);
 }
 
-/* Column padding */
+/* Column no padding */
 .wp-block-column.is-style-no-padding {
   padding: 0;
 }
@@ -367,6 +365,7 @@ body .is-layout-constrained > .alignright {
   padding: var(--wp--preset--spacing--40);
 }
 
+/* Rounded corners */
 .wp-block-cover.is-style-cover-rounded-corners {
   border-radius: var(--wp--custom--border--radius);
   overflow: hidden;
@@ -488,8 +487,8 @@ h6.has-background {
 /* Prevent figures (images, tables) with hard-coded dimensions from breaking the 
  * layout. Note the figure line is for older block editor markup. 
  */
-.wp-site-blocks figure.wp-caption:not(.alignfull):not(.alignwide),
-.wp-site-blocks figure.wp-caption:not(.alignfull):not(.alignwide) img {
+figure.wp-caption:not(.alignfull):not(.alignwide),
+figure.wp-caption:not(.alignfull):not(.alignwide) img {
   max-width: min(100%, var(--wp--style--global--content-size)) !important;
   height: auto;
   margin-left: auto;
@@ -834,35 +833,26 @@ p.is-style-arrow-icon > a:after {
 
 /* Underline links */
 p.is-style-link-underline a,
-p.is-style-link-underline a:active,
-a.is-style-link-underline,
-a.is-style-link-underline:active {
+p.is-style-link-underline a:active {
   text-decoration: underline !important;
 }
 
-p.is-style-link-underline a:hover,
-a.is-style-link-underline:hover {
+p.is-style-link-underline a:hover {
   opacity: 0.8;
-  /*filter: brightness(80%);*/
 }
 
 /* No Underline links */
 p.is-style-link-no-underline a,
-p.is-style-link-no-underline a:active,
-a.is-style-link-no-underline,
-a.is-style-link-no-underline:active {
-  /*font-weight: var(--wp--custom--typography--font-weight--medium);*/
+p.is-style-link-no-underline a:active {
   text-decoration: none !important;
 }
 
-p.is-style-link-no-underline a:hover,
-a.is-style-link-no-underline:hover {
+p.is-style-link-no-underline a:hover {
   opacity: 0.8;
-  /*filter: brightness(80%);*/
 }
 
 /*--------------------------------------------------------------
-# ADDITIONAL STYLES
+# ADDITIONAL CRITICAL BASE STYLES
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
 # Utilities
@@ -895,7 +885,9 @@ a.is-style-link-no-underline:hover {
 }
 
 .wp-site-blocks .dashicons:before,
-.wp-site-blocks .dashicons-before:before {
+.wp-site-blocks .dashicons-before:before,
+.dashicons:before,
+.dashicons-before:before {
   display: inline-block;
   vertical-align: top;
   width: auto;
@@ -920,11 +912,11 @@ a.is-style-link-no-underline:hover {
  * the block level. Also don't default to having padding. 
  */
 /* Remove top margin and padding from the containers */
-.wp-site-blocks header,
-.wp-site-blocks main,
-.wp-site-blocks footer,
-.wp-site-blocks .wp-block-template-part,
-.wp-site-blocks .wp-block-post-content {
+header,
+main,
+footer,
+.wp-block-template-part,
+.wp-block-post-content {
   margin-block-start: 0 !important;
 }
 
@@ -932,28 +924,29 @@ a.is-style-link-no-underline:hover {
  * Add top margin to the container's first block and then between 
  * subsequent blocks 
  */
-.wp-site-blocks main > *:first-child:not(.wp-block-template-part, .wp-block-post-content, .wp-block-cover, .wp-block-query, header, footer, nav),
+main > *:first-child:not(.wp-block-template-part, .wp-block-post-content, .wp-block-cover, .wp-block-query, header, footer, nav),
 body .is-layout-constrained > * + .wp-block-template-part > *:first-child:not(.wp-block-template-part, .wp-block-post-content, .wp-block-cover, .wp-block-query, main, header, footer, nav),
 body .is-layout-constrained .wp-block-template-part > * + *:not(.wp-block-template-part, .wp-block-post-content, .wp-block-cover, .wp-block-query, main, header, footer, nav),
-.wp-site-blocks .wp-block-query > *:first-child:not(.wp-block-cover),
-.wp-site-blocks .wp-block-post-content > *:first-child:not(.wp-block-cover) { /*,
+.wp-block-query > *:first-child:not(.wp-block-cover),
+.wp-block-post-content > *:first-child:not(.wp-block-cover) { /*,
 .is-root-container > *:first-child:not(.wp-block-template-part, .wp-block-cover, .wp-block-query) {*/
   margin-block-start: var(--wp--style--block-gap);
 }
 
-/* But don't add top margin to template part within a column. e.g. Footers. */
-.wp-site-blocks .wp-block-column > .wp-block-template-part > *:first-child {
+/* But don't add top or bottom margin to template part within a column. e.g. Footers. */
+.wp-block-column > .wp-block-template-part > *:first-child {
   margin-block-start: 0;
+  margin-block-end: 0;
 }
 
 /* Also add bottom margin on the last block for convenience */
-.wp-site-blocks .wp-block-query > *:last-child,
-.wp-site-blocks .wp-block-post-content > *:last-child {
+.wp-block-query > *:last-child,
+.wp-block-post-content > *:last-child {
   margin-block-end: var(--wp--style--block-gap);
 }
 
 /* But don't add bottom margin to a template part within a column. e.g. Footers. */
-.wp-site-blocks .wp-block-column > .wp-block-template-part > *:last-child {
+.wp-block-column > .wp-block-template-part > *:last-child {
   margin-block-end: 0;
 }
 
@@ -1023,37 +1016,37 @@ header.entry-header:not(.has-global-padding),
 .has-base-color,
 .has-base-2-color,
 .has-base-3-color {
-  color: var(--wp--preset--color--background) !important;
+  color: var(--wp--preset--color--foreground-alt);
 }
 
 .has-base-background-color,
 .has-base-2-background-color,
 .has-base-3-background-color {
-  background-color: var(--wp--preset--color--background) !important;
+  background-color: var(--wp--preset--color--light-gray);
 }
 
 .has-base-border-color,
 .has-base-2-border-color,
 .has-base-3-border-color {
-  border-color: var(--wp--preset--color--background) !important;
+  border-color: var(--wp--preset--color--gray);
 }
 
 .has-contrast-color,
 .has-contrast-2-color,
 .has-contrast-3-color {
-  color: var(--wp--preset--color--foreground) !important;
+  color: var(--wp--preset--color--foreground);
 }
 
 .has-contrast-background-color,
 .has-contrast-2-background-color,
 .has-contrast-3-background-color {
-  background-color: var(--wp--preset--color--foreground) !important;
+  background-color: var(--wp--preset--color--foreground);
 }
 
 .has-contrast-border-color,
 .has-contrast-2-border-color,
 .has-contrast-3-border-color {
-  border-color: var(--wp--preset--color--foreground) !important;
+  border-color: var(--wp--preset--color--foreground);
 }
 
 .has-accent-color,
