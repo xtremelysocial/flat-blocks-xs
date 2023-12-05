@@ -1,4 +1,4 @@
-=== Flat Blocks ===
+=== Xtremelysocial ===
 Contributors: Tim Nicholson / XtremelySocial
 Requires at least: 6.2
 Tested up to: 6.4

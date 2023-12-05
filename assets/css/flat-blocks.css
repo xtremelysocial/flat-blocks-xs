@@ -379,7 +379,7 @@ body .is-layout-constrained > .alignright {
  * theme.json as custom block CSS.
  */
 /* For convenience, remove padding on nested groups */
-.wp-site-blocks .wp-block-group > .wp-block-group:not(.has-background) {
+.wp-block-group > .wp-block-group:not(.has-background) {
   padding: 0;
 }
 
