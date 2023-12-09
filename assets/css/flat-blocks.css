@@ -266,10 +266,9 @@ body .is-layout-constrained > .alignright {
  * theme.json as custom block CSS.
  */
 /* ADD BACK gap on flex columns by default */
-.wp-block-columns-is-layout-flex {
-  gap: var(--wp--style--block-gap);
-}
-
+/*.wp-block-columns-is-layout-flex {
+	gap: var(--wp--style--block-gap);
+}*/
 /* 
  * Note: Breakpoint of 781 is what is hard-coded in WordPress 
  * v6.0+ to collapse columns
@@ -281,8 +280,8 @@ body .is-layout-constrained > .alignright {
    */
   .wp-block-columns.has-background,
   .wp-block-column.has-background {
-    padding-left: var(--wp--preset--spacing--60);
-    padding-right: var(--wp--preset--spacing--60);
+    padding-left: calc(2 * var(--wp--style--block-gap));
+    padding-right: calc(2 * var(--wp--style--block-gap));
   }
   /* If global padding, then OVERRIDE horizontal padding on mobile */
   .has-global-padding .wp-block-columns.has-background,
@@ -305,7 +304,7 @@ body .is-layout-constrained > .alignright {
 /* Columns thick gap */
 .wp-block-columns.is-style-thick-gap,
 .wp-block-columns.is-style-thick-gap.has-background {
-  gap: var(--wp--preset--spacing--60);
+  gap: calc(2 * var(--wp--style--block-gap));
 }
 
 /* Column rounded borders */
@@ -379,7 +378,7 @@ body .is-layout-constrained > .alignright {
  * theme.json as custom block CSS.
  */
 /* For convenience, remove padding on nested groups */
-.wp-site-blocks .wp-block-group > .wp-block-group:not(.has-background) {
+.wp-block-group > .wp-block-group:not(.has-background) {
   padding: 0;
 }
 
@@ -778,8 +777,8 @@ nav.wp-block-navigation.is-style-fixed-menu .wp-block-navigation__responsive-con
    * groups 
    */
   p.has-background:not(.has-global-padding) {
-    padding-left: var(--wp--preset--spacing--60);
-    padding-right: var(--wp--preset--spacing--60);
+    padding-left: calc(2 * var(--wp--style--block-gap));
+    padding-right: calc(2 * var(--wp--style--block-gap));
   }
   /* If global padding, then OVERRIDE horizontal padding on mobile */
   .has-global-padding p.has-background {

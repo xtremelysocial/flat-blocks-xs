@@ -124,11 +124,11 @@ if ( ! function_exists( 'flatblocks_register_block_styles' ) ) :
 				'style_handle' 	=> 'flatblocks-custom-styles'				
 			),
 			'link-underline' 	=> array( esc_html__('Underline Link', 'flat-blocks'), 
-				array('paragraph', 'categories', 'latest-posts', 'latest-comments', 'page-list' ),
+				array('paragraph', 'list-item', 'categories', 'latest-posts', 'latest-comments', 'page-list' ),
 				'style_handle' 	=> 'flatblocks-custom-styles'				
 			),
 			'link-no-underline' => array( esc_html__('No Underline Link', 'flat-blocks'), 
-				array('paragraph', 'latest-posts', 'latest-comments', 'page-list' ),
+				array('paragraph', 'list-item', 'latest-posts', 'latest-comments', 'page-list' ),
 				'style_handle' 	=> 'flatblocks-custom-styles'				
 			),
 			'arrow-icon' 		=> array( esc_html__('Arrow Icon', 'flat-blocks'), 
