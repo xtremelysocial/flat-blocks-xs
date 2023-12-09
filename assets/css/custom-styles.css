@@ -126,12 +126,12 @@
 }
 
 /* Front-end Add bullets and padding */
-.wp-block-latest-comments.is-style-bullets {
-  list-style: disc;
+.wp-block-latest-comments.is-style-bullets:not(.has-avatars) {
+  padding-left: 2em; /*var(--wp--preset--spacing--60);*/
 }
 
-.wp-block-latest-comments.is-style-bullets:not(.has-avatars) {
-  padding-left: var(--wp--preset--spacing--60);
+.wp-block-latest-comments.is-style-bullets {
+  list-style: disc;
 }
 
 .wp-block-latest-comments.is-style-bullets li {
@@ -312,6 +312,29 @@ ol.is-style-list-plain-centered ol {
 ul.is-style-list-plain-centered li,
 ol.is-style-list-plain-centered li {
   margin-left: 0;
+}
+
+/*--------------------------------------------------------------
+# List Items: Custom
+--------------------------------------------------------------*/
+/* Underline links */
+li.is-style-link-underline a,
+li.is-style-link-underline a:active {
+  text-decoration: underline;
+}
+
+li.is-style-link-underline a:hover {
+  opacity: 0.8;
+}
+
+/* No Underline links */
+li.is-style-link-no-underline a,
+li.is-style-link-no-underline a:active {
+  text-decoration: none;
+}
+
+li.is-style-link-no-underline a:hover {
+  opacity: 0.8;
 }
 
 /*--------------------------------------------------------------
