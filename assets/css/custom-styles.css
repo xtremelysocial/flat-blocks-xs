@@ -423,6 +423,7 @@ li.is-style-link-no-underline a:hover {
 }
 
 .wp-block-post-author__avatar img {
+  border-radius: 50%;
   margin: 0;
 }
 
