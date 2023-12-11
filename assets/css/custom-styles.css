@@ -427,7 +427,6 @@ li.is-style-link-no-underline a:hover {
 }
 
 .wp-block-post-author__bio {
-  font-size: var(--wp--preset--font-size--medium);
   margin-top: var(--wp--style--block-gap);
   margin-bottom: var(--wp--style--block-gap);
 }
