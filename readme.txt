@@ -154,13 +154,14 @@ You can check out our other themes here: https://xtremelysocial.com/wordpress/
 == Changelog ==
 
 = 1.4.2 = 
-December 10, 2023
+December 11, 2023
 
 * Breaking Change: Default links to have underlines to comply with WordPress.org theme guidelines where "underline is the only accepted method of indicating links within the content". Note that we had already turned off link underlines on numerous blocks (via Global Styles), such as lists, category and tag cloud, etc. so this should just properly underline links in your main content. 
 * Added Custom Block Style for List Items to specify link underline or not. 
 * Adjusted spacing on post author avatar and bio on Author Page Template.
-* In the Editor, fix left padding on Latest Posts list when styled with Bullets.
 * Changed all the Cover Image Block Patterns to have the subtitle as Heading Level 3 (H3) instead of H2. The Title is still H3. 
+* In the Editor, fix left padding on Latest Posts list when styled with Bullets.
+* Removed specific horizontal padding from the Compact Footer and Fixed Header Template Parts so that it defaults to the global style Layout -> Padding setting. Adjusted Editor CSS for this. 
 * Renamed Global Theme Style "Dark - Almost Black" to "Dark - Very Dark Gray" to more accurately reflect the background color. 
 * Changed Global Theme Style "Default - Auto Dark Mode" to have the WordPress Admin Bar (if turned on by the logged in user) to Almost Black color to distinguish it from the dark background color. 
 * Reordered the global theme styles: Move Dark Midnight Blue, Dark Almost Black, and Auto Dark Mode earlier in the list. Move Default with Shadow and Default Blue Links towards the end of the list. This shows off more of the color options earlier in the list.
