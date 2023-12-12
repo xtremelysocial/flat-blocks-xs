@@ -35,8 +35,8 @@
 
 <!-- wp:column -->
 <div class="wp-block-column">
-<!-- wp:paragraph {"align":"right","placeholder":"See All Works"} -->
-<p class="has-text-align-right"><a href="$#">&gt; See All Works</a></p>
+<!-- wp:paragraph {"align":"right","className":"is-style-link-no-underline","placeholder":"See All Works"} -->
+<p class="has-text-align-right is-style-link-no-underline"><a href="$#">&gt; See All Works</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:column --></div>
 <!-- /wp:columns --></div>

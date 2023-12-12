@@ -154,17 +154,25 @@ You can check out our other themes here: https://xtremelysocial.com/wordpress/
 == Changelog ==
 
 = 1.4.2 = 
-December 11, 2023
+December 12, 2023
 
-* Breaking Change: Default links to have underlines to comply with WordPress.org theme guidelines where "underline is the only accepted method of indicating links within the content". Note that we had already turned off link underlines on numerous blocks (via Global Styles), such as lists, category and tag cloud, etc. so this should just properly underline links in your main content. 
-* Added Custom Block Style for List Items to specify link underline or not. 
-* Adjusted spacing on post author avatar and bio on Author Page Template.
-* Changed all the Cover Image Block Patterns to have the subtitle as Heading Level 3 (H3) instead of H2. The Title is still H3. 
-* In the Editor, fix left padding on Latest Posts list when styled with Bullets.
-* Removed specific horizontal padding from the Compact Footer and Fixed Header Template Parts so that it defaults to the global style Layout -> Padding setting. Adjusted Editor CSS for this. 
-* Renamed Global Theme Style "Dark - Almost Black" to "Dark - Very Dark Gray" to more accurately reflect the background color. 
-* Changed Global Theme Style "Default - Auto Dark Mode" to have the WordPress Admin Bar (if turned on by the logged in user) to Almost Black color to distinguish it from the dark background color. 
-* Reordered the global theme styles: Move Dark Midnight Blue, Dark Almost Black, and Auto Dark Mode earlier in the list. Move Default with Shadow and Default Blue Links towards the end of the list. This shows off more of the color options earlier in the list.
+* Breaking change to default link underlines
+	* Default links to have underlines to comply with WordPress.org theme guidelines where "underline is the only accepted method of indicating links within the content". Note that we had already turned off link underlines on numerous blocks (via Global Styles), such as lists, category and tag cloud, etc. so this should just properly underline links in your main content. 
+	* Due to above, updated various Template Parts and Patterns to not underline links. e.g. Page Home pattern, Page Portfolio pattern, Pricing Table patterns. 
+	* Added Custom Block Style for List Items to specify link underline or not. 
+
+* Adjustments to horizontal padding
+	* Adjusted spacing on post author avatar and bio on Author Page Template.
+	* Removed specific horizontal padding from the Compact Footer and Fixed Header Template Parts so that it defaults to the global style Layout -> Padding setting. Adjusted Editor CSS for this. 
+	* In the Editor, fix left padding on Latest Posts list when styled with Bullets.
+
+* Changes to global theme styles
+	* Renamed Global Theme Style "Dark - Almost Black" to "Dark - Very Dark Gray" to more accurately reflect the background color. 
+	* Changed Global Theme Style "Default - Auto Dark Mode" to have the WordPress Admin Bar (if turned on by the logged in user) to Almost Black color to distinguish it from the dark background color. 
+	* Reordered the global theme styles: Move Dark Midnight Blue, Dark Almost Black, and Auto Dark Mode earlier in the list. Move Default with Shadow and Default Blue Links towards the end of the list. This shows off more of the color options earlier in the list.
+
+* Changes to cover images block patterns
+	* Changed all the Cover Image Block Patterns to have the subtitle as Heading Level 3 (H3) instead of H2. The Title is still H3. 
 
 = 1.4.1 = 
 December 2, 2023
