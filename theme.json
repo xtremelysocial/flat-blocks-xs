@@ -1510,6 +1510,15 @@
 					}
 				}
 			},
+			"core/post-terms": {
+				"elements": {
+					"link": {
+						"typography": {
+							"textDecoration": "none"
+						}
+					}
+				}
+			},
 			"core/page-list": {
 				"elements": {
 					"link": {
@@ -1636,6 +1645,12 @@
 			"area": "header"
 		},
 		{
+			"name": "pro-header-scroll-fixed",
+			"title": "Header with Scroll to Fixed Header",
+			"description": "Header that becomes fixed when user scrolls",
+			"area": "header"
+		},
+		{
 			"name": "menu-header",
 			"title": "Menu Header",
 			"description": "Default header nav menu (right)",
@@ -1717,6 +1732,12 @@
 			"name": "content-article",
 			"title": "Content Article",
 			"description": "Blog list article (featured image, title, date, and excerpt)",
+			"area": "content"
+		},
+		{
+			"name": "pro-content-article-image",
+			"title": "Content Article w/Image",
+			"description": "Blog list article with featured image and title only",
 			"area": "content"
 		},
 		{
@@ -1835,43 +1856,43 @@
 		},
 		{
 			"name": "footer-compact-nav-site-social",
-			"title": "Footer compact w/nav menu, site info, and social icons",
+			"title": "Footer compact w/Nav Menu, Site Info, and Social Icons",
 			"description": "Compact footer w/nav menu, site info, and social icons",
 			"area": "footer"
 		},
 		{
 			"name": "footer-compact-contact-info-social",
-			"title": "Footer compact w/contact info and social icons",
+			"title": "Footer Compact w/Contact Info and Social Icons",
 			"description": "Compact footer w/site info and social icons",
 			"area": "footer"
 		},
 		{
 			"name": "footer-map-static",
-			"title": "Footer w/static map (image) and contact info",
+			"title": "Footer w/Static Map (image) and Contact Info",
 			"description": "Footer w/static map (image) and contact info",
 			"area": "footer"
 		},
 		{
 			"name": "footer-map-jetpack",
-			"title": "Footer w/Jetpack map and contact info",
+			"title": "Footer w/Jetpack Map and Contact Info",
 			"description": "Footer w/Jetpack map and contact info",
 			"area": "footer"
 		},
 		{
 			"name": "footer-motto-social-site",
-			"title": "Footer w/motto, social icons, and site info",
+			"title": "Footer w/Motto, Social Icons, and Site Info",
 			"description": "Footer w/motto, social icons, and site info",
 			"area": "footer"
 		},
 		{
 			"name": "footer-social-map-static",
-			"title": "Footer w/colored social icons, static map, and contact info",
+			"title": "Footer w/Colored Social Icons, Static Map, and Contact Info",
 			"description": "Footer w/colored social icons, static map, and contact info",
 			"area": "footer"
 		},
 		{
 			"name": "footer-social-map-jetpack",
-			"title": "Footer w/colored social icons and Jetpack map and contact info",
+			"title": "Footer w/Colored Social Icons and Jetpack Map and Contact Info",
 			"description": "Footer w/colored social icons and Jetpack map and contact info",
 			"area": "footer"
 		}

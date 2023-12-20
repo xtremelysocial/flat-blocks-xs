@@ -25,14 +25,6 @@
 }
 
 /*--------------------------------------------------------------
-# Site Title
---------------------------------------------------------------*/
-/* Override WordPress v6.4 defaulting this to inherit */
-.editor-styles-wrapper .wp-block-site-title a {
-  color: var(--wp--preset--color--primary);
-}
-
-/*--------------------------------------------------------------
 # Forms
 --------------------------------------------------------------*/
 /* Fields are still light background, so make text dark in Editor */
@@ -79,6 +71,18 @@ footer.has-global-padding.wp-block-group.has-background {
 # EDITOR BLOCK STYLES
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
+# Group
+--------------------------------------------------------------*/
+/* In the Editor, blocks don't get alignfull CSS class for some 
+ * some reason, but so assume header and footer are full width
+ */
+header.has-global-padding.wp-block-group.has-background,
+footer.has-global-padding.wp-block-group.has-background {
+  padding-left: var(--wp--style--root--padding-left);
+  padding-right: var(--wp--style--root--padding-right);
+}
+
+/*--------------------------------------------------------------
 # Latest Comments
 --------------------------------------------------------------*/
 /* Editor has nested lists, so push padding down to nested one */
@@ -115,4 +119,12 @@ nav.wp-block-navigation .wp-block-navigation__submenu-icon {
 
 nav.wp-block-navigation.is-style-fixed-menu {
   margin: var(--wp--preset--spacing--60) var(--wp--preset--spacing--50);
+}
+
+/*--------------------------------------------------------------
+# Site Title
+--------------------------------------------------------------*/
+/* Override WordPress v6.4 defaulting this to inherit */
+.editor-styles-wrapper .wp-block-site-title a {
+  color: var(--wp--preset--color--primary);
 }

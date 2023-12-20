@@ -361,6 +361,7 @@ body .is-layout-constrained > .alignright {
 /* Border */
 .wp-block-cover.is-style-cover-border {
   border: 3px solid var(--wp--custom--border--color);
+  border-radius: var(--wp--custom--border--radius);
   padding: var(--wp--preset--spacing--40);
 }
 
@@ -848,6 +849,12 @@ p.is-style-link-no-underline a:active {
 
 p.is-style-link-no-underline a:hover {
   opacity: 0.8;
+}
+
+/* Underline links on hover */
+p.is-style-link-underline-hover a:hover {
+  opacity: 1;
+  text-decoration: underline;
 }
 
 /*--------------------------------------------------------------

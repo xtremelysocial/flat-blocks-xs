@@ -255,19 +255,19 @@ msgid "Frequently Asked Questions (FAQ)"
 msgstr ""
 
 #: inc/block-patterns.php:202
-msgid "Querly Loop 1 Column"
+msgid "Query Loop 1 Column"
 msgstr ""
 
 #: inc/block-patterns.php:207
-msgid "Querly Loop 2 Columns (Default)"
+msgid "Query Loop 2 Columns (Default)"
 msgstr ""
 
 #: inc/block-patterns.php:212
-msgid "Querly Loop with Left Sidebar"
+msgid "Query Loop with Left Sidebar"
 msgstr ""
 
 #: inc/block-patterns.php:217
-msgid "Querly Loop with Right Sidebar"
+msgid "Query Loop with Right Sidebar"
 msgstr ""
 
 #: inc/block-styles.php:26

@@ -29,7 +29,7 @@
 --------------------------------------------------------------*/
 /* Reduce top margin on "Leave a Reply" */
 .comment-reply-title {
-  margin-top: var(--wp--style--block-gap); /*0;*/
+  margin-top: 0;
 }
 
 /* Match our bottom margin */
@@ -163,6 +163,12 @@
   opacity: 0.8;
 }
 
+/* Underline links on hover */
+.wp-block-latest-comments.is-style-link-underline-hover a:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
 /*--------------------------------------------------------------
 # Latest Posts
 --------------------------------------------------------------*/
@@ -235,6 +241,12 @@
 
 .wp-block-latest-posts.is-style-link-no-underline a:hover {
   opacity: 0.8;
+}
+
+/* Underline links on hover */
+.wp-block-latest-posts.is-style-link-underline-hover a:hover {
+  opacity: 1;
+  text-decoration: underline;
 }
 
 /*--------------------------------------------------------------
@@ -337,6 +349,12 @@ li.is-style-link-no-underline a:hover {
   opacity: 0.8;
 }
 
+/* Underline links on hover */
+li.is-style-link-underline-hover a:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
 /*--------------------------------------------------------------
 # Media & Text
 --------------------------------------------------------------*/
@@ -400,6 +418,12 @@ li.is-style-link-no-underline a:hover {
 
 .wp-block-page-list.is-style-link-no-underline a:hover {
   opacity: 0.8;
+}
+
+/* Underline links on hover */
+.wp-block-page-list.is-style-link-underline-hover a:hover {
+  opacity: 1;
+  text-decoration: underline;
 }
 
 /*--------------------------------------------------------------
@@ -535,6 +559,35 @@ li.is-style-link-no-underline a:hover {
 --------------------------------------------------------------*/
 .wp-block-post-terms.is-style-no-icon:before {
   display: none;
+}
+
+/*--------------------------------------------------------------
+# Post Title: Custom
+--------------------------------------------------------------*/
+/* Underline links */
+.wp-block-post-title.is-style-link-underline a,
+.wp-block-page-list.is-style-link-underline a:active {
+  text-decoration: underline !important;
+}
+
+.wp-block-post-title.is-style-link-underline a:hover {
+  opacity: 0.8;
+}
+
+/* No Underline links */
+.wp-block-post-title.is-style-link-no-underline a,
+.wp-block-post-title.is-style-link-no-underline a:active {
+  text-decoration: none !important;
+}
+
+.wp-block-post-title.is-style-link-no-underline a:hover {
+  opacity: 0.8;
+}
+
+/* Underline links on hover */
+.wp-block-post-title.is-style-link-underline-hover a:hover {
+  opacity: 1;
+  text-decoration: underline;
 }
 
 /*--------------------------------------------------------------

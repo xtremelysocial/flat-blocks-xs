@@ -16,32 +16,25 @@
 	
 	$(document).ready(function() {
 
-		// This is necessary for our smooth scroll to top of the page
-		//$('.wp-site-blocks').attr('id', 'page')
+		// Figure out top offset from fixed header height and/or admin bar
+		var topOffset = parseInt( $('.wp-site-blocks > header:has(.is-style-fixed-header)').outerHeight() ) ?? 0 + 
+			parseInt( $('header.site-header.is-style-scroll-header').outerHeight() ) ?? 0 +
+			parseInt( $( '#wpadminbar' ).outerHeight() ) ?? 0;
+		//console.log('topOffset=' + topOffset); //TEST*/
 
 		// Select all the comment elements with a name (id='comment-99')
-		const ids = $('[id*=comment-]');
+		const comments = $('[id*=comment-]');
 
-		// If we have any, add a scroll offset to them
-		if ( ids.length > 0 ) {
-
-			// Figure out top offset from fixed header hight and/or admin bar
-			var topOffset = 0;
-			const siteTopMargin = parseInt( $('.wp-site-blocks > header:has(.is-style-fixed-header)').outerHeight() );
-			if (siteTopMargin) topOffset += siteTopMargin;
-			const adminbarHeight = parseInt( $( '#wpadminbar' ).outerHeight() );
-			if (adminbarHeight) topOffset += adminbarHeight;
-			//console.log('topOffset=' + topOffset); //TEST
+		// If we have any comments, add a scroll offset to them
+		if ( topOffset && comments.length > 0 ) {
 
 			// Set each link to have scroll offset
-			if ( topOffset ) {
-				ids.each(function() {
-					$(this).css('scroll-margin-top', topOffset + 'px');
-				});
-			}
+			comments.each(function() {
+				$(this).css('scroll-margin-top', topOffset + 'px');
+			});
 		}
 		
-		// Select all links with hashes (#)
+		// Select all internal links with hashes (#)
 		const links = $('a[href*="#"]')
 			// Remove links that don't actually link to anything
 			.not('[href="#"]')
@@ -60,36 +53,15 @@
 				// Figure out element to scroll to
 				var target = $(this.hash);
 				target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-				//console.log('target name=' + target.name); //TEST
 
 				// Does a scroll target exist?
 				if (target.length) {
-
-					// Figure out top offset from fixed header hight and/or admin bar
-					var topOffset = 0;
-					const siteTopMargin = parseInt( $('.wp-site-blocks > header:has(.is-style-fixed-header)').outerHeight() );
-					if (siteTopMargin) topOffset += siteTopMargin;
-					const adminbarHeight = parseInt( $( '#wpadminbar' ).outerHeight() );
-					if (adminbarHeight) topOffset += adminbarHeight;
-					//console.log('topOffset=' + topOffset); //TEST
 					
 					// Only prevent default if animation is actually gonna happen
 					event.preventDefault();
 					$('html, body').animate({
 				  		scrollTop: ( target.offset().top - topOffset )
-				  		/////scrollTop: ( target.offset().top )
-					}, 1000, function() {
-						// Callback after animation
-						// Must change focus!
-						/*var $target = $(target);
-						$target.focus();
-						if ($target.is(":focus")) { // Checking if the target was focused
-							return false;
-						} else {
-							$target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
-							$target.focus(); // Set focus again
-						};*/
-					});
+					}, 1000);
 				} // target
 			} // On-page links
 		}); // $(a)

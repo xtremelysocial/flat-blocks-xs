@@ -10,7 +10,6 @@
  * @since	1.2.14
  */
 
-
 /**
  * Gets the block template and parses it 
  * 

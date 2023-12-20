@@ -3,7 +3,7 @@ Contributors:  XtremelySocial
 Requires at least: 6.2
 Tested up to: 6.4
 Requires PHP: 7.4
-Stable tag: 1.4.2
+Stable tag: 1.4.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -152,6 +152,16 @@ For more information, see these pages on the XtremelySocial.com website:
 You can check out our other themes here: https://xtremelysocial.com/wordpress/
 
 == Changelog ==
+
+= 1.4.3 = 
+December 20, 2023
+
+* Added Custom Block Styles:
+	* Link Underline on Hover for Paragraph, List Item, Latest Posts, Latest Comments, Page List, and Post Title
+	* Link Underline and Link No Underline for Post Title and Post Terms. Set Post Terms (category and tag lists) to not underline links by default. 
+* Adjusted top and bottom spacing on comment section.
+* Fixed typo on the word Query in various Block Patterns and the corresponding language translation file (.pot).
+* Enhanced smooth scroll javascript for potential future additional header type. 
 
 = 1.4.2 = 
 December 12, 2023
