@@ -123,7 +123,7 @@ if ( ! function_exists( 'flatblocks_register_block_styles' ) ) :
 		 */
 		//foreach ( $custom_styles as $custom_style => [$label, $blocks, $style_handle_or_inline] ) {
 		foreach ( $custom_styles as $custom_style => $properties ) {
-			$label = $properties[0] ?? '';
+			$label = $properties[0] ?? ucwords( str_ireplace( '-', ' ', $custom_style ) );
 			$blocks = ( isset($properties[1]) and is_array($properties[1]) ) ? $properties[1] : array();
 
 			// Loop through each block and register the custom style

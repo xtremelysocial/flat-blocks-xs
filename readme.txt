@@ -154,8 +154,11 @@ You can check out our other themes here: https://xtremelysocial.com/wordpress/
 == Changelog ==
 
 = 1.4.3 = 
-December 20, 2023
+December 27, 2023
 
+* Font color now defaults on colored backgrounds.
+	* For Cover image block, we use black or white like core WordPress does, but base it on the percent opacity of the cover image overlay. 40% or greater will use white, otherwise black is used. For other blocks, such as Groups and Columns, foreground-alt is used on the dark-colored backgrounds. 
+	* Removed foreground-alt and white font colors from all Block Patterns since they now default.
 * Added Custom Block Styles:
 	* Link Underline on Hover for Paragraph, List Item, Latest Posts, Latest Comments, Page List, and Post Title
 	* Link Underline and Link No Underline for Post Title and Post Terms. Set Post Terms (category and tag lists) to not underline links by default. 

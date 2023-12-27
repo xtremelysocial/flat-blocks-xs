@@ -45,6 +45,57 @@ body {
 }
 
 /*--------------------------------------------------------------
+# Colors
+--------------------------------------------------------------*/
+/* 
+ * On dark colored backgrounds, default light colored font.
+ * 
+ * Note: Specificity is very low so user can easily override it.
+ */
+.has-background:not(.has-white-background-color,
+.has-off-white-background-color,
+.has-very-light-gray-background-color,
+.has-light-gray-background-color,
+.has-gray-background-color,
+.has-light-yellow-background-color) {
+  color: var(--wp--preset--color--foreground-alt);
+}
+
+/**.has-background-dim:not(.has-white-background-color,
+.has-off-white-background-color,
+.has-very-light-gray-background-color,
+.has-light-gray-background-color,
+.has-gray-background-color,
+.has-light-yellow-background-color,
+.has-yellow-background-color)**/ /*,
+.has-background-dim:not(.has-white-background-color a:not(.has-link-color),
+.has-off-white-background-color a:not(.has-link-color),
+.has-very-light-gray-background-color a:not(.has-link-color),
+.has-light-gray-background-color a:not(.has-link-color),
+.has-gray-background-color a:not(.has-link-color),
+.has-light-yellow-background-color a:not(.has-link-color),
+.has-yellow-background-color a:not(.has-link-color))*/ /**{
+  color: var(--wp--preset--color--foreground-alt);
+}**/
+/* On Cover blocks, we have to get more specific than core WordPress */
+:where(.wp-block-cover-image.is-light:not(.has-text-color):has(.wp-block-cover__background.has-background-dim-40)),
+:where(.wp-block-cover.is-light:not(.has-text-color):has(.wp-block-cover__background.has-background-dim-40)),
+:where(.wp-block-cover-image.is-light:not(.has-text-color):has(.wp-block-cover__background.has-background-dim-50)),
+:where(.wp-block-cover.is-light:not(.has-text-color):has(.wp-block-cover__background.has-background-dim-50)),
+:where(.wp-block-cover-image.is-light:not(.has-text-color):has(.wp-block-cover__background.has-background-dim-60)),
+:where(.wp-block-cover.is-light:not(.has-text-color):has(.wp-block-cover__background.has-background-dim-60)),
+:where(.wp-block-cover-image.is-light:not(.has-text-color):has(.wp-block-cover__background.has-background-dim-70)),
+:where(.wp-block-cover.is-light:not(.has-text-color):has(.wp-block-cover__background.has-background-dim-70)),
+:where(.wp-block-cover-image.is-light:not(.has-text-color):has(.wp-block-cover__background.has-background-dim-80)),
+:where(.wp-block-cover.is-light:not(.has-text-color):has(.wp-block-cover__background.has-background-dim-80)),
+:where(.wp-block-cover-image.is-light:not(.has-text-color):has(.wp-block-cover__background.has-background-dim-90)),
+:where(.wp-block-cover.is-light:not(.has-text-color):has(.wp-block-cover__background.has-background-dim-90)),
+:where(.wp-block-cover-image.is-light:not(.has-text-color):has(.wp-block-cover__background.has-background-dim-100)),
+:where(.wp-block-cover.is-light:not(.has-text-color):has(.wp-block-cover__background.has-background-dim-100)) {
+  color: var(--wp--preset--color--foreground-alt);
+}
+
+/*--------------------------------------------------------------
 # Elements
 --------------------------------------------------------------*/
 /* Use bold font-weight from theme.json */
@@ -804,6 +855,7 @@ p.is-style-arrow-icon-no-text {
 
 p.is-style-arrow-icon > a,
 p.is-style-arrow-icon-no-text > a {
+  color: inherit;
   display: block;
   text-decoration: none !important;
   outline: none !important;

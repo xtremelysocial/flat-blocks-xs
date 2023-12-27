@@ -16,55 +16,65 @@
 	
 	$(document).ready(function() {
 
-		// Figure out top offset from fixed header height and/or admin bar
-		var topOffset = parseInt( $('.wp-site-blocks > header:has(.is-style-fixed-header)').outerHeight() ) ?? 0 + 
-			parseInt( $('header.site-header.is-style-scroll-header').outerHeight() ) ?? 0 +
-			parseInt( $( '#wpadminbar' ).outerHeight() ) ?? 0;
-		//console.log('topOffset=' + topOffset); //TEST*/
+		/*
+		 * Figure out top offset from fixed headers height and/or admin bar
+		 */
+		const fixedHeader = $('.wp-site-blocks > header:has(.is-style-fixed-header)');
+		const scrollHeader = $('header.site-header.is-style-scroll-header');
+		const adminBar = $('#wpadminbar');
 
-		// Select all the comment elements with a name (id='comment-99')
-		const comments = $('[id*=comment-]');
-
-		// If we have any comments, add a scroll offset to them
-		if ( topOffset && comments.length > 0 ) {
-
-			// Set each link to have scroll offset
-			comments.each(function() {
-				$(this).css('scroll-margin-top', topOffset + 'px');
-			});
+		var topOffset = 0;
+		if (fixedHeader.length > 0) { 
+			//console.log('fixedHeader.outerHeight: ' + fixedHeader.outerHeight()); //TEST
+			topOffset = topOffset + fixedHeader.outerHeight();
+		} else if (scrollHeader.length > 0) {
+			//console.log('scroll.outerHeight: ' + scrollHeader.outerHeight()); //TEST
+			topOffset = topOffset + scrollHeader.outerHeight();
+		}
+		if (adminBar.length > 0) topOffset = topOffset + adminBar.outerHeight();
+		//console.log('topOffset: ' + topOffset); //TEST
+		
+		/*
+		 * If we have a top offset, then select all the comment elements with a name 
+		 * (id='comment-99') and set their scroll offset.
+		 */
+		if ( topOffset) {
+			const comments = $('[id*=comment-]');
+			//if ( comments.length > 0 ) {
+				comments.each(function() {
+					$(this).css('scroll-margin-top', topOffset + 'px');
+				});
+			//}
 		}
 		
-		// Select all internal links with hashes (#)
+		/* 
+		 * Select all internal links with hashes (#), but remove links that don't 
+		 * actually link to anything. Also remove bootstrap tabs and collapsible
+		 * content.
+		 */ 
 		const links = $('a[href*="#"]')
-			// Remove links that don't actually link to anything
 			.not('[href="#"]')
 			.not('[href="#0"]')
-			.not('[data-toggle="tab"]') /* ignore bootstrap tabs */
-			.not('[data-toggle="collapse"]');  /* ignore bootstrap collapsible content */
+			.not('[data-toggle="tab"]')
+			.not('[data-toggle="collapse"]');
 
 		// When clicked, smoothly scroll to the element
 		links.click(function(event) {
-			// On-page links
 			if (
 				location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') 
 				&& 
 				location.hostname == this.hostname
 			) {
-				// Figure out element to scroll to
 				var target = $(this.hash);
 				target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-
-				// Does a scroll target exist?
 				if (target.length) {
-					
-					// Only prevent default if animation is actually gonna happen
 					event.preventDefault();
 					$('html, body').animate({
 				  		scrollTop: ( target.offset().top - topOffset )
 					}, 1000);
-				} // target
-			} // On-page links
-		}); // $(a)
-	}); // $(document)
+				}
+			}
+		});
+	});
 	
 } )( jQuery );
