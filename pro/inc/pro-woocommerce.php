@@ -14,6 +14,9 @@
 /**
  * Enqueue Woo Commerce front-end styles and scripts.
  */
+add_action( 'wp_enqueue_scripts', 'flatblocks_pro_woocommerce_styles' );
+//add_action( 'enqueue_block_assets', 'flatblocks_pro_woocommerce_styles' );
+
 if ( ! function_exists( 'flatblocks_pro_woocommerce_styles' ) ) :
 
 	function flatblocks_pro_woocommerce_styles() {
@@ -34,13 +37,13 @@ if ( ! function_exists( 'flatblocks_pro_woocommerce_styles' ) ) :
 		
 	} //end function
 endif;
-add_action( 'wp_enqueue_scripts', 'flatblocks_pro_woocommerce_styles' );
-//add_action( 'enqueue_block_assets', 'flatblocks_pro_woocommerce_styles' );
 
 /**
  * Enqueue Woo Commerce editor styles and scripts.
  * 
  */
+add_action( 'admin_init', 'flatblocks_pro_woocommerce_editor_styles' );
+
 if ( ! function_exists( 'flatblocks_pro_woocommerce_editor_styles' ) ) :
 
 	function flatblocks_pro_woocommerce_editor_styles() {
@@ -54,4 +57,3 @@ if ( ! function_exists( 'flatblocks_pro_woocommerce_editor_styles' ) ) :
 
 	} //end function
 endif;
-add_action( 'admin_init', 'flatblocks_pro_woocommerce_editor_styles' );

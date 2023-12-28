@@ -15,6 +15,13 @@
  * @since	1.0
  */
 
+// Load Admin Edit Link
+if ( apply_filters( 'flatblocks_pro_load_admin_edit', $default = true ) ) {
+	if ( file_exists( get_template_directory() . '/pro/inc/pro-admin-edit.php' ) ) {
+		require_once get_template_directory() . '/pro/inc/pro-admin-edit.php';
+	}
+}
+
 // Load custom block styles
 if ( apply_filters( 'flatblocks_pro_load_custom_styles', $default = true ) ) {
 	if ( file_exists( get_template_directory() . '/pro/inc/pro-custom-styles.php' ) ) {
@@ -56,7 +63,7 @@ if ( apply_filters( 'flatblocks_pro_load_woocommerce', $default = true ) ) {
  * Adds an edit post/page link only for site admins
  * 
 */
-if ( ! function_exists( 'flatblocks_pro_add_edit_link' ) ) :
+/*if ( ! function_exists( 'flatblocks_pro_add_edit_link' ) ) :
 	function flatblocks_pro_add_edit_link ( $content ) {
 		$post_id = get_the_ID();
 		if( is_singular() and current_user_can( 'edit_post', $post_id ) ) {
@@ -70,4 +77,4 @@ if ( ! function_exists( 'flatblocks_pro_add_edit_link' ) ) :
 endif;
 if ( apply_filters( 'flatblocks_pro_add_edit_link', $default = true ) ) {
 	add_filter('the_content', 'flatblocks_pro_add_edit_link');
-}
+}*/

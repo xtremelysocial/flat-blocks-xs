@@ -61,7 +61,7 @@ add_action( 'admin_init', 'flatblocks_pro_jetpack_editor_styles' );
  */
 if ( ! function_exists( 'flatblocks_pro_register_jetpack_block_styles' ) ) :
 
-	function flatblocks_pro_register_jetpack_block_styles( array $theme_styles ) {
+	function flatblocks_pro_register_jetpack_block_styles( $theme_styles ) {
 
 		/* 
 		 * Define custom styles and what blocks they apply to. Note that the prefix 

@@ -54,7 +54,7 @@ add_action( 'admin_init', 'flatblocks_pro_editor_styles' );
  */
 if ( ! function_exists( 'flatblocks_pro_register_block_styles' ) ) :
 
-	function flatblocks_pro_register_block_styles( array $theme_styles ) {
+	function flatblocks_pro_register_block_styles( $theme_styles ) {
 
 		/* 
 		 * Define custom styles and what blocks they apply to. Note that the prefix 
@@ -103,51 +103,43 @@ if ( ! function_exists( 'flatblocks_pro_register_block_styles' ) ) :
 				array( 'group' ),
 				'style_handle' 	=> 'flatblocks-pro-custom-styles'
 			),*/
-			'angled-top-up' 	=> array( esc_html__('Angled Top Up', 'flat-blocks'), 
+			'angled-top-up' 	=> array( esc_html__('Angled Top Up', 'flat-blocks'),
 				array( 'group', 'cover', 'image' ),
-				'style_handle' 	=> 'flatblocks-pro-custom-styles'
 			),
-			/*'angled-top-down' 	=> array( esc_html__('Angled Top Down', 'flat-blocks'), 
+			'angled-top-down' 	=> array( esc_html__('Angled Top Down', 'flat-blocks'),
 				array( 'group', 'cover', 'image' ),
-				'style_handle' 	=> 'flatblocks-pro-custom-styles'
+			),
+			'angled-bottom-up' 	=> array( esc_html__('Angled Bottom Up', 'flat-blocks'),
+				array( 'group', 'cover', 'image' ),
+			),
+			'angled-bottom-down' 	=> array( esc_html__('Angled Botto Down', 'flat-blocks'),
+				array( 'group', 'cover', 'image' ),
+			),
+			'angled-top-up-bottom-up' 	=> array( esc_html__('Angled Top Up Bottom Up', 'flat-blocks'),
+				array( 'group', 'cover', 'image' ),
+			),
+			'angled-top-up-bottom-down' 	=> array( esc_html__('Angled Top Up Bottom Down', 'flat-blocks'),
+				array( 'group', 'cover', 'image' ),
+			),
+			'angled-top-down-bottom-up' 	=> array( esc_html__('Angled Top Down Bottom Up', 'flat-blocks'),
+				array( 'group', 'cover', 'image' ),
+			),
+			'angled-top-down-bottom-down' 	=> array( esc_html__('Angled Top Down Bottom Down', 'flat-blocks'),
+				array( 'group', 'cover', 'image' ),
+			),
+			/*'curved-top-up' 	=> array( esc_html__('Curved Top Up', 'flat-blocks'),
+				array( 'group', 'cover', 'image' ),
 			),*/
-			'angled-bottom-up' 	=> array( esc_html__('Angled Bottom Up', 'flat-blocks'), 
+			'curved-top-down' 	=> array( esc_html__('Curved Top Down', 'flat-blocks'),
 				array( 'group', 'cover', 'image' ),
-				'style_handle' 	=> 'flatblocks-pro-custom-styles'
 			),
-			/*'angled-bottom-down' 	=> array( esc_html__('Angled Botto Down', 'flat-blocks'), 
+			'curved-bottom-up' 	=> array( esc_html__('Curved Bottom Up', 'flat-blocks'),
 				array( 'group', 'cover', 'image' ),
-				'style_handle' 	=> 'flatblocks-pro-custom-styles'
+			),
+			/*'scroll-header' 		=> array( esc_html__('Scroll Header', 'flat-blocks'),
+				array( 'group' ),
 			),*/
-			'angled-top-up-bottom-up' 	=> array( esc_html__('Angled Top Up Bottom Up', 'flat-blocks'), 
-				array( 'group', 'cover', 'image' ),
-				'style_handle' 	=> 'flatblocks-pro-custom-styles'
-			),
-			/*'angled-top-up-bottom-down' 	=> array( esc_html__('Angled Top Up Bottom Down', 'flat-blocks'), 
-				array( 'group', 'cover', 'image' ),
-				'style_handle' 	=> 'flatblocks-pro-custom-styles'
-			),
-			'angled-top-down-bottom-up' 	=> array( esc_html__('Angled Top Down Bottom Up', 'flat-blocks'), 
-				array( 'group', 'cover', 'image' ),
-				'style_handle' 	=> 'flatblocks-pro-custom-styles'
-			),*/
-			'angled-top-down-bottom-down' 	=> array( esc_html__('Angled Top Down Bottom Down', 'flat-blocks'), 
-				array( 'group', 'cover', 'image' ),
-				'style_handle' 	=> 'flatblocks-pro-custom-styles'
-			),
-			/*'curved-top-up' 	=> array( esc_html__('Curved Top Down', 'flat-blocks'), 
-				array( 'group', 'cover', 'image' ),
-				'style_handle' 	=> 'flatblocks-pro-custom-styles'
-			),*/			
-			'curved-top-down' 	=> array( esc_html__('Curved Top Down', 'flat-blocks'), 
-				array( 'group', 'cover', 'image' ),
-				'style_handle' 	=> 'flatblocks-pro-custom-styles'
-			),			
-			'curved-bottom-up' 	=> array( esc_html__('Curved Bottom Up', 'flat-blocks'), 
-				array( 'group', 'cover', 'image' ),
-				'style_handle' 	=> 'flatblocks-pro-custom-styles'
-			),
-			'show-on-mobile'	=> array( esc_html__('Show on Mobile', 'flat-blocks'), 
+			/*'show-on-mobile'	=> array( esc_html__('Show on Mobile', 'flat-blocks'), 
 				array( 'group', 'image', 'navigation-item', 'navigation-link' ),
 				'style_handle' 	=> 'flatblocks-pro-custom-styles'
 			),
@@ -166,7 +158,7 @@ if ( ! function_exists( 'flatblocks_pro_register_block_styles' ) ) :
 			'show-on-desktop'	=> array( esc_html__('Show on Desktop', 'flat-blocks'), 
 				array( 'group', 'image', 'navigation-item', 'navigation-link' ),
 				'style_handle' 	=> 'flatblocks-pro-custom-styles'
-			)
+			)*/
 		);
 
 		//return array_merge( $theme_styles, $pro_styles );
