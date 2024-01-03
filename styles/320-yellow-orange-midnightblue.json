@@ -3,7 +3,7 @@
 	"version": 2,
 	"title": "Yellow, Orange, Midnight Blue",
 	"styles": {
-		"css": ".has-background.has-primary-background-color { color: var(--wp--preset--color--very-dark-gray) }",
+		"css": ".has-background.has-primary-background-color { color: var(--wp--preset--color--very-dark-gray) } input[type=button], input[type=submit][class*=\"button\"], input[type=reset][class*=\"button\"], input[type=file]::file-selector-button { color: var(--wp--preset--color--very-dark-gray) !important; }",
 		"blocks": {
 			"core/site-title": {
 				"elements": {
