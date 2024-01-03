@@ -156,15 +156,20 @@ You can check out our other themes here: https://xtremelysocial.com/wordpress/
 = 1.4.3 = 
 Jan 3, 2024
 
-* Font and link colors now defaults to light color on dark colored backgrounds.
+* Font and link colors now default to light color on dark colored backgrounds.
 	* For Cover image block, black or white is used like core WordPress does, but base it on the percent opacity of the cover image overlay. 40% or greater will use white, otherwise black is used. For other blocks, such as Groups and Columns, foreground-alt is used on the dark-colored backgrounds. 
 	* For groups, columns, buttons, and paragraphs, foreground-alt is used (off-white by default).
 	* Removed foreground-alt, off-white, and white font colors from all Block Patterns and Template Parts since they now default based on the background color.
-* Added Custom Block Styles:
+	* Updated all the necessary Global Theme Styles to have them default link colors the same as the new CSS does.
+
+* Added Custom Block Styles for Links:
 	* Link Underline on Hover for Paragraph, List Item, Latest Posts, Latest Comments, Page List, and Post Title
 	* Link Underline and Link No Underline for Post Title and Post Terms. Set Post Terms (category and tag lists) to not underline links by default. 
+
 * Adjusted top and bottom spacing on comment section.
+
 * Fixed typo on the word "Query" in various Block Patterns and the corresponding language translation file (.pot).
+
 * Enhanced smooth scroll javascript for potential future additional header type. 
 
 = 1.4.2 = 

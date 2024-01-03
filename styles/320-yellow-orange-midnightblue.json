@@ -3,6 +3,7 @@
 	"version": 2,
 	"title": "Yellow, Orange, Midnight Blue",
 	"styles": {
+		"css": ".has-background.has-primary-background-color { color: var(--wp--preset--color--very-dark-gray) }",
 		"blocks": {
 			"core/site-title": {
 				"elements": {
