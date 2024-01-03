@@ -2,6 +2,36 @@
 	"$schema": "https://schemas.wp.org/trunk/theme.json",
 	"version": 2,
 	"title": "Yellow, Orange, Midnight Blue",
+	"styles": {
+		"blocks": {
+			"core/site-title": {
+				"elements": {
+					"link": {
+						"color": {
+							"text": "var(--wp--preset--color--yellow)"
+						}
+					}
+				}
+			}
+		},
+		"elements": {
+			"link": {
+				"color": {
+					"text": "var(--wp--preset--color--orange)"
+				},
+				":hover": {
+					"color": {
+						"text": "var(--wp--preset--color--dark-orange)"
+					}
+				},
+				":focus": {
+					"color": {
+						"text": "var(--wp--preset--color--dark-orange)"
+					}
+				}
+			}
+		}
+	},
 	"settings": {
 		"color": {
 			"palette": [
@@ -324,8 +354,5 @@
 				}
 			]			
 		}
-	},
-	"styles": {
-		"css": ".wp-block-post-content a:where(:not(.wp-element-button)) { font-weight: 400; }"
-	}	
+	}
 }
