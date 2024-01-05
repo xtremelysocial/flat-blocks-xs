@@ -41,9 +41,9 @@
 		if ( topOffset) {
 			const comments = $('[id*=comment-]');
 			//if ( comments.length > 0 ) {
-				comments.each(function() {
-					$(this).css('scroll-margin-top', topOffset + 'px');
-				});
+			comments.each(function() {
+				$(this).css('scroll-margin-top', topOffset + 'px');
+			});
 			//}
 		}
 		

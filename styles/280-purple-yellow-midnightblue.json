@@ -9,16 +9,16 @@
 				"elements": {
 					"link": {
 						"color": {
-							"text": "var(--wp--preset--color--primary-alt)"
+							"text": "var(--wp--preset--color--primary)"
 						},
 						":hover": {
 							"color": {
-								"text": "var(--wp--preset--color--primary)"
+								"text": "var(--wp--preset--color--primary-alt)"
 							}
 						},
 						":focus": {
 							"color": {
-								"text": "var(--wp--preset--color--primary)"
+								"text": "var(--wp--preset--color--primary-alt)"
 							}
 						}
 					}
@@ -28,16 +28,16 @@
 		"elements": {
 			"link": {
 				"color": {
-					"text": "var(--wp--preset--color--primary-alt)"
+					"text": "var(--wp--preset--color--primary)"
 				},
 				":hover": {
 					"color": {
-						"text": "var(--wp--preset--color--primary)"
+						"text": "var(--wp--preset--color--primary-alt)"
 					}
 				},
 				":focus": {
 					"color": {
-						"text": "var(--wp--preset--color--primary)"
+						"text": "var(--wp--preset--color--primary-alt)"
 					}
 				}
 			}
