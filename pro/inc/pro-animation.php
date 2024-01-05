@@ -14,6 +14,9 @@
 /**
  * Enqueue animation front-end styles and scripts.
  */
+add_action( 'wp_enqueue_scripts', 'flatblocks_pro_animation_styles' );	
+//add_action( 'enqueue_block_assets', 'flatblocks_pro_animation_styles' );
+
 if ( ! function_exists( 'flatblocks_pro_animation_styles' ) ) :
 
 	function flatblocks_pro_animation_styles() {
@@ -43,12 +46,12 @@ if ( ! function_exists( 'flatblocks_pro_animation_styles' ) ) :
 				
 	} //end function
 endif;	
-add_action( 'wp_enqueue_scripts', 'flatblocks_pro_animation_styles' );	
-//add_action( 'enqueue_block_assets', 'flatblocks_pro_animation_styles' );
 
 /**
  * Enqueue animation editor styles and scripts.
  */
+add_action( 'admin_init', 'flatblocks_pro_animation_editor_styles' );
+
 if ( ! function_exists( 'flatblocks_pro_animation_editor_styles' ) ) :
 
 	function flatblocks_pro_animation_editor_styles() {
@@ -69,11 +72,12 @@ if ( ! function_exists( 'flatblocks_pro_animation_editor_styles' ) ) :
 
 	} //end function
 endif;
-add_action( 'admin_init', 'flatblocks_pro_animation_editor_styles' );
 
 /**
  * Register animation block styles.
  */
+add_filter( 'flatblocks_custom_block_styles', 'flatblocks_pro_register_animation_block_styles' );
+ 
 if ( ! function_exists( 'flatblocks_pro_register_animation_block_styles' ) ) :
 
 	function flatblocks_pro_register_animation_block_styles( $theme_styles = array() ) {
@@ -134,5 +138,4 @@ if ( ! function_exists( 'flatblocks_pro_register_animation_block_styles' ) ) :
 
 	} //end function
 endif;
-add_filter( 'flatblocks_custom_block_styles', 'flatblocks_pro_register_animation_block_styles' );
 

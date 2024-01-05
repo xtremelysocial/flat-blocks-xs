@@ -12,6 +12,9 @@
 /**
  * Enqueue custom block styles.
  */
+add_action( 'wp_enqueue_scripts', 'flatblocks_pro_styles' );
+//add_action( 'enqueue_block_assets', 'flatblocks_pro_styles' );
+
 if ( ! function_exists( 'flatblocks_pro_styles' ) ) :
 
 	function flatblocks_pro_styles() {
@@ -20,7 +23,7 @@ if ( ! function_exists( 'flatblocks_pro_styles' ) ) :
 		$theme_version = wp_get_theme()->get( 'Version' );
 		$version_string = is_string( $theme_version ) ? $theme_version : false;
 		
-		// Load Flat Blocks PRO CSS styles
+		// Load custom block styles
 		wp_enqueue_style( 
 			'flatblocks-pro-custom-styles', 
 			get_template_directory_uri() . '/pro/css/pro-custom-styles.css', 
@@ -28,14 +31,25 @@ if ( ! function_exists( 'flatblocks_pro_styles' ) ) :
 			$version_string
 		);
 		
+		// Load scroll-header javascript, but only on front-end
+		//if ( !is_admin() ) {
+			wp_enqueue_script( 
+				'flatblocks-pro-custom-styles', 
+				get_template_directory_uri() . '/pro/js/pro-custom-styles.js', 
+				array('jquery'), 
+				$version_string, 
+				true 
+			);
+		//}
+		
 	} //end function
 endif;		
-add_action( 'wp_enqueue_scripts', 'flatblocks_pro_styles' );
-//add_action( 'enqueue_block_assets', 'flatblocks_pro_styles' );
 
 /**
  * Enqueue additional editor scripts.
  */
+add_action( 'admin_init', 'flatblocks_pro_editor_styles' );
+
 if ( ! function_exists( 'flatblocks_pro_editor_styles' ) ) :
 
 	function flatblocks_pro_editor_styles() {
@@ -47,11 +61,12 @@ if ( ! function_exists( 'flatblocks_pro_editor_styles' ) ) :
 
 	} //end function
 endif;
-add_action( 'admin_init', 'flatblocks_pro_editor_styles' );
 
 /**
  * Register custom block styles.
  */
+add_filter( 'flatblocks_custom_block_styles', 'flatblocks_pro_register_block_styles' );
+ 
 if ( ! function_exists( 'flatblocks_pro_register_block_styles' ) ) :
 
 	function flatblocks_pro_register_block_styles( $theme_styles ) {
@@ -136,29 +151,9 @@ if ( ! function_exists( 'flatblocks_pro_register_block_styles' ) ) :
 			'curved-bottom-up' 	=> array( esc_html__('Curved Bottom Up', 'flat-blocks'),
 				array( 'group', 'cover', 'image' ),
 			),
-			/*'scroll-header' 		=> array( esc_html__('Scroll Header', 'flat-blocks'),
+			'scroll-header' 		=> array( esc_html__('Scroll Header', 'flat-blocks'),
 				array( 'group' ),
-			),*/
-			/*'show-on-mobile'	=> array( esc_html__('Show on Mobile', 'flat-blocks'), 
-				array( 'group', 'image', 'navigation-item', 'navigation-link' ),
-				'style_handle' 	=> 'flatblocks-pro-custom-styles'
 			),
-			'hide-on-tablet' 	=> array( esc_html__('Hide on Tablet', 'flat-blocks'), 
-				array( 'group', 'image', 'navigation-item', 'navigation-link' ),
-				'style_handle' => 'flatblocks-pro-custom-styles'
-			),
-			'show-on-tablet'	=> array( esc_html__('Show on Tablet', 'flat-blocks'), 
-				array( 'group', 'image', 'navigation-item', 'navigation-link' ),
-				'style_handle' 	=> 'flatblocks-pro-custom-styles'
-			),
-			'hide-on-desktop' 	=> array( esc_html__('Hide on Desktop', 'flat-blocks'), 
-				array( 'group', 'image', 'navigation-item', 'navigation-link' ),
-				'style_handle' 	=> 'flatblocks-pro-custom-styles'
-			),
-			'show-on-desktop'	=> array( esc_html__('Show on Desktop', 'flat-blocks'), 
-				array( 'group', 'image', 'navigation-item', 'navigation-link' ),
-				'style_handle' 	=> 'flatblocks-pro-custom-styles'
-			)*/
 		);
 
 		//return array_merge( $theme_styles, $pro_styles );
@@ -168,5 +163,4 @@ if ( ! function_exists( 'flatblocks_pro_register_block_styles' ) ) :
 		
 	} //end function
 endif;
-add_filter( 'flatblocks_custom_block_styles', 'flatblocks_pro_register_block_styles' );
 

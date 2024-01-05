@@ -14,6 +14,9 @@
 /**
  * Enqueue jetpack front-end styles and scripts.
  */
+add_action( 'wp_enqueue_scripts', 'flatblocks_pro_jetpack_styles' );
+//add_action( 'enqueue_block_assets', 'flatblocks_pro_jetpack_styles' );
+
 if ( ! function_exists( 'flatblocks_pro_jetpack_styles' ) ) :
 
 	function flatblocks_pro_jetpack_styles() {
@@ -34,13 +37,13 @@ if ( ! function_exists( 'flatblocks_pro_jetpack_styles' ) ) :
 		
 	} //end function
 endif;		
-add_action( 'wp_enqueue_scripts', 'flatblocks_pro_jetpack_styles' );
-//add_action( 'enqueue_block_assets', 'flatblocks_pro_jetpack_styles' );
 
 /**
  * Enqueue Jetpack editor styles and scripts.
  * 
  */
+add_action( 'admin_init', 'flatblocks_pro_jetpack_editor_styles' );
+
 if ( ! function_exists( 'flatblocks_pro_jetpack_editor_styles' ) ) :
 
 	function flatblocks_pro_jetpack_editor_styles() {
@@ -54,11 +57,12 @@ if ( ! function_exists( 'flatblocks_pro_jetpack_editor_styles' ) ) :
 
 	} //end function
 endif;
-add_action( 'admin_init', 'flatblocks_pro_jetpack_editor_styles' );
 
 /**
  * Register custom block styles.
  */
+add_filter( 'flatblocks_custom_block_styles', 'flatblocks_pro_register_jetpack_block_styles' );
+
 if ( ! function_exists( 'flatblocks_pro_register_jetpack_block_styles' ) ) :
 
 	function flatblocks_pro_register_jetpack_block_styles( $theme_styles ) {
@@ -80,4 +84,3 @@ if ( ! function_exists( 'flatblocks_pro_register_jetpack_block_styles' ) ) :
 		
 	} //end function
 endif;
-add_filter( 'flatblocks_custom_block_styles', 'flatblocks_pro_register_jetpack_block_styles' );
