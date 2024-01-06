@@ -73,7 +73,6 @@ body {
 
 /* On light colored backgrounds, use dark font color */
 .has-background.has-background-background-color,
-.has-background.has-foreground-background-color,
 .has-background.has-foreground-alt-background-color,
 .has-background.has-neutral-background-color,
 .has-background.has-neutral-alt-background-color,
@@ -102,16 +101,11 @@ body {
  * }
  */
 .has-background:not(.site-header,
+.wp-block-navigation,
 .has-background-background-color,
-.has-foreground-background-color,
 .has-foreground-alt-background-color,
 .has-neutral-background-color,
 .has-neutral-alt-background-color,
-.wp-block-navigation,
-.has-dark-background-color,
-.has-dark-alt-background-color,
-.has-foreground-alt-background-color,
-.has-background-background-color,
 .has-white-background-color,
 .has-off-white-background-color,
 .has-very-light-gray-background-color,
@@ -119,7 +113,9 @@ body {
 .has-gray-background-color,
 .has-almost-black-background-color,
 .has-not-quite-black-background-color,
-.has-black-background-color) a:not(.wp-block-button__link,
+.has-black-background-color,
+.has-dark-background-color,
+.has-dark-alt-background-color) a:not(.wp-block-button__link,
 .wp-element-button,
 .wp-block-navigation-item__content) {
   color: var(--wp--preset--foreground-alt);
@@ -127,10 +123,11 @@ body {
 
 .has-background:not(.site-header,
 .wp-block-navigation,
-.has-dark-background-color,
-.has-dark-alt-background-color,
-.has-foreground-alt-background-color,
 .has-background-background-color,
+.has-foreground-background-color,
+.has-foreground-alt-background-color,
+.has-neutral-background-color,
+.has-neutral-alt-background-color,
 .has-white-background-color,
 .has-off-white-background-color,
 .has-very-light-gray-background-color,
@@ -138,7 +135,9 @@ body {
 .has-gray-background-color,
 .has-almost-black-background-color,
 .has-not-quite-black-background-color,
-.has-black-background-color) a:not(.wp-block-button__link,
+.has-black-background-color,
+.has-dark-background-color,
+.has-dark-alt-background-color) a:not(.wp-block-button__link,
 .wp-element-button,
 .wp-block-navigation-item__content):hover {
   opacity: 0.8;
