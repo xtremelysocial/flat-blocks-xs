@@ -191,21 +191,21 @@ h6 a:focus,
 --------------------------------------------------------------*/
 /* Group Scroll header */
 .wp-block-group.is-style-scroll-header {
-  border: 1px solid var(--xs--fbp--border--color);
+  border: 1px solid var(--wp--custom--border--color);
   border-width: 0 0 1px;
-  background-color: var(--xs--fbp--color--light);
-  color: var(--xs--fbp--color--dark);
+  background-color: var(--wp--preset--color--foreground-alt);
+  color: var(--wp--preset--color--very-dark-gray);
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 9999;
-  transition: all var(--xs--fbp--animation--duration--normal, 1s) ease;
+  transition: all var(--wp--custom--animation--duration--normal, 1s) ease;
 }
 
 .wp-block-group.is-style-scroll-header:not(.header-active) {
   background-color: transparent;
-  color: var(--xs--fbp--color--light);
+  color: var(--wp--preset--color--foreground-alt);
   border: none;
 }
 
@@ -216,34 +216,30 @@ h6 a:focus,
 
 /* Handle navigation link hover */
 .is-style-scroll-header:not(.header-active):not(.has-link-color) .wp-block-site-title > a {
-  color: var(--xs--fbp--color--light);
+  color: var(--wp--preset--color--foreground-alt);
 }
 
 /* Bold or highlight active top-level menu items, depending on whether text color or not */
-/*
 .is-style-scroll-header:not(.header-active) .wp-block-navigation:not(.has-background) .is-style-scroll-header:not(.header-active) .wp-block-navigation-item.current-menu-item:not(.has-child) > a,
 .is-style-scroll-header:not(.header-active) .wp-block-navigation:not(.has-background) .is-style-scroll-header:not(.header-active) .wp-block-navigation-item:has(.current-menu-ancestor),
 .is-style-scroll-header:not(.header-active) .wp-block-navigation:not(.has-background) .is-style-scroll-header:not(.header-active) .wp-block-navigation-item:has(.current-menu-ancestor) > a,
 .is-style-scroll-header:not(.header-active) .wp-block-navigation:not(.has-background) .wp-block-pages-list__item.current-menu-item > a,
-.is-style-scroll-header:not(.header-active) .wp-block-navigation:not(.has-background) .wp-block-navigation-item.wp-block-home-link > a[aria-current='page'] {
-	//color: var(--wp--preset--color--primary-alt);
-	//font-weight: var(--wp--custom--typography--font-weight--normal);
-	//color: inherit;
-	color: var(--xs--fbp--color--light);
-	font-weight: inherit;
+.is-style-scroll-header:not(.header-active) .wp-block-navigation:not(.has-background) .wp-block-navigation-item.wp-block-home-link > a[aria-current=page] {
+  color: var(--wp--preset--color--foreground-alt);
+  font-weight: inherit;
 }
- */
+
 /* Bold or highlight active sub-menu items, depending on whether text color or not */
 /* Navigation hover styles */
 .is-style-scroll-header:not(.header-active) .wp-block-navigation .wp-block-navigation-item:hover,
 .is-style-scroll-header:not(.header-active) .wp-block-navigation .wp-block-navigation-item:active {
-  color: var(--xs--fbp--color--light) !important;
+  color: var(--wp--preset--color--foreground-alt) !important;
   font-weight: inherit;
 }
 
 .is-style-scroll-header:not(.header-active) .wp-block-navigation .wp-block-navigation__container > .wp-block-navigation-item > a:hover,
 .is-style-scroll-header:not(.header-active) .wp-block-navigation .wp-block-navigation__container > .wp-block-navigation-item > a:active {
-  color: var(--xs--fbp--color--light) !important;
+  color: var(--wp--preset--color--foreground-alt) !important;
   opacity: 0.8;
 }
 

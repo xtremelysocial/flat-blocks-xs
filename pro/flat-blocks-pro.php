@@ -5,11 +5,10 @@
  * 
  * Adds the PRO version featurs to the Flat Blocks Theme
  *
- * Loads custom block styles and CSS 
- * Loads block patterns
- * Loads animation custom block styles, CSS, and JS
- * Loads CSS for Jetpack Plugin
- * Loads CSS for Woo Commerce Plugin
+ * Loads PRO custom block styles (CSS and JS)
+ * Loads PRO block patterns
+ * Loads CSS for Jetpack Plugin, if active
+ * Loads CSS for Woo Commerce Plugin, if active
  * 
  * @package flat-blocks-pro
  * @since	1.0
@@ -36,7 +35,7 @@ if ( apply_filters( 'flatblocks_pro_load_patterns', $default = true ) ) {
 	}
 }
 
-// Load animation styles and scripts
+// Load animation and visibility styles and scripts (this is for XtremelySocial.com ONLY)
 if ( apply_filters( 'flatblocks_pro_load_animation', $default = true ) ) {
 	if ( file_exists( get_template_directory() . '/pro/inc/pro-animation.php' ) ) {
 		require_once get_template_directory() . '/pro/inc/pro-animation.php';

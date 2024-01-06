@@ -2,7 +2,7 @@
  * File:	pro-animation.css
  * Theme:	Flat Blocks PRO
  * 
- * The stylesheet for the theme's animation css
+ * The stylesheet for the theme's animation and visibility css
  *
  * @package flat-blocks-pro
  * @since	1.0
@@ -14,16 +14,16 @@
 [class*=is-style-animated-] {
   -webkit-animation-duration: 1s;
   animation-duration: 1s;
-  -webkit-animation-duration: var(--wp--custom--animation--duration--normal, 1s);
-  animation-duration: var(--wp--custom--animation--duration--normal, 1s);
-  -webkit-animation-timing-function: var(--wp--custom--animation--timing--function, ease);
-  animation-timing-function: var(--wp--custom--animation--timing--function, ease);
+  -webkit-animation-duration: var(--wp--custom--amimation--duration--normal, 1s);
+  animation-duration: var(--wp--custom--amimation--duration--normal, 1s);
+  -webkit-animation-timing-function: var(--wp--custom--amimation--timing--function, ease);
+  animation-timing-function: var(--wp--custom--amimation--timing--function, ease);
   -webkit-animation-iteration-count: 1;
   animation-iteration-count: 1;
-  -webkit-animation-fill-mode: var(--wp--custom--animation--fill-mode, both);
-  animation-fill-mode: var(--wp--custom--animation--fill-mode, both);
-  -webkit-transition-duration: var(--wp--custom--animation--duration--normal, 1s);
-  transition-duration: var(--wp--custom--animation--duration--normal, 1s);
+  -webkit-animation-fill-mode: var(--wp--custom--amimation--fill-mode, both);
+  animation-fill-mode: var(--wp--custom--amimation--fill-mode, both);
+  -webkit-transition-duration: var(--wp--custom--amimation--duration--normal, 1s);
+  transition-duration: var(--wp--custom--amimation--duration--normal, 1s);
 }
 
 /*--------------------------------------------------------------
@@ -41,12 +41,39 @@
   }
 }
 /*--------------------------------------------------------------
+# Hide and Show on Mobile and Tablets
+--------------------------------------------------------------*/
+/* Mobile breakpoint: Hide on mobile and don't show on tablet or desktop */
+@media only screen and (max-width: 601px) {
+  .is-style-hide-on-mobile,
+  .is-style-show-on-tablet,
+  .is-style-show-on-desktop {
+    display: none !important;
+  }
+}
+/* Tablet breakpoint: Hide on tablet and don't show mobile or desktop */
+@media only screen and (min-width: 601px) and (max-width: 781px) {
+  .is-style-hide-on-tablet,
+  .is-style-show-on-mobile,
+  .is-style-show-on-desktop {
+    display: none !important;
+  }
+}
+/* Desktop breakpoint: Hide on desktop and don't show mobile or tablet */
+@media only screen and (min-width: 780px) {
+  .is-style-hide-on-desktop,
+  .is-style-show-on-mobile,
+  .is-style-show-on-tablet {
+    display: none !important;
+  }
+}
+/*--------------------------------------------------------------
 # Core WordPress Animations
 --------------------------------------------------------------*/
 /* Change the animation to simple fadeIn when opening the mobile nav menu */
 .wp-block-navigation__responsive-container.is-menu-open {
-  -webkit-animation: fadeIn var(--wp--custom--animation--duration--medium) ease-out;
-  animation: fadeIn var(--wp--custom--animation--duration--medium) ease-out;
+  -webkit-animation: fadeIn var(--wp--custom--amimation--duration--medium) ease-out;
+  animation: fadeIn var(--wp--custom--amimation--duration--medium) ease-out;
 }
 
 /* Change the animation direction on mobile nav menu depending on the menu's positioning */
@@ -119,21 +146,22 @@
 		opacity: 0;
 	}
 }*/
-.is-style-animated-scroll-auto-fade.wp-block-group > .animation-active:not([class*=is-style-animated-]), .is-style-animated-scroll-auto-fade.wp-block-columns > .wp-block-column.animation-active:not([class*=is-style-animated-]), .is-style-animated-scroll-auto-fade.wp-block-cover > .wp-block-cover__inner-container.animation-active, .is-style-animated-scroll-auto-fade.wp-block-buttons > .wp-block-button.animation-active:not([class*=is-style-animated-]), .is-style-animated-scroll-auto-fade.wp-block-latest-posts.is-grid > li.animation-active,
+.is-style-animated-scroll-auto-fade.wp-block-group > .animation-active:not([class*=is-style-animated-]), .is-style-animated-scroll-auto-fade.wp-block-columns > .wp-block-column.animation-active:not([class*=is-style-animated-]), .is-style-animated-scroll-auto-fade.wp-block-cover > .wp-block-cover__inner-container.animation-active, .is-style-animated-scroll-auto-fade.wp-block-buttons > .wp-block-button.animation-active:not([class*=is-style-animated-]), .is-style-animated-scroll-auto-fade.wp-block-button.animation-active, .is-style-animated-scroll-auto-fade.wp-block-latest-posts.is-grid > li.animation-active,
 .is-style-animated-scroll-auto-animate.wp-block-group > .animation-active:not([class*=is-style-animated-]),
 .is-style-animated-scroll-auto-animate.wp-block-columns > .wp-block-column.animation-active:not([class*=is-style-animated-]),
 .is-style-animated-scroll-auto-animate.wp-block-cover > .wp-block-cover__inner-container.animation-active,
 .is-style-animated-scroll-auto-animate.wp-block-buttons > .wp-block-button.animation-active:not([class*=is-style-animated-]),
+.is-style-animated-scroll-auto-animate.wp-block-button.animation-active,
 .is-style-animated-scroll-auto-animate.wp-block-latest-posts.is-grid > li.animation-active {
-  -webkit-animation: fadeInUp var(--wp--custom--animation--duration--normal) ease-in;
-  animation: fadeInUp var(--wp--custom--animation--duration--normal) ease-in;
+  -webkit-animation: fadeInUp var(--wp--custom--amimation--duration--normal) ease-in;
+  animation: fadeInUp var(--wp--custom--amimation--duration--normal) ease-in;
 }
 
 /* For parallax cover images, delay the inner content animation a bit */
 .wp-block-cover.has-parallax > .wp-block-cover__inner-container.animation-active,
 .wp-block-cover.has-parallax > .wp-block-cover__inner-container > .animation-active {
-  -webkit-animation-delay: var(--wp--custom--animation--duration--short);
-  animation-delay: var(--wp--custom--animation--duration--short);
+  -webkit-animation-delay: var(--wp--custom--amimation--duration--short);
+  animation-delay: var(--wp--custom--amimation--duration--short);
 }
 
 /*--------------------------------------------------------------

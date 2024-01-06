@@ -3,9 +3,9 @@
  * File:	pro-animation.php
  * Theme:	Flat Blocks PRO
  * 
- * Handles the animation for the PRO version of Flat Blocks
+ * Handles the animation and visibility for the PRO version of Flat Blocks
  * 
- * Loads Animation CSS, JS, and custom block styles
+ * Loads animation and visibility CSS, JS, and custom block styles
  * 
  * @package flat-blocks-pro
  * @since	1.0
@@ -94,6 +94,26 @@ if ( ! function_exists( 'flatblocks_pro_register_animation_block_styles' ) ) :
 		 * 'is-style-' will be added to the names.
 		 */
 		$animation_styles = array(
+			'show-on-mobile'	=> array( esc_html__('Show on Mobile', 'flat-blocks'), 
+				array( 'group', 'image', 'navigation-item', 'navigation-link' ),
+				'style_handle' 	=> 'flatblocks-pro-custom-styles'
+			),
+			'hide-on-tablet' 	=> array( esc_html__('Hide on Tablet', 'flat-blocks'), 
+				array( 'group', 'image', 'navigation-item', 'navigation-link' ),
+				'style_handle' => 'flatblocks-pro-custom-styles'
+			),
+			'show-on-tablet'	=> array( esc_html__('Show on Tablet', 'flat-blocks'), 
+				array( 'group', 'image', 'navigation-item', 'navigation-link' ),
+				'style_handle' 	=> 'flatblocks-pro-custom-styles'
+			),
+			'hide-on-desktop' 	=> array( esc_html__('Hide on Desktop', 'flat-blocks'), 
+				array( 'group', 'image', 'navigation-item', 'navigation-link' ),
+				'style_handle' 	=> 'flatblocks-pro-custom-styles'
+			),
+			'show-on-desktop'	=> array( esc_html__('Show on Desktop', 'flat-blocks'), 
+				array( 'group', 'image', 'navigation-item', 'navigation-link' ),
+				'style_handle' 	=> 'flatblocks-pro-custom-styles'
+			),		
 			'animated-scroll-auto-animate' 	=> array( esc_html__('Auto Animate', 'flat-blocks'), 
 				array('group', 'columns', 'cover', 'buttons', 'latest-posts' ),
 				'style_handle' => 'flatblocks-pro-animation-styles'
