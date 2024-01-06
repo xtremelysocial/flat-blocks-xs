@@ -15,6 +15,7 @@
  * Sets up theme defaults and registers support for various WordPress features.
  */
 add_action( 'after_setup_theme', 'flatblocks_support' );
+
 if ( ! function_exists( 'flatblocks_support' ) ) :
 
 	function flatblocks_support() {
@@ -87,6 +88,7 @@ if ( apply_filters( 'flatblocks_should_load_separate_block_assets', $separate_th
 } else {
 	add_action( 'wp_enqueue_scripts', 'flatblocks_front_end_styles' );
 }
+
 if ( ! function_exists( 'flatblocks_front_end_styles' ) ) :
 
 	function flatblocks_front_end_styles() {
@@ -172,6 +174,7 @@ endif;
  * Dashicons.
  */
 add_action( 'enqueue_block_assets', 'flatblocks_block_assets' );	
+
 if ( ! function_exists( 'flatblocks_block_assets' ) ) :
 	function flatblocks_block_assets() {	
 		wp_enqueue_style( 'dashicons' );
@@ -185,6 +188,7 @@ endif;
 if (! apply_filters( 'flatblocks_should_load_separate_block_assets', $separate_theme_block_assets ?? false ) ) {
 	add_action( 'admin_init', 'flatblocks_back_end_styles' );
 }
+
 if ( ! function_exists( 'flatblocks_back_end_styles' ) ) :
 
 	function flatblocks_back_end_styles() {
@@ -223,6 +227,7 @@ if ( apply_filters( 'flatblocks_should_load_separate_block_assets', $separate_th
 	/////add_action( 'wp_enqueue_scripts', 'flatblocks_load_block_styles' );
 	add_action( 'init', 'flatblocks_load_block_styles' ); 
 }
+
 if ( ! function_exists( 'flatblocks_load_block_styles' ) ) :
 
 	function flatblocks_load_block_styles() {
@@ -290,11 +295,14 @@ if ( file_exists( get_template_directory() . '/pro/flat-blocks-pro.php' ) ) {
  */
 
 /**
+ * #page anchor for scroll-to-top
+ * 
  * Add an anchor of #page for our scroll-to-top navigation item. This is needed
  * because there is currently no way to add an id to the wp-site-blocks wrapper and 
  * we need this to be the very first thing on the page.
  */
 add_action( 'wp_body_open', 'flatblocks_body_open' );
+
 if ( ! function_exists( 'flatblocks_body_open' ) ) :
 	function flatblocks_body_open() { 
 		echo '<a id="page"></a><a id="wrapper"></a>'; 
@@ -305,6 +313,7 @@ endif;
  * Define our custom template part AREAS
  */
 add_filter( 'default_wp_template_part_areas', 'flatblocks_template_part_areas' );
+
 if ( ! function_exists( 'flatblocks_template_part_areas' ) ) :
 	function flatblocks_template_part_areas( array $areas ) {
 

@@ -154,16 +154,25 @@ You can check out our other themes here: https://xtremelysocial.com/wordpress/
 == Changelog ==
 
 = 1.4.3 = 
-December 27, 2023
+Jan 5, 2024
 
-* Font color now defaults on colored backgrounds.
-	* For Cover image block, we use black or white like core WordPress does, but base it on the percent opacity of the cover image overlay. 40% or greater will use white, otherwise black is used. For other blocks, such as Groups and Columns, foreground-alt is used on the dark-colored backgrounds. 
-	* Removed foreground-alt and white font colors from all Block Patterns since they now default.
-* Added Custom Block Styles:
+* Breaking change: Default Detail Block Header (summary line) to Primary color and set to primary-alt color when open. However, you can choose a font on an individual detail block to override it.
+
+* Font and link colors now default to light color on dark colored backgrounds.
+	* For groups, columns, buttons, and paragraphs, foreground-alt is used (off-white by default).
+	* For Cover image block, black or white is used like core WordPress does, but base it on the percent opacity of the cover image overlay. 40% or greater will use white, otherwise black is used. For other blocks, such as Groups and Columns, foreground-alt is used on the dark-colored backgrounds. 
+	* For Navigation Block, replaced some of the CSS by using theme.json. This did result in ANY navigation bar using the primary color on hover including the footer nav. 
+	* Removed foreground-alt, off-white, and white font colors from all Block Patterns and Template Parts since they now default based on the background color.
+	* Updated all the necessary Global Theme Styles to have them default link colors the same as the new CSS does. Note that the Purple style now has light purple as the primary (and link color) with purple as the link hover color. This looks better on colored backgrounds. 
+
+* Added Custom Block Styles for Links:
 	* Link Underline on Hover for Paragraph, List Item, Latest Posts, Latest Comments, Page List, and Post Title
 	* Link Underline and Link No Underline for Post Title and Post Terms. Set Post Terms (category and tag lists) to not underline links by default. 
+
 * Adjusted top and bottom spacing on comment section.
-* Fixed typo on the word Query in various Block Patterns and the corresponding language translation file (.pot).
+
+* Fixed typo on the word "Query" in various Block Patterns and the corresponding language translation file (.pot).
+
 * Enhanced smooth scroll javascript for potential future additional header type. 
 
 = 1.4.2 = 
