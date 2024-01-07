@@ -72,12 +72,19 @@ if ( ! function_exists( 'flatblocks_pro_register_block_styles' ) ) :
 	function flatblocks_pro_register_block_styles( $theme_styles ) {
 
 		/* 
-		 * Define custom styles and what blocks they apply to. Note that the prefix 
-		 * 'is-style-' will automatically be added to the names.
+		 * Define custom styles and what blocks they apply to. 
 		 * 
-		 * TO-DO: Decide on which equal flexbox style to go with and remove the others
+		 * Note that the prefix 'is-style-' will automatically be added to the names.
 		 */
 		$pro_styles = array(
+			'scroll-header' 		=> array( esc_html__('Scroll Header', 'flat-blocks'),
+				array( 'group' ),
+				'style_handle' 	=> 'flatblocks-pro-custom-styles'
+			),
+			'alternate-colors' 		=> array( esc_html__('Alternate Colors', 'flat-blocks'),
+				array( 'post-template' ),
+				'style_handle' 	=> 'flatblocks-pro-custom-styles'
+			),
 			'separator' 		=> array( esc_html__('Separator', 'flat-blocks'), 
 				array( 'heading' ),
 				'style_handle' 	=> 'flatblocks-pro-custom-styles'
@@ -120,40 +127,48 @@ if ( ! function_exists( 'flatblocks_pro_register_block_styles' ) ) :
 			),*/
 			'angled-top-up' 	=> array( esc_html__('Angled Top Up', 'flat-blocks'),
 				array( 'group', 'cover', 'image' ),
+				'style_handle' 	=> 'flatblocks-pro-custom-styles'
 			),
 			'angled-top-down' 	=> array( esc_html__('Angled Top Down', 'flat-blocks'),
 				array( 'group', 'cover', 'image' ),
+				'style_handle' 	=> 'flatblocks-pro-custom-styles'
 			),
 			'angled-bottom-up' 	=> array( esc_html__('Angled Bottom Up', 'flat-blocks'),
 				array( 'group', 'cover', 'image' ),
+				'style_handle' 	=> 'flatblocks-pro-custom-styles'
 			),
 			'angled-bottom-down' 	=> array( esc_html__('Angled Botto Down', 'flat-blocks'),
 				array( 'group', 'cover', 'image' ),
+				'style_handle' 	=> 'flatblocks-pro-custom-styles'
 			),
 			'angled-top-up-bottom-up' 	=> array( esc_html__('Angled Top Up Bottom Up', 'flat-blocks'),
 				array( 'group', 'cover', 'image' ),
+				'style_handle' 	=> 'flatblocks-pro-custom-styles'
 			),
 			'angled-top-up-bottom-down' 	=> array( esc_html__('Angled Top Up Bottom Down', 'flat-blocks'),
 				array( 'group', 'cover', 'image' ),
+				'style_handle' 	=> 'flatblocks-pro-custom-styles'
 			),
 			'angled-top-down-bottom-up' 	=> array( esc_html__('Angled Top Down Bottom Up', 'flat-blocks'),
 				array( 'group', 'cover', 'image' ),
+				'style_handle' 	=> 'flatblocks-pro-custom-styles'
 			),
 			'angled-top-down-bottom-down' 	=> array( esc_html__('Angled Top Down Bottom Down', 'flat-blocks'),
 				array( 'group', 'cover', 'image' ),
+				'style_handle' 	=> 'flatblocks-pro-custom-styles'
 			),
 			/*'curved-top-up' 	=> array( esc_html__('Curved Top Up', 'flat-blocks'),
 				array( 'group', 'cover', 'image' ),
+				'style_handle' 	=> 'flatblocks-pro-custom-styles'
 			),*/
 			'curved-top-down' 	=> array( esc_html__('Curved Top Down', 'flat-blocks'),
 				array( 'group', 'cover', 'image' ),
+				'style_handle' 	=> 'flatblocks-pro-custom-styles'
 			),
 			'curved-bottom-up' 	=> array( esc_html__('Curved Bottom Up', 'flat-blocks'),
 				array( 'group', 'cover', 'image' ),
-			),
-			'scroll-header' 		=> array( esc_html__('Scroll Header', 'flat-blocks'),
-				array( 'group' ),
-			),
+				'style_handle' 	=> 'flatblocks-pro-custom-styles'
+			)
 		);
 
 		//return array_merge( $theme_styles, $pro_styles );

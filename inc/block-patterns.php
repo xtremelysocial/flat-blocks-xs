@@ -17,6 +17,8 @@ if ( ! file_exists( get_template_directory() . '/inc/pattern-functions.php' ) ) 
 require_once get_template_directory() . '/inc/pattern-functions.php';
 
 // Register the block patterns
+add_action( 'init', 'flatblocks_register_block_patterns' );
+
 if ( ! function_exists( 'flatblocks_register_block_patterns' ) ) :
 
 	function flatblocks_register_block_patterns() {
@@ -216,11 +218,6 @@ if ( ! function_exists( 'flatblocks_register_block_patterns' ) ) :
 				'categories' => array ('flatblocks', 'query' ),
 				'blockTypes' => array ('core/query')
 			),
-			'pro-query-loop-3-columns' => array( 
-				'title' => __( 'Query Loop 3 Columns', 'flat-blocks' ),
-				'categories' => array ('flatblocks', 'query' ),
-				'blockTypes' => array ('core/query')
-			),
 			'query-loop-sidebar-left' => array( 
 				'title' => __( 'Query Loop with Left Sidebar', 'flat-blocks' ),
 				'categories' => array ('flatblocks', 'query' ),
@@ -300,4 +297,3 @@ if ( ! function_exists( 'flatblocks_register_block_patterns' ) ) :
 		
 	} 
 endif;
-add_action( 'init', 'flatblocks_register_block_patterns' );

@@ -28,7 +28,7 @@ if ( apply_filters( 'flatblocks_pro_load_custom_styles', $default = true ) ) {
 	}
 }
 
-// Load block patterns (note: not yet used)
+// Load block patterns
 if ( apply_filters( 'flatblocks_pro_load_patterns', $default = true ) ) {
 	if ( file_exists( get_template_directory() . '/pro/inc/pro-patterns.php' ) ) {
 		require_once get_template_directory() . '/pro/inc/pro-patterns.php';
