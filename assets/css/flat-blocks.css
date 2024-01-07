@@ -687,7 +687,7 @@ figure.wp-caption:not(.alignfull):not(.alignwide) img {
 .wp-block-navigation:not(.has-background) .wp-block-navigation-item:has(.current-menu-ancestor) > a,
 .wp-block-navigation:not(.has-background) .wp-block-pages-list__item.current-menu-item > a,
 .wp-block-navigation:not(.has-background) .wp-block-navigation-item.wp-block-home-link > a[aria-current=page] {
-  color: var(--wp--preset--color--primary-alt);
+  color: var(--wp--custom--link--color);
 }
 
 .wp-block-navigation.has-background .wp-block-navigation-item.current-menu-item:not(.has-child) > a,
@@ -699,18 +699,18 @@ figure.wp-caption:not(.alignfull):not(.alignwide) img {
 }
 
 /* Bold or highlight active sub-menu items, depending on whether text color or not */
-.wp-block-navigation__submenu-container.has-text-color .wp-block-navigation-item.current-menu-item .wp-block-navigation-item__content.wp-block-navigation-item__content {
-  font-weight: var(--wp--custom--typography--font-weight--medium);
+.wp-block-navigation__submenu-container:not(.has-text-color) .wp-block-navigation-item.current-menu-item .wp-block-navigation-item__content.wp-block-navigation-item__content {
+  color: var(--wp--custom--link--color);
 }
 
-.wp-block-navigation__submenu-container:not(.has-text-color) .wp-block-navigation-item.current-menu-item .wp-block-navigation-item__content.wp-block-navigation-item__content {
-  color: var(--wp--preset--color--primary-alt);
+.wp-block-navigation__submenu-container.has-text-color .wp-block-navigation-item.current-menu-item .wp-block-navigation-item__content.wp-block-navigation-item__content {
+  font-weight: var(--wp--custom--typography--font-weight--medium);
 }
 
 /* Navigation hover styles */
 /* Submenu link hover color. Note normal nav link hover set in theme.json */
 .wp-block-navigation-submenu.open-on-click:hover {
-  color: var(--wp--preset--color--primary-alt);
+  color: var(--wp--custom--link--color);
 }
 
 /* 
@@ -720,7 +720,7 @@ figure.wp-caption:not(.alignfull):not(.alignwide) img {
 .wp-block-navigation:not(.has-background) .wp-block-navigation-item:active, // top-level
 .wp-block-navigation:not(.has-background) .wp-block-navigation-item > a:hover, // drop-down
 .wp-block-navigation:not(.has-background) .wp-block-navigation-item > a:active { //drop-down
-    color: var(--wp--preset--color--primary-alt);
+    color: var(--wp--custom--link--hover);
 }
  */
 /* 
@@ -730,7 +730,7 @@ figure.wp-caption:not(.alignfull):not(.alignwide) img {
 .wp-block-navigation.has-background .wp-block-navigation-item:active, // top-level
 .wp-block-navigation.has-background .wp-block-navigation-item > a:hover, // drop-down
 .wp-block-navigation.has-background .wp-block-navigation-item > a:active { //drop-down
-    //color: var(--wp--preset--color--primary-alt);
+    //color: var(--wp--custom--link--hover);
     opacity: 0.8;
 }
  */

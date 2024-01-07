@@ -1098,7 +1098,7 @@
 					"link": {
 						":hover": {
 							"color": {
-								"text": "var(--wp--custom--link--color) !important"
+								"text": "var(--wp--custom--link--hover) !important"
 							}
 						},
 						":active": {
@@ -1281,7 +1281,7 @@
 				"elements": {
 					"link": {
 						"color": {
-							"text": "var(--wp--preset--color--primary)"
+							"text": "var(--wp--custom--link--color)"
 						},
 						"typography": {
 							"lineHeight": {"ref": "styles.elements.heading.typography.lineHeight"},
@@ -1289,12 +1289,12 @@
 						},
 						":hover": {
 							"color": {
-								"text": "var(--wp--preset--color--primary-alt)"
+								"text": "var(--wp--custom--link--hover)"
 							}
 						},
 						":active": {
 							"color": {
-								"text": "var(--wp--preset--color--primary-alt)"
+								"text": "var(--wp--custom--link--hover)"
 							}
 						}
 					}
