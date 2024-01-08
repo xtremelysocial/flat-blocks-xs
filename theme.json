@@ -1520,7 +1520,7 @@
 			},
 			"core/separator": {
 				"color": {
-					"background": "var(--wp--preset--color--primary)"
+					"text": "var(--wp--preset--color--primary)"
 				},
 				"spacing": {
 					"margin": {
