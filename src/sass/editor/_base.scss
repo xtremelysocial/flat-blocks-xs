@@ -34,21 +34,3 @@
 .is-root-container > *:first-child:not(.wp-block-template-part, .wp-block-cover, .wp-block-query) {
  	margin-block-start: var(--wp--style--block-gap);
 }
-
-/*--------------------------------------------------------------
-# Padding (Horizontal and vertical spacing)
---------------------------------------------------------------*/
-/* For convenience, remove padding from inner containers */
-/*main,
-.wp-block-template-part {
-	padding: 0 !important;
-}*/
-
-/* In the Editor, blocks don't get alignfull CSS class for some 
- * some reason, but so assume header and footer are full width
- */
-header.has-global-padding.wp-block-group.has-background,
-footer.has-global-padding.wp-block-group.has-background {
-    padding-left: var(--wp--style--root--padding-left); 
-    padding-right: var(--wp--style--root--padding-right);
-}
