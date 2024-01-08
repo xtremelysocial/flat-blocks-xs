@@ -13,7 +13,7 @@
  */
 ( function( $ ) {
 
-	//const headerSelector = '.is-style-fixed-header'; // The CSS selector for the header
+	/////const headerSelector = '.is-style-scroll-header'; // The CSS selector for the header
 	//const headerScrollSelector = '#content-start'; // The ID of the content start div
 	const headerClass = 'header-active'; // The CSS class to add
 	const headerScrollPos = 88; // How far to scroll before adding the class
@@ -23,15 +23,22 @@
 	//console.log('contentStart', contentStart); //TEST
 	//console.log('header.classList', header?.classList); //TEST
 
-	$(window).scroll(function() {
-		var scroll = $(window).scrollTop();
-		if (scroll >= headerScrollPos ) {
-			console.log('adding active header class'); //TEST
-			$('.is-style-scroll-header').addClass( headerClass );
-		} else {
-			$('.is-style-scroll-header').removeClass( headerClass );
-			console.log('remove active header class'); //TEST
-		}
-	});
+	const scrollHeader = $('.is-style-scroll-header');
+	//console.log('scrollHeader', scrollHeader.target.classList); //TEST
+
+	if ( scrollHeader.length > 0 ) {
+
+		$(window).scroll(function() {
+			var scroll = $(window).scrollTop();
+			if (scroll >= headerScrollPos ) {
+				console.log('adding active header class'); //TEST
+				scrollHeader.addClass( headerClass );
+			} else {
+				scrollHeader.removeClass( headerClass );
+				console.log('remove active header class'); //TEST
+			}
+		});
+
+	}
 
 } )( jQuery );
