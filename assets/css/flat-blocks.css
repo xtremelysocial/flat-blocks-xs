@@ -1043,6 +1043,7 @@ p.is-style-link-underline-hover a:hover {
   display: block;
   width: auto;
   height: auto;
+  font-family: inherit;
   font-size: 1em;
   font-weight: var(--wp--custom--typography--font-weight--normal);
 }
