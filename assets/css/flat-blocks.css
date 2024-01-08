@@ -1058,6 +1058,7 @@ p.is-style-link-underline-hover a:hover {
   vertical-align: top;
   width: auto;
   height: auto;
+  font-family: dashicons;
   font-size: 1em;
   font-weight: var(--wp--custom--typography--font-weight--normal);
 }
