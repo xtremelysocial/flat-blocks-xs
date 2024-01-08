@@ -9,31 +9,98 @@
 // }
 
 /* 
- * On dark colored backgrounds, default light colored font, but
- * then override doing that for certain conditions.
+ * On dark colored backgrounds, default light colored font.
+ * 
+ * On light colored backgrounds, inherit dark colored font.
  * 
  * Note: Don't use :not() with background colors or it will 
  * override the user's font selection. 
  * 
  * To override in a specific global theme style, use:
  * 
- * .has-background.has-XYZ-background-color {
- * 		color: var(--wp--preset--color--very-dark-gray);
+ * .has-background.has-ABC-background-color {
+ * 		color: var(--wp--preset--color--XYZ);
+ * }
+ *
+ * .has-background.has-ABC-background-color a:not(
+ *		.wp-block-button__link, 
+ * 		.wp-element-button
+ * 		.wp-block-navigation-item__content
+ * 	) { 
+ *		color: var(--wp--preset--color--XYZ);
+ * }
+ *
+ * .has-background.has-ABC-background-color a:hover:not(
+ *		.wp-block-button__link, 
+ * 		.wp-element-button
+ * 		.wp-block-navigation-item__content
+ * 	) { 
+ *		color: var(--wp--preset--color--XYZ);
  * }
  * 
  */
-.has-background {
-	color: var(--wp--preset--color--foreground-alt);
-}
-.has-background.wp-block-navigation,
-.has-background.wp-block-navigation a,
-.has-background.wp-block-navigation a:hover {
-	color: inherit; 
+ 
+/* Light colors to default light text and links */
+.has-background.has-primary-background-color,
+.has-background.has-primary-alt-background-color,
+.has-background.has-secondary-background-color,
+.has-background.has-secondary-alt-background-color,
+.has-background.has-tertiary-background-color,
+.has-background.has-tertiary-alt-background-color,
+.has-background.has-dark-gray-background-color,
+.has-background.has-very-dark-gray-background-color,
+.has-background.has-light-green-background-color,
+.has-background.has-green-background-color,
+.has-background.has-bright-green-background-color,
+.has-background.has-dark-bright-green-background-color,
+.has-background.has-light-orange-background-color,
+.has-background.has-orange-background-color,
+.has-background.has-dark-orange-background-color,
+.has-background.has-light-blue-background-color,
+.has-background.has-blue-background-color,
+.has-background.has-dark-blue-background-color,
+.has-background.has-midnight-blue-background-color,
+.has-background.has-dark-midnight-blue-background-color,
+.has-background.has-light-purple-background-color,
+.has-background.has-purple-background-color,
+.has-background.has-dark-purple-background-color,
+.has-background.has-light-red-background-color,
+.has-background.has-red-background-color,
+.has-background.has-dark-red-background-color,
+.has-background.has-very-dark-gray-background-color {
+ 	color: var(--wp--preset--color--foreground-alt);
+ 	
+ 	& a:not(
+		.wp-block-button__link, 
+		.wp-element-button,
+		.wp-block-navigation-item__content
+		) {
+			color: var(--wp--preset--color--foreground-alt);
+	}
+
+ 	& a:hover:not(
+		.wp-block-button__link, 
+		.wp-element-button,
+		.wp-block-navigation-item__content
+		) {
+			opacity: 0.8;
+	}	
 }
 
-/* On light colored backgrounds, use dark font color */
-.has-background.has-background-background-color,
-//.has-background.has-foreground-background-color,
+/* Light colors to default light text, but leave link color alone */ 
+.has-background.has-dark-background-color,
+.has-background.has-dark-alt-background-color,
+.has-background.has-almost-black-background-color,
+.has-background.has-not-quite-black-background-color,
+.has-background.has-black-background-color {
+	color: var(--wp--preset--color--foreground-alt);
+} 
+
+/* 
+ * Light colors, inherit the assumed dark font color. 
+ * 
+ * Note: For dark themes,these will be overridden.
+ */
 .has-background.has-foreground-alt-background-color,
 .has-background.has-neutral-background-color,
 .has-background.has-neutral-alt-background-color,
@@ -44,74 +111,24 @@
 .has-background.has-gray-background-color,
 .has-background.has-light-yellow-background-color,
 .has-background.has-yellow-background-color {
-	color: inherit; //var(--wp--preset--color--very-dark-gray);
-}
-
-/* 
- * On certain dark colored backgrounds, default link to light color.
- * 
- * Note: Using :not works here. To override in a specific global theme
- * style, use:
- *
- * .has-background.has-XYZ-background-color a:not(
- *		.wp-block-button__link, 
- * 		.wp-element-button
- * 	) { 
- *		color: var(--wp--preset--color--foreground-alt);
- *		text-decoration: underline;
- * }
- */
-.has-background:not(
- 	.site-header,
-	.wp-block-navigation,
-	.has-background-background-color,
-	.has-foreground-alt-background-color,
-	.has-neutral-background-color,
-	.has-neutral-alt-background-color,
-	.has-white-background-color,
-	.has-off-white-background-color,
-	.has-very-light-gray-background-color,
-	.has-light-gray-background-color,
-	.has-gray-background-color,
-	.has-almost-black-background-color,
-	.has-almostblack-background-color, // handle typo
-	.has-not-quite-black-background-color,
-	.has-black-background-color,
-	.has-dark-background-color,
-	.has-dark-alt-background-color
-	) a:not(
-		.wp-block-button__link, 
-		.wp-element-button,
-		.wp-block-navigation-item__content
-		) {
-		color: var(--wp--preset--foreground-alt);
-}
-
-.has-background:not(
- 	.site-header,
-	.wp-block-navigation,
-	.has-background-background-color,
-	.has-foreground-background-color,
-	.has-foreground-alt-background-color,
-	.has-neutral-background-color,
-	.has-neutral-alt-background-color,
-	.has-white-background-color,
-	.has-off-white-background-color,
-	.has-very-light-gray-background-color,
-	.has-light-gray-background-color,
-	.has-gray-background-color,
-	.has-almost-black-background-color,
-	.has-almostblack-background-color, // handle typo
-	.has-not-quite-black-background-color,
-	.has-black-background-color,
-	.has-dark-background-color,
-	.has-dark-alt-background-color
-	) a:not(
-		.wp-block-button__link, 
-		.wp-element-button,
-		.wp-block-navigation-item__content
-		):hover {
-		opacity: 0.8;
+ 	color: var(--wp--preset--color--foreground);
+//  	
+//  	& a:not(
+// 		.wp-block-button__link, 
+// 		.wp-element-button,
+// 		.wp-block-navigation-item__content
+// 		) {
+// 			color: var(--wp--preset--color--foreground);
+// 		}
+// 
+//  	& a:hover:not(
+// 		.wp-block-button__link, 
+// 		.wp-element-button,
+// 		.wp-block-navigation-item__content
+// 		) {
+// 			opacity: 0.8;
+// 		}
+// 		
 }
 
 /* 
