@@ -1,0 +1,136 @@
+/*--------------------------------------------------------------
+# Colors
+--------------------------------------------------------------*/
+
+//
+// Within post content, increase font-weight on links
+// .wp-block-post-content .has-background a:where(:not(.wp-element-button)) { 
+// 	font-weight: var(--wp--custom--typography--font-weight--medium); 
+// }
+
+/* 
+ * On dark colored backgrounds, default light colored font, but
+ * then override doing that for certain conditions.
+ * 
+ * Note: Don't use :not() with background colors or it will 
+ * override the user's font selection. 
+ * 
+ * To override in a specific global theme style, use:
+ * 
+ * .has-background.has-XYZ-background-color {
+ * 		color: var(--wp--preset--color--very-dark-gray);
+ * }
+ * 
+ */
+.has-background {
+	color: var(--wp--preset--color--foreground-alt);
+}
+.has-background.wp-block-navigation,
+.has-background.wp-block-navigation a,
+.has-background.wp-block-navigation a:hover {
+	color: inherit; 
+}
+
+/* On light colored backgrounds, use dark font color */
+.has-background.has-background-background-color,
+//.has-background.has-foreground-background-color,
+.has-background.has-foreground-alt-background-color,
+.has-background.has-neutral-background-color,
+.has-background.has-neutral-alt-background-color,
+.has-background.has-white-background-color,
+.has-background.has-off-white-background-color,
+.has-background.has-very-light-gray-background-color,
+.has-background.has-light-gray-background-color,
+.has-background.has-gray-background-color,
+.has-background.has-light-yellow-background-color,
+.has-background.has-yellow-background-color {
+	color: inherit; //var(--wp--preset--color--very-dark-gray);
+}
+
+/* 
+ * On certain dark colored backgrounds, default link to light color.
+ * 
+ * Note: Using :not works here. To override in a specific global theme
+ * style, use:
+ *
+ * .has-background.has-XYZ-background-color a:not(
+ *		.wp-block-button__link, 
+ * 		.wp-element-button
+ * 	) { 
+ *		color: var(--wp--preset--color--foreground-alt);
+ *		text-decoration: underline;
+ * }
+ */
+.has-background:not(
+ 	.site-header,
+	.wp-block-navigation,
+	.has-background-background-color,
+	//.has-foreground-background-color,
+	.has-foreground-alt-background-color,
+	.has-neutral-background-color,
+	.has-neutral-alt-background-color,
+	.has-white-background-color,
+	.has-off-white-background-color,
+	.has-very-light-gray-background-color,
+	.has-light-gray-background-color,
+	.has-gray-background-color,
+	.has-almost-black-background-color,
+	.has-not-quite-black-background-color,
+	.has-black-background-color,
+	.has-dark-background-color,
+	.has-dark-alt-background-color
+	) a:not(
+		.wp-block-button__link, 
+		.wp-element-button,
+		.wp-block-navigation-item__content
+		) {
+		color: var(--wp--preset--foreground-alt);
+}
+
+.has-background:not(
+ 	.site-header,
+	.wp-block-navigation,
+	.has-background-background-color,
+	.has-foreground-background-color,
+	.has-foreground-alt-background-color,
+	.has-neutral-background-color,
+	.has-neutral-alt-background-color,
+	.has-white-background-color,
+	.has-off-white-background-color,
+	.has-very-light-gray-background-color,
+	.has-light-gray-background-color,
+	.has-gray-background-color,
+	.has-almost-black-background-color,
+	.has-not-quite-black-background-color,
+	.has-black-background-color,
+	.has-dark-background-color,
+	.has-dark-alt-background-color
+	) a:not(
+		.wp-block-button__link, 
+		.wp-element-button,
+		.wp-block-navigation-item__content
+		):hover {
+		opacity: 0.8;
+}
+
+/* 
+ * On Cover blocks, we have to get more specific than core WordPress. 
+ * We want to override the black font on light-colored backgrounds (if 
+ * an overlay color is applied with at least 40% opacity).
+ */
+:where(.wp-block-cover-image:not(.has-text-color):has(.wp-block-cover__background.has-background-dim-40)),
+:where(.wp-block-cover:not(.has-text-color):has(.wp-block-cover__background.has-background-dim-40)),
+:where(.wp-block-cover-image:not(.has-text-color):has(.wp-block-cover__background.has-background-dim-50)),
+:where(.wp-block-cover:not(.has-text-color):has(.wp-block-cover__background.has-background-dim-50)), 
+:where(.wp-block-cover-image:not(.has-text-color):has(.wp-block-cover__background.has-background-dim-60)),
+:where(.wp-block-cover:not(.has-text-color):has(.wp-block-cover__background.has-background-dim-60)), 
+:where(.wp-block-cover-image:not(.has-text-color):has(.wp-block-cover__background.has-background-dim-70)),
+:where(.wp-block-cover:not(.has-text-color):has(.wp-block-cover__background.has-background-dim-70)),
+:where(.wp-block-cover-image:not(.has-text-color):has(.wp-block-cover__background.has-background-dim-80)),
+:where(.wp-block-cover:not(.has-text-color):has(.wp-block-cover__background.has-background-dim-80)), 
+:where(.wp-block-cover-image:not(.has-text-color):has(.wp-block-cover__background.has-background-dim-90)),
+:where(.wp-block-cover:not(.has-text-color):has(.wp-block-cover__background.has-background-dim-90)),
+:where(.wp-block-cover-image:not(.has-text-color):has(.wp-block-cover__background.has-background-dim-100)),
+:where(.wp-block-cover:not(.has-text-color):has(.wp-block-cover__background.has-background-dim-100)) { 
+  color: var(--wp--preset--color--white);
+}
