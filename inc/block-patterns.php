@@ -17,6 +17,8 @@ if ( ! file_exists( get_template_directory() . '/inc/pattern-functions.php' ) ) 
 require_once get_template_directory() . '/inc/pattern-functions.php';
 
 // Register the block patterns
+add_action( 'init', 'flatblocks_register_block_patterns' );
+
 if ( ! function_exists( 'flatblocks_register_block_patterns' ) ) :
 
 	function flatblocks_register_block_patterns() {
@@ -207,22 +209,22 @@ if ( ! function_exists( 'flatblocks_register_block_patterns' ) ) :
 				'categories' => array ('flatblocks', 'text', 'featured' )
 			),
 			'query-loop-1-column' => array( 
-				'title' => __( 'Querly Loop 1 Column', 'flat-blocks' ),
+				'title' => __( 'Query Loop 1 Column', 'flat-blocks' ),
 				'categories' => array ('flatblocks', 'query' ),
 				'blockTypes' => array ('core/query')
 			),
 			'query-loop-2-columns' => array( 
-				'title' => __( 'Querly Loop 2 Columns (Default)', 'flat-blocks' ),
+				'title' => __( 'Query Loop 2 Columns (Default)', 'flat-blocks' ),
 				'categories' => array ('flatblocks', 'query' ),
 				'blockTypes' => array ('core/query')
 			),
 			'query-loop-sidebar-left' => array( 
-				'title' => __( 'Querly Loop with Left Sidebar', 'flat-blocks' ),
+				'title' => __( 'Query Loop with Left Sidebar', 'flat-blocks' ),
 				'categories' => array ('flatblocks', 'query' ),
 				'blockTypes' => array ('core/query')
 			),
 			'query-loop-sidebar-right' => array( 
-				'title' => __( 'Querly Loop with Right Sidebar', 'flat-blocks' ),
+				'title' => __( 'Query Loop with Right Sidebar', 'flat-blocks' ),
 				'categories' => array ('flatblocks', 'query' ),
 				'blockTypes' => array ('core/query')
 			)
@@ -295,4 +297,3 @@ if ( ! function_exists( 'flatblocks_register_block_patterns' ) ) :
 		
 	} 
 endif;
-add_action( 'init', 'flatblocks_register_block_patterns' );

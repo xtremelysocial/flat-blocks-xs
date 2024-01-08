@@ -3,7 +3,7 @@ Contributors:  XtremelySocial
 Requires at least: 6.2
 Tested up to: 6.4
 Requires PHP: 7.4
-Stable tag: 1.4.2
+Stable tag: 1.4.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -153,16 +153,48 @@ You can check out our other themes here: https://xtremelysocial.com/wordpress/
 
 == Changelog ==
 
-= 1.4.2 = 
-December 8, 2023
+= 1.4.3 = 
+Jan 5, 2024
 
-* Breaking Change: Default links to have underlines to comply with WordPress.org theme guidelines where "underline is the only accepted method of indicating links within the content". Note that we had already turned off link underlines on numerous blocks (via Global Styles), such as lists, category and tag cloud, etc. so this should just properly underline links in your main content. 
-* Added Custom Block Style for List Items to specify link underline or not. 
-* In the Editor, fix left padding on Latest Posts list when styled with Bullets.
-* Changed all the Cover Image Block Patterns to have the subtitle as Heading Level 3 (H3) instead of H2. The Title is still H3. 
-* Renamed Global Theme Style "Dark - Almost Black" to "Dark - Very Dark Gray" to more accurately reflect the background color. 
-* Changed Global Theme Style "Default - Auto Dark Mode" to have the WordPress Admin Bar (if turned on by the logged in user) to Almost Black color to distinguish it from the dark background color. 
-* Reordered the global theme styles: Move Dark Midnight Blue, Dark Almost Black, and Auto Dark Mode earlier in the list. Move Default with Shadow and Default Blue Links towards the end of the list. This shows off more of the color options earlier in the list.
+* Breaking change: Default Detail Block Header (summary line) to Primary color and set to primary-alt color when open. However, you can choose a font on an individual detail block to override it.
+
+* Font and link colors now default to light color on dark colored backgrounds.
+	* For groups, columns, buttons, and paragraphs, foreground-alt is used (off-white by default).
+	* For Cover image block, black or white is used like core WordPress does, but base it on the percent opacity of the cover image overlay. 40% or greater will use white, otherwise black is used. For other blocks, such as Groups and Columns, foreground-alt is used on the dark-colored backgrounds. 
+	* For Navigation Block, replaced some of the CSS by using theme.json. This did result in ANY navigation bar using the primary color on hover including the footer nav. 
+	* Removed foreground-alt, off-white, and white font colors from all Block Patterns and Template Parts since they now default based on the background color.
+	* Updated all the necessary Global Theme Styles to have them default link colors the same as the new CSS does. Note that the Purple style now has light purple as the primary (and link color) with purple as the link hover color. This looks better on colored backgrounds. 
+
+* Added Custom Block Styles for Links:
+	* Link Underline on Hover for Paragraph, List Item, Latest Posts, Latest Comments, Page List, and Post Title
+	* Link Underline and Link No Underline for Post Title and Post Terms. Set Post Terms (category and tag lists) to not underline links by default. 
+
+* Adjusted top and bottom spacing on comment section.
+
+* Fixed typo on the word "Query" in various Block Patterns and the corresponding language translation file (.pot).
+
+* Enhanced smooth scroll javascript for potential future additional header type. 
+
+= 1.4.2 = 
+December 12, 2023
+
+* Breaking change to default link underlines
+	* Default links to have underlines to comply with WordPress.org theme guidelines where "underline is the only accepted method of indicating links within the content". Note that we had already turned off link underlines on numerous blocks (via Global Styles), such as lists, category and tag cloud, etc. so this should just properly underline links in your main content. 
+	* Due to above, updated various Template Parts and Patterns to not underline links. e.g. Page Home pattern, Page Portfolio pattern, Pricing Table patterns. 
+	* Added Custom Block Style for List Items to specify link underline or not. 
+
+* Adjustments to horizontal padding
+	* Adjusted spacing on post author avatar and bio on Author Page Template.
+	* Removed specific horizontal padding from the Compact Footer and Fixed Header Template Parts so that it defaults to the global style Layout -> Padding setting. Adjusted Editor CSS for this. 
+	* In the Editor, fix left padding on Latest Posts list when styled with Bullets.
+
+* Changes to global theme styles
+	* Renamed Global Theme Style "Dark - Almost Black" to "Dark - Very Dark Gray" to more accurately reflect the background color. 
+	* Changed Global Theme Style "Default - Auto Dark Mode" to have the WordPress Admin Bar (if turned on by the logged in user) to Almost Black color to distinguish it from the dark background color. 
+	* Reordered the global theme styles: Move Dark Midnight Blue, Dark Almost Black, and Auto Dark Mode earlier in the list. Move Default with Shadow and Default Blue Links towards the end of the list. This shows off more of the color options earlier in the list.
+
+* Changes to cover images block patterns
+	* Changed all the Cover Image Block Patterns to have the subtitle as Heading Level 3 (H3) instead of H2. The Title is still H3. 
 
 = 1.4.1 = 
 December 2, 2023

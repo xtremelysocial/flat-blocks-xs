@@ -2,8 +2,7 @@
 **/.DS_Store
 **/*-SAVE*
 styles/*TEST-ONLY*.json
-pro
-src
 *.css.map
 assets/css/blocks/
 zz_unused
+zz_unused.zip

@@ -18,6 +18,10 @@
 			"button": {
 				"shadow": "none"
 			},
+			"link": {
+				"color": "var(--wp--preset--color--primary)",
+				"hover": "var(--wp--preset--color--primary-alt)"
+			},
 			"outline": {
 				"color": "rgba(0, 0, 0, 0.25)"
 			},
@@ -955,19 +959,19 @@
 			},
 			"link": {
 				"color": {
-					"text": "var(--wp--preset--color--primary)"
+					"text": "var(--wp--custom--link--color)"
 				},
 				"typography": {
 					"textDecoration": "underline"
 				},
 				":hover": {
 					"color": {
-						"text": "var(--wp--preset--color--primary-alt)"
+						"text": "var(--wp--custom--link--hover)"
 					}
 				},
-				":focus": {
+				":active": {
 					"color": {
-						"text": "var(--wp--preset--color--primary-alt)"
+						"text": "var(--wp--custom--link--hover)"
 					}
 				}
 			}
@@ -1087,36 +1091,22 @@
 			"core/navigation": {
 				"typography": {
 					"fontSize": "var(--wp--preset--font-size--small)",
+					"lineHeight": {"ref": "styles.typography.lineHeight"},
 					"textDecoration": "none"
 				},
 				"elements": {
 					"link": {
-						"typography": {
-							"textDecoration": "none"
-						},
 						":hover": {
 							"color": {
-								"text": "var(--wp--preset--color--primary-alt)"
+								"text": "var(--wp--custom--link--hover) !important"
 							}
 						},
-						":focus": {
+						":active": {
 							"color": {
-								"text": "var(--wp--preset--color--primary-alt)"
+								"text": "var(--wp--custom--link--hover) !important"
 							}
 						}
-					},
-					"button": {
-						":hover": {
-							"color": {
-								"text": "var(--wp--preset--color--primary-alt)"
-							}
-						},
-						":focus": {
-							"color": {
-								"text": "var(--wp--preset--color--primary-alt)"
-							}
-						}
-					}					
+					}
 				}
 			},
 			"core/navigation-link": {
@@ -1291,21 +1281,21 @@
 				"elements": {
 					"link": {
 						"color": {
-							"text": "var(--wp--preset--color--primary)"
-						},
-						":hover": {
-							"color": {
-								"text": "var(--wp--preset--color--primary-alt)"
-							}
-						},
-						":focus": {
-							"color": {
-								"text": "var(--wp--preset--color--primary-alt)"
-							}
+							"text": "var(--wp--custom--link--color)"
 						},
 						"typography": {
 							"lineHeight": {"ref": "styles.elements.heading.typography.lineHeight"},
 							"textDecoration": "none"
+						},
+						":hover": {
+							"color": {
+								"text": "var(--wp--custom--link--hover)"
+							}
+						},
+						":active": {
+							"color": {
+								"text": "var(--wp--custom--link--hover)"
+							}
 						}
 					}
 				}
@@ -1510,6 +1500,15 @@
 					}
 				}
 			},
+			"core/post-terms": {
+				"elements": {
+					"link": {
+						"typography": {
+							"textDecoration": "none"
+						}
+					}
+				}
+			},
 			"core/page-list": {
 				"elements": {
 					"link": {
@@ -1530,7 +1529,7 @@
 			},
 			"core/separator": {
 				"color": {
-					"background": "var(--wp--preset--color--primary)"
+					"text": "var(--wp--preset--color--primary)"
 				},
 				"spacing": {
 					"margin": {
@@ -1729,6 +1728,12 @@
 			"area": "content"
 		},
 		{
+			"name": "pro-content-article-image",
+			"title": "Content Article w/Image",
+			"description": "Blog list article with featured image and title only",
+			"area": "content"
+		},
+		{
 			"name": "content-home-top",
 			"title": "Content Home Top (when blog is front page)",
 			"description": "Content for top of the home page (when blog is front page)",
@@ -1844,45 +1849,51 @@
 		},
 		{
 			"name": "footer-compact-nav-site-social",
-			"title": "Footer compact w/nav menu, site info, and social icons",
+			"title": "Footer compact w/Nav Menu, Site Info, and Social Icons",
 			"description": "Compact footer w/nav menu, site info, and social icons",
 			"area": "footer"
 		},
 		{
 			"name": "footer-compact-contact-info-social",
-			"title": "Footer compact w/contact info and social icons",
+			"title": "Footer Compact w/Contact Info and Social Icons",
 			"description": "Compact footer w/site info and social icons",
 			"area": "footer"
 		},
 		{
 			"name": "footer-map-static",
-			"title": "Footer w/static map (image) and contact info",
+			"title": "Footer w/Static Map (image) and Contact Info",
 			"description": "Footer w/static map (image) and contact info",
 			"area": "footer"
 		},
 		{
 			"name": "footer-map-jetpack",
-			"title": "Footer w/Jetpack map and contact info",
+			"title": "Footer w/Jetpack Map and Contact Info",
 			"description": "Footer w/Jetpack map and contact info",
 			"area": "footer"
 		},
 		{
 			"name": "footer-motto-social-site",
-			"title": "Footer w/motto, social icons, and site info",
+			"title": "Footer w/Motto, Social Icons, and Site Info",
 			"description": "Footer w/motto, social icons, and site info",
 			"area": "footer"
 		},
 		{
 			"name": "footer-social-map-static",
-			"title": "Footer w/colored social icons, static map, and contact info",
+			"title": "Footer w/Colored Social Icons, Static Map, and Contact Info",
 			"description": "Footer w/colored social icons, static map, and contact info",
 			"area": "footer"
 		},
 		{
 			"name": "footer-social-map-jetpack",
-			"title": "Footer w/colored social icons and Jetpack map and contact info",
+			"title": "Footer w/Colored Social Icons and Jetpack Map and Contact Info",
 			"description": "Footer w/colored social icons and Jetpack map and contact info",
 			"area": "footer"
+		},
+		{
+			"name": "pro-header-scroll-fixed",
+			"title": "Header with Scroll to Fixed Header",
+			"description": "Header that becomes fixed when user scrolls",
+			"area": "header"
 		}
 	],
 	"customTemplates": [

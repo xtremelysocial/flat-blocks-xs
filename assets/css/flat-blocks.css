@@ -45,6 +45,129 @@ body {
 }
 
 /*--------------------------------------------------------------
+# Colors
+--------------------------------------------------------------*/
+/* 
+ * On dark colored backgrounds, default light colored font, but
+ * then override doing that for certain conditions.
+ * 
+ * Note: Don't use :not() with background colors or it will 
+ * override the user's font selection. 
+ * 
+ * To override in a specific global theme style, use:
+ * 
+ * .has-background.has-XYZ-background-color {
+ * 		color: var(--wp--preset--color--very-dark-gray);
+ * }
+ * 
+ */
+.has-background {
+  color: var(--wp--preset--color--foreground-alt);
+}
+
+.has-background.wp-block-navigation,
+.has-background.wp-block-navigation a,
+.has-background.wp-block-navigation a:hover {
+  color: inherit;
+}
+
+/* On light colored backgrounds, use dark font color */
+.has-background.has-background-background-color,
+.has-background.has-foreground-alt-background-color,
+.has-background.has-neutral-background-color,
+.has-background.has-neutral-alt-background-color,
+.has-background.has-white-background-color,
+.has-background.has-off-white-background-color,
+.has-background.has-very-light-gray-background-color,
+.has-background.has-light-gray-background-color,
+.has-background.has-gray-background-color,
+.has-background.has-light-yellow-background-color,
+.has-background.has-yellow-background-color {
+  color: inherit;
+}
+
+/* 
+ * On certain dark colored backgrounds, default link to light color.
+ * 
+ * Note: Using :not works here. To override in a specific global theme
+ * style, use:
+ *
+ * .has-background.has-XYZ-background-color a:not(
+ *		.wp-block-button__link, 
+ * 		.wp-element-button
+ * 	) { 
+ *		color: var(--wp--preset--color--foreground-alt);
+ *		text-decoration: underline;
+ * }
+ */
+.has-background:not(.site-header,
+.wp-block-navigation,
+.has-background-background-color,
+.has-foreground-alt-background-color,
+.has-neutral-background-color,
+.has-neutral-alt-background-color,
+.has-white-background-color,
+.has-off-white-background-color,
+.has-very-light-gray-background-color,
+.has-light-gray-background-color,
+.has-gray-background-color,
+.has-almost-black-background-color,
+.has-almostblack-background-color,
+.has-not-quite-black-background-color,
+.has-black-background-color,
+.has-dark-background-color,
+.has-dark-alt-background-color) a:not(.wp-block-button__link,
+.wp-element-button,
+.wp-block-navigation-item__content) {
+  color: var(--wp--preset--foreground-alt);
+}
+
+.has-background:not(.site-header,
+.wp-block-navigation,
+.has-background-background-color,
+.has-foreground-background-color,
+.has-foreground-alt-background-color,
+.has-neutral-background-color,
+.has-neutral-alt-background-color,
+.has-white-background-color,
+.has-off-white-background-color,
+.has-very-light-gray-background-color,
+.has-light-gray-background-color,
+.has-gray-background-color,
+.has-almost-black-background-color,
+.has-almostblack-background-color,
+.has-not-quite-black-background-color,
+.has-black-background-color,
+.has-dark-background-color,
+.has-dark-alt-background-color) a:not(.wp-block-button__link,
+.wp-element-button,
+.wp-block-navigation-item__content):hover {
+  opacity: 0.8;
+}
+
+/* 
+ * On Cover blocks, we have to get more specific than core WordPress. 
+ * We want to override the black font on light-colored backgrounds (if 
+ * an overlay color is applied with at least 40% opacity).
+ */
+:where(.wp-block-cover-image:not(.has-text-color):has(.wp-block-cover__background.has-background-dim-40)),
+:where(.wp-block-cover:not(.has-text-color):has(.wp-block-cover__background.has-background-dim-40)),
+:where(.wp-block-cover-image:not(.has-text-color):has(.wp-block-cover__background.has-background-dim-50)),
+:where(.wp-block-cover:not(.has-text-color):has(.wp-block-cover__background.has-background-dim-50)),
+:where(.wp-block-cover-image:not(.has-text-color):has(.wp-block-cover__background.has-background-dim-60)),
+:where(.wp-block-cover:not(.has-text-color):has(.wp-block-cover__background.has-background-dim-60)),
+:where(.wp-block-cover-image:not(.has-text-color):has(.wp-block-cover__background.has-background-dim-70)),
+:where(.wp-block-cover:not(.has-text-color):has(.wp-block-cover__background.has-background-dim-70)),
+:where(.wp-block-cover-image:not(.has-text-color):has(.wp-block-cover__background.has-background-dim-80)),
+:where(.wp-block-cover:not(.has-text-color):has(.wp-block-cover__background.has-background-dim-80)),
+:where(.wp-block-cover-image:not(.has-text-color):has(.wp-block-cover__background.has-background-dim-90)),
+:where(.wp-block-cover:not(.has-text-color):has(.wp-block-cover__background.has-background-dim-90)),
+:where(.wp-block-cover-image:not(.has-text-color):has(.wp-block-cover__background.has-background-dim-100)),
+:where(.wp-block-cover:not(.has-text-color):has(.wp-block-cover__background.has-background-dim-100)) {
+  color: var(--wp--preset--color--white);
+}
+
+/*--------------------------------------------------------------
 # Elements
 --------------------------------------------------------------*/
 /* Use bold font-weight from theme.json */
@@ -178,12 +301,17 @@ input[type=file] {
   width: 100%;
 }
 
-/* But override buttons to look like outlines on primary-colored backgrounds */
+/* But override basic buttons to look like outlines on primary-colored backgrounds */
 .has-primary-background-color input[type=button],
 .has-primary-background-color input[type=submit][class*=button],
 .has-primary-background-color input[type=reset][class*=button],
 .has-primary-background-color input[type=file]::file-selector-button {
   border: 3px solid var(--wp--preset--color--foreground-alt);
+}
+
+/* For outline style buttons, inherit border color from the text color */
+.wp-block-button.is-style-outline.is-style-outline .wp-block-button__link {
+  color: inherit;
 }
 
 /*
@@ -198,9 +326,8 @@ input[type=file]::file-selector-button:hover,
 .wp-block-search__button:hover,
 .wp-block-file .wp-block-file__button:hover,
 .wp-block-button__link:hover {
-  opacity: 0.8;
-  /*background-image: linear-gradient(var(--wp--custom--outline--color) 0 0) !important;*/
   cursor: pointer;
+  opacity: 0.8;
 }
 
 /*--------------------------------------------------------------
@@ -361,6 +488,7 @@ body .is-layout-constrained > .alignright {
 /* Border */
 .wp-block-cover.is-style-cover-border {
   border: 3px solid var(--wp--custom--border--color);
+  border-radius: var(--wp--custom--border--radius);
   padding: var(--wp--preset--spacing--40);
 }
 
@@ -555,15 +683,59 @@ figure.wp-caption:not(.alignfull):not(.alignwide) img {
 /*--------------------------------------------------------------
 # Navigation
 --------------------------------------------------------------*/
-/* Navigation hover styles */
-.wp-block-group.site-header:not(.has-link-color) .wp-block-navigation__responsive-container:not(.has-text-color) .wp-block-navigation-item:hover,
-.wp-block-navigation__submenu-container:not(.has-text-color) .wp-block-navigation-item:hover,
-.wp-block-group.site-header:not(.has-link-color) .wp-block-navigation__responsive-container:not(.has-text-color) .wp-block-navigation-item__content:hover,
-.wp-block-navigation__submenu-container:not(.has-text-color) .wp-block-navigation-item__content:hover {
-  color: var(--wp--preset--color--primary-alt);
-  font-weight: inherit;
+/* Bold or highlight active top-level menu items, depending on whether text color or not */
+.wp-block-navigation:not(.has-background) .wp-block-navigation-item.current-menu-item:not(.has-child) > a,
+.wp-block-navigation:not(.has-background) .wp-block-navigation-item:has(.current-menu-ancestor),
+.wp-block-navigation:not(.has-background) .wp-block-navigation-item:has(.current-menu-ancestor) > a,
+.wp-block-navigation:not(.has-background) .wp-block-pages-list__item.current-menu-item > a,
+.wp-block-navigation:not(.has-background) .wp-block-navigation-item.wp-block-home-link > a[aria-current=page] {
+  color: var(--wp--custom--link--color);
 }
 
+.wp-block-navigation.has-background .wp-block-navigation-item.current-menu-item:not(.has-child) > a,
+.wp-block-navigation.has-background .wp-block-navigation-item:has(.current-menu-ancestor),
+.wp-block-navigation.has-background .wp-block-navigation-item:has(.current-menu-ancestor) > a,
+.wp-block-navigation.has-background .wp-block-pages-list__item.current-menu-item > a,
+.wp-block-navigation.has-background .wp-block-navigation-item.wp-block-home-link > a[aria-current=page] {
+  font-weight: var(--wp--custom--typography--font-weight--medium);
+}
+
+/* Bold or highlight active sub-menu items, depending on whether text color or not */
+.wp-block-navigation__submenu-container:not(.has-text-color) .wp-block-navigation-item.current-menu-item .wp-block-navigation-item__content.wp-block-navigation-item__content {
+  color: var(--wp--custom--link--color);
+}
+
+.wp-block-navigation__submenu-container.has-text-color .wp-block-navigation-item.current-menu-item .wp-block-navigation-item__content.wp-block-navigation-item__content {
+  font-weight: var(--wp--custom--typography--font-weight--medium);
+}
+
+/* Navigation hover styles */
+/* Submenu link hover color. Note normal nav link hover set in theme.json */
+.wp-block-navigation-submenu.open-on-click:hover {
+  color: var(--wp--custom--link--color);
+}
+
+/* 
+// .wp-block-navigation:not(.has-background) .wp-block-navigation-item__content:hover,
+// .wp-block-navigation:not(.has-background) .wp-block-navigation-item__content:active {
+.wp-block-navigation:not(.has-background) .wp-block-navigation-item:hover, // top-level
+.wp-block-navigation:not(.has-background) .wp-block-navigation-item:active, // top-level
+.wp-block-navigation:not(.has-background) .wp-block-navigation-item > a:hover, // drop-down
+.wp-block-navigation:not(.has-background) .wp-block-navigation-item > a:active { //drop-down
+    color: var(--wp--custom--link--hover);
+}
+ */
+/* 
+// .wp-block-navigation.has-background .wp-block-navigation-item__content:hover,
+// .wp-block-navigation.has-background .wp-block-navigation-item__content:active {
+.wp-block-navigation.has-background .wp-block-navigation-item:hover, // top-level
+.wp-block-navigation.has-background .wp-block-navigation-item:active, // top-level
+.wp-block-navigation.has-background .wp-block-navigation-item > a:hover, // drop-down
+.wp-block-navigation.has-background .wp-block-navigation-item > a:active { //drop-down
+    //color: var(--wp--custom--link--hover);
+    opacity: 0.8;
+}
+ */
 /* But on mobile nav, don't hover on non-clickable links */
 .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation-item.has-child.open-on-click > .wp-block-navigation-item:hover,
 .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation-item.has-child.open-on-click > .wp-block-navigation-item__content:hover {
@@ -573,34 +745,10 @@ figure.wp-caption:not(.alignfull):not(.alignwide) img {
   opacity: 1;
 }
 
+/* Navigation hover styles */
+/* But on mobile nav, don't hover on non-clickable links */
 /* Bold or highlight active top-level menu items, depending on whether text color or not */
-.wp-block-group.site-header .wp-block-navigation__responsive-container .wp-block-navigation__container > .wp-block-navigation-item.current-menu-item:not(.has-child) > a,
-.wp-block-group.site-header .wp-block-navigation__responsive-container .wp-block-navigation__container > .wp-block-navigation-item:has(.current-menu-ancestor),
-.wp-block-group.site-header .wp-block-navigation__responsive-container .wp-block-navigation__container > .wp-block-navigation-item:has(.current-menu-ancestor) > a,
-.wp-block-group.site-header .wp-block-navigation__responsive-container .wp-block-page-list > .wp-block-pages-list__item.current-menu-item > a,
-.wp-block-group.site-header .wp-block-navigation__responsive-container .wp-block-navigation__container > .wp-block-navigation-item.wp-block-home-link > a[aria-current=page] {
-  font-weight: var(--wp--custom--typography--font-weight--medium);
-}
-
-.wp-block-group.site-header:not(.has-link-color) .wp-block-navigation__responsive-container .wp-block-navigation__container > .wp-block-navigation-item.current-menu-item:not(.has-child) > a,
-.wp-block-group.site-header:not(.has-link-color) .wp-block-navigation__responsive-container .wp-block-navigation__container > .wp-block-navigation-item:has(.current-menu-ancestor),
-.wp-block-group.site-header:not(.has-link-color) .wp-block-navigation__responsive-container .wp-block-navigation__container > .wp-block-navigation-item:has(.current-menu-ancestor) > a,
-.wp-block-group.site-header:not(.has-link-color) .wp-block-navigation__responsive-container .wp-block-page-list > .wp-block-pages-list__item.current-menu-item > a,
-.wp-block-group.site-header:not(.has-link-color) .wp-block-navigation__responsive-container .wp-block-navigation__container > .wp-block-navigation-item.wp-block-home-link > a[aria-current=page] {
-  color: var(--wp--preset--color--primary-alt);
-  font-weight: var(--wp--custom--typography--font-weight--normal);
-}
-
 /* Bold or highlight active sub-menu items, depending on whether text color or not */
-.wp-block-navigation__submenu-container .wp-block-navigation-item.current-menu-item .wp-block-navigation-item__content.wp-block-navigation-item__content {
-  font-weight: var(--wp--custom--typography--font-weight--medium);
-}
-
-.wp-block-navigation__submenu-container:not(.has-text-color) .wp-block-navigation-item.current-menu-item .wp-block-navigation-item__content.wp-block-navigation-item__content {
-  color: var(--wp--preset--color--primary-alt);
-  font-weight: inherit; /*var(--wp--custom--typography--font-weight--normal);*/
-}
-
 /* Style the mobile nav menu open and close buttons */
 .wp-block-navigation .wp-block-navigation__responsive-container-open,
 .wp-block-navigation .wp-block-navigation__responsive-container-close {
@@ -803,6 +951,7 @@ p.is-style-arrow-icon-no-text {
 
 p.is-style-arrow-icon > a,
 p.is-style-arrow-icon-no-text > a {
+  color: inherit;
   display: block;
   text-decoration: none !important;
   outline: none !important;
@@ -850,6 +999,12 @@ p.is-style-link-no-underline a:hover {
   opacity: 0.8;
 }
 
+/* Underline links on hover */
+p.is-style-link-underline-hover a:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
 /*--------------------------------------------------------------
 # ADDITIONAL CRITICAL BASE STYLES
 --------------------------------------------------------------*/
@@ -857,17 +1012,28 @@ p.is-style-link-no-underline a:hover {
 # Utilities
 --------------------------------------------------------------*/
 /* 
+ * Note: These utility classes must be added manually in the 
+ * Advanced section of the block settings.
+ */
+/* 
  * Clearfix (Clear floats)
  * 
- * Note: For now, this must be added manually in the Advanced 
- * section of the block settings. Be carefull as this will mess 
- * up fixed headers, Row Groups (flex boxes), etc. We've tried to
- * style around those though.
+ * Note: Be carefull as this will mess up fixed headers, Row 
+ * Groups (flex boxes), etc. We've tried to style around those 
+ * though.
  */
 .is-style-clearfix:not(.is-layout-flex):not(.is-style-fixed-header):after {
   content: "";
   clear: both;
   display: table;
+}
+
+/* Flexbox No Shrink
+ * 
+ * Note: This only works on elements within a Flex Box (Group)
+ */
+.is-layout-flex .is-style-no-shrink {
+  flex-shrink: 0;
 }
 
 /*--------------------------------------------------------------
@@ -879,6 +1045,7 @@ p.is-style-link-no-underline a:hover {
   display: block;
   width: auto;
   height: auto;
+  font-family: inherit;
   font-size: 1em;
   font-weight: var(--wp--custom--typography--font-weight--normal);
 }
@@ -973,8 +1140,8 @@ footer.site-footer:not(.has-global-padding),
 header.entry-header:not(.has-global-padding),
 .wp-block-query:not(.has-global-padding),
 #post-comments:not(.has-global-padding) {
-  padding-left: var(--wp--style--root--padding-left) !important;
-  padding-right: var(--wp--style--root--padding-right) !important;
+  padding-left: var(--wp--style--root--padding-left, var(--wp--preset--spacing--50)) !important;
+  padding-right: var(--wp--style--root--padding-right, var(--wp--preset--spacing--50)) !important;
 }
 
 /* FIX to add back horizontal padding */
