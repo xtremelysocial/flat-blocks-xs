@@ -26,11 +26,48 @@
 /*--------------------------------------------------------------
 # Contact Info
 --------------------------------------------------------------*/
+
+/* Don't underline links on Jetpack Contact Info */
 .wp-block-jetpack-contact-info a,
 .wp-block-jetpack-email a,
 .wp-block-jetpack-phone a {
 	text-decoration: none;
 }
+
+/* Automatically add icons to Jetpack Email and Phone# links */
+/*[itemprop="address"] [itemprop="streetAddress"]:before,*/
+/*.wp-block-jetpack-address:before,*/
+.wp-block-jetpack-email:before,
+.wp-block-jetpack-phone:before {
+	display: inline-block;
+	font-family: dashicons;
+	/*color: currentcolor;*/
+	/*color: inherit;*/
+	font-weight: var(--wp--custom--typography--font-weight--normal);
+	margin-right: var(--wp--preset--spacing--20);
+	vertical-align: middle;
+}
+
+/*[itemprop="telephone"]:not(a[href^="tel:"]):before,
+:not([itemprop="telephone"]) > a[href^="tel:"]:before {*/
+.wp-block-jetpack-phone:before {
+	content: "\f525";
+}
+
+/*[itemprop="email"]:not(a[href^="mailto:"]):before,
+:not([itemprop="email"] > a[href^="mailto:"]:before {*/
+.wp-block-jetpack-email:before {
+	content: "\f466";
+}
+
+/*[itemprop="address"] [itemprop="streetAddress"]:before {*/
+/*.wp-block-jetpack-address:before {
+	content: "\f323";
+}*/
+
+/*[itemprop="address"] [itemprop-"addressLocality"] {
+	margin-left: var(--wp--preset--spacing--20);
+}*/
 
 /*--------------------------------------------------------------
 # Slideshow
