@@ -154,16 +154,15 @@ You can check out our other themes here: https://xtremelysocial.com/wordpress/
 == Changelog ==
 
 = 1.4.3 = 
-Jan 9, 2024
+Jan 5, 2024
 
-* Default Detail Block Header (summary line) to Primary color and set to primary-alt color when open. However, you can choose a font on an individual detail block to override it.
+* Breaking change: Default Detail Block Header (summary line) to Primary color and set to primary-alt color when open. However, you can choose a font on an individual detail block to override it.
 
 * Font and link colors now default to light color on dark colored backgrounds.
 	* For groups, columns, buttons, and paragraphs, foreground-alt is used (off-white by default).
 	* For Cover image block, black or white is used like core WordPress does, but base it on the percent opacity of the cover image overlay. 40% or greater will use white, otherwise black is used. For other blocks, such as Groups and Columns, foreground-alt is used on the dark-colored backgrounds. 
 	* For Navigation Block, replaced some of the CSS by using theme.json. This did result in ANY navigation bar using the primary color on hover including the footer nav. 
 	* Removed foreground-alt, off-white, and white font colors from all Block Patterns and Template Parts since they now default based on the background color.
-	* Updated Static Map & Address and Jetpack Map & Address Block Patterns (and the footers that use them) to use Dark background color instead Almost Black. This will leave the link color as Primary instead of changing it to Foreground Alt based on the new default link color rules.
 	* Updated all the necessary Global Theme Styles to have them default link colors the same as the new CSS does. Note that the Purple style now has light purple as the primary (and link color) with purple as the link hover color. This looks better on colored backgrounds. 
 
 * Added Custom Block Styles for Links:
