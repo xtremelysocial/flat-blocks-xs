@@ -24,7 +24,7 @@
 	//console.log('header.classList', header?.classList); //TEST
 
 	const scrollHeader = $('.is-style-scroll-header');
-	//console.log('scrollHeader', scrollHeader); //TEST
+	//console.log('scrollHeader', scrollHeader.target.classList); //TEST
 
 	if ( scrollHeader.length > 0 ) {
 
@@ -32,10 +32,8 @@
 			var scroll = $(window).scrollTop();
 			if (scroll >= headerScrollPos ) {
 				console.log('adding active header class'); //TEST
-				//$('.is-style-scroll-header').addClass( headerClass );
 				scrollHeader.addClass( headerClass );
 			} else {
-				//$('.is-style-scroll-header').removeClass( headerClass );
 				scrollHeader.removeClass( headerClass );
 				console.log('remove active header class'); //TEST
 			}

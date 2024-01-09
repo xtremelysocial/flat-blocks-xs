@@ -1,7 +1,7 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/theme.json",
 	"version": 2,
-	"title": "Flat Blocks",
+	"title": "XtremelySocial",
 	"settings": {
 		"custom": {
 			"typography": {
@@ -1518,6 +1518,15 @@
 					}
 				}
 			},
+			"core/tag-cloud": {
+				"elements": {
+					"link": {
+						"typography": {
+							"textDecoration": "none"
+						}
+					}
+				}
+			},
 			"core/separator": {
 				"color": {
 					"text": "var(--wp--preset--color--primary)"
@@ -2022,3 +2031,4 @@
 		}
 	]
 }
+
