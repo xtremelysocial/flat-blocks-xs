@@ -944,7 +944,7 @@
 			},
 			"button": {
 				"color": {
-					"background": "var(--wp--preset--color--primary)",
+					"background": "var(--wp--custom--link--color)",
 					"text": "var(--wp--preset--color--foreground-alt)"
 				},
 				"typography": {
