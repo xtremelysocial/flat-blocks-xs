@@ -17,11 +17,11 @@
 /* Apply the defaults to all animated classes (will override later when needed) */
 [class*="is-style-animated-"] {
 	@include mixins.vendor-prefix('animation-duration', 1s);
-	@include mixins.vendor-prefix('animation-duration', var(--wp--custom--animation--duration--normal, 1s));
-	@include mixins.vendor-prefix('animation-timing-function', var(--wp--custom--animation--timing--function, ease));
+	@include mixins.vendor-prefix('animation-duration', var(--wp--custom--amimation--duration--normal, 1s));
+	@include mixins.vendor-prefix('animation-timing-function', var(--wp--custom--amimation--timing--function, ease));
 	@include mixins.vendor-prefix('animation-iteration-count', 1);
-	@include mixins.vendor-prefix('animation-fill-mode', var(--wp--custom--animation--fill-mode, both));
-	@include mixins.vendor-prefix('transition-duration', var(--wp--custom--animation--duration--normal, 1s));
+	@include mixins.vendor-prefix('animation-fill-mode', var(--wp--custom--amimation--fill-mode, both));
+	@include mixins.vendor-prefix('transition-duration', var(--wp--custom--amimation--duration--normal, 1s));
 }
 
 /*--------------------------------------------------------------
@@ -72,7 +72,7 @@
 
 /* Change the animation to simple fadeIn when opening the mobile nav menu */
 .wp-block-navigation__responsive-container.is-menu-open {
-	@include mixins.vendor-prefix('animation', (fadeIn var(--wp--custom--animation--duration--medium) ease-out));
+	@include mixins.vendor-prefix('animation', (fadeIn var(--wp--custom--amimation--duration--medium) ease-out));
 }
 
 /* Change the animation direction on mobile nav menu depending on the menu's positioning */
@@ -154,14 +154,14 @@
 	&.wp-block-buttons > .wp-block-button.animation-active:not([class*=is-style-animated-]),
 	&.wp-block-button.animation-active,
 	&.wp-block-latest-posts.is-grid > li.animation-active {
-		@include mixins.vendor-prefix('animation', (fadeInUp var(--wp--custom--animation--duration--normal) ease-in));
+		@include mixins.vendor-prefix('animation', (fadeInUp var(--wp--custom--amimation--duration--normal) ease-in));
 	}
 }
 
 /* For parallax cover images, delay the inner content animation a bit */
 .wp-block-cover.has-parallax > .wp-block-cover__inner-container.animation-active,
 .wp-block-cover.has-parallax > .wp-block-cover__inner-container > .animation-active {
-	@include mixins.vendor-prefix('animation-delay', var(--wp--custom--animation--duration--short));
+	@include mixins.vendor-prefix('animation-delay', var(--wp--custom--amimation--duration--short));
 }
 
 /*--------------------------------------------------------------

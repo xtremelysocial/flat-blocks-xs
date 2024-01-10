@@ -14,16 +14,16 @@
 [class*=is-style-animated-] {
   -webkit-animation-duration: 1s;
   animation-duration: 1s;
-  -webkit-animation-duration: var(--wp--custom--animation--duration--normal, 1s);
-  animation-duration: var(--wp--custom--animation--duration--normal, 1s);
-  -webkit-animation-timing-function: var(--wp--custom--animation--timing--function, ease);
-  animation-timing-function: var(--wp--custom--animation--timing--function, ease);
+  -webkit-animation-duration: var(--wp--custom--amimation--duration--normal, 1s);
+  animation-duration: var(--wp--custom--amimation--duration--normal, 1s);
+  -webkit-animation-timing-function: var(--wp--custom--amimation--timing--function, ease);
+  animation-timing-function: var(--wp--custom--amimation--timing--function, ease);
   -webkit-animation-iteration-count: 1;
   animation-iteration-count: 1;
-  -webkit-animation-fill-mode: var(--wp--custom--animation--fill-mode, both);
-  animation-fill-mode: var(--wp--custom--animation--fill-mode, both);
-  -webkit-transition-duration: var(--wp--custom--animation--duration--normal, 1s);
-  transition-duration: var(--wp--custom--animation--duration--normal, 1s);
+  -webkit-animation-fill-mode: var(--wp--custom--amimation--fill-mode, both);
+  animation-fill-mode: var(--wp--custom--amimation--fill-mode, both);
+  -webkit-transition-duration: var(--wp--custom--amimation--duration--normal, 1s);
+  transition-duration: var(--wp--custom--amimation--duration--normal, 1s);
 }
 
 /*--------------------------------------------------------------
@@ -72,8 +72,8 @@
 --------------------------------------------------------------*/
 /* Change the animation to simple fadeIn when opening the mobile nav menu */
 .wp-block-navigation__responsive-container.is-menu-open {
-  -webkit-animation: fadeIn var(--wp--custom--animation--duration--medium) ease-out;
-  animation: fadeIn var(--wp--custom--animation--duration--medium) ease-out;
+  -webkit-animation: fadeIn var(--wp--custom--amimation--duration--medium) ease-out;
+  animation: fadeIn var(--wp--custom--amimation--duration--medium) ease-out;
 }
 
 /* Change the animation direction on mobile nav menu depending on the menu's positioning */
@@ -153,15 +153,15 @@
 .is-style-animated-scroll-auto-animate.wp-block-buttons > .wp-block-button.animation-active:not([class*=is-style-animated-]),
 .is-style-animated-scroll-auto-animate.wp-block-button.animation-active,
 .is-style-animated-scroll-auto-animate.wp-block-latest-posts.is-grid > li.animation-active {
-  -webkit-animation: fadeInUp var(--wp--custom--animation--duration--normal) ease-in;
-  animation: fadeInUp var(--wp--custom--animation--duration--normal) ease-in;
+  -webkit-animation: fadeInUp var(--wp--custom--amimation--duration--normal) ease-in;
+  animation: fadeInUp var(--wp--custom--amimation--duration--normal) ease-in;
 }
 
 /* For parallax cover images, delay the inner content animation a bit */
 .wp-block-cover.has-parallax > .wp-block-cover__inner-container.animation-active,
 .wp-block-cover.has-parallax > .wp-block-cover__inner-container > .animation-active {
-  -webkit-animation-delay: var(--wp--custom--animation--duration--short);
-  animation-delay: var(--wp--custom--animation--duration--short);
+  -webkit-animation-delay: var(--wp--custom--amimation--duration--short);
+  animation-delay: var(--wp--custom--amimation--duration--short);
 }
 
 /*--------------------------------------------------------------
