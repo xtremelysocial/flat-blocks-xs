@@ -3,6 +3,8 @@
 	"version": 2,
 	"title": "Dark - Very Dark Gray",
 	"styles": {
+		"css": ".has-background.has-tertiary-background-color { color: var(--wp--preset--color--very-dark-gray); }"
+	},
 	"settings": {
 		"custom": {
 			"border": {
