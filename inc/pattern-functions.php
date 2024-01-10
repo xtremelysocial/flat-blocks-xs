@@ -36,13 +36,14 @@ if ( ! function_exists( 'flatblocks_get_block_pattern' ) ) :
 			//Get the html from the contents of the file
 			$content = file_get_contents( $file );					
 			if ( $content ) {
-
+			
 				// Replace the partial URL's and image SRC's with full URL's
 				return flatblocks_parse_block_pattern( $content );
 				
-			}
-		}
-	}
+			} // content
+		} // file_exists	
+	} // function
+	
 endif; // end ! function_exists
 
 /**
@@ -67,5 +68,6 @@ if ( ! function_exists( 'flatblocks_parse_block_pattern' ) ) :
 				
 		return $content;				
 
-	}
+	} // function
+	
 endif; // end ! function_exists

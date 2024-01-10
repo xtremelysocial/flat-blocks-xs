@@ -13,22 +13,13 @@
 					}
 				}
 			}
-		},
-		"elements": {
+		}
+	},
+	"settings": {
+		"custom": {
 			"link": {
-				"color": {
-					"text": "var(--wp--preset--color--blue)"
-				},
-				":hover": {
-					"color": {
-						"text": "var(--wp--preset--color--primary-alt)"
-					}
-				},
-				":focus": {
-					"color": {
-						"text": "var(--wp--preset--color--primary-alt)"
-					}
-				}
+				"color": "var(--wp--preset--color--blue)",
+				"hover": "var(--wp--preset--color--light-blue)"
 			}
 		}
 	}

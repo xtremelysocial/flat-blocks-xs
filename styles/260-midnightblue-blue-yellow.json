@@ -3,6 +3,7 @@
 	"version": 2,
 	"title": "Midnight Blue, Blue, Yellow",
 	"styles": {
+		"css": ".has-background.has-tertiary-background-color { color: var(--wp--preset--color--foreground); }",
 		"blocks": {
 			"core/site-title": {
 				"elements": {
@@ -23,26 +24,15 @@
 					}
 				}
 			}
-		},
-		"elements": {
-			"link": {
-				"color": {
-					"text": "var(--wp--preset--color--blue)"
-				},
-				":hover": {
-					"color": {
-						"text": "var(--wp--preset--color--dark-blue)"
-					}
-				},
-				":focus": {
-					"color": {
-						"text": "var(--wp--preset--color--dark-blue)"
-					}
-				}
-			}
 		}
 	},
 	"settings": {
+		"custom": {
+			"link": {
+				"color": "var(--wp--preset--color--blue)",
+				"hover": "var(--wp--preset--color--light-blue)"
+			}
+		},
 		"color": {
 			"palette": [
 				{

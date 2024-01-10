@@ -6,6 +6,10 @@
  *
  * @package flat-blocks
  * @since	1.0
+ * 
+ * This excellent code comes from https://css-tricks.com/snippets/jquery/smooth-scrolling/
+ * with the addition of $(document).ready(function(), some conditions for backward 
+ * compatibility with Bootstrap, and to select our specific fixed header CSS.
  */
  
 ( function( $ ) {

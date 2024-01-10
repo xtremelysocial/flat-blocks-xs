@@ -944,7 +944,7 @@
 			},
 			"button": {
 				"color": {
-					"background": "var(--wp--preset--color--primary)",
+					"background": "var(--wp--custom--link--color)",
 					"text": "var(--wp--preset--color--foreground-alt)"
 				},
 				"typography": {
@@ -1644,6 +1644,12 @@
 			"area": "header"
 		},
 		{
+			"name": "pro-header-scroll-fixed",
+			"title": "Header with Scroll to Fixed Header",
+			"description": "Header that becomes fixed when user scrolls",
+			"area": "header"
+		},
+		{
 			"name": "menu-header",
 			"title": "Menu Header",
 			"description": "Default header nav menu (right)",
@@ -1888,12 +1894,6 @@
 			"title": "Footer w/Colored Social Icons and Jetpack Map and Contact Info",
 			"description": "Footer w/colored social icons and Jetpack map and contact info",
 			"area": "footer"
-		},
-		{
-			"name": "pro-header-scroll-fixed",
-			"title": "Header with Scroll to Fixed Header",
-			"description": "Header that becomes fixed when user scrolls",
-			"area": "header"
 		}
 	],
 	"customTemplates": [
