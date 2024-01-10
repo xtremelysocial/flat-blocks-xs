@@ -2,6 +2,9 @@
 	"$schema": "https://schemas.wp.org/trunk/theme.json",
 	"version": 2,
 	"title": "Blue, Midnight Blue, Yellow",
+	"styles": {
+		"css": ".has-background.has-tertiary-background-color { color: var(--wp--preset--color--foreground); }"
+	},
 	"settings": {
 		"color": {
 			"palette": [

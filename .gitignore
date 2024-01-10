@@ -1,9 +1,16 @@
+# Ignore Mac files
 .DS_Store
 **/.DS_Store
+
+# Ignore save, test files, and zip files
 **/*-SAVE*
 styles/*TEST-ONLY*.json
-pro
 *.css.map
-assets/css/blocks/
 zz_unused
-zz_unused.zip
+*.zip
+
+# Ignore individual block styles since not implemented yet
+assets/css/blocks/
+
+# Ignore our xtremelysocial.com files
+styles/*xtremelysocial*.json

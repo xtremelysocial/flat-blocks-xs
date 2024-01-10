@@ -3,45 +3,7 @@
 	"version": 2,
 	"title": "Purple, Yellow, Midnight Blue",
 	"styles": {
-		"css": ".has-background.has-secondary-background-color { color: var(--wp--preset--color--very-dark-gray) }",
-		"blocks": {
-			"core/site-title": {
-				"elements": {
-					"link": {
-						"color": {
-							"text": "var(--wp--preset--color--primary)"
-						},
-						":hover": {
-							"color": {
-								"text": "var(--wp--preset--color--primary-alt)"
-							}
-						},
-						":focus": {
-							"color": {
-								"text": "var(--wp--preset--color--primary-alt)"
-							}
-						}
-					}
-				}
-			}
-		},
-		"elements": {
-			"link": {
-				"color": {
-					"text": "var(--wp--preset--color--primary)"
-				},
-				":hover": {
-					"color": {
-						"text": "var(--wp--preset--color--primary-alt)"
-					}
-				},
-				":focus": {
-					"color": {
-						"text": "var(--wp--preset--color--primary-alt)"
-					}
-				}
-			}
-		}
+		"css": ".has-background.has-secondary-background-color { color: var(--wp--preset--color--foreground) }",
 	},
 	"settings": {
 		"color": {

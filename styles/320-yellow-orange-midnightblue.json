@@ -3,37 +3,26 @@
 	"version": 2,
 	"title": "Yellow, Orange, Midnight Blue",
 	"styles": {
-		"css": ".has-background.has-primary-background-color { color: var(--wp--preset--color--very-dark-gray) } input[type=button], input[type=submit][class*=\"button\"], input[type=reset][class*=\"button\"], input[type=file]::file-selector-button { color: var(--wp--preset--color--very-dark-gray) !important; }",
+		"css": ".has-background.has-primary-background-color { color: var(--wp--preset--color--foreground) } input[type=button], input[type=submit][class*=\"button\"], input[type=reset][class*=\"button\"], input[type=file]::file-selector-button { color: var(--wp--preset--color--foreground) !important; }",
 		"blocks": {
 			"core/site-title": {
 				"elements": {
 					"link": {
 						"color": {
-							"text": "var(--wp--preset--color--yellow)"
+							"text": "var(--wp--preset--color--primary)"
 						}
-					}
-				}
-			}
-		},
-		"elements": {
-			"link": {
-				"color": {
-					"text": "var(--wp--preset--color--orange)"
-				},
-				":hover": {
-					"color": {
-						"text": "var(--wp--preset--color--dark-orange)"
-					}
-				},
-				":focus": {
-					"color": {
-						"text": "var(--wp--preset--color--dark-orange)"
 					}
 				}
 			}
 		}
 	},
 	"settings": {
+		"custom": {
+			"link": {
+				"color": "var(--wp--preset--color--orange)",
+				"hover": "var(--wp--preset--color--dark-orange)"
+			}
+		},
 		"color": {
 			"palette": [
 				{
