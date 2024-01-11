@@ -1,0 +1,28 @@
+/*--------------------------------------------------------------
+# Compatibility with other themes
+--------------------------------------------------------------*/
+
+/* 
+ * TwentyTwentyThree theme uses the same primary, secondary, and 
+ * tertiary as us, but uses base and contrast instead of 
+ * background and foreground.
+ */
+.has-base-color {
+        color: var(--wp--preset--color--background) !important;	
+}
+.has-base-background-color {
+        background-color: var(--wp--preset--color--background) !important;
+}
+.has-base-border-color {
+	border-color: var(--wp--preset--color--background) !important;
+}
+
+.has-contrast-color {
+        color: var(--wp--preset--color--foreground) !important;	
+}
+.has-contrast-background-color {
+        background-color: var(--wp--preset--color--foreground) !important;
+}
+.has-contrast-border-color {
+	border-color: var(--wp--preset--color--foreground) !important;
+}
