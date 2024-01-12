@@ -89,7 +89,8 @@ body {
 .has-dark-purple-background-color,
 .has-light-red-background-color,
 .has-red-background-color,
-.has-dark-red-background-color {
+.has-dark-red-background-color,
+[class*=gradient-background] {
   color: var(--wp--preset--color--foreground-alt);
 }
 .has-primary-background-color a,
@@ -117,7 +118,8 @@ body {
 .has-dark-purple-background-color a,
 .has-light-red-background-color a,
 .has-red-background-color a,
-.has-dark-red-background-color a {
+.has-dark-red-background-color a,
+[class*=gradient-background] a {
   color: inherit;
 }
 .has-primary-background-color a:hover,
@@ -145,7 +147,8 @@ body {
 .has-dark-purple-background-color a:hover,
 .has-light-red-background-color a:hover,
 .has-red-background-color a:hover,
-.has-dark-red-background-color a:hover {
+.has-dark-red-background-color a:hover,
+[class*=gradient-background] a:hover {
   opacity: 0.8;
 }
 
@@ -154,19 +157,23 @@ body {
  * and buttons 
  */
 .has-light-yellow-background-color,
-.has-yellow-background-color {
+.has-yellow-background-color,
+.has-yellow-gradient-background {
   color: var(--wp--preset--color--very-dark-gray);
 }
 .has-light-yellow-background-color.wp-block-button__link.wp-element-button,
-.has-yellow-background-color.wp-block-button__link.wp-element-button {
+.has-yellow-background-color.wp-block-button__link.wp-element-button,
+.has-yellow-gradient-background.wp-block-button__link.wp-element-button {
   color: var(--wp--preset--color--very-dark-gray);
 }
 .has-light-yellow-background-color a,
-.has-yellow-background-color a {
+.has-yellow-background-color a,
+.has-yellow-gradient-background a {
   color: inherit;
 }
 .has-light-yellow-background-color a:hover,
-.has-yellow-background-color a:hover {
+.has-yellow-background-color a:hover,
+.has-yellow-gradient-background a:hover {
   opacity: 0.8;
 }
 
@@ -181,7 +188,8 @@ body {
 .has-off-white-background-color,
 .has-very-light-gray-background-color,
 .has-light-gray-background-color,
-.has-gray-background-color {
+.has-gray-background-color,
+.has-gray-gradient-background {
   color: var(--wp--preset--color--very-dark-gray);
 }
 .has-neutral-background-color.wp-block-button__link.wp-element-button,
@@ -191,7 +199,8 @@ body {
 .has-off-white-background-color.wp-block-button__link.wp-element-button,
 .has-very-light-gray-background-color.wp-block-button__link.wp-element-button,
 .has-light-gray-background-color.wp-block-button__link.wp-element-button,
-.has-gray-background-color.wp-block-button__link.wp-element-button {
+.has-gray-background-color.wp-block-button__link.wp-element-button,
+.has-gray-gradient-background.wp-block-button__link.wp-element-button {
   color: var(--wp--preset--color--very-dark-gray);
 }
 
