@@ -27,13 +27,16 @@
 .has-tertiary-background-color,
 .has-tertiary-alt-background-color,
 .has-dark-gray-background-color,
+//.has-dark-gray-gradient-background,
 .has-very-dark-gray-background-color,
 .has-light-green-background-color,
 .has-green-background-color,
+//.has-green-gradient-background,
 .has-bright-green-background-color,
 .has-dark-bright-green-background-color,
 .has-light-orange-background-color,
 .has-orange-background-color,
+//.has-orange-gradient-background,
 .has-dark-orange-background-color,
 .has-light-blue-background-color,
 .has-blue-background-color,
@@ -42,10 +45,13 @@
 .has-dark-midnight-blue-background-color,
 .has-light-purple-background-color,
 .has-purple-background-color,
+//.has-purple-gradient-background,
 .has-dark-purple-background-color,
 .has-light-red-background-color,
 .has-red-background-color,
-.has-dark-red-background-color {
+//.has-red-gradient-background,
+.has-dark-red-background-color,
+[class*="gradient-background"] {
  	color: var(--wp--preset--color--foreground-alt);
  	
  	& a {
@@ -62,7 +68,8 @@
  * and buttons 
  */ 
 .has-light-yellow-background-color,
-.has-yellow-background-color {
+.has-yellow-background-color,
+.has-yellow-gradient-background {
  	color: var(--wp--preset--color--very-dark-gray);
 
  	&.wp-block-button__link.wp-element-button {
@@ -89,7 +96,8 @@
 .has-off-white-background-color,
 .has-very-light-gray-background-color,
 .has-light-gray-background-color,
-.has-gray-background-color {
+.has-gray-background-color,
+.has-gray-gradient-background {
  	color: var(--wp--preset--color--very-dark-gray);
 
  	&.wp-block-button__link.wp-element-button { //,
