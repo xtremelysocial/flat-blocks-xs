@@ -26,3 +26,63 @@ but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 GNU General Public License for more details.
 */
+
+/*--------------------------------------------------------------
+# Site Header
+--------------------------------------------------------------*/
+/* Link hover animation for headings and post titles */
+.site-header .wp-block-image a,
+.site-header .wp-block-image a:visited {
+	position: relative;
+	display: inline;
+	background: -webkit-gradient(linear, left top, right top, from(currentColor), to(currentColor));
+	background: -webkit-linear-gradient(left, currentColor 0%, currentColor 100%);
+	background: -o-linear-gradient(left, currentColor 0%, currentColor 100%);
+	background: linear-gradient(to right, currentColor 0%, currentColor 100%);
+	background-size: 0 2px;
+	background-position: 15px 95%;
+	-webkit-transition: background-size 0.25s cubic-bezier(0.785, 0.135, 0.15, 0.86) 0s;
+	-o-transition: background-size 0.25s cubic-bezier(0.785, 0.135, 0.15, 0.86) 0s;
+	transition: background-size 0.25s cubic-bezier(0.785, 0.135, 0.15, 0.86) 0s;
+	padding: 0 0 5px 0;
+	background-repeat: no-repeat;
+	display: initial; 
+}
+
+.site-header .wp-block-image a:active,
+.site-header .wp-block-image a:hover,
+.site-header .wp-block-image a:focus {
+	background-size: 85% 2px;
+}
+
+/*--------------------------------------------------------------
+# Navigation
+--------------------------------------------------------------*/
+
+/* Style the mobile nav menu open and close buttons */
+.wp-block-navigation .wp-block-navigation__responsive-container-open,
+.wp-block-navigation .wp-block-navigation__responsive-container-close {
+	background-color: var(--wp--preset--color--primary);
+	color: var(--wp--preset--color--foreground-alt);
+	border-radius: var(--wp--custom--border--radius);
+	padding: var(--wp--preset--spacing--20);
+	opacity: .7;
+}
+
+/*--------------------------------------------------------------
+# Lists
+--------------------------------------------------------------*/
+
+/* Color lists with checkmarks unless text color has been overriden by user */
+:not(.has-text-color) .is-style-list-checkmarks li:before {
+    color: var(--wp--preset--color--primary);
+}
+
+/*--------------------------------------------------------------
+# Site Footer
+--------------------------------------------------------------*/
+
+/* We want our hover color in our footer nav */
+.footer-widgets a:hover {
+	color: var(--wp--preset--color--primary-alt);
+}
